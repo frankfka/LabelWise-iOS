@@ -1,0 +1,400 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		119F8AC9244A7D3C00BB173A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 119F8AC8244A7D3C00BB173A /* AppDelegate.swift */; };
+		119F8ACB244A7D3C00BB173A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 119F8ACA244A7D3C00BB173A /* SceneDelegate.swift */; };
+		119F8ACD244A7D3C00BB173A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 119F8ACC244A7D3C00BB173A /* ContentView.swift */; };
+		119F8ACF244A7D4300BB173A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 119F8ACE244A7D4300BB173A /* Assets.xcassets */; };
+		119F8AD2244A7D4300BB173A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 119F8AD1244A7D4300BB173A /* Preview Assets.xcassets */; };
+		119F8AD5244A7D4300BB173A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 119F8AD3244A7D4300BB173A /* LaunchScreen.storyboard */; };
+		9C744549554540C8032BFD13 /* Pods_LabelWise.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBB96129287D3E7C9C1E8B9C /* Pods_LabelWise.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		119F8AC5244A7D3B00BB173A /* LabelWise.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LabelWise.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		119F8AC8244A7D3C00BB173A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		119F8ACA244A7D3C00BB173A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		119F8ACC244A7D3C00BB173A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		119F8ACE244A7D4300BB173A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		119F8AD1244A7D4300BB173A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		119F8AD4244A7D4300BB173A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		119F8AD6244A7D4300BB173A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		360BDE15D326DC1D0640C815 /* Pods-LabelWise.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LabelWise.release.xcconfig"; path = "Target Support Files/Pods-LabelWise/Pods-LabelWise.release.xcconfig"; sourceTree = "<group>"; };
+		4AACC73C2D10015894BA828D /* Pods-LabelWise.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LabelWise.debug.xcconfig"; path = "Target Support Files/Pods-LabelWise/Pods-LabelWise.debug.xcconfig"; sourceTree = "<group>"; };
+		FBB96129287D3E7C9C1E8B9C /* Pods_LabelWise.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LabelWise.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		119F8AC2244A7D3B00BB173A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9C744549554540C8032BFD13 /* Pods_LabelWise.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		10DA3A581CA4B899CF42010A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FBB96129287D3E7C9C1E8B9C /* Pods_LabelWise.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		119F8ABC244A7D3B00BB173A = {
+			isa = PBXGroup;
+			children = (
+				119F8AC7244A7D3B00BB173A /* LabelWise */,
+				119F8AC6244A7D3B00BB173A /* Products */,
+				6FE6F7330D4C24CB2531FFA7 /* Pods */,
+				10DA3A581CA4B899CF42010A /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		119F8AC6244A7D3B00BB173A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				119F8AC5244A7D3B00BB173A /* LabelWise.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		119F8AC7244A7D3B00BB173A /* LabelWise */ = {
+			isa = PBXGroup;
+			children = (
+				119F8AC8244A7D3C00BB173A /* AppDelegate.swift */,
+				119F8ACA244A7D3C00BB173A /* SceneDelegate.swift */,
+				119F8ACC244A7D3C00BB173A /* ContentView.swift */,
+				119F8ACE244A7D4300BB173A /* Assets.xcassets */,
+				119F8AD3244A7D4300BB173A /* LaunchScreen.storyboard */,
+				119F8AD6244A7D4300BB173A /* Info.plist */,
+				119F8AD0244A7D4300BB173A /* Preview Content */,
+			);
+			path = LabelWise;
+			sourceTree = "<group>";
+		};
+		119F8AD0244A7D4300BB173A /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				119F8AD1244A7D4300BB173A /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		6FE6F7330D4C24CB2531FFA7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4AACC73C2D10015894BA828D /* Pods-LabelWise.debug.xcconfig */,
+				360BDE15D326DC1D0640C815 /* Pods-LabelWise.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		119F8AC4244A7D3B00BB173A /* LabelWise */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 119F8AD9244A7D4300BB173A /* Build configuration list for PBXNativeTarget "LabelWise" */;
+			buildPhases = (
+				167C08301D9B028E1E7272B6 /* [CP] Check Pods Manifest.lock */,
+				119F8AC1244A7D3B00BB173A /* Sources */,
+				119F8AC2244A7D3B00BB173A /* Frameworks */,
+				119F8AC3244A7D3B00BB173A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LabelWise;
+			productName = LabelWise;
+			productReference = 119F8AC5244A7D3B00BB173A /* LabelWise.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		119F8ABD244A7D3B00BB173A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1140;
+				LastUpgradeCheck = 1140;
+				ORGANIZATIONNAME = "Frank Jia";
+				TargetAttributes = {
+					119F8AC4244A7D3B00BB173A = {
+						CreatedOnToolsVersion = 11.4.1;
+					};
+				};
+			};
+			buildConfigurationList = 119F8AC0244A7D3B00BB173A /* Build configuration list for PBXProject "LabelWise" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 119F8ABC244A7D3B00BB173A;
+			productRefGroup = 119F8AC6244A7D3B00BB173A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				119F8AC4244A7D3B00BB173A /* LabelWise */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		119F8AC3244A7D3B00BB173A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				119F8AD5244A7D4300BB173A /* LaunchScreen.storyboard in Resources */,
+				119F8AD2244A7D4300BB173A /* Preview Assets.xcassets in Resources */,
+				119F8ACF244A7D4300BB173A /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		167C08301D9B028E1E7272B6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-LabelWise-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		119F8AC1244A7D3B00BB173A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				119F8AC9244A7D3C00BB173A /* AppDelegate.swift in Sources */,
+				119F8ACB244A7D3C00BB173A /* SceneDelegate.swift in Sources */,
+				119F8ACD244A7D3C00BB173A /* ContentView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		119F8AD3244A7D4300BB173A /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				119F8AD4244A7D4300BB173A /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		119F8AD7244A7D4300BB173A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		119F8AD8244A7D4300BB173A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		119F8ADA244A7D4300BB173A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4AACC73C2D10015894BA828D /* Pods-LabelWise.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"LabelWise/Preview Content\"";
+				DEVELOPMENT_TEAM = P2M6BCPR7S;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = LabelWise/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jiafrank.LabelWise;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		119F8ADB244A7D4300BB173A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 360BDE15D326DC1D0640C815 /* Pods-LabelWise.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"LabelWise/Preview Content\"";
+				DEVELOPMENT_TEAM = P2M6BCPR7S;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = LabelWise/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jiafrank.LabelWise;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		119F8AC0244A7D3B00BB173A /* Build configuration list for PBXProject "LabelWise" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				119F8AD7244A7D4300BB173A /* Debug */,
+				119F8AD8244A7D4300BB173A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		119F8AD9244A7D4300BB173A /* Build configuration list for PBXNativeTarget "LabelWise" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				119F8ADA244A7D4300BB173A /* Debug */,
+				119F8ADB244A7D4300BB173A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 119F8ABD244A7D3B00BB173A /* Project object */;
+}
