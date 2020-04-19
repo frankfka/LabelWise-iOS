@@ -20,22 +20,13 @@ struct ContentView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
-}
-
-// Need UIViewControllerRepresentable to show any UIViewController in SwiftUI
 struct CameraView : UIViewControllerRepresentable {
-    // Init your ViewController
+
     func makeUIViewController(context: UIViewControllerRepresentableContext<CameraView>) -> UIViewController {
         let controller = CameraViewController()
         return controller
     }
-    
-    
-    // Tbh no idea what to do here
+
     func updateUIViewController(_ uiViewController: CameraView.UIViewControllerType, context: UIViewControllerRepresentableContext<CameraView>) {
         
     }
@@ -44,21 +35,35 @@ struct CameraView : UIViewControllerRepresentable {
 // My custom class which inits an AVSession for the live preview
 class CameraViewController : UIViewController {
     
+    private var cameraController: CameraController? = nil
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         loadCamera()
     }
-    
-    func loadCamera() {
-        let avSession = AVCaptureSession()
-        
-        guard let captureDevice = AVCaptureDevice.default(for: .video) else { return }
-        guard let input = try? AVCaptureDeviceInput(device : captureDevice) else { return }
-        avSession.addInput(input)
-        avSession.startRunning()
-        
-        let cameraPreview = AVCaptureVideoPreviewLayer(session: avSession)
-        view.layer.addSublayer(cameraPreview)
-        cameraPreview.frame = view.frame
+
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        self.cameraController?.stopSession()
+    }
+
+    private func loadCamera() {
+        let cameraController = CameraController()
+        view.contentMode = UIView.ContentMode.scaleAspectFit
+        cameraController.startSession { [weak self] err in
+            guard err == nil else {
+                // TODO: Logging
+                return
+            }
+            guard let v = self?.view else {
+                // TODO: logging
+                return
+            }
+            if let err = cameraController.displayPreview(on: v) {
+                print(err)
+            }
+            print("Init success")
+        }
+        self.cameraController = cameraController
     }
 }
