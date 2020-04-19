@@ -13,6 +13,7 @@
 		119F8ACF244A7D4300BB173A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 119F8ACE244A7D4300BB173A /* Assets.xcassets */; };
 		119F8AD2244A7D4300BB173A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 119F8AD1244A7D4300BB173A /* Preview Assets.xcassets */; };
 		119F8AD5244A7D4300BB173A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 119F8AD3244A7D4300BB173A /* LaunchScreen.storyboard */; };
+		11DA1889244B6508002C8674 /* CameraScanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DA1888244B6508002C8674 /* CameraScanView.swift */; };
 		9C744549554540C8032BFD13 /* Pods_LabelWise.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBB96129287D3E7C9C1E8B9C /* Pods_LabelWise.framework */; };
 /* End PBXBuildFile section */
 
@@ -25,6 +26,7 @@
 		119F8AD1244A7D4300BB173A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		119F8AD4244A7D4300BB173A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		119F8AD6244A7D4300BB173A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		11DA1888244B6508002C8674 /* CameraScanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraScanView.swift; sourceTree = "<group>"; };
 		360BDE15D326DC1D0640C815 /* Pods-LabelWise.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LabelWise.release.xcconfig"; path = "Target Support Files/Pods-LabelWise/Pods-LabelWise.release.xcconfig"; sourceTree = "<group>"; };
 		4AACC73C2D10015894BA828D /* Pods-LabelWise.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LabelWise.debug.xcconfig"; path = "Target Support Files/Pods-LabelWise/Pods-LabelWise.debug.xcconfig"; sourceTree = "<group>"; };
 		FBB96129287D3E7C9C1E8B9C /* Pods_LabelWise.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LabelWise.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -78,6 +80,7 @@
 				119F8AD3244A7D4300BB173A /* LaunchScreen.storyboard */,
 				119F8AD6244A7D4300BB173A /* Info.plist */,
 				119F8AD0244A7D4300BB173A /* Preview Content */,
+				11DA1888244B6508002C8674 /* CameraScanView.swift */,
 			);
 			path = LabelWise;
 			sourceTree = "<group>";
@@ -96,7 +99,6 @@
 				4AACC73C2D10015894BA828D /* Pods-LabelWise.debug.xcconfig */,
 				360BDE15D326DC1D0640C815 /* Pods-LabelWise.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -197,6 +199,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11DA1889244B6508002C8674 /* CameraScanView.swift in Sources */,
 				119F8AC9244A7D3C00BB173A /* AppDelegate.swift in Sources */,
 				119F8ACB244A7D3C00BB173A /* SceneDelegate.swift in Sources */,
 				119F8ACD244A7D3C00BB173A /* ContentView.swift in Sources */,
