@@ -5,96 +5,38 @@
 
 import SwiftUI
 
-
 struct LabelScannerOverlayView: View {
-
+    private static let ViewFinderCornerRadius: CGFloat = 24
     static let OverlayColor = Color.black.opacity(0.8)
 
     var body: some View {
         VStack(spacing: 0) {
+            // Header
             LabelScannerOverlayHeaderView()
+            // Camera overlay with hole for full camera view
             GeometryReader { geometry in
+                // Rectangle with viewfinder cut-out
                 Rectangle()
-                        .fill(LabelScannerOverlayView.OverlayColor)
-                        .mask(
-                                self.getViewFinderMask(parentSize: geometry.size)
-                                        .fill(style: FillStyle(eoFill: true, antialiased: true))
-                        )
+                    .fill(LabelScannerOverlayView.OverlayColor)
+                    .mask(
+                        self.getViewFinderMask(parentSize: geometry.size)
+                            // eoFill allows cutout
+                            .fill(style: FillStyle(eoFill: true, antialiased: true))
+                    )
             }
+            // Footer
             LabelScannerOverlayFooterView()
         }
     }
 
+    // Get mask (rounded rectangle cutout)
     private func getViewFinderMask(parentSize: CGSize) -> Path {
+        // Full rectangle to fill parent
         let parentRect = CGRect(x: 0, y: 0, width: parentSize.width, height: parentSize.height)
-        let rect = CGRect(x: parentSize.width * 0.1, y: 0, width: parentSize.width * 0.8, height: parentSize.height)
+        // Get cutout with padding
+        let cutoutRect = CGRect(x: parentSize.width * 0.1, y: 0, width: parentSize.width * 0.8, height: parentSize.height)
         var shape = Rectangle().path(in: parentRect)
-        shape.addPath(RoundedRectangle(cornerRadius: 24).path(in: rect))
+        shape.addPath(RoundedRectangle(cornerRadius: LabelScannerOverlayView.ViewFinderCornerRadius).path(in: cutoutRect))
         return shape
-    }
-}
-
-struct LabelScannerOverlayHeaderView: View {
-    var body: some View {
-        HStack {
-            Spacer(minLength: 48)
-            Text("Place label within the view")
-                    .font(.system(size: 14))
-                    .multilineTextAlignment(.center)
-                    .lineLimit(nil)
-                    .foregroundColor(.white)
-            Spacer(minLength: 48)
-            Image(systemName: "questionmark.circle.fill")
-                    .resizable()
-                    .frame(width: 24, height: 24)
-                    .foregroundColor(.white)
-                    // Allow center element to be centered
-                    .padding(.leading, -24)
-        }
-                .padding()
-                .frame(minWidth: 0, maxWidth: .infinity)
-                .background(LabelScannerOverlayView.OverlayColor)
-    }
-}
-
-
-struct LabelScannerOverlayFooterView: View {
-
-    struct CaptureIcon: View {
-        var body: some View {
-            ZStack() {
-                Circle()
-                        .foregroundColor(.white)
-                        .frame(width: 64, height: 64)
-                Circle()
-                        .foregroundColor(.gray)
-                        .frame(width: 60, height: 60)
-                Circle()
-                        .foregroundColor(.white)
-                        .frame(width: 54, height: 54)
-            }
-            .contentShape(Circle())
-        }
-    }
-
-    @State private var selection = 0
-    @State private var imageTypes = ["Nutrition","Ingredients"]
-
-    var body: some View {
-        VStack {
-            Picker("Mode", selection: $selection) {
-                ForEach(0 ..< imageTypes.count) { index in
-                    Text(self.imageTypes[index]).tag(index)
-                }
-            }
-                    .pickerStyle(SegmentedPickerStyle())
-                    .padding(.horizontal, 32)
-                    .padding(.bottom, 16)
-            CaptureIcon()
-        }
-                .padding()
-                .contentShape(Rectangle())
-                .frame(minWidth: 0, maxWidth: .infinity)
-                .background(LabelScannerOverlayView.OverlayColor)
     }
 }

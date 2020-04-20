@@ -8,11 +8,10 @@ import SwiftUI
 struct LabelScannerView: View {
     var body: some View {
         ZStack(alignment: .bottom) {
-            Rectangle()
-                    .foregroundColor(.green)
+            CameraView()
             LabelScannerOverlayView()
         }
-                .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
+        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
     }
 }
 
