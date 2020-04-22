@@ -11,9 +11,9 @@ struct CameraView: UIViewControllerRepresentable {
 
     class ViewModel: ObservableObject {
         @Binding var takePicture: Bool
-        let onPhotoCapture: VoidCallback?
+        let onPhotoCapture: PhotoCaptureCallback?
 
-        init(takePicture: Binding<Bool>, onPhotoCapture: VoidCallback? = nil) {
+        init(takePicture: Binding<Bool>, onPhotoCapture: PhotoCaptureCallback? = nil) {
             self._takePicture = takePicture
             self.onPhotoCapture = onPhotoCapture
         }
@@ -43,21 +43,14 @@ struct CameraView: UIViewControllerRepresentable {
     }
 
     class Coordinator: NSObject, AVCapturePhotoCaptureDelegate {
-        private let onPhotoCapture: VoidCallback?
+        private let onPhotoCapture: PhotoCaptureCallback?
 
-        init(onPhotoCapture: VoidCallback? = nil) {
+        init(onPhotoCapture: PhotoCaptureCallback? = nil) {
             self.onPhotoCapture = onPhotoCapture
         }
 
         public func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
-            // TODO:
-//            let cgImage = photo.cgImageRepresentation()!.takeRetainedValue()
-//            let orientation = photo.metadata[kCGImagePropertyOrientation as String] as! NSNumber
-//            let uiOrientation = UIImage.Orientation(rawValue: orientation.intValue)!
-//            let image = UIImage(cgImage: cgImage, scale: 1, orientation: uiOrientation)
-            print(error)
-            print("Call callback with image")
-            self.onPhotoCapture?()
+            self.onPhotoCapture?(photo.toLabelPhoto(), error)
         }
     }
 
