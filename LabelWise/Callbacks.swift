@@ -6,3 +6,4 @@
 import Foundation
 
 typealias ErrorCallback = (Error?) -> Void
+typealias VoidCallback = () -> Void

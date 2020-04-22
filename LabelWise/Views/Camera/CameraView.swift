@@ -4,33 +4,86 @@
 //
 
 import SwiftUI
+import AVFoundation
 
+struct CameraView: UIViewControllerRepresentable {
+    typealias UIViewControllerType = CameraViewController
 
-struct CameraView : UIViewControllerRepresentable {
-    func makeUIViewController(context: UIViewControllerRepresentableContext<CameraView>) -> UIViewController {
-        let controller = CameraViewController()
-        return controller
+    class ViewModel: ObservableObject {
+        @Binding var takePicture: Bool
+        let onPhotoCapture: VoidCallback?
+
+        init(takePicture: Binding<Bool>, onPhotoCapture: VoidCallback? = nil) {
+            self._takePicture = takePicture
+            self.onPhotoCapture = onPhotoCapture
+        }
+    }
+    private let viewModel: ViewModel
+
+    init(vm: ViewModel) {
+        self.viewModel = vm
+    }
+
+    func makeCoordinator() -> Coordinator {
+        return Coordinator(onPhotoCapture: self.viewModel.onPhotoCapture)
+    }
+
+    func makeUIViewController(context: UIViewControllerRepresentableContext<CameraView>) -> CameraViewController {
+        let vc = CameraViewController()
+        vc.photoCaptureDelegate = context.coordinator
+        return vc
     }
 
     func updateUIViewController(_ uiViewController: CameraView.UIViewControllerType,
                                 context: UIViewControllerRepresentableContext<CameraView>) {
-
+        if self.viewModel.takePicture {
+            print("Take pic now")
+            uiViewController.takePicture()
+        }
     }
+
+    class Coordinator: NSObject, AVCapturePhotoCaptureDelegate {
+        private let onPhotoCapture: VoidCallback?
+
+        init(onPhotoCapture: VoidCallback? = nil) {
+            self.onPhotoCapture = onPhotoCapture
+        }
+
+        public func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
+            // TODO:
+//            let cgImage = photo.cgImageRepresentation()!.takeRetainedValue()
+//            let orientation = photo.metadata[kCGImagePropertyOrientation as String] as! NSNumber
+//            let uiOrientation = UIImage.Orientation(rawValue: orientation.intValue)!
+//            let image = UIImage(cgImage: cgImage, scale: 1, orientation: uiOrientation)
+            print(error)
+            print("Call callback with image")
+            self.onPhotoCapture?()
+        }
+    }
+
 }
 
 
-class CameraViewController : UIViewController {
+class CameraViewController: UIViewController {
 
     private var cameraController: CameraController? = nil
+    var photoCaptureDelegate: AVCapturePhotoCaptureDelegate?
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         loadCamera()
     }
 
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         self.cameraController?.stopSession()
+    }
+
+    func takePicture() {
+        // TODO: nil check
+        if let delegate = self.photoCaptureDelegate {
+            self.cameraController?.capturePhoto(delegate: delegate)
+        }
     }
 
     private func loadCamera() {
@@ -48,7 +101,6 @@ class CameraViewController : UIViewController {
             if let err = cameraController.displayPreview(on: v) {
                 print(err)
             }
-            print("Init success")
         }
         self.cameraController = cameraController
     }

@@ -8,6 +8,11 @@ import SwiftUI
 struct LabelScannerOverlayView: View {
     private static let ViewFinderCornerRadius: CGFloat = 24
     static let OverlayColor = Color.black.opacity(0.8)
+    private let onCapturePhotoTapped: VoidCallback?
+
+    init(onCapturePhotoTapped: VoidCallback? = nil) {
+        self.onCapturePhotoTapped = onCapturePhotoTapped
+    }
 
     var body: some View {
         VStack(spacing: 0) {
@@ -25,7 +30,7 @@ struct LabelScannerOverlayView: View {
                     )
             }
             // Footer
-            LabelScannerOverlayFooterView()
+            LabelScannerOverlayFooterView(onCapturePhotoTapped: self.onCapturePhotoTapped)
         }
     }
 
@@ -33,7 +38,7 @@ struct LabelScannerOverlayView: View {
     private func getViewFinderMask(parentSize: CGSize) -> Path {
         // Full rectangle to fill parent
         let parentRect = CGRect(x: 0, y: 0, width: parentSize.width, height: parentSize.height)
-        // Get cutout with padding
+        // Get cutout with padding - currently set to 10% on either side
         let cutoutRect = CGRect(x: parentSize.width * 0.1, y: 0, width: parentSize.width * 0.8, height: parentSize.height)
         var shape = Rectangle().path(in: parentRect)
         shape.addPath(RoundedRectangle(cornerRadius: LabelScannerOverlayView.ViewFinderCornerRadius).path(in: cutoutRect))

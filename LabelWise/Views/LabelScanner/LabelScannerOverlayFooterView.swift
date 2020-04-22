@@ -14,13 +14,18 @@ struct LabelScannerOverlayFooterView: View {
     private var typePickerViewModel: AnalyzeTypePicker.ViewModel {
         return AnalyzeTypePicker.ViewModel(typeSelection: self.$typeSelection)
     }
+    private let onCapturePhotoTapped: VoidCallback?
+
+    init(onCapturePhotoTapped: VoidCallback? = nil) {
+        self.onCapturePhotoTapped = onCapturePhotoTapped
+    }
 
     var body: some View {
         VStack {
             AnalyzeTypePicker(vm: typePickerViewModel)
             .padding(.horizontal, 32)
             .padding(.bottom, 16)
-            CaptureIcon()
+            CaptureIcon(onTap: self.onCapturePhotoTapped)
         }
         .padding()
         .frame(minWidth: 0, maxWidth: .infinity)
@@ -36,10 +41,16 @@ struct CaptureIcon: View {
     private static let DarkOuterRingSize: CGFloat = 60
     private static let InnerRingSize: CGFloat = 54
     // Button Tap Animations
-    private static let ButtonTapPressedAnimation: Animation = Animation.easeInOut(duration: 0.1)
-    private static let ButtonTapReleasedAnimation: Animation = ButtonTapPressedAnimation.delay(0.1)
+    private static let ButtonTapPressedAnimation: Animation = Animation.easeInOut(duration: 0.05)
+    private static let ButtonTapReleasedAnimation: Animation = ButtonTapPressedAnimation.delay(0.05)
     private static let ButtonTapInnerRingScale: CGFloat = 0.95
     @State private var isAnimatingButtonTap: Bool = false
+
+    private let onTap: VoidCallback?
+
+    init(onTap: VoidCallback? = nil) {
+        self.onTap = onTap
+    }
     
     var body: some View {
         ZStack() {
@@ -62,7 +73,7 @@ struct CaptureIcon: View {
             withAnimation(CaptureIcon.ButtonTapReleasedAnimation) {
                 self.isAnimatingButtonTap = false
             }
-            print("Tapped")
+            self.onTap?()
         }
     }
 }
