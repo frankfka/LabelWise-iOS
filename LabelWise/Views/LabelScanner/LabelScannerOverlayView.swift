@@ -6,12 +6,37 @@
 import SwiftUI
 
 struct LabelScannerOverlayView: View {
-    private static let ViewFinderCornerRadius: CGFloat = 24
-    static let OverlayColor = Color.black.opacity(0.8)
-    private let onCapturePhotoTapped: VoidCallback?
 
-    init(onCapturePhotoTapped: VoidCallback? = nil) {
-        self.onCapturePhotoTapped = onCapturePhotoTapped
+    // TODO: consider making a protocol for picker types, need text, tag, and selected index
+    class ViewModel: ObservableObject {
+        static let ViewFinderCornerRadius: CGFloat = 24
+        static let OverlayColor = Color.black.opacity(0.8)
+
+        @Binding var viewMode: LabelScannerView.ViewModel.ViewMode
+        @Binding var selectedLabelTypeIndex: Int
+        let onCapturePhotoTapped: VoidCallback?
+        let onConfirmPhotoAction: BoolCallback?
+
+        init(viewMode: Binding<LabelScannerView.ViewModel.ViewMode>, selectedLabelTypeIndex: Binding<Int>,
+             onCapturePhotoTapped: VoidCallback? = nil, onConfirmPhotoAction: BoolCallback? = nil) {
+            self._viewMode = viewMode
+            self._selectedLabelTypeIndex = selectedLabelTypeIndex
+            self.onCapturePhotoTapped = onCapturePhotoTapped
+            self.onConfirmPhotoAction = onConfirmPhotoAction
+        }
+    }
+    private let viewModel: ViewModel
+    private var footerViewModel: LabelScannerOverlayFooterView.ViewModel {
+        return LabelScannerOverlayFooterView.ViewModel(
+                viewMode: self.viewModel.$viewMode,
+                selectedLabelTypeIndex: self.viewModel.$selectedLabelTypeIndex,
+                onCapturePhotoTapped: self.viewModel.onCapturePhotoTapped,
+                onConfirmPhotoAction: self.viewModel.onConfirmPhotoAction
+        )
+    }
+
+    init(vm: ViewModel) {
+        self.viewModel = vm
     }
 
     var body: some View {
@@ -22,7 +47,7 @@ struct LabelScannerOverlayView: View {
             GeometryReader { geometry in
                 // Rectangle with viewfinder cut-out
                 Rectangle()
-                    .fill(LabelScannerOverlayView.OverlayColor)
+                    .fill(LabelScannerOverlayView.ViewModel.OverlayColor)
                     .mask(
                         self.getViewFinderMask(parentSize: geometry.size)
                             // eoFill allows cutout
@@ -30,7 +55,7 @@ struct LabelScannerOverlayView: View {
                     )
             }
             // Footer
-            LabelScannerOverlayFooterView(onCapturePhotoTapped: self.onCapturePhotoTapped)
+            LabelScannerOverlayFooterView(vm: self.footerViewModel)
         }
     }
 
@@ -41,7 +66,7 @@ struct LabelScannerOverlayView: View {
         // Get cutout with padding - currently set to 10% on either side
         let cutoutRect = CGRect(x: parentSize.width * 0.1, y: 0, width: parentSize.width * 0.8, height: parentSize.height)
         var shape = Rectangle().path(in: parentRect)
-        shape.addPath(RoundedRectangle(cornerRadius: LabelScannerOverlayView.ViewFinderCornerRadius).path(in: cutoutRect))
+        shape.addPath(RoundedRectangle(cornerRadius: LabelScannerOverlayView.ViewModel.ViewFinderCornerRadius).path(in: cutoutRect))
         return shape
     }
 }

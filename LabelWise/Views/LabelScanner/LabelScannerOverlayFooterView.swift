@@ -10,14 +10,27 @@ import SwiftUI
 
 struct LabelScannerOverlayFooterView: View {
 
-    @State private var typeSelection = 0
-    private var typePickerViewModel: AnalyzeTypePicker.ViewModel {
-        return AnalyzeTypePicker.ViewModel(typeSelection: self.$typeSelection)
-    }
-    private let onCapturePhotoTapped: VoidCallback?
+    class ViewModel: ObservableObject {
+        let onCapturePhotoTapped: VoidCallback?
+        let onConfirmPhotoAction: BoolCallback?
+        @Binding var selectedLabelTypeIndex: Int
+        @Binding var viewMode: LabelScannerView.ViewModel.ViewMode
 
-    init(onCapturePhotoTapped: VoidCallback? = nil) {
-        self.onCapturePhotoTapped = onCapturePhotoTapped
+        init(viewMode: Binding<LabelScannerView.ViewModel.ViewMode>, selectedLabelTypeIndex: Binding<Int>,
+             onCapturePhotoTapped: VoidCallback? = nil, onConfirmPhotoAction: BoolCallback? = nil) {
+            self._viewMode = viewMode
+            self._selectedLabelTypeIndex = selectedLabelTypeIndex
+            self.onCapturePhotoTapped = onCapturePhotoTapped
+            self.onConfirmPhotoAction = onConfirmPhotoAction
+        }
+    }
+    private let viewModel: ViewModel
+    private var typePickerViewModel: AnalyzeTypePicker.ViewModel {
+        return AnalyzeTypePicker.ViewModel(selectedTypeIndex: self.viewModel.$selectedLabelTypeIndex)
+    }
+
+    init(vm: ViewModel) {
+        self.viewModel = vm
     }
 
     var body: some View {
@@ -25,13 +38,46 @@ struct LabelScannerOverlayFooterView: View {
             AnalyzeTypePicker(vm: typePickerViewModel)
             .padding(.horizontal, 32)
             .padding(.bottom, 16)
-            CaptureIcon(onTap: self.onCapturePhotoTapped)
+            if self.viewModel.viewMode == .takePhoto {
+                CaptureIcon(onTap: self.viewModel.onCapturePhotoTapped)
+            } else {
+                PhotoActionIcons(onConfirmPhotoAction: self.viewModel.onConfirmPhotoAction)
+            }
         }
+        .padding(.bottom, 32)
         .padding()
         .frame(minWidth: 0, maxWidth: .infinity)
-        .background(LabelScannerOverlayView.OverlayColor)
+        .background(LabelScannerOverlayView.ViewModel.OverlayColor)
     }
     
+}
+
+struct PhotoActionIcons: View {
+    private static let ButtonSize: CGFloat = 64
+    private let onConfirmPhotoAction: BoolCallback?
+
+    init(onConfirmPhotoAction: BoolCallback?) {
+        self.onConfirmPhotoAction = onConfirmPhotoAction
+    }
+
+    var body: some View {
+        HStack {
+            Image(systemName: "xmark.circle.fill")
+                .resizable()
+                .frame(width: PhotoActionIcons.ButtonSize, height: PhotoActionIcons.ButtonSize)
+                .contentShape(Circle())
+            .onTapGesture {
+                self.onConfirmPhotoAction?(false)
+            }
+            Image(systemName: "checkmark.circle.fill")
+                    .resizable()
+                    .frame(width: PhotoActionIcons.ButtonSize, height: PhotoActionIcons.ButtonSize)
+                    .contentShape(Circle())
+                    .onTapGesture {
+                        self.onConfirmPhotoAction?(true)
+                    }
+        }
+    }
 }
 
 
@@ -84,8 +130,8 @@ struct AnalyzeTypePicker: View {
     class ViewModel: ObservableObject {
         @Binding var typeSelection: Int
         
-        init(typeSelection: Binding<Int>) {
-            self._typeSelection = typeSelection
+        init(selectedTypeIndex: Binding<Int>) {
+            self._typeSelection = selectedTypeIndex
         }
     }
     
@@ -96,6 +142,7 @@ struct AnalyzeTypePicker: View {
     }
     
     var body: some View {
+        // TODO: Lift these out
         Picker("Mode", selection: self.viewModel.$typeSelection) {
             Text("Nutrition")
                 .tag(0)
@@ -112,7 +159,8 @@ struct AnalyzeTypePicker: View {
 
 
 struct LabelScannerOverlayFooterView_Previews: PreviewProvider {
+    static let vm = LabelScannerOverlayFooterView.ViewModel(viewMode: .constant(.takePhoto), selectedLabelTypeIndex: .constant(0))
     static var previews: some View {
-        LabelScannerOverlayFooterView()
+        LabelScannerOverlayFooterView(vm: vm)
     }
 }

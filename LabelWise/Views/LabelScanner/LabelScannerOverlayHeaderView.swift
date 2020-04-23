@@ -31,8 +31,9 @@ struct LabelScannerOverlayHeaderView: View {
                 .padding(.leading, -LabelScannerOverlayHeaderView.MinSpacerLength)
         }
         .padding()
+        .padding(.top, 32)
         .frame(minWidth: 0, maxWidth: .infinity)
-        .background(LabelScannerOverlayView.OverlayColor)
+        .background(LabelScannerOverlayView.ViewModel.OverlayColor)
     }
 }
 
