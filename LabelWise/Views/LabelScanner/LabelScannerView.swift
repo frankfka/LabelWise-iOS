@@ -70,7 +70,6 @@ struct LabelScannerView: View {
         if let photo = photo, error == nil {
             if let uiImage = UIImage(data: photo.fileData) {
                 print("Done converting")
-                NetworkingService.health()
                 self.capturedImage = uiImage
                 self.viewMode = .confirmPhoto
             } else {

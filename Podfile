@@ -5,5 +5,6 @@ target 'LabelWise' do
   use_frameworks!
 
   # Pods for LabelWise
+  pod 'Alamofire', '~> 5.1'
 
 end
