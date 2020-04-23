@@ -61,23 +61,23 @@ struct PhotoActionIcons: View {
     }
 
     var body: some View {
-        HStack {
-            Image(systemName: "xmark.circle.fill")
-                .resizable()
-                .frame(width: PhotoActionIcons.ButtonSize, height: PhotoActionIcons.ButtonSize)
-                .contentShape(Circle())
-            .onTapGesture {
-                self.onConfirmPhotoAction?(false)
-            }
-            Image(systemName: "checkmark.circle.fill")
-                    .resizable()
-                    .frame(width: PhotoActionIcons.ButtonSize, height: PhotoActionIcons.ButtonSize)
-                    .contentShape(Circle())
-                    .onTapGesture {
-                        self.onConfirmPhotoAction?(true)
-                    }
+        HStack(spacing: 32) {
+            getIcon(isConfirm: false)
+            getIcon(isConfirm: true)
         }
     }
+
+    private func getIcon(isConfirm: Bool) -> some View {
+        Image(systemName: isConfirm ? "checkmark.circle.fill" : "xmark.circle.fill")
+            .resizable()
+            .frame(width: PhotoActionIcons.ButtonSize, height: PhotoActionIcons.ButtonSize)
+            .contentShape(Circle())
+            .foregroundColor(Color.white)
+            .onTapGesture {
+                self.onConfirmPhotoAction?(isConfirm)
+            }
+    }
+
 }
 
 
