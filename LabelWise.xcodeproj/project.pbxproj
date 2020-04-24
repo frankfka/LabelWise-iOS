@@ -19,10 +19,14 @@
 		9E04B02AC89E419B26B7CEC0 /* NetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B36285890D7DEA0D4652 /* NetworkingService.swift */; };
 		9E04B4B7AFC55A84E1F3654A /* CameraUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B8A4CAFCF4080DA6BD0E /* CameraUtil.swift */; };
 		9E04B5454634C3A52D00058A /* LabelScannerOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B27BF5D2A9200CBC7D1D /* LabelScannerOverlayView.swift */; };
+		9E04B7505FD17516F7996F3A /* Dimensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B87D15FDBB8C359F6235 /* Dimensions.swift */; };
 		9E04B8699075720B0B4A2692 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B5990AFB8E3D0DF17188 /* CameraView.swift */; };
 		9E04B90C5EA0DF367FE35AFD /* LabelScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04BAC96CFB27478E9AFA42 /* LabelScannerView.swift */; };
 		9E04BA24D04B3AA88269BC74 /* CameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B5CD47A28F0852F6DEFF /* CameraController.swift */; };
+		9E04BB051D7E409EC334FD8B /* Icons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B8E9B103A32459D4568C /* Icons.swift */; };
 		9E04BC1CF628CD066A2BF3BA /* Callbacks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B39BC4EE203F78971A94 /* Callbacks.swift */; };
+		9E04BDAC7C97D8F2252012E5 /* Typography.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B1C29ECB90493462BCB4 /* Typography.swift */; };
+		9E04BEC2EE1485DE2071FEEA /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B05B31A950ACF965B49A /* Colors.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,12 +42,16 @@
 		119F8AD6244A7D4300BB173A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		360BDE15D326DC1D0640C815 /* Pods-LabelWise.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LabelWise.release.xcconfig"; path = "Target Support Files/Pods-LabelWise/Pods-LabelWise.release.xcconfig"; sourceTree = "<group>"; };
 		4AACC73C2D10015894BA828D /* Pods-LabelWise.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LabelWise.debug.xcconfig"; path = "Target Support Files/Pods-LabelWise/Pods-LabelWise.debug.xcconfig"; sourceTree = "<group>"; };
+		9E04B05B31A950ACF965B49A /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		9E04B1C29ECB90493462BCB4 /* Typography.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Typography.swift; sourceTree = "<group>"; };
 		9E04B27BF5D2A9200CBC7D1D /* LabelScannerOverlayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelScannerOverlayView.swift; sourceTree = "<group>"; };
 		9E04B36285890D7DEA0D4652 /* NetworkingService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkingService.swift; sourceTree = "<group>"; };
 		9E04B39BC4EE203F78971A94 /* Callbacks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Callbacks.swift; sourceTree = "<group>"; };
 		9E04B5990AFB8E3D0DF17188 /* CameraView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		9E04B5CD47A28F0852F6DEFF /* CameraController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraController.swift; sourceTree = "<group>"; };
+		9E04B87D15FDBB8C359F6235 /* Dimensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dimensions.swift; sourceTree = "<group>"; };
 		9E04B8A4CAFCF4080DA6BD0E /* CameraUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraUtil.swift; sourceTree = "<group>"; };
+		9E04B8E9B103A32459D4568C /* Icons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Icons.swift; sourceTree = "<group>"; };
 		9E04BAC96CFB27478E9AFA42 /* LabelScannerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelScannerView.swift; sourceTree = "<group>"; };
 		FBB96129287D3E7C9C1E8B9C /* Pods_LabelWise.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LabelWise.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -128,6 +136,17 @@
 			path = Service;
 			sourceTree = "<group>";
 		};
+		9E04B2B64C022DC0252E846E /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				9E04B1C29ECB90493462BCB4 /* Typography.swift */,
+				9E04B05B31A950ACF965B49A /* Colors.swift */,
+				9E04B8E9B103A32459D4568C /* Icons.swift */,
+				9E04B87D15FDBB8C359F6235 /* Dimensions.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
 		9E04B55A7AA51B375FE5F85D /* LabelScanner */ = {
 			isa = PBXGroup;
 			children = (
@@ -154,6 +173,7 @@
 			children = (
 				9E04B55A7AA51B375FE5F85D /* LabelScanner */,
 				9E04BE849DFE7936902898BC /* Camera */,
+				9E04B2B64C022DC0252E846E /* Util */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -285,6 +305,10 @@
 				9E04B8699075720B0B4A2692 /* CameraView.swift in Sources */,
 				9E04B4B7AFC55A84E1F3654A /* CameraUtil.swift in Sources */,
 				9E04B02AC89E419B26B7CEC0 /* NetworkingService.swift in Sources */,
+				9E04BDAC7C97D8F2252012E5 /* Typography.swift in Sources */,
+				9E04BEC2EE1485DE2071FEEA /* Colors.swift in Sources */,
+				9E04BB051D7E409EC334FD8B /* Icons.swift in Sources */,
+				9E04B7505FD17516F7996F3A /* Dimensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

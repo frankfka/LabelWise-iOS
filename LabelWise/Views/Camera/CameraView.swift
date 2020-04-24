@@ -6,6 +6,7 @@
 import SwiftUI
 import AVFoundation
 
+// TODO: Loading animation
 struct CameraView: UIViewControllerRepresentable {
     typealias UIViewControllerType = CameraViewController
 

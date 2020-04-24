@@ -9,20 +9,18 @@
 import SwiftUI
 
 struct LabelScannerOverlayHeaderView: View {
-    static let MinSpacerLength: CGFloat = 48
-    static let HelpIconSize: CGFloat = 24
+    private static let MinSpacerLength: CGFloat = CGFloat.App.Layout.extraLargePadding
+    private static let HelpIconSize: CGFloat = CGFloat.App.Icon.normal
 
     var body: some View {
         HStack {
             Spacer(minLength: LabelScannerOverlayHeaderView.MinSpacerLength)
             Text("Place label within the view")
-                    // TODO: Fonts and color
-                    .font(.system(size: 14))
-                    .multilineTextAlignment(.center)
-                    .lineLimit(nil)
-                    .foregroundColor(.white)
+                .withStyle(font: Font.App.smallText, color: Color.App.white)
+                .multilineTextAlignment(.center)
+                .lineLimit(nil)
             Spacer(minLength: LabelScannerOverlayHeaderView.MinSpacerLength)
-            Image(systemName: "questionmark.circle.fill")
+            Image.App.labelScannerHelp
                 .resizable()
                 .frame(width: LabelScannerOverlayHeaderView.HelpIconSize,
                         height: LabelScannerOverlayHeaderView.HelpIconSize)
@@ -30,10 +28,10 @@ struct LabelScannerOverlayHeaderView: View {
                 // Allow center element to be centered
                 .padding(.leading, -LabelScannerOverlayHeaderView.MinSpacerLength)
         }
-        .padding()
-        .padding(.top, 32)
+        .padding(CGFloat.App.Layout.largePadding)
+        .padding(.top, CGFloat.App.Layout.largePadding)
         .frame(minWidth: 0, maxWidth: .infinity)
-        .background(LabelScannerOverlayView.ViewModel.OverlayColor)
+        .background(LabelScannerOverlayView.OverlayColor)
     }
 }
 

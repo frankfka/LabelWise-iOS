@@ -36,24 +36,25 @@ struct LabelScannerOverlayFooterView: View {
     var body: some View {
         VStack {
             AnalyzeTypePicker(vm: typePickerViewModel)
-            .padding(.horizontal, 32)
-            .padding(.bottom, 16)
+                .padding(.horizontal, CGFloat.App.Layout.largePadding)
+                .padding(.bottom, CGFloat.App.Layout.normalPadding)
             if self.viewModel.viewMode == .takePhoto {
                 CaptureIcon(onTap: self.viewModel.onCapturePhotoTapped)
             } else {
                 PhotoActionIcons(onConfirmPhotoAction: self.viewModel.onConfirmPhotoAction)
             }
         }
-        .padding(.bottom, 32)
-        .padding()
+        .padding(.bottom, CGFloat.App.Layout.largePadding)
+        .padding(CGFloat.App.Layout.largePadding)
         .frame(minWidth: 0, maxWidth: .infinity)
-        .background(LabelScannerOverlayView.ViewModel.OverlayColor)
+        .background(LabelScannerOverlayView.OverlayColor)
     }
     
 }
 
 struct PhotoActionIcons: View {
-    private static let ButtonSize: CGFloat = 64
+    private static let ButtonSize: CGFloat = CGFloat.App.Icon.largeButton
+    private static let ButtonSpacing: CGFloat = CGFloat.App.Layout.extraLargePadding
     private let onConfirmPhotoAction: BoolCallback?
 
     init(onConfirmPhotoAction: BoolCallback?) {
@@ -61,14 +62,15 @@ struct PhotoActionIcons: View {
     }
 
     var body: some View {
-        HStack(spacing: 32) {
+        HStack(spacing: PhotoActionIcons.ButtonSpacing) {
             getIcon(isConfirm: false)
             getIcon(isConfirm: true)
         }
     }
 
     private func getIcon(isConfirm: Bool) -> some View {
-        Image(systemName: isConfirm ? "checkmark.circle.fill" : "xmark.circle.fill")
+        let image = isConfirm ? Image.App.labelScannerConfirmImage : Image.App.labelScannerCancelImage
+        return image
             .resizable()
             .frame(width: PhotoActionIcons.ButtonSize, height: PhotoActionIcons.ButtonSize)
             .contentShape(Circle())
@@ -83,9 +85,9 @@ struct PhotoActionIcons: View {
 
 // Circular icon to take picture
 struct CaptureIcon: View {
-    private static let OuterRingSize: CGFloat = 64
-    private static let DarkOuterRingSize: CGFloat = 60
-    private static let InnerRingSize: CGFloat = 54
+    private static let OuterRingSize: CGFloat = CGFloat.App.Icon.largeButton
+    private static let DarkOuterRingSize: CGFloat = OuterRingSize * 0.9
+    private static let InnerRingSize: CGFloat = DarkOuterRingSize * 0.9
     // Button Tap Animations
     private static let ButtonTapPressedAnimation: Animation = Animation.easeInOut(duration: 0.05)
     private static let ButtonTapReleasedAnimation: Animation = ButtonTapPressedAnimation.delay(0.05)
@@ -113,15 +115,20 @@ struct CaptureIcon: View {
         }
         .contentShape(Circle())
         .onTapGesture {
-            withAnimation(CaptureIcon.ButtonTapPressedAnimation) {
-                self.isAnimatingButtonTap = true
-            }
-            withAnimation(CaptureIcon.ButtonTapReleasedAnimation) {
-                self.isAnimatingButtonTap = false
-            }
+            self.animateButtonTap()
             self.onTap?()
         }
     }
+
+    private func animateButtonTap() {
+        withAnimation(CaptureIcon.ButtonTapPressedAnimation) {
+            self.isAnimatingButtonTap = true
+        }
+        withAnimation(CaptureIcon.ButtonTapReleasedAnimation) {
+            self.isAnimatingButtonTap = false
+        }
+    }
+
 }
 
 // Type picker to choose between nutrition/ingredients

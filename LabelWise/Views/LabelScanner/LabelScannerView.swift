@@ -40,11 +40,12 @@ struct LabelScannerView: View {
 
     var body: some View {
         ZStack(alignment: .bottom) {
+            // TODO: Clean this up!
             if capturedImage != nil {
                 Image(uiImage: capturedImage!)
-                        .resizable()
-                        .aspectRatio(capturedImage!.size, contentMode: .fill)
-                        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
+                    .resizable()
+                    .aspectRatio(capturedImage!.size, contentMode: .fill)
+                    .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
             } else {
                 CameraView(vm: self.cameraViewVm)
             }

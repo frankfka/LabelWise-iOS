@@ -6,11 +6,15 @@
 import SwiftUI
 
 struct LabelScannerOverlayView: View {
+    private static let ViewFinderCornerRadius: CGFloat = CGFloat.App.Layout.cornerRadius
+    private static let ViewFinderRelativeWidth: CGFloat = 0.8
+    private static var ViewFinderRelativeWidthPadding: CGFloat {
+        (1.0 - ViewFinderRelativeWidth) / 2
+    }
+    static let OverlayColor = Color.App.overlay
 
     // TODO: consider making a protocol for picker types, need text, tag, and selected index
     class ViewModel: ObservableObject {
-        static let ViewFinderCornerRadius: CGFloat = 24
-        static let OverlayColor = Color.black.opacity(0.8)
 
         @Binding var viewMode: LabelScannerView.ViewModel.ViewMode
         @Binding var selectedLabelTypeIndex: Int
@@ -47,7 +51,7 @@ struct LabelScannerOverlayView: View {
             GeometryReader { geometry in
                 // Rectangle with viewfinder cut-out
                 Rectangle()
-                    .fill(LabelScannerOverlayView.ViewModel.OverlayColor)
+                    .fill(LabelScannerOverlayView.OverlayColor)
                     .mask(
                         self.getViewFinderMask(parentSize: geometry.size)
                             // eoFill allows cutout
@@ -63,10 +67,11 @@ struct LabelScannerOverlayView: View {
     private func getViewFinderMask(parentSize: CGSize) -> Path {
         // Full rectangle to fill parent
         let parentRect = CGRect(x: 0, y: 0, width: parentSize.width, height: parentSize.height)
-        // Get cutout with padding - currently set to 10% on either side
-        let cutoutRect = CGRect(x: parentSize.width * 0.1, y: 0, width: parentSize.width * 0.8, height: parentSize.height)
+        // Get cutout with padding
+        let cutoutRect = CGRect(x: parentSize.width * LabelScannerOverlayView.ViewFinderRelativeWidthPadding, y: 0,
+                width: parentSize.width * LabelScannerOverlayView.ViewFinderRelativeWidth, height: parentSize.height)
         var shape = Rectangle().path(in: parentRect)
-        shape.addPath(RoundedRectangle(cornerRadius: LabelScannerOverlayView.ViewModel.ViewFinderCornerRadius).path(in: cutoutRect))
+        shape.addPath(RoundedRectangle(cornerRadius: LabelScannerOverlayView.ViewFinderCornerRadius).path(in: cutoutRect))
         return shape
     }
 }
