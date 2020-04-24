@@ -82,7 +82,6 @@ class CameraController {
     }
 
     func stopSession() {
-        print("deinit camera")
         self.captureSession?.stopRunning()
     }
 

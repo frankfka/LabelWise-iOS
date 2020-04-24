@@ -10,23 +10,37 @@ import AVFoundation
 struct LabelScannerView: View {
 
     class ViewModel: ObservableObject {
+        struct LabelTypePickerViewModel: PickerViewModel {
+            var selectedIndex: Binding<Int>
+            let items: [String] = LabelTypes.allCases.map { $0.rawValue }
+
+            init(selectedIndex: Binding<Int>) {
+                self.selectedIndex = selectedIndex
+            }
+        }
         enum ViewMode {
             case takePhoto
             case confirmPhoto
         }
+        enum LabelTypes: String, CaseIterable {
+            case nutrition = "Nutrition"
+            case ingredients = "Ingredients"
+        }
     }
-
     @State private var scanLabelTypeIndex: Int = 0
-    // TODO: need to figure out how to manage the state here
     @State private var takePicture: Bool = false
     @State private var isTakingPicture: Bool = false
     @State private var capturedImage: UIImage? = nil
     @State private var viewMode: ViewModel.ViewMode = .takePhoto
+    @State private var selectedLabelTypeIndex = 0
+    private var labelTypeVm: ViewModel.LabelTypePickerViewModel {
+        ViewModel.LabelTypePickerViewModel(selectedIndex: self.$selectedLabelTypeIndex)
+    }
 
     private var overlayViewVm: LabelScannerOverlayView.ViewModel {
         return LabelScannerOverlayView.ViewModel(
                 viewMode: self.$viewMode,
-                selectedLabelTypeIndex: self.$scanLabelTypeIndex,
+                labelTypePickerVm: labelTypeVm,
                 onCapturePhotoTapped: self.onCapturePhotoTapped,
                 onConfirmPhotoAction: self.onConfirmPhotoAction
         )
@@ -41,10 +55,10 @@ struct LabelScannerView: View {
     var body: some View {
         ZStack(alignment: .bottom) {
             // TODO: Clean this up!
-            if capturedImage != nil {
-                Image(uiImage: capturedImage!)
+            if self.capturedImage != nil {
+                Image(uiImage: self.capturedImage!)
                     .resizable()
-                    .aspectRatio(capturedImage!.size, contentMode: .fill)
+                    .aspectRatio(self.capturedImage!.size, contentMode: .fill)
                     .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
             } else {
                 CameraView(vm: self.cameraViewVm)
@@ -57,24 +71,22 @@ struct LabelScannerView: View {
 
     // MARK: Callbacks
     private func onCapturePhotoTapped() {
-        if !isTakingPicture {
+        if !self.isTakingPicture {
             // Take a picture if one isn't in progress
             self.takePicture = true
             self.isTakingPicture = true
+            // TODO: Some loading state
         }
     }
 
     private func onPhotoCapture(photo: LabelPhoto?, error: Error?) {
-        print("on photo capture")
         self.takePicture = false
         self.isTakingPicture = false
         if let photo = photo, error == nil {
             if let uiImage = UIImage(data: photo.fileData) {
-                print("Done converting")
                 self.capturedImage = uiImage
                 self.viewMode = .confirmPhoto
             } else {
-                print("error converting")
             }
         } else {
             print(error)
@@ -83,7 +95,9 @@ struct LabelScannerView: View {
     }
 
     private func onConfirmPhotoAction(didConfirm: Bool) {
-        if !didConfirm {
+        if didConfirm {
+            // TODO: Push to some other view
+        } else {
             self.viewMode = .takePhoto
             self.capturedImage = nil
         }

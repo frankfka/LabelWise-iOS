@@ -13,20 +13,20 @@ struct LabelScannerOverlayFooterView: View {
     class ViewModel: ObservableObject {
         let onCapturePhotoTapped: VoidCallback?
         let onConfirmPhotoAction: BoolCallback?
-        @Binding var selectedLabelTypeIndex: Int
+        var labelTypePickerVm: PickerViewModel
         @Binding var viewMode: LabelScannerView.ViewModel.ViewMode
 
-        init(viewMode: Binding<LabelScannerView.ViewModel.ViewMode>, selectedLabelTypeIndex: Binding<Int>,
+        init(viewMode: Binding<LabelScannerView.ViewModel.ViewMode>, labelTypePickerVm: PickerViewModel,
              onCapturePhotoTapped: VoidCallback? = nil, onConfirmPhotoAction: BoolCallback? = nil) {
             self._viewMode = viewMode
-            self._selectedLabelTypeIndex = selectedLabelTypeIndex
+            self.labelTypePickerVm = labelTypePickerVm
             self.onCapturePhotoTapped = onCapturePhotoTapped
             self.onConfirmPhotoAction = onConfirmPhotoAction
         }
     }
     private let viewModel: ViewModel
     private var typePickerViewModel: AnalyzeTypePicker.ViewModel {
-        return AnalyzeTypePicker.ViewModel(selectedTypeIndex: self.viewModel.$selectedLabelTypeIndex)
+        return AnalyzeTypePicker.ViewModel(labelTypePickerVm: self.viewModel.labelTypePickerVm)
     }
 
     init(vm: ViewModel) {
@@ -135,10 +135,10 @@ struct CaptureIcon: View {
 struct AnalyzeTypePicker: View {
     
     class ViewModel: ObservableObject {
-        @Binding var typeSelection: Int
+        @Published var labelTypePickerVm: PickerViewModel
         
-        init(selectedTypeIndex: Binding<Int>) {
-            self._typeSelection = selectedTypeIndex
+        init(labelTypePickerVm: PickerViewModel) {
+            self.labelTypePickerVm = labelTypePickerVm
         }
     }
     
@@ -150,7 +150,7 @@ struct AnalyzeTypePicker: View {
     
     var body: some View {
         // TODO: Lift these out
-        Picker("Mode", selection: self.viewModel.$typeSelection) {
+        Picker("Mode", selection: self.viewModel.labelTypePickerVm.selectedIndex) {
             Text("Nutrition")
                 .tag(0)
             Text("Ingredients")
@@ -166,7 +166,8 @@ struct AnalyzeTypePicker: View {
 
 
 struct LabelScannerOverlayFooterView_Previews: PreviewProvider {
-    static let vm = LabelScannerOverlayFooterView.ViewModel(viewMode: .constant(.takePhoto), selectedLabelTypeIndex: .constant(0))
+    static let labelTypePickerVm = LabelScannerView.ViewModel.LabelTypePickerViewModel(selectedIndex: .constant(0))
+    static let vm = LabelScannerOverlayFooterView.ViewModel(viewMode: .constant(.takePhoto), labelTypePickerVm: labelTypePickerVm)
     static var previews: some View {
         LabelScannerOverlayFooterView(vm: vm)
     }

@@ -17,14 +17,14 @@ struct LabelScannerOverlayView: View {
     class ViewModel: ObservableObject {
 
         @Binding var viewMode: LabelScannerView.ViewModel.ViewMode
-        @Binding var selectedLabelTypeIndex: Int
+        var labelTypePickerVm: PickerViewModel
         let onCapturePhotoTapped: VoidCallback?
         let onConfirmPhotoAction: BoolCallback?
 
-        init(viewMode: Binding<LabelScannerView.ViewModel.ViewMode>, selectedLabelTypeIndex: Binding<Int>,
+        init(viewMode: Binding<LabelScannerView.ViewModel.ViewMode>, labelTypePickerVm: PickerViewModel,
              onCapturePhotoTapped: VoidCallback? = nil, onConfirmPhotoAction: BoolCallback? = nil) {
             self._viewMode = viewMode
-            self._selectedLabelTypeIndex = selectedLabelTypeIndex
+            self.labelTypePickerVm = labelTypePickerVm
             self.onCapturePhotoTapped = onCapturePhotoTapped
             self.onConfirmPhotoAction = onConfirmPhotoAction
         }
@@ -33,7 +33,7 @@ struct LabelScannerOverlayView: View {
     private var footerViewModel: LabelScannerOverlayFooterView.ViewModel {
         return LabelScannerOverlayFooterView.ViewModel(
                 viewMode: self.viewModel.$viewMode,
-                selectedLabelTypeIndex: self.viewModel.$selectedLabelTypeIndex,
+                labelTypePickerVm: self.viewModel.labelTypePickerVm,
                 onCapturePhotoTapped: self.viewModel.onCapturePhotoTapped,
                 onConfirmPhotoAction: self.viewModel.onConfirmPhotoAction
         )
