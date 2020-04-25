@@ -7,6 +7,7 @@ import SwiftUI
 import AVFoundation
 
 // TODO: status bar color
+// TODO: Loading and error views
 struct LabelScannerView: View {
 
     class ViewModel: ObservableObject {
@@ -27,12 +28,12 @@ struct LabelScannerView: View {
             case ingredients = "Ingredients"
         }
     }
-    @State private var scanLabelTypeIndex: Int = 0
     @State private var takePicture: Bool = false
     @State private var isTakingPicture: Bool = false
     @State private var capturedImage: UIImage? = nil
     @State private var viewMode: ViewModel.ViewMode = .takePhoto
     @State private var selectedLabelTypeIndex = 0
+    @State private var cameraError: AppError?
     private var labelTypeVm: ViewModel.LabelTypePickerViewModel {
         ViewModel.LabelTypePickerViewModel(selectedIndex: self.$selectedLabelTypeIndex)
     }
@@ -48,25 +49,34 @@ struct LabelScannerView: View {
     private var cameraViewVm: CameraView.ViewModel {
         return CameraView.ViewModel(
                 takePicture: self.$takePicture,
+                cameraError: self.$cameraError,
                 onPhotoCapture: self.onPhotoCapture
         )
     }
 
+    // MARK: Main View
     var body: some View {
         ZStack(alignment: .bottom) {
-            // TODO: Clean this up!
-            if self.capturedImage != nil {
-                Image(uiImage: self.capturedImage!)
-                    .resizable()
-                    .aspectRatio(self.capturedImage!.size, contentMode: .fill)
-                    .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
-            } else {
-                CameraView(vm: self.cameraViewVm)
-            }
+            getCameraPreviewOrCapturedImageView()
             LabelScannerOverlayView(vm: self.overlayViewVm)
         }
         .edgesIgnoringSafeArea(.vertical)
         .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
+    }
+
+    // MARK: Component views
+
+    // Display the captured image for confirmation, or the camera preview to take a photo
+    private func getCameraPreviewOrCapturedImageView() -> some View {
+        if let capturedImage = self.capturedImage {
+            return Image(uiImage: capturedImage)
+                    .resizable()
+                    .aspectRatio(capturedImage.size, contentMode: .fill)
+                    .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
+                    .eraseToAnyView()
+        } else {
+            return CameraView(vm: self.cameraViewVm).eraseToAnyView()
+        }
     }
 
     // MARK: Callbacks
@@ -79,7 +89,7 @@ struct LabelScannerView: View {
         }
     }
 
-    private func onPhotoCapture(photo: LabelPhoto?, error: Error?) {
+    private func onPhotoCapture(photo: LabelPhoto?, error: AppError?) {
         self.takePicture = false
         self.isTakingPicture = false
         if let photo = photo, error == nil {
@@ -87,10 +97,10 @@ struct LabelScannerView: View {
                 self.capturedImage = uiImage
                 self.viewMode = .confirmPhoto
             } else {
+                self.cameraError = AppError("Unable to convert photo into a UI image")
             }
         } else {
-            print(error)
-            // TODO: proper logging and error handling
+            self.cameraError = error
         }
     }
 

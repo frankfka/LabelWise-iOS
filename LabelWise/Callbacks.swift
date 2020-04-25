@@ -5,8 +5,8 @@
 
 import Foundation
 
-typealias ErrorCallback = (Error?) -> Void
+typealias ErrorCallback = (AppError?) -> Void
 typealias VoidCallback = () -> Void
 typealias BoolCallback = (Bool) -> Void
 
-typealias PhotoCaptureCallback = (LabelPhoto?, Error?) -> Void
+typealias PhotoCaptureCallback = (LabelPhoto?, AppError?) -> Void

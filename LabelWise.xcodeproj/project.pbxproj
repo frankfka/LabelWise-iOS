@@ -18,6 +18,7 @@
 		9E04B02AC89E419B26B7CEC0 /* NetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B36285890D7DEA0D4652 /* NetworkingService.swift */; };
 		9E04B0D78F9E76CC6959A2E8 /* CommonViewModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04BA2103C1A69F655989A5 /* CommonViewModels.swift */; };
 		9E04B4B7AFC55A84E1F3654A /* CameraUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B8A4CAFCF4080DA6BD0E /* CameraUtil.swift */; };
+		9E04B544B94680E6D0270437 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04BD167436B52702375ABC /* Common.swift */; };
 		9E04B5454634C3A52D00058A /* LabelScannerOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B27BF5D2A9200CBC7D1D /* LabelScannerOverlayView.swift */; };
 		9E04B7505FD17516F7996F3A /* Dimensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B87D15FDBB8C359F6235 /* Dimensions.swift */; };
 		9E04B8699075720B0B4A2692 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B5990AFB8E3D0DF17188 /* CameraView.swift */; };
@@ -26,6 +27,7 @@
 		9E04BB051D7E409EC334FD8B /* Icons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B8E9B103A32459D4568C /* Icons.swift */; };
 		9E04BB17B3BDE8728BAF761B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B5D30937AB3EE9506EEE /* ContentView.swift */; };
 		9E04BC1CF628CD066A2BF3BA /* Callbacks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B39BC4EE203F78971A94 /* Callbacks.swift */; };
+		9E04BCAB5E4B867BF3960782 /* SwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04BAA4FD1CB39D6A2F2084 /* SwiftUI.swift */; };
 		9E04BDAC7C97D8F2252012E5 /* Typography.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B1C29ECB90493462BCB4 /* Typography.swift */; };
 		9E04BEC2EE1485DE2071FEEA /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B05B31A950ACF965B49A /* Colors.swift */; };
 		9E04BFE2FB40387B47CB3BDC /* Logging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B61BDB41D939BF20F08F /* Logging.swift */; };
@@ -56,7 +58,9 @@
 		9E04B8A4CAFCF4080DA6BD0E /* CameraUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraUtil.swift; sourceTree = "<group>"; };
 		9E04B8E9B103A32459D4568C /* Icons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Icons.swift; sourceTree = "<group>"; };
 		9E04BA2103C1A69F655989A5 /* CommonViewModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonViewModels.swift; sourceTree = "<group>"; };
+		9E04BAA4FD1CB39D6A2F2084 /* SwiftUI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftUI.swift; sourceTree = "<group>"; };
 		9E04BAC96CFB27478E9AFA42 /* LabelScannerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelScannerView.swift; sourceTree = "<group>"; };
+		9E04BD167436B52702375ABC /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		FBB96129287D3E7C9C1E8B9C /* Pods_LabelWise.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LabelWise.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -110,6 +114,7 @@
 				9E04BFA38526EDB3D7CDABAF /* Views */,
 				9E04B39BC4EE203F78971A94 /* Callbacks.swift */,
 				9E04B192A505AA3051D1C716 /* Service */,
+				9E04BDD525AD8F4399F2A4A4 /* Models */,
 			);
 			path = LabelWise;
 			sourceTree = "<group>";
@@ -147,6 +152,7 @@
 				9E04B05B31A950ACF965B49A /* Colors.swift */,
 				9E04B8E9B103A32459D4568C /* Icons.swift */,
 				9E04B87D15FDBB8C359F6235 /* Dimensions.swift */,
+				9E04BAA4FD1CB39D6A2F2084 /* SwiftUI.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -168,6 +174,14 @@
 				9E04BA2103C1A69F655989A5 /* CommonViewModels.swift */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		9E04BDD525AD8F4399F2A4A4 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				9E04BD167436B52702375ABC /* Common.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		9E04BE849DFE7936902898BC /* Camera */ = {
@@ -325,6 +339,8 @@
 				9E04BB17B3BDE8728BAF761B /* ContentView.swift in Sources */,
 				9E04BFE2FB40387B47CB3BDC /* Logging.swift in Sources */,
 				9E04B0D78F9E76CC6959A2E8 /* CommonViewModels.swift in Sources */,
+				9E04B544B94680E6D0270437 /* Common.swift in Sources */,
+				9E04BCAB5E4B867BF3960782 /* SwiftUI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

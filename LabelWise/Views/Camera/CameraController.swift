@@ -9,16 +9,6 @@ import AVFoundation
 // https://medium.com/@gaspard.rosay/create-a-camera-app-with-swiftui-60876fcb9118
 class CameraController {
 
-    struct CameraError: Error {
-        let message: String
-        let wrappedError: Error?
-
-        init(message: String = "", wrappedError: Error? = nil) {
-            self.message = message
-            self.wrappedError = wrappedError
-        }
-    }
-
     private var captureSession: AVCaptureSession?
     private var frontCamera: AVCaptureDevice?
     private var frontCameraInput: AVCaptureDeviceInput?
@@ -31,19 +21,19 @@ class CameraController {
         }
     }
 
-    private func prepareCamera() -> CameraError? {
+    private func prepareCamera() -> AppError? {
         let captureSession: AVCaptureSession = AVCaptureSession()
         // Get the camera
         guard let camera = AVCaptureDevice.default(.builtInWideAngleCamera, for: AVMediaType.video, position: .back) else {
-            return CameraError(message: "No camera available")
+            return AppError("No camera available")
         }
         // Create the input
         guard let cameraInput = try? AVCaptureDeviceInput(device: camera) else {
-            return CameraError(message: "Cannot create camera input")
+            return AppError("Cannot create camera input")
         }
         // Make sure the capture session can use the input
         guard captureSession.canAddInput(cameraInput) else {
-            return CameraError(message: "Cannot add camera input")
+            return AppError("Cannot add camera input")
         }
         captureSession.addInput(cameraInput)
         // Configure for photo capture
@@ -53,7 +43,7 @@ class CameraController {
         photoOutput.isLivePhotoCaptureEnabled = false
         // Make sure we can have the specified input
         guard captureSession.canAddOutput(photoOutput) else {
-            return CameraError(message: "Cannot add photo output")
+            return AppError("Cannot add photo output")
         }
         captureSession.sessionPreset = .photo
         captureSession.addOutput(photoOutput)
@@ -67,9 +57,9 @@ class CameraController {
         return nil
     }
 
-    func displayPreview(on view: UIView) -> CameraError? {
+    func displayPreview(on view: UIView) -> AppError? {
         guard let captureSession = self.captureSession, captureSession.isRunning else {
-            return CameraError(message: "Invalid capture session")
+            return AppError("Invalid capture session")
         }
 
         self.previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
@@ -85,10 +75,14 @@ class CameraController {
         self.captureSession?.stopRunning()
     }
 
-    func capturePhoto(delegate: AVCapturePhotoCaptureDelegate) {
+    func capturePhoto(delegate: AVCapturePhotoCaptureDelegate) -> AppError? {
+        guard let photoOutput = self.photoOutput else {
+            return AppError("No photo output configured")
+        }
         let captureSettings = AVCapturePhotoSettings()
         captureSettings.flashMode = .auto
-        self.photoOutput?.capturePhoto(with: captureSettings, delegate: delegate)
+        photoOutput.capturePhoto(with: captureSettings, delegate: delegate)
+        return nil
     }
 
 }

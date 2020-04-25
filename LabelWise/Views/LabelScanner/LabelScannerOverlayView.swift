@@ -13,7 +13,6 @@ struct LabelScannerOverlayView: View {
     }
     static let OverlayColor = Color.App.overlay
 
-    // TODO: consider making a protocol for picker types, need text, tag, and selected index
     class ViewModel: ObservableObject {
 
         @Binding var viewMode: LabelScannerView.ViewModel.ViewMode

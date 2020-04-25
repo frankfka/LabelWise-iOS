@@ -16,11 +16,10 @@ struct LabelPhoto {
 
 // Converts captured photo to our native image type
 extension AVCapturePhoto {
-    func toLabelPhoto() -> LabelPhoto? {
+    func toLabelPhoto() -> (LabelPhoto?, AppError?) {
         guard let data = self.fileDataRepresentation() else {
-            // TODO: Logging
-            return nil
+            return (nil, AppError("Captured image has no file data representation"))
         }
-        return LabelPhoto(fileData: data)
+        return (LabelPhoto(fileData: data), nil)
     }
 }
