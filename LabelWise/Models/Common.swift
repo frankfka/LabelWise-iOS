@@ -5,6 +5,7 @@
 
 import Foundation
 
+// Wrapper for all app errors
 struct AppError: Error {
     let message: String
     let wrappedError: Error?
@@ -13,4 +14,9 @@ struct AppError: Error {
         self.message = msg
         self.wrappedError = wrappedError
     }
+}
+
+enum AnalyzeType: String, Codable, CaseIterable {
+    case nutrition = "nutrition"
+    case ingredients = "ingredients"
 }

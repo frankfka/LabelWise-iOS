@@ -64,7 +64,7 @@ struct CameraView: UIViewControllerRepresentable {
                 self.onPhotoCapture?(nil, AppError("Error taking photo", wrappedError: error))
                 return
             }
-            let labelPhotoResult = photo.toLabelPhoto()
+            let labelPhotoResult = photo.toLabelImage()
             self.onPhotoCapture?(labelPhotoResult.0, labelPhotoResult.1)
         }
 

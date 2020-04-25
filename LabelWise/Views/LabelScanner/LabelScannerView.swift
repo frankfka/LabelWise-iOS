@@ -89,7 +89,7 @@ struct LabelScannerView: View {
         }
     }
 
-    private func onPhotoCapture(photo: LabelPhoto?, error: AppError?) {
+    private func onPhotoCapture(photo: LabelImage?, error: AppError?) {
         self.takePicture = false
         self.isTakingPicture = false
         if let photo = photo, error == nil {
