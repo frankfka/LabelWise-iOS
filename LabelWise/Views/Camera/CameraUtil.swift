@@ -8,14 +8,22 @@ import UIKit
 import AVFoundation
 
 struct LabelImage {
-    let fileData: Data
-    var base64String: String {
-        fileData.base64EncodedString(options: .lineLength64Characters)
-    }
-    // TODO: need to compress
+    let fullFileData: Data
+    let uiImage: UIImage
+    let compressedB64String: String
     
-    init(fileData: Data) {
-        self.fileData = fileData
+    init?(fileData: Data) {
+        guard let uiImage = UIImage(data: fileData) else {
+            AppLogging.warn("Unable to create UI image")
+            return nil
+        }
+        guard let compressedImage = uiImage.jpegData(compressionQuality: 0.25) else {
+            AppLogging.warn("Unable to compress image")
+            return nil
+        }
+        self.fullFileData = fileData
+        self.uiImage = uiImage
+        self.compressedB64String = compressedImage.base64EncodedString(options: .lineLength64Characters)
     }
 }
 
@@ -25,6 +33,9 @@ extension AVCapturePhoto {
         guard let data = self.fileDataRepresentation() else {
             return (nil, AppError("Captured image has no file data representation"))
         }
-        return (LabelImage(fileData: data), nil)
+        guard let labelImage = LabelImage(fileData: data) else {
+            return (nil, AppError("Could not create label image from data"))
+        }
+        return (labelImage, nil)
     }
 }

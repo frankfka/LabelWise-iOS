@@ -8,20 +8,20 @@ import Combine
 import Alamofire
 
 class LabelAnalysisService {
-    static let BaseUrl = ""
+    static let BaseUrl = "https://41b288c4.ngrok.io"
     static let NutritionImageUrl = BaseUrl + "/nutrition/image"
     static let IngredientsImageUrl = BaseUrl + "/ingredients/image"
 
-    func analyzeNutrition(image: LabelImage) -> ServicePublisher<AnalyzeNutritionResponse> {
+    func analyzeNutrition(base64Image: String) -> ServicePublisher<AnalyzeNutritionResponse> {
         ServiceFuture<AnalyzeNutritionResponse> { promise in
-            self.analyzeNutrition(image: image) { result in
+            self.analyzeNutrition(base64Image: base64Image) { result in
                 promise(result)
             }
         }.eraseToAnyPublisher()
     }
 
-    private func analyzeNutrition(image: LabelImage, onComplete: @escaping ServiceCallback<AnalyzeNutritionResponse>) {
-        let requestParams = AnalyzeNutritionRequest(type: .nutrition, base64Image: image.base64String)
+    private func analyzeNutrition(base64Image: String, onComplete: @escaping ServiceCallback<AnalyzeNutritionResponse>) {
+        let requestParams = AnalyzeNutritionRequest(type: .nutrition, base64Image: base64Image)
         AF.request(LabelAnalysisService.NutritionImageUrl, method: .post,
                         parameters: requestParams, encoder: JSONParameterEncoder.default)
                 .responseDecodable(of: AnalyzeNutritionResponse.self) { response in

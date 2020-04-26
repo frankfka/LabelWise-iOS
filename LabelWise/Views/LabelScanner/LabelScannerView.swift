@@ -4,6 +4,7 @@
 //
 
 import SwiftUI
+import Combine
 import AVFoundation
 
 // TODO: status bar color
@@ -30,7 +31,9 @@ struct LabelScannerView: View {
     }
     @State private var takePicture: Bool = false
     @State private var isTakingPicture: Bool = false
-    @State private var capturedImage: UIImage? = nil
+    @State private var capturedImage: LabelImage? = nil
+    // TODO: can remove this now
+    @State private var capturedUIImage: UIImage? = nil
     @State private var viewMode: ViewModel.ViewMode = .takePhoto
     @State private var selectedLabelTypeIndex = 0
     @State private var cameraError: AppError?
@@ -68,10 +71,10 @@ struct LabelScannerView: View {
 
     // Display the captured image for confirmation, or the camera preview to take a photo
     private func getCameraPreviewOrCapturedImageView() -> some View {
-        if let capturedImage = self.capturedImage {
-            return Image(uiImage: capturedImage)
+        if let capturedUIImage = self.capturedUIImage {
+            return Image(uiImage: capturedUIImage)
                     .resizable()
-                    .aspectRatio(capturedImage.size, contentMode: .fill)
+                    .aspectRatio(capturedUIImage.size, contentMode: .fill)
                     .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
                     .eraseToAnyView()
         } else {
@@ -93,8 +96,9 @@ struct LabelScannerView: View {
         self.takePicture = false
         self.isTakingPicture = false
         if let photo = photo, error == nil {
-            if let uiImage = UIImage(data: photo.fileData) {
-                self.capturedImage = uiImage
+            if let uiImage = UIImage(data: photo.fullFileData) {
+                self.capturedImage = photo
+                self.capturedUIImage = uiImage
                 self.viewMode = .confirmPhoto
             } else {
                 self.cameraError = AppError("Unable to convert photo into a UI image")
@@ -106,10 +110,16 @@ struct LabelScannerView: View {
 
     private func onConfirmPhotoAction(didConfirm: Bool) {
         if didConfirm {
-            // TODO: Push to some other view
+            guard let capturedImage = self.capturedImage else {
+                // TODO: reset state here to try again
+                AppLogging.warn("Captured image is nil when confirming captured image")
+                return
+            }
+            // TODO: somehow analyze, then propagate state to next page
         } else {
             self.viewMode = .takePhoto
             self.capturedImage = nil
+            self.capturedUIImage = nil
         }
     }
 
