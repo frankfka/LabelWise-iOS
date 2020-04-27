@@ -10,7 +10,7 @@ struct ErrorResponse: Codable {
 }
 
 // MARK: Analyze nutrition
-struct AnalyzeNutritionRequest: Codable {
+struct AnalyzeNutritionRequestDTO: Codable {
     let type: AnalyzeType
     let base64Image: String
 
@@ -20,7 +20,7 @@ struct AnalyzeNutritionRequest: Codable {
     }
 }
 
-struct AnalyzeNutritionResponse: Codable {
+struct AnalyzeNutritionResponseDTO: Codable {
 
     struct ParsedNutrition: Codable {
         let calories: Double?
@@ -35,7 +35,7 @@ struct AnalyzeNutritionResponse: Codable {
     }
 
     let parsedNutrition: ParsedNutrition
-    let warnings: [NutritionWarning]
+    let warnings: [NutritionWarningDTO]
 
     enum CodingKeys: String, CodingKey {
         case parsedNutrition = "parsed_nutrition"

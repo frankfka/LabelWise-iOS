@@ -8,23 +8,23 @@ import Combine
 import Alamofire
 
 class LabelAnalysisService {
-    static let BaseUrl = "https://41b288c4.ngrok.io"
+    static let BaseUrl = "https://75f786bb.ngrok.io"
     static let NutritionImageUrl = BaseUrl + "/nutrition/image"
     static let IngredientsImageUrl = BaseUrl + "/ingredients/image"
 
-    func analyzeNutrition(base64Image: String) -> ServicePublisher<AnalyzeNutritionResponse> {
-        ServiceFuture<AnalyzeNutritionResponse> { promise in
+    func analyzeNutrition(base64Image: String) -> ServicePublisher<AnalyzeNutritionResponseDTO> {
+        ServiceFuture<AnalyzeNutritionResponseDTO> { promise in
             self.analyzeNutrition(base64Image: base64Image) { result in
                 promise(result)
             }
         }.eraseToAnyPublisher()
     }
 
-    private func analyzeNutrition(base64Image: String, onComplete: @escaping ServiceCallback<AnalyzeNutritionResponse>) {
-        let requestParams = AnalyzeNutritionRequest(type: .nutrition, base64Image: base64Image)
+    private func analyzeNutrition(base64Image: String, onComplete: @escaping ServiceCallback<AnalyzeNutritionResponseDTO>) {
+        let requestParams = AnalyzeNutritionRequestDTO(type: .nutrition, base64Image: base64Image)
         AF.request(LabelAnalysisService.NutritionImageUrl, method: .post,
                         parameters: requestParams, encoder: JSONParameterEncoder.default)
-                .responseDecodable(of: AnalyzeNutritionResponse.self) { response in
+                .responseDecodable(of: AnalyzeNutritionResponseDTO.self) { response in
                     switch response.result {
                     case let .success(result):
                         onComplete(.success(result))

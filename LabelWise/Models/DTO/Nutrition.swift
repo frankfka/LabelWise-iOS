@@ -5,8 +5,7 @@
 
 import Foundation
 
-struct NutritionWarning: Codable {
-
+struct NutritionWarningDTO: Codable {
     enum Level: Int, Codable {
         case none = 0
         case caution = 1
@@ -30,7 +29,8 @@ struct NutritionWarning: Codable {
 }
 
 // MARK: Extensions for enum codables
-extension NutritionWarning.Level {
+// TODO: test non-conforming types from alamofire
+extension NutritionWarningDTO.Level {
 //    init(from decoder: Decoder) throws {
 //        let values = try decoder.container(keyedBy: CodingKeys.self)
 //        if let value = try? values.decode(Int.self, forKey: .count) {

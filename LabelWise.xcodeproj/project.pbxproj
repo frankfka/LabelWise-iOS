@@ -17,19 +17,23 @@
 		9C744549554540C8032BFD13 /* Pods_LabelWise.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBB96129287D3E7C9C1E8B9C /* Pods_LabelWise.framework */; };
 		9E04B02AC89E419B26B7CEC0 /* LabelAnalysisService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B36285890D7DEA0D4652 /* LabelAnalysisService.swift */; };
 		9E04B0D78F9E76CC6959A2E8 /* CommonViewModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04BA2103C1A69F655989A5 /* CommonViewModels.swift */; };
+		9E04B0EFCA6C6F9FB2ACF2FD /* Nutrition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04BD22E17A4E06408029C2 /* Nutrition.swift */; };
+		9E04B142786F16FB6E2E3BBF /* TypeAliases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04BC8096C70C13098A91F5 /* TypeAliases.swift */; };
 		9E04B4B7AFC55A84E1F3654A /* CameraUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B8A4CAFCF4080DA6BD0E /* CameraUtil.swift */; };
 		9E04B544B94680E6D0270437 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04BD167436B52702375ABC /* Common.swift */; };
 		9E04B5454634C3A52D00058A /* LabelScannerOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B27BF5D2A9200CBC7D1D /* LabelScannerOverlayView.swift */; };
+		9E04B748F4DBF3CBB2ABAD4A /* LabelScannerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04BA7C75C3AF19E69A510A /* LabelScannerViewModel.swift */; };
 		9E04B7505FD17516F7996F3A /* Dimensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B87D15FDBB8C359F6235 /* Dimensions.swift */; };
+		9E04B7F294A2ECE09AB0BDA2 /* LabelScannerActionButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04BAC86FBCB14C754D2ADC /* LabelScannerActionButtons.swift */; };
+		9E04B80AEEFA615037AFD2D8 /* LabelTypePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B067C1A5FE22B3F9F164 /* LabelTypePickerView.swift */; };
 		9E04B8699075720B0B4A2692 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B5990AFB8E3D0DF17188 /* CameraView.swift */; };
+		9E04B8EFB7FEE10A265DC975 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B142D33F6E3AC48C9FF9 /* API.swift */; };
 		9E04B90C5EA0DF367FE35AFD /* LabelScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04BAC96CFB27478E9AFA42 /* LabelScannerView.swift */; };
 		9E04BA24D04B3AA88269BC74 /* CameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B5CD47A28F0852F6DEFF /* CameraController.swift */; };
 		9E04BB051D7E409EC334FD8B /* Icons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B8E9B103A32459D4568C /* Icons.swift */; };
 		9E04BB17B3BDE8728BAF761B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B5D30937AB3EE9506EEE /* ContentView.swift */; };
-		9E04BC09E8AE273BAB1E1064 /* Nutrition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04BD6F77D065B0E25DB986 /* Nutrition.swift */; };
-		9E04BC1CF628CD066A2BF3BA /* TypeAliases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B39BC4EE203F78971A94 /* TypeAliases.swift */; };
+		9E04BBD795334AC0BBB0C4A5 /* Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B871BED1E591F3F08FFA /* Combine.swift */; };
 		9E04BCAB5E4B867BF3960782 /* SwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04BAA4FD1CB39D6A2F2084 /* SwiftUI.swift */; };
-		9E04BD24311A4645BFA1E6E5 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04BC879C4E9A1F3D0B670D /* API.swift */; };
 		9E04BDAC7C97D8F2252012E5 /* Typography.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B1C29ECB90493462BCB4 /* Typography.swift */; };
 		9E04BEC2EE1485DE2071FEEA /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B05B31A950ACF965B49A /* Colors.swift */; };
 		9E04BFE2FB40387B47CB3BDC /* Logging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B61BDB41D939BF20F08F /* Logging.swift */; };
@@ -48,23 +52,27 @@
 		360BDE15D326DC1D0640C815 /* Pods-LabelWise.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LabelWise.release.xcconfig"; path = "Target Support Files/Pods-LabelWise/Pods-LabelWise.release.xcconfig"; sourceTree = "<group>"; };
 		4AACC73C2D10015894BA828D /* Pods-LabelWise.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LabelWise.debug.xcconfig"; path = "Target Support Files/Pods-LabelWise/Pods-LabelWise.debug.xcconfig"; sourceTree = "<group>"; };
 		9E04B05B31A950ACF965B49A /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		9E04B067C1A5FE22B3F9F164 /* LabelTypePickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelTypePickerView.swift; sourceTree = "<group>"; };
+		9E04B142D33F6E3AC48C9FF9 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		9E04B1C29ECB90493462BCB4 /* Typography.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Typography.swift; sourceTree = "<group>"; };
 		9E04B27BF5D2A9200CBC7D1D /* LabelScannerOverlayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelScannerOverlayView.swift; sourceTree = "<group>"; };
 		9E04B36285890D7DEA0D4652 /* LabelAnalysisService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelAnalysisService.swift; sourceTree = "<group>"; };
-		9E04B39BC4EE203F78971A94 /* TypeAliases.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypeAliases.swift; sourceTree = "<group>"; };
 		9E04B5990AFB8E3D0DF17188 /* CameraView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		9E04B5CD47A28F0852F6DEFF /* CameraController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraController.swift; sourceTree = "<group>"; };
 		9E04B5D30937AB3EE9506EEE /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		9E04B61BDB41D939BF20F08F /* Logging.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logging.swift; sourceTree = "<group>"; };
+		9E04B871BED1E591F3F08FFA /* Combine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Combine.swift; sourceTree = "<group>"; };
 		9E04B87D15FDBB8C359F6235 /* Dimensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dimensions.swift; sourceTree = "<group>"; };
 		9E04B8A4CAFCF4080DA6BD0E /* CameraUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraUtil.swift; sourceTree = "<group>"; };
 		9E04B8E9B103A32459D4568C /* Icons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Icons.swift; sourceTree = "<group>"; };
 		9E04BA2103C1A69F655989A5 /* CommonViewModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonViewModels.swift; sourceTree = "<group>"; };
+		9E04BA7C75C3AF19E69A510A /* LabelScannerViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelScannerViewModel.swift; sourceTree = "<group>"; };
 		9E04BAA4FD1CB39D6A2F2084 /* SwiftUI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftUI.swift; sourceTree = "<group>"; };
+		9E04BAC86FBCB14C754D2ADC /* LabelScannerActionButtons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelScannerActionButtons.swift; sourceTree = "<group>"; };
 		9E04BAC96CFB27478E9AFA42 /* LabelScannerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelScannerView.swift; sourceTree = "<group>"; };
-		9E04BC879C4E9A1F3D0B670D /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		9E04BC8096C70C13098A91F5 /* TypeAliases.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypeAliases.swift; sourceTree = "<group>"; };
 		9E04BD167436B52702375ABC /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
-		9E04BD6F77D065B0E25DB986 /* Nutrition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Nutrition.swift; sourceTree = "<group>"; };
+		9E04BD22E17A4E06408029C2 /* Nutrition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Nutrition.swift; sourceTree = "<group>"; };
 		FBB96129287D3E7C9C1E8B9C /* Pods_LabelWise.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LabelWise.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -116,9 +124,9 @@
 				119F8AD6244A7D4300BB173A /* Info.plist */,
 				119F8AD0244A7D4300BB173A /* Preview Content */,
 				9E04BFA38526EDB3D7CDABAF /* Views */,
-				9E04B39BC4EE203F78971A94 /* TypeAliases.swift */,
 				9E04B192A505AA3051D1C716 /* Service */,
 				9E04BDD525AD8F4399F2A4A4 /* Models */,
+				9E04BBFEA95FF88889468066 /* Utils */,
 			);
 			path = LabelWise;
 			sourceTree = "<group>";
@@ -161,6 +169,15 @@
 			path = Util;
 			sourceTree = "<group>";
 		};
+		9E04B42059B027628CE51719 /* DTO */ = {
+			isa = PBXGroup;
+			children = (
+				9E04B142D33F6E3AC48C9FF9 /* API.swift */,
+				9E04BD22E17A4E06408029C2 /* Nutrition.swift */,
+			);
+			path = DTO;
+			sourceTree = "<group>";
+		};
 		9E04B55A7AA51B375FE5F85D /* LabelScanner */ = {
 			isa = PBXGroup;
 			children = (
@@ -168,8 +185,20 @@
 				9E04B27BF5D2A9200CBC7D1D /* LabelScannerOverlayView.swift */,
 				11418C87244D4336001F8E27 /* LabelScannerOverlayHeaderView.swift */,
 				11418C89244D43FD001F8E27 /* LabelScannerOverlayFooterView.swift */,
+				9E04BA7C75C3AF19E69A510A /* LabelScannerViewModel.swift */,
+				9E04BAC86FBCB14C754D2ADC /* LabelScannerActionButtons.swift */,
+				9E04B067C1A5FE22B3F9F164 /* LabelTypePickerView.swift */,
 			);
 			path = LabelScanner;
+			sourceTree = "<group>";
+		};
+		9E04BBFEA95FF88889468066 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				9E04BC8096C70C13098A91F5 /* TypeAliases.swift */,
+				9E04B871BED1E591F3F08FFA /* Combine.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		9E04BC172A65632585C42EE0 /* Common */ = {
@@ -184,8 +213,7 @@
 			isa = PBXGroup;
 			children = (
 				9E04BD167436B52702375ABC /* Common.swift */,
-				9E04BC879C4E9A1F3D0B670D /* API.swift */,
-				9E04BD6F77D065B0E25DB986 /* Nutrition.swift */,
+				9E04B42059B027628CE51719 /* DTO */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -333,7 +361,6 @@
 				11418C8A244D43FD001F8E27 /* LabelScannerOverlayFooterView.swift in Sources */,
 				9E04B5454634C3A52D00058A /* LabelScannerOverlayView.swift in Sources */,
 				9E04BA24D04B3AA88269BC74 /* CameraController.swift in Sources */,
-				9E04BC1CF628CD066A2BF3BA /* TypeAliases.swift in Sources */,
 				11418C88244D4336001F8E27 /* LabelScannerOverlayHeaderView.swift in Sources */,
 				9E04B8699075720B0B4A2692 /* CameraView.swift in Sources */,
 				9E04B4B7AFC55A84E1F3654A /* CameraUtil.swift in Sources */,
@@ -347,8 +374,13 @@
 				9E04B0D78F9E76CC6959A2E8 /* CommonViewModels.swift in Sources */,
 				9E04B544B94680E6D0270437 /* Common.swift in Sources */,
 				9E04BCAB5E4B867BF3960782 /* SwiftUI.swift in Sources */,
-				9E04BD24311A4645BFA1E6E5 /* API.swift in Sources */,
-				9E04BC09E8AE273BAB1E1064 /* Nutrition.swift in Sources */,
+				9E04B8EFB7FEE10A265DC975 /* API.swift in Sources */,
+				9E04B0EFCA6C6F9FB2ACF2FD /* Nutrition.swift in Sources */,
+				9E04B748F4DBF3CBB2ABAD4A /* LabelScannerViewModel.swift in Sources */,
+				9E04B142786F16FB6E2E3BBF /* TypeAliases.swift in Sources */,
+				9E04BBD795334AC0BBB0C4A5 /* Combine.swift in Sources */,
+				9E04B7F294A2ECE09AB0BDA2 /* LabelScannerActionButtons.swift in Sources */,
+				9E04B80AEEFA615037AFD2D8 /* LabelTypePickerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
