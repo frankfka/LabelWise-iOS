@@ -10,51 +10,64 @@ import AVFoundation
 // MARK: View Model
 extension LabelScannerView {
     class ViewModel: ObservableObject {
-        @Published var takePicture: Bool = false
-        @Published var isTakingPicture: Bool = false
+        @Published var takePicture: Bool = false // Indicates if we are taking a picture. Image is first captured when this is toggled
         @Published var capturedImage: LabelImage? = nil
-        @Published var viewMode: ViewModel.ViewMode = .takePhoto
-        @Published var selectedLabelTypeIndex: Int = 0 // TODO bundle this with type picker vm
+        @Published var viewState: ViewModel.ViewState = .takePhoto
+        // Label types (nutrition/ingredients)
+        @Published var selectedLabelTypeIndex: Int = 0
+        let labelTypes: [AnalyzeType] = AnalyzeType.allCases
 
         // Errors
         @Published var cameraError: AppError? = nil
     }
 }
+
 extension LabelScannerView.ViewModel {
-    enum ViewMode {
+    enum ViewState {
         case takePhoto
         case confirmPhoto
-    }
-    // TODO: This should come from model
-    enum LabelTypes: String, CaseIterable {
-        case nutrition = "Nutrition"
-        case ingredients = "Ingredients"
     }
 
     // For label type picker
     struct LabelTypePickerViewModel: PickerViewModel {
         var selectedIndex: Binding<Int>
-        let items: [String] = LabelTypes.allCases.map { $0.rawValue }
+        let items: [String]
 
-        init(selectedIndex: Binding<Int>) {
+        init(selectedIndex: Binding<Int>, items: [String]) {
             self.selectedIndex = selectedIndex
+            self.items = items
+        }
+    }
+}
+
+extension AnalyzeType {
+    func getPickerName() -> String {
+        switch self {
+        case .nutrition:
+            return "Nutrition"
+        case .ingredients:
+            return "Ingredients"
         }
     }
 }
 
 // TODO: status bar color
 // TODO: Loading and error views
+// MARK: View
 struct LabelScannerView: View {
 
     @ObservedObject private var viewModel: ViewModel = ViewModel()
 
     private var labelTypeVm: ViewModel.LabelTypePickerViewModel {
-        ViewModel.LabelTypePickerViewModel(selectedIndex: self.$viewModel.selectedLabelTypeIndex)
+        ViewModel.LabelTypePickerViewModel(
+                selectedIndex: self.$viewModel.selectedLabelTypeIndex,
+                items: self.viewModel.labelTypes.map {
+                    $0.getPickerName()
+                })
     }
-
     private var overlayViewVm: LabelScannerOverlayView.ViewModel {
         return LabelScannerOverlayView.ViewModel(
-                viewMode: self.$viewModel.viewMode,
+                viewMode: self.$viewModel.viewState,
                 labelTypePickerVm: labelTypeVm,
                 onCapturePhotoTapped: self.onCapturePhotoTapped,
                 onConfirmPhotoAction: self.onConfirmPhotoAction
@@ -95,24 +108,21 @@ struct LabelScannerView: View {
 
     // MARK: Callbacks
     private func onCapturePhotoTapped() {
-        if !self.viewModel.isTakingPicture {
+        if !self.viewModel.takePicture {
             // Take a picture if one isn't in progress
             self.viewModel.takePicture = true
-            self.viewModel.isTakingPicture = true
             // TODO: Some loading state
+        } else {
+            AppLogging.debug("Attempting to capture photo while current operation is in progress. Skipping")
         }
     }
 
     private func onPhotoCapture(photo: LabelImage?, error: AppError?) {
+        // TODO: Do a check that the current photo is nil, this makes sure we dont keep taking pictures
         self.viewModel.takePicture = false
-        self.viewModel.isTakingPicture = false
         if let photo = photo, error == nil {
-            if let uiImage = UIImage(data: photo.fullFileData) {
-                self.viewModel.capturedImage = photo
-                self.viewModel.viewMode = .confirmPhoto
-            } else {
-                self.viewModel.cameraError = AppError("Unable to convert photo into a UI image")
-            }
+            self.viewModel.capturedImage = photo
+            self.viewModel.viewState = .confirmPhoto
         } else {
             self.viewModel.cameraError = error
         }
@@ -127,7 +137,7 @@ struct LabelScannerView: View {
             }
             // TODO: somehow analyze, then propagate state to next page
         } else {
-            self.viewModel.viewMode = .takePhoto
+            self.viewModel.viewState = .takePhoto
             self.viewModel.capturedImage = nil
         }
     }

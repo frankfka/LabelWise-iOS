@@ -14,9 +14,9 @@ struct LabelScannerOverlayFooterView: View {
         let onCapturePhotoTapped: VoidCallback?
         let onConfirmPhotoAction: BoolCallback?
         var labelTypePickerVm: PickerViewModel
-        @Binding var viewMode: LabelScannerView.ViewModel.ViewMode
+        @Binding var viewMode: LabelScannerView.ViewModel.ViewState
 
-        init(viewMode: Binding<LabelScannerView.ViewModel.ViewMode>, labelTypePickerVm: PickerViewModel,
+        init(viewMode: Binding<LabelScannerView.ViewModel.ViewState>, labelTypePickerVm: PickerViewModel,
              onCapturePhotoTapped: VoidCallback? = nil, onConfirmPhotoAction: BoolCallback? = nil) {
             self._viewMode = viewMode
             self.labelTypePickerVm = labelTypePickerVm
@@ -166,7 +166,7 @@ struct AnalyzeTypePicker: View {
 
 
 struct LabelScannerOverlayFooterView_Previews: PreviewProvider {
-    static let labelTypePickerVm = LabelScannerView.ViewModel.LabelTypePickerViewModel(selectedIndex: .constant(0))
+    static let labelTypePickerVm = LabelScannerView.ViewModel.LabelTypePickerViewModel(selectedIndex: .constant(0), items: AnalyzeType.allCases.map { $0.getPickerName() })
     static let vm = LabelScannerOverlayFooterView.ViewModel(viewMode: .constant(.takePhoto), labelTypePickerVm: labelTypePickerVm)
     static var previews: some View {
         LabelScannerOverlayFooterView(vm: vm)

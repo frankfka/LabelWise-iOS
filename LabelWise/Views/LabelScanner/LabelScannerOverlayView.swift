@@ -15,12 +15,12 @@ struct LabelScannerOverlayView: View {
 
     class ViewModel: ObservableObject {
 
-        @Binding var viewMode: LabelScannerView.ViewModel.ViewMode
+        @Binding var viewMode: LabelScannerView.ViewModel.ViewState
         var labelTypePickerVm: PickerViewModel
         let onCapturePhotoTapped: VoidCallback?
         let onConfirmPhotoAction: BoolCallback?
 
-        init(viewMode: Binding<LabelScannerView.ViewModel.ViewMode>, labelTypePickerVm: PickerViewModel,
+        init(viewMode: Binding<LabelScannerView.ViewModel.ViewState>, labelTypePickerVm: PickerViewModel,
              onCapturePhotoTapped: VoidCallback? = nil, onConfirmPhotoAction: BoolCallback? = nil) {
             self._viewMode = viewMode
             self.labelTypePickerVm = labelTypePickerVm
