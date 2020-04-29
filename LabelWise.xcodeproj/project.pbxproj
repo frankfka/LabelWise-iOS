@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		110DF0622459D3CF00E78245 /* MacronutrientRings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110DF0612459D3CF00E78245 /* MacronutrientRings.swift */; };
 		11418C88244D4336001F8E27 /* LabelScannerOverlayHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11418C87244D4336001F8E27 /* LabelScannerOverlayHeaderView.swift */; };
 		11418C8A244D43FD001F8E27 /* LabelScannerOverlayFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11418C89244D43FD001F8E27 /* LabelScannerOverlayFooterView.swift */; };
 		1147D7642457A95200A5D749 /* PercentageRing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1147D7632457A95200A5D749 /* PercentageRing.swift */; };
@@ -42,6 +43,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		110DF0612459D3CF00E78245 /* MacronutrientRings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacronutrientRings.swift; sourceTree = "<group>"; };
 		11418C87244D4336001F8E27 /* LabelScannerOverlayHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelScannerOverlayHeaderView.swift; sourceTree = "<group>"; };
 		11418C89244D43FD001F8E27 /* LabelScannerOverlayFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelScannerOverlayFooterView.swift; sourceTree = "<group>"; };
 		1147D7632457A95200A5D749 /* PercentageRing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PercentageRing.swift; sourceTree = "<group>"; };
@@ -103,18 +105,19 @@
 		1147D7622457A90400A5D749 /* Charts */ = {
 			isa = PBXGroup;
 			children = (
-				1147D7652457AA9600A5D749 /* Misc */,
-				1147D7632457A95200A5D749 /* PercentageRing.swift */,
+				1147D7652457AA9600A5D749 /* Subcomponents */,
+				110DF0612459D3CF00E78245 /* MacronutrientRings.swift */,
 			);
 			path = Charts;
 			sourceTree = "<group>";
 		};
-		1147D7652457AA9600A5D749 /* Misc */ = {
+		1147D7652457AA9600A5D749 /* Subcomponents */ = {
 			isa = PBXGroup;
 			children = (
+				1147D7632457A95200A5D749 /* PercentageRing.swift */,
 				1147D7662457AAAF00A5D749 /* RingShape.swift */,
 			);
-			path = Misc;
+			path = Subcomponents;
 			sourceTree = "<group>";
 		};
 		119F8ABC244A7D3B00BB173A = {
@@ -387,6 +390,7 @@
 				11418C88244D4336001F8E27 /* LabelScannerOverlayHeaderView.swift in Sources */,
 				9E04B8699075720B0B4A2692 /* CameraView.swift in Sources */,
 				9E04B4B7AFC55A84E1F3654A /* CameraUtil.swift in Sources */,
+				110DF0622459D3CF00E78245 /* MacronutrientRings.swift in Sources */,
 				9E04B02AC89E419B26B7CEC0 /* LabelAnalysisService.swift in Sources */,
 				9E04BDAC7C97D8F2252012E5 /* Typography.swift in Sources */,
 				9E04BEC2EE1485DE2071FEEA /* Colors.swift in Sources */,
