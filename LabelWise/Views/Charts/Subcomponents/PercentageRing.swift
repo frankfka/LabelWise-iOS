@@ -22,18 +22,18 @@ struct PercentageRing: View {
     private static let ShadowColor: Color = Color.black.opacity(0.2)
     private static let ShadowRadius: CGFloat = 5
     private static let ShadowOffsetMultiplier: CGFloat = ShadowRadius + 2
-    
+    private static let AnimationDuration: Double = 0.6
+
+    // Used for animations
+    @State private var displayedPercent: Double = 0
+    @State private var gradientAndEndCircleOpacity: Double = 0
+
+    // All calculations are done with percent, not the animated displayPercent
     private let ringWidth: CGFloat
-    @Binding private var percent: Double
+    private let percent: Double
     private let backgroundColor: Color
     private let foregroundColors: [Color]
     private let startAngle: Double = -90
-    private var gradientStartAngle: Double {
-        self.percent >= 100 ? relativePercentageAngle - 360 : startAngle
-    }
-    private var gradientEndAngle: Double {
-        self.percent >= 100 ? relativePercentageAngle : startAngle + 360
-    }
     private var absolutePercentageAngle: Double {
         RingShape.percentToAngle(percent: self.percent, startAngle: 0)
     }
@@ -46,6 +46,12 @@ struct PercentageRing: View {
     }
     private var lastGradientColor: Color {
         self.foregroundColors.last ?? .black
+    }
+    private var gradientStartAngle: Double {
+        self.percent >= 100 ? relativePercentageAngle - 360 : startAngle
+    }
+    private var gradientEndAngle: Double {
+        self.percent >= 100 ? relativePercentageAngle : startAngle + 360
     }
     private var ringGradient: AngularGradient {
         AngularGradient(
@@ -65,9 +71,9 @@ struct PercentageRing: View {
         return (xOffset, yOffset)
     }
     
-    init(percent: Binding<Double>, ringWidth: CGFloat, backgroundColor: Color, foregroundColors: [Color]) {
+    init(percent: Double, ringWidth: CGFloat, backgroundColor: Color, foregroundColors: [Color]) {
         self.ringWidth = ringWidth
-        self._percent = percent
+        self.percent = percent
         self.backgroundColor = backgroundColor
         self.foregroundColors = foregroundColors
     }
@@ -79,10 +85,16 @@ struct PercentageRing: View {
                 RingShape()
                     .stroke(style: StrokeStyle(lineWidth: self.ringWidth))
                     .fill(self.backgroundColor)
-                // Foreground
-                RingShape(percent: self.percent, startAngle: self.startAngle)
+                // Foreground - this is the start color displayed immediately
+                RingShape(percent: self.displayedPercent, startAngle: self.startAngle)
+                        .stroke(style: StrokeStyle(lineWidth: self.ringWidth, lineCap: .round))
+                        .fill(self.firstGradientColor)
+                // Foreground - this is the gradient color that we display after a certain time
+                // This is somewhat of a workaround for a nice animation to run
+                RingShape(percent: self.displayedPercent, startAngle: self.startAngle)
                     .stroke(style: StrokeStyle(lineWidth: self.ringWidth, lineCap: .round))
                     .fill(self.ringGradient)
+                    .opacity(self.gradientAndEndCircleOpacity)
                 // Beginning of ring to cover the gradient cutoff
                 if !self.doesRingOverlap(frame: geometry.size) {
                     Circle()
@@ -102,11 +114,25 @@ struct PercentageRing: View {
                                 radius: PercentageRing.ShadowRadius,
                                 x: self.endCircleShadowOffset.0,
                                 y: self.endCircleShadowOffset.1)
+                        .opacity(self.gradientAndEndCircleOpacity)
                 }
             }
         }
         // Padding to ensure that the entire ring fits within the view size allocated
         .padding(self.ringWidth / 2)
+        .onAppear {
+            self.runOnAppearAnimation()
+        }
+    }
+
+    // Animation for onAppear
+    private func runOnAppearAnimation(duration: Double = PercentageRing.AnimationDuration) {
+        withAnimation(.easeInOut(duration: duration)) {
+            self.displayedPercent = percent
+        }
+        withAnimation(Animation.easeInOut(duration: duration / 2).delay(duration / 2)) {
+            self.gradientAndEndCircleOpacity = 1
+        }
     }
     
     // Returns (x, y) location of the start of the arc
@@ -126,7 +152,6 @@ struct PercentageRing: View {
     
     // Determines whether the ring overlaps with itself using the ring width to calculate arc length
     private func doesRingOverlap(frame: CGSize) -> Bool {
-        print("called")
         let circleRadius = min(frame.width, frame.height) / 2
         let remainingAngleInRadians = (360 - absolutePercentageAngle).toRadians().toCGFloat()
         if self.percent >= 100 {
@@ -143,7 +168,7 @@ struct PercentageRing_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             PercentageRing(
-                percent: .constant(150), ringWidth: 50,
+                percent: 80, ringWidth: 50,
                 backgroundColor: Color.green.opacity(0.2),
                 foregroundColors: [.green, .blue]
             )
