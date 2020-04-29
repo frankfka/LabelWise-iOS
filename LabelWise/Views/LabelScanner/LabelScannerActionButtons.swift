@@ -59,7 +59,7 @@ struct PhotoActionIcons: View {
     private static let ButtonSpacing: CGFloat = CGFloat.App.Layout.extraLargePadding
     private let onConfirmPhotoAction: BoolCallback?
 
-    init(onConfirmPhotoAction: BoolCallback?) {
+    init(onConfirmPhotoAction: BoolCallback? = nil) {
         self.onConfirmPhotoAction = onConfirmPhotoAction
     }
 
@@ -80,5 +80,18 @@ struct PhotoActionIcons: View {
                 .onTapGesture {
                     self.onConfirmPhotoAction?(isConfirm)
                 }
+    }
+}
+
+struct LabelScannerActionButtons_Previews: PreviewProvider {
+    static var previews: some View {
+        Group {
+            // Capture icon
+            CaptureIcon()
+                .background(Color.black)
+            // Action Icons
+            PhotoActionIcons()
+                .background(Color.black)
+        }.previewLayout(.sizeThatFits)
     }
 }

@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		11418C88244D4336001F8E27 /* LabelScannerOverlayHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11418C87244D4336001F8E27 /* LabelScannerOverlayHeaderView.swift */; };
 		11418C8A244D43FD001F8E27 /* LabelScannerOverlayFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11418C89244D43FD001F8E27 /* LabelScannerOverlayFooterView.swift */; };
+		1147D7642457A95200A5D749 /* PercentageRing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1147D7632457A95200A5D749 /* PercentageRing.swift */; };
+		1147D7672457AAAF00A5D749 /* RingShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1147D7662457AAAF00A5D749 /* RingShape.swift */; };
 		119F8AC9244A7D3C00BB173A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 119F8AC8244A7D3C00BB173A /* AppDelegate.swift */; };
 		119F8ACB244A7D3C00BB173A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 119F8ACA244A7D3C00BB173A /* SceneDelegate.swift */; };
 		119F8ACF244A7D4300BB173A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 119F8ACE244A7D4300BB173A /* Assets.xcassets */; };
@@ -42,6 +44,8 @@
 /* Begin PBXFileReference section */
 		11418C87244D4336001F8E27 /* LabelScannerOverlayHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelScannerOverlayHeaderView.swift; sourceTree = "<group>"; };
 		11418C89244D43FD001F8E27 /* LabelScannerOverlayFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelScannerOverlayFooterView.swift; sourceTree = "<group>"; };
+		1147D7632457A95200A5D749 /* PercentageRing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PercentageRing.swift; sourceTree = "<group>"; };
+		1147D7662457AAAF00A5D749 /* RingShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RingShape.swift; sourceTree = "<group>"; };
 		119F8AC5244A7D3B00BB173A /* LabelWise.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LabelWise.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		119F8AC8244A7D3C00BB173A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		119F8ACA244A7D3C00BB173A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -94,6 +98,23 @@
 				FBB96129287D3E7C9C1E8B9C /* Pods_LabelWise.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1147D7622457A90400A5D749 /* Charts */ = {
+			isa = PBXGroup;
+			children = (
+				1147D7652457AA9600A5D749 /* Misc */,
+				1147D7632457A95200A5D749 /* PercentageRing.swift */,
+			);
+			path = Charts;
+			sourceTree = "<group>";
+		};
+		1147D7652457AA9600A5D749 /* Misc */ = {
+			isa = PBXGroup;
+			children = (
+				1147D7662457AAAF00A5D749 /* RingShape.swift */,
+			);
+			path = Misc;
 			sourceTree = "<group>";
 		};
 		119F8ABC244A7D3B00BB173A = {
@@ -231,6 +252,7 @@
 		9E04BFA38526EDB3D7CDABAF /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				1147D7622457A90400A5D749 /* Charts */,
 				9E04B55A7AA51B375FE5F85D /* LabelScanner */,
 				9E04BE849DFE7936902898BC /* Camera */,
 				9E04B2B64C022DC0252E846E /* Util */,
@@ -358,6 +380,7 @@
 				119F8AC9244A7D3C00BB173A /* AppDelegate.swift in Sources */,
 				119F8ACB244A7D3C00BB173A /* SceneDelegate.swift in Sources */,
 				9E04B90C5EA0DF367FE35AFD /* LabelScannerView.swift in Sources */,
+				1147D7672457AAAF00A5D749 /* RingShape.swift in Sources */,
 				11418C8A244D43FD001F8E27 /* LabelScannerOverlayFooterView.swift in Sources */,
 				9E04B5454634C3A52D00058A /* LabelScannerOverlayView.swift in Sources */,
 				9E04BA24D04B3AA88269BC74 /* CameraController.swift in Sources */,
@@ -370,6 +393,7 @@
 				9E04BB051D7E409EC334FD8B /* Icons.swift in Sources */,
 				9E04B7505FD17516F7996F3A /* Dimensions.swift in Sources */,
 				9E04BB17B3BDE8728BAF761B /* ContentView.swift in Sources */,
+				1147D7642457A95200A5D749 /* PercentageRing.swift in Sources */,
 				9E04BFE2FB40387B47CB3BDC /* Logging.swift in Sources */,
 				9E04B0D78F9E76CC6959A2E8 /* CommonViewModels.swift in Sources */,
 				9E04B544B94680E6D0270437 /* Common.swift in Sources */,
