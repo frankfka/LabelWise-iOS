@@ -1,14 +1,11 @@
 import Foundation
 import SwiftUI
 
+// TODO: https://uxdesign.cc/a-five-minute-guide-to-better-typography-for-ios-4e3c2715ceb4
 struct AppTypography {
     let heading: Font = .system(size: CGFloat.App.Font.large, weight: .semibold, design: .default)
     let normalText: Font = .system(size: CGFloat.App.Font.normal, weight: .medium, design: .default)
-    let normalTextUIFont: UIFont = .systemFont(ofSize: CGFloat.App.Font.normal, weight: .medium)
-    let smallText: Font = .system(size: CGFloat.App.Font.small, weight: .medium, design: .default)
-
-    let boldAccentText: Font = .system(size: CGFloat.App.Font.large, weight: .medium, design: .default)
-    let boldNormalText: Font = .system(size: CGFloat.App.Font.normal, weight: .medium, design: .default)
+    let smallText: Font = .system(size: CGFloat.App.Font.small, weight: .regular, design: .default)
 }
 
 extension Font {

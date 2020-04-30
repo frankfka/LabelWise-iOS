@@ -15,6 +15,14 @@ struct AppColors {
 
     // Background colors
     let overlay: Color = Color.black.opacity(0.8)
+
+    // Indicator colors
+    let ProteinIndicator: Color = Color("ProteinIndicator")
+    let ProteinIndicatorLight: Color = Color("ProteinIndicatorLight")
+    let CarbIndicator: Color = Color("CarbIndicator")
+    let CarbIndicatorLight: Color = Color("CarbIndicatorLight")
+    let FatIndicator: Color = Color("FatIndicator")
+    let FatIndicatorLight: Color = Color("FatIndicatorLight")
 }
 
 extension Color {
