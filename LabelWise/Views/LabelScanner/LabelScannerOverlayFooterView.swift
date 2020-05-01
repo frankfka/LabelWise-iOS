@@ -44,7 +44,7 @@ struct LabelScannerOverlayFooterView: View {
     var body: some View {
         VStack {
             // Type picker
-            LabelTypePickerView(vm: self.viewModel.labelTypePickerVm)
+            SegmentedPicker(vm: self.viewModel.labelTypePickerVm)
                 .padding(.horizontal, CGFloat.App.Layout.largePadding)
                 .padding(.bottom, CGFloat.App.Layout.normalPadding)
             // Action icons

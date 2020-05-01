@@ -8,15 +8,6 @@
 
 import SwiftUI
 
-extension Double {
-    func toRadians() -> Double {
-        return self * Double.pi / 180
-    }
-    func toCGFloat() -> CGFloat {
-        return CGFloat(self)
-    }
-}
-
 struct PercentageRing: View {
     
     private static let ShadowColor: Color = Color.App.Shadow

@@ -25,7 +25,7 @@ extension LabelScannerOverlayView {
 
 // MARK: View
 struct LabelScannerOverlayView: View {
-    private static let ViewFinderCornerRadius: CGFloat = CGFloat.App.Layout.LargeCornerRadius
+    private static let ViewFinderCornerRadius: CGFloat = CGFloat.App.Layout.CornerRadius
     private static let ViewFinderRelativeWidth: CGFloat = 0.8
     private static var ViewFinderRelativeWidthPadding: CGFloat {
         (1.0 - ViewFinderRelativeWidth) / 2

@@ -26,8 +26,7 @@ struct AppDimensions {
         let smallPadding: CGFloat = 8
         let extraSmallPadding: CGFloat = 4
 
-        let SmallCornerRadius: CGFloat = 16
-        let LargeCornerRadius: CGFloat = 24
+        let CornerRadius: CGFloat = 16
 
         // For drop shadows
         let ShadowRadius: CGFloat = 4
@@ -39,4 +38,19 @@ struct AppDimensions {
 
 extension CGFloat {
     static let App = AppDimensions()
+}
+
+
+extension Double {
+    func toRadians() -> Double {
+        return self * Double.pi / 180
+    }
+    func toCGFloat() -> CGFloat {
+        return CGFloat(self)
+    }
+}
+extension Int {
+    func toCGFloat() -> CGFloat {
+        return CGFloat(self)
+    }
 }
