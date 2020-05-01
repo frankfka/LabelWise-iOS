@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		110DF064245B1BD000E78245 /* NutritionAnalysisView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110DF063245B1BCF00E78245 /* NutritionAnalysisView.swift */; };
 		110DF067245B1C3300E78245 /* MacronutrientSummaryTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110DF066245B1C3300E78245 /* MacronutrientSummaryTextView.swift */; };
+		110DF069245BE39F00E78245 /* SegmentedPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110DF068245BE39F00E78245 /* SegmentedPicker.swift */; };
 		11418C88244D4336001F8E27 /* LabelScannerOverlayHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11418C87244D4336001F8E27 /* LabelScannerOverlayHeaderView.swift */; };
 		11418C8A244D43FD001F8E27 /* LabelScannerOverlayFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11418C89244D43FD001F8E27 /* LabelScannerOverlayFooterView.swift */; };
 		119F8AC9244A7D3C00BB173A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 119F8AC8244A7D3C00BB173A /* AppDelegate.swift */; };
@@ -48,6 +49,7 @@
 /* Begin PBXFileReference section */
 		110DF063245B1BCF00E78245 /* NutritionAnalysisView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionAnalysisView.swift; sourceTree = "<group>"; };
 		110DF066245B1C3300E78245 /* MacronutrientSummaryTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacronutrientSummaryTextView.swift; sourceTree = "<group>"; };
+		110DF068245BE39F00E78245 /* SegmentedPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedPicker.swift; sourceTree = "<group>"; };
 		11418C87244D4336001F8E27 /* LabelScannerOverlayHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelScannerOverlayHeaderView.swift; sourceTree = "<group>"; };
 		11418C89244D43FD001F8E27 /* LabelScannerOverlayFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelScannerOverlayFooterView.swift; sourceTree = "<group>"; };
 		119F8AC5244A7D3B00BB173A /* LabelWise.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LabelWise.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -228,6 +230,7 @@
 			isa = PBXGroup;
 			children = (
 				9E04BA2103C1A69F655989A5 /* CommonViewModels.swift */,
+				110DF068245BE39F00E78245 /* SegmentedPicker.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -412,6 +415,7 @@
 				9E04BB051D7E409EC334FD8B /* Icons.swift in Sources */,
 				9E04B7505FD17516F7996F3A /* Dimensions.swift in Sources */,
 				110DF067245B1C3300E78245 /* MacronutrientSummaryTextView.swift in Sources */,
+				110DF069245BE39F00E78245 /* SegmentedPicker.swift in Sources */,
 				9E04BB17B3BDE8728BAF761B /* ContentView.swift in Sources */,
 				9E04BFE2FB40387B47CB3BDC /* Logging.swift in Sources */,
 				9E04B0D78F9E76CC6959A2E8 /* CommonViewModels.swift in Sources */,

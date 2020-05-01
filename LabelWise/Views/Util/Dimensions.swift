@@ -26,7 +26,11 @@ struct AppDimensions {
         let smallPadding: CGFloat = 8
         let extraSmallPadding: CGFloat = 4
 
-        let cornerRadius: CGFloat = 24
+        let SmallCornerRadius: CGFloat = 16
+        let LargeCornerRadius: CGFloat = 24
+
+        // For drop shadows
+        let ShadowRadius: CGFloat = 4
 
         // Icons
         let iconSize: CGFloat = 24

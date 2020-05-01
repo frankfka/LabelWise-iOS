@@ -25,12 +25,12 @@ extension LabelScannerOverlayView {
 
 // MARK: View
 struct LabelScannerOverlayView: View {
-    private static let ViewFinderCornerRadius: CGFloat = CGFloat.App.Layout.cornerRadius
+    private static let ViewFinderCornerRadius: CGFloat = CGFloat.App.Layout.LargeCornerRadius
     private static let ViewFinderRelativeWidth: CGFloat = 0.8
     private static var ViewFinderRelativeWidthPadding: CGFloat {
         (1.0 - ViewFinderRelativeWidth) / 2
     }
-    static let OverlayColor = Color.App.overlay
+    static let OverlayColor = Color.App.Overlay
     private let viewModel: ViewModel
     private var footerViewModel: LabelScannerOverlayFooterView.ViewModel {
         return LabelScannerOverlayFooterView.ViewModel(
@@ -75,5 +75,11 @@ struct LabelScannerOverlayView: View {
         var shape = Rectangle().path(in: parentRect)
         shape.addPath(RoundedRectangle(cornerRadius: LabelScannerOverlayView.ViewFinderCornerRadius).path(in: cutoutRect))
         return shape
+    }
+}
+
+struct LabelScannerOverlayView_Previews: PreviewProvider {
+    static var previews: some View {
+        /*@START_MENU_TOKEN@*/Text("Hello, World!")/*@END_MENU_TOKEN@*/
     }
 }

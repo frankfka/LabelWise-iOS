@@ -19,8 +19,8 @@ extension Double {
 
 struct PercentageRing: View {
     
-    private static let ShadowColor: Color = Color.black.opacity(0.2)
-    private static let ShadowRadius: CGFloat = 5
+    private static let ShadowColor: Color = Color.App.Shadow
+    private static let ShadowRadius: CGFloat = CGFloat.App.Layout.ShadowRadius
     private static let ShadowOffsetMultiplier: CGFloat = ShadowRadius + 2
     private static let AnimationDuration: Double = 0.6
 
@@ -168,7 +168,7 @@ struct PercentageRing_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             PercentageRing(
-                percent: 80, ringWidth: 50,
+                percent: 180, ringWidth: 50,
                 backgroundColor: Color.green.opacity(0.2),
                 foregroundColors: [.green, .blue]
             )

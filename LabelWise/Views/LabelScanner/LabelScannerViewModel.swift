@@ -10,9 +10,10 @@ import Combine
 extension LabelScannerView {
     class ViewModel: ObservableObject {
         // View Attributes
+        // TODO: remove the below, just use state
         @Published var takePicture: Bool = false // Indicates if we are taking a picture. Image is first captured when this is toggled
         @Published var capturedImage: LabelImage? = nil
-        @Published var viewState: ViewModel.ViewState = .takePhoto
+        @Published var viewState: ViewModel.ViewState = .takePhoto // TODO: start in loading
         // Label types (nutrition/ingredients)
         @Published var selectedLabelTypeIndex: Int = 0
         let labelTypes: [AnalyzeType] = AnalyzeType.allCases
@@ -22,7 +23,6 @@ extension LabelScannerView {
         // Services
         private let labelAnalysisService = LabelAnalysisService() // TODO: dep injection
         private var disposables = Set<AnyCancellable>() // TODO: just have 1, because there is only 1 call here
-        @Published var tempCaloriesString: String = "None"
 
         // Cancel any in-flight actions
         deinit {
@@ -36,16 +36,13 @@ extension LabelScannerView {
                 AppLogging.warn("Captured image is nil but an image was confirmed")
                 return
             }
-            self.tempCaloriesString = "Loading"
             self.labelAnalysisService.analyzeNutrition(base64Image: imageToAnalyze.compressedB64String)
             .sink(receiveCompletion: { [weak self] completion in
                 if let err = completion.getError() {
                     self?.analysisError = err
-                    self?.tempCaloriesString = "Error from API"
                 }
             }, receiveValue: { [weak self] response in
                 print(response.parsedNutrition.calories ?? "None")
-                self?.tempCaloriesString = "\(response.parsedNutrition.calories ?? 0)"
             })
             .store(in: &disposables)
         }
@@ -91,7 +88,8 @@ extension LabelScannerView.ViewModel {
     // States of the scanner view
     enum ViewState {
         case loadingCamera
-        case takePhoto
+        case takePhoto // Before capture tapped
+        case takingPhoto  // After capture tapped but before photo comes back
         case confirmPhoto
         case analyzing
         case error

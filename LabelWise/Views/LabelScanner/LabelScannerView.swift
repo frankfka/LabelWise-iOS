@@ -41,11 +41,9 @@ struct LabelScannerView: View {
         ZStack(alignment: .bottom) {
             getCameraPreviewOrCapturedImageView()
             LabelScannerOverlayView(vm: self.overlayViewVm)
-            Text(self.viewModel.tempCaloriesString) // TODO: Temporary for testing
-            .withStyle(color: .white)
         }
         .edgesIgnoringSafeArea(.vertical)
-        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
+        .fillWidthAndHeight()
     }
 
     // MARK: Component views
@@ -56,7 +54,7 @@ struct LabelScannerView: View {
             return Image(uiImage: capturedImage.uiImage)
                     .resizable()
                     .aspectRatio(capturedImage.uiImage.size, contentMode: .fill)
-                    .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
+                    .fillWidthAndHeight()
                     .eraseToAnyView()
         } else {
             return CameraView(vm: self.cameraViewVm).eraseToAnyView()

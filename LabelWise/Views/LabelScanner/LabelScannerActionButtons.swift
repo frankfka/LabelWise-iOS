@@ -6,60 +6,118 @@
 import Foundation
 import SwiftUI
 
-// Circular icon to take picture
-struct CaptureIcon: View {
-    private static let OuterRingSize: CGFloat = CGFloat.App.Icon.largeButton
-    private static let DarkOuterRingSize: CGFloat = OuterRingSize * 0.9
-    private static let InnerRingSize: CGFloat = DarkOuterRingSize * 0.9
+// TODO: Comment this class
+// TODO: fix cancel icon color
+// TODO: Button color instead of white?
+struct RingedIconModifier: ViewModifier {
+    // Standard sizes
+    private static let StandardButtonSize: CGFloat = CGFloat.App.Icon.largeButton
+    private static let StandardDisabledColor: Color = Color.App.Disabled
+
     // Button Tap Animations
-    private static let ButtonTapPressedAnimation: Animation = Animation.easeInOut(duration: 0.05)
-    private static let ButtonTapReleasedAnimation: Animation = ButtonTapPressedAnimation.delay(0.05)
+    private static let ButtonAnimationDuration: Double = 0.1
+    private static let ButtonTapPressedAnimation: Animation = Animation.easeInOut(duration: ButtonAnimationDuration / 2)
+    private static let ButtonTapReleasedAnimation: Animation = ButtonTapPressedAnimation.delay(ButtonAnimationDuration / 2)
     private static let ButtonTapInnerRingScale: CGFloat = 0.95
     @State private var isAnimatingButtonTap: Bool = false
 
-    private let onTap: VoidCallback?
+    private let buttonColor: Color
+    private let activeRingColor: Color
+    private let disabledRingColor: Color
+    private let isDisabled: Bool
+    private var ringColor: Color {
+        isDisabled ? disabledRingColor : activeRingColor
+    }
+    private let buttonSize: CGFloat
+    private let onTapCallback: VoidCallback?
 
-    init(onTap: VoidCallback? = nil) {
-        self.onTap = onTap
+    init(buttonColor: Color, activeRingColor: Color, disabledRingColor: Color = RingedIconModifier.StandardDisabledColor,
+         isDisabled: Bool, buttonSize: CGFloat = RingedIconModifier.StandardButtonSize, onTapCallback: VoidCallback? = nil) {
+        self.buttonColor = buttonColor
+        self.activeRingColor = activeRingColor
+        self.disabledRingColor = disabledRingColor
+        self.isDisabled = isDisabled
+        self.buttonSize = buttonSize
+        self.onTapCallback = onTapCallback
     }
 
-    var body: some View {
-        ZStack() {
+    func body(content: Content) -> some View {
+        ZStack {
+            // Outer ring
             Circle()
-                .foregroundColor(.white)
-                .frame(width: CaptureIcon.OuterRingSize, height: CaptureIcon.OuterRingSize)
+                .foregroundColor(buttonColor)
+                .frame(width: buttonSize, height: buttonSize)
+            // Inner ring
             Circle()
-                .foregroundColor(.gray)
-                .frame(width: CaptureIcon.DarkOuterRingSize, height: CaptureIcon.DarkOuterRingSize)
-            Circle()
-                .foregroundColor(.white)
-                .frame(width: CaptureIcon.InnerRingSize, height: CaptureIcon.InnerRingSize)
-                .scaleEffect(self.isAnimatingButtonTap ? CaptureIcon.ButtonTapInnerRingScale : 1)
+                .foregroundColor(ringColor)
+                .frame(width: buttonSize * 0.9, height: buttonSize * 0.9)
+            // Center image/circle
+            content
+                .frame(width: buttonSize * 0.9 * 0.9, height: buttonSize * 0.9 * 0.9)
+                .foregroundColor(buttonColor)
+                .scaleEffect(isAnimatingButtonTap ? RingedIconModifier.ButtonTapInnerRingScale : 1)
         }
         .contentShape(Circle())
-        .onTapGesture {
+        .onTapGesture(perform: self.onTap)
+        .disabled(self.isDisabled)
+    }
+
+    private func onTap() {
+        if !self.isDisabled {
             self.animateButtonTap()
-            self.onTap?()
+            // Fire the actual action a bit after the animation
+            DispatchQueue.main.asyncAfter(deadline: .now() + RingedIconModifier.ButtonAnimationDuration) {
+                self.onTapCallback?()
+            }
         }
     }
 
     private func animateButtonTap() {
-        withAnimation(CaptureIcon.ButtonTapPressedAnimation) {
+        withAnimation(RingedIconModifier.ButtonTapPressedAnimation) {
             self.isAnimatingButtonTap = true
         }
-        withAnimation(CaptureIcon.ButtonTapReleasedAnimation) {
+        withAnimation(RingedIconModifier.ButtonTapReleasedAnimation) {
             self.isAnimatingButtonTap = false
         }
     }
 }
 
+// Circular icon to take picture
+struct CaptureIcon: View {
+    private static let ButtonColor: Color = Color.App.White
+    private static let ActiveRingColor: Color = Color.App.Primary
+
+    private let onTapCallback: VoidCallback?
+    private let isDisabled: Bool
+
+    init(isDisabled: Bool, onTap: VoidCallback? = nil) {
+        self.onTapCallback = onTap
+        self.isDisabled = isDisabled
+    }
+
+    var body: some View {
+        Circle()
+            .modifier(RingedIconModifier(
+                    buttonColor: CaptureIcon.ButtonColor,
+                    activeRingColor: CaptureIcon.ActiveRingColor,
+                    isDisabled: self.isDisabled,
+                    onTapCallback: self.onTapCallback))
+    }
+}
+
 // Confirm/cancel current photo
 struct PhotoActionIcons: View {
-    private static let ButtonSize: CGFloat = CGFloat.App.Icon.largeButton
+    private static let ConfirmIcon: Image = Image.App.CheckmarkCircleFill
+    private static let CancelIcon: Image = Image.App.XMarkCircleFill
     private static let ButtonSpacing: CGFloat = CGFloat.App.Layout.extraLargePadding
+    private static let ButtonColor: Color = Color.App.White
+    private static let ConfirmRingColor: Color = Color.App.Affirmative
+    private static let CancelRingColor: Color = Color.App.Destructive
     private let onConfirmPhotoAction: BoolCallback?
+    private let isDisabled: Bool
 
-    init(onConfirmPhotoAction: BoolCallback? = nil) {
+    init(isDisabled: Bool, onConfirmPhotoAction: BoolCallback? = nil) {
+        self.isDisabled = isDisabled
         self.onConfirmPhotoAction = onConfirmPhotoAction
     }
 
@@ -71,15 +129,16 @@ struct PhotoActionIcons: View {
     }
 
     private func getIcon(isConfirm: Bool) -> some View {
-        let image = isConfirm ? Image.App.labelScannerConfirmImage : Image.App.labelScannerCancelImage
+        let image = isConfirm ? PhotoActionIcons.ConfirmIcon : PhotoActionIcons.CancelIcon
+        let activeRingColor: Color = isConfirm ? PhotoActionIcons.ConfirmRingColor : PhotoActionIcons.CancelRingColor
         return image
                 .resizable()
-                .frame(width: PhotoActionIcons.ButtonSize, height: PhotoActionIcons.ButtonSize)
                 .contentShape(Circle())
-                .foregroundColor(Color.white)
-                .onTapGesture {
-                    self.onConfirmPhotoAction?(isConfirm)
-                }
+                .modifier(RingedIconModifier(
+                        buttonColor: PhotoActionIcons.ButtonColor,
+                        activeRingColor: activeRingColor,
+                        isDisabled: self.isDisabled,
+                        onTapCallback: { self.onConfirmPhotoAction?(isConfirm) }))
     }
 }
 
@@ -87,10 +146,14 @@ struct LabelScannerActionButtons_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             // Capture icon
-            CaptureIcon()
+            CaptureIcon(isDisabled: true)
+                .background(Color.black)
+            CaptureIcon(isDisabled: false)
                 .background(Color.black)
             // Action Icons
-            PhotoActionIcons()
+            PhotoActionIcons(isDisabled: true)
+                .background(Color.black)
+            PhotoActionIcons(isDisabled: false)
                 .background(Color.black)
         }.previewLayout(.sizeThatFits)
     }

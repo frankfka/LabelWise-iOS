@@ -14,7 +14,13 @@ extension LabelScannerOverlayFooterView {
         let onCapturePhotoTapped: VoidCallback?
         let onConfirmPhotoAction: BoolCallback?
         var labelTypePickerVm: PickerViewModel
-        @Binding var viewState: LabelScannerView.ViewModel.ViewState
+        @Binding private var viewState: LabelScannerView.ViewModel.ViewState
+        var showConfirmPhotoActions: Bool {
+            viewState == .confirmPhoto || viewState == .analyzing
+        }
+        var disableActions: Bool {
+            viewState == .error || viewState == .loadingCamera || viewState == .analyzing || viewState == .takingPhoto
+        }
 
         init(viewState: Binding<LabelScannerView.ViewModel.ViewState>, labelTypePickerVm: PickerViewModel,
              onCapturePhotoTapped: VoidCallback? = nil, onConfirmPhotoAction: BoolCallback? = nil) {
@@ -28,6 +34,7 @@ extension LabelScannerOverlayFooterView {
 
 // MARK: View
 struct LabelScannerOverlayFooterView: View {
+    private static let ActionIconHeight: CGFloat = CGFloat.App.Icon.largeButton
 
     private let viewModel: ViewModel
     init(vm: ViewModel) {
@@ -36,18 +43,24 @@ struct LabelScannerOverlayFooterView: View {
 
     var body: some View {
         VStack {
+            // Type picker
             LabelTypePickerView(vm: self.viewModel.labelTypePickerVm)
                 .padding(.horizontal, CGFloat.App.Layout.largePadding)
                 .padding(.bottom, CGFloat.App.Layout.normalPadding)
-            if self.viewModel.viewState == .takePhoto {
-                CaptureIcon(onTap: self.viewModel.onCapturePhotoTapped)
-            } else {
-                PhotoActionIcons(onConfirmPhotoAction: self.viewModel.onConfirmPhotoAction)
+            // Action icons
+            VStack {
+                if self.viewModel.showConfirmPhotoActions {
+                    PhotoActionIcons(isDisabled: self.viewModel.disableActions, onConfirmPhotoAction: self.viewModel.onConfirmPhotoAction)
+                } else {
+                    CaptureIcon(isDisabled: self.viewModel.disableActions, onTap: self.viewModel.onCapturePhotoTapped)
+                }
             }
+            .frame(height: LabelScannerOverlayFooterView.ActionIconHeight)
+            .fillWidth()
         }
         .padding(.bottom, CGFloat.App.Layout.largePadding)
         .padding(CGFloat.App.Layout.largePadding)
-        .frame(minWidth: 0, maxWidth: .infinity)
+        .fillWidth()
         .background(LabelScannerOverlayView.OverlayColor)
     }
     

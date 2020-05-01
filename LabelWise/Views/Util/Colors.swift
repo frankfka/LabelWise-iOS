@@ -2,7 +2,13 @@ import Foundation
 import SwiftUI
 
 struct AppColors {
-    let white: Color = .white
+    let White: Color = .white
+
+    // General UI Colors
+    let Shadow: Color = Color.black.opacity(0.2)
+    let Disabled: Color = Color(.systemGray)
+    let Affirmative: Color = Color("AppGreen")
+    let Destructive: Color = Color("AppRed")
 
     // Text colors
     let textDark: Color = Color.init(.label)
@@ -10,19 +16,19 @@ struct AppColors {
     let textLight: Color = Color.init(.tertiaryLabel)
 
     // Primary theme colors
-    let primaryUIColor: UIColor = .systemGreen
-    let primary: Color = Color.init(.systemGreen)
+    let PrimaryUIColor: UIColor = UIColor(named: "AppGreen")!
+    let Primary: Color = Color("AppGreen")
 
     // Background colors
-    let overlay: Color = Color.black.opacity(0.8)
+    let Overlay: Color = Color.black.opacity(0.8)
 
     // Indicator colors
-    let ProteinIndicator: Color = Color("ProteinIndicator")
-    let ProteinIndicatorLight: Color = Color("ProteinIndicatorLight")
-    let CarbIndicator: Color = Color("CarbIndicator")
-    let CarbIndicatorLight: Color = Color("CarbIndicatorLight")
-    let FatIndicator: Color = Color("FatIndicator")
-    let FatIndicatorLight: Color = Color("FatIndicatorLight")
+    let ProteinIndicator: Color = Color("AppPurple")
+    let ProteinIndicatorLight: Color = Color("AppPurpleLight")
+    let CarbIndicator: Color = Color("AppGreen")
+    let CarbIndicatorLight: Color = Color("AppGreenLight")
+    let FatIndicator: Color = Color("AppBlue")
+    let FatIndicatorLight: Color = Color("AppBlueLight")
 }
 
 extension Color {

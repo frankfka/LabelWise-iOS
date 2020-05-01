@@ -2,9 +2,9 @@ import Foundation
 import SwiftUI
 
 struct AppIcons {
-    let labelScannerHelp: Image = Image(systemName: "questionmark.circle.fill")
-    let labelScannerConfirmImage: Image = Image(systemName: "checkmark.circle.fill")
-    let labelScannerCancelImage: Image = Image(systemName: "xmark.circle.fill")
+    let QuestionMarkCircleFill: Image = Image(systemName: "questionmark.circle.fill")
+    let CheckmarkCircleFill: Image = Image(systemName: "checkmark.circle.fill")
+    let XMarkCircleFill: Image = Image(systemName: "xmark.circle.fill")
 }
 
 extension Image {

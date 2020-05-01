@@ -16,11 +16,11 @@ struct LabelScannerOverlayHeaderView: View {
         HStack {
             Spacer(minLength: LabelScannerOverlayHeaderView.MinSpacerLength)
             Text("Place label within the view")
-                .withStyle(font: Font.App.smallText, color: Color.App.white)
+                .withStyle(font: Font.App.smallText, color: Color.App.White)
                 .multilineTextAlignment(.center)
                 .lineLimit(nil)
             Spacer(minLength: LabelScannerOverlayHeaderView.MinSpacerLength)
-            Image.App.labelScannerHelp
+            Image.App.QuestionMarkCircleFill
                 .resizable()
                 .frame(width: LabelScannerOverlayHeaderView.HelpIconSize,
                         height: LabelScannerOverlayHeaderView.HelpIconSize)
@@ -30,7 +30,7 @@ struct LabelScannerOverlayHeaderView: View {
         }
         .padding(CGFloat.App.Layout.largePadding)
         .padding(.top, CGFloat.App.Layout.largePadding)
-        .frame(minWidth: 0, maxWidth: .infinity)
+        .fillWidth()
         .background(LabelScannerOverlayView.OverlayColor)
     }
 }

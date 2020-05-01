@@ -5,6 +5,7 @@
 
 import Foundation
 import Combine
+import SwiftUI
 
 // MARK: Callbacks
 typealias ErrorCallback = (AppError?) -> Void
@@ -17,3 +18,6 @@ typealias PhotoCaptureCallback = (LabelImage?, AppError?) -> Void
 typealias ServiceCallback<SuccessType> = (Result<SuccessType, AppError>) -> ()
 typealias ServicePublisher<SuccessType> = AnyPublisher<SuccessType, AppError>
 typealias ServiceFuture<SuccessType> = Future<SuccessType, AppError>
+
+// MARK: SwiftUI
+typealias ContentGenerator<Content: View> = () -> Content
