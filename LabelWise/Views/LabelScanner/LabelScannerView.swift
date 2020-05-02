@@ -43,7 +43,8 @@ struct LabelScannerView: View {
             getCameraPreviewOrCapturedImageView()
             LabelScannerOverlayView(vm: self.overlayViewVm)
         }
-        .edgesIgnoringSafeArea(.vertical)
+        // Note: Extra padding is applied in overlay header & footer views
+        .edgesIgnoringSafeArea(.all)
         .fillWidthAndHeight()
     }
 

@@ -58,7 +58,7 @@ struct LabelScannerOverlayFooterView: View {
             .frame(height: LabelScannerOverlayFooterView.ActionIconHeight)
             .fillWidth()
         }
-        .padding(.bottom, CGFloat.App.Layout.largePadding)
+        .padding(.bottom, UIDevice.current.hasNotch ? CGFloat.App.Layout.smallPadding : 0)
         .padding(CGFloat.App.Layout.largePadding)
         .fillWidth()
         .background(LabelScannerOverlayView.OverlayColor)
