@@ -166,11 +166,8 @@ struct SegmentedPicker_Previews: PreviewProvider {
     }
     
     static var previews: some View {
-        Group {
+        ColorSchemePreview {
             SegmentedPickerPreviewView()
-            // TODO create a helper for this
-            SegmentedPickerPreviewView()
-                .environment(\.colorScheme, .dark)
         }
         .previewLayout(.sizeThatFits)
     }

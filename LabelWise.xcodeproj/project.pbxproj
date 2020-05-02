@@ -39,6 +39,7 @@
 		9E04BCAB5E4B867BF3960782 /* SwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04BAA4FD1CB39D6A2F2084 /* SwiftUI.swift */; };
 		9E04BDAC7C97D8F2252012E5 /* Typography.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B1C29ECB90493462BCB4 /* Typography.swift */; };
 		9E04BDDADC5E07F1CE41FA8E /* MacronutrientSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B646AAC676D8D396BE37 /* MacronutrientSummaryView.swift */; };
+		9E04BE1293934E79D5EF4EA8 /* PreviewUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B9362E437F4975BE9934 /* PreviewUtils.swift */; };
 		9E04BE665B751CAEF5B7A290 /* PercentageRing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B817D6CF582314870379 /* PercentageRing.swift */; };
 		9E04BEC2EE1485DE2071FEEA /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B05B31A950ACF965B49A /* Colors.swift */; };
 		9E04BFD9C72F1457D428174D /* Nutrition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04BE91B4AAE37E9D8B3F1E /* Nutrition.swift */; };
@@ -75,6 +76,7 @@
 		9E04B87D15FDBB8C359F6235 /* Dimensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dimensions.swift; sourceTree = "<group>"; };
 		9E04B8A4CAFCF4080DA6BD0E /* CameraUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraUtil.swift; sourceTree = "<group>"; };
 		9E04B8E9B103A32459D4568C /* Icons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Icons.swift; sourceTree = "<group>"; };
+		9E04B9362E437F4975BE9934 /* PreviewUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewUtils.swift; sourceTree = "<group>"; };
 		9E04BA2103C1A69F655989A5 /* CommonViewModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonViewModels.swift; sourceTree = "<group>"; };
 		9E04BA76BDF053BBA9738EFF /* MacronutrientRings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MacronutrientRings.swift; sourceTree = "<group>"; };
 		9E04BA7C75C3AF19E69A510A /* LabelScannerViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelScannerViewModel.swift; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 			isa = PBXGroup;
 			children = (
 				119F8AD1244A7D4300BB173A /* Preview Assets.xcassets */,
+				9E04B9362E437F4975BE9934 /* PreviewUtils.swift */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -429,6 +432,7 @@
 				9E04BDDADC5E07F1CE41FA8E /* MacronutrientSummaryView.swift in Sources */,
 				9E04BBF618B4CB82E3D5485A /* NutritionDTO.swift in Sources */,
 				9E04BFD9C72F1457D428174D /* Nutrition.swift in Sources */,
+				9E04BE1293934E79D5EF4EA8 /* PreviewUtils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -65,10 +65,8 @@ struct LabelScannerView: View {
 
 struct LabelScannerView_Previews: PreviewProvider {
     static var previews: some View {
-        Group {
+        ColorSchemePreview {
             LabelScannerView()
-            // TODO: Helper
-            LabelScannerView().environment(\.colorScheme, .dark)
         }
     }
 }

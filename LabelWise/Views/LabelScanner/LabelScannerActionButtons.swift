@@ -7,8 +7,6 @@ import Foundation
 import SwiftUI
 
 // TODO: Comment this class
-// TODO: fix cancel icon color
-// TODO: Button color instead of white?
 struct RingedIconModifier: ViewModifier {
     // Standard sizes
     private static let StandardButtonSize: CGFloat = CGFloat.App.Icon.largeButton
@@ -84,7 +82,7 @@ struct RingedIconModifier: ViewModifier {
 
 // Circular icon to take picture
 struct CaptureIcon: View {
-    private static let ButtonColor: Color = Color.App.White
+    private static let ButtonColor: Color = Color.App.BackgroundSecondaryFillColor
     private static let ActiveRingColor: Color = Color.App.Primary
 
     private let onTapCallback: VoidCallback?
@@ -110,7 +108,7 @@ struct PhotoActionIcons: View {
     private static let ConfirmIcon: Image = Image.App.CheckmarkCircleFill
     private static let CancelIcon: Image = Image.App.XMarkCircleFill
     private static let ButtonSpacing: CGFloat = CGFloat.App.Layout.extraLargePadding
-    private static let ButtonColor: Color = Color.App.White
+    private static let ButtonColor: Color = Color.App.BackgroundSecondaryFillColor
     private static let ConfirmRingColor: Color = Color.App.Affirmative
     private static let CancelRingColor: Color = Color.App.Destructive
     private let onConfirmPhotoAction: BoolCallback?
@@ -144,7 +142,7 @@ struct PhotoActionIcons: View {
 
 struct LabelScannerActionButtons_Previews: PreviewProvider {
     static var previews: some View {
-        Group {
+        ColorSchemePreview {
             Group {
                 // Capture icon
                 CaptureIcon(isDisabled: true)
@@ -153,15 +151,6 @@ struct LabelScannerActionButtons_Previews: PreviewProvider {
                 PhotoActionIcons(isDisabled: true)
                 PhotoActionIcons(isDisabled: false)
             }
-            Group {
-                // Capture icon
-                CaptureIcon(isDisabled: true)
-                CaptureIcon(isDisabled: false)
-                // Action Icons
-                PhotoActionIcons(isDisabled: true)
-                PhotoActionIcons(isDisabled: false)
-            }.environment(\.colorScheme, .dark)
-            // TODO: Helper for dark color scheme
         }
         .background(Color.App.Overlay)
         .previewLayout(.sizeThatFits)
