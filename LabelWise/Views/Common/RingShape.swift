@@ -16,15 +16,23 @@ struct RingShape: Shape {
     }
     private var percent: Double
     private var startAngle: Double
-    private let drawnClockwise: Bool
+    private var drawnClockwise: Bool
     
-    // This allows animations to run smoothly for percent values
-    var animatableData: Double {
+    struct Animatable {
+        let percent: Double
+        let startAngle: Double
+    }
+    
+    // This allows animations to run smoothly: (drawnClockwise, (percent, startAngle))
+    var animatableData: AnimatablePair<Double, AnimatablePair<Double, Double>> {
+        // Animatable requires numerical data
         get {
-            return percent
+            return AnimatablePair<Double, AnimatablePair<Double, Double>>(drawnClockwise ? 0 : 1, AnimatablePair<Double, Double>(percent, startAngle))
         }
         set {
-            percent = newValue
+            drawnClockwise = newValue.first == 1
+            percent = newValue.second.first
+            startAngle = newValue.second.second
         }
     }
     
@@ -44,5 +52,15 @@ struct RingShape: Shape {
         return Path { path in
             path.addArc(center: center, radius: radius, startAngle: Angle(degrees: startAngle), endAngle: endAngle, clockwise: drawnClockwise)
         }
+    }
+}
+
+struct RingShape_Previews: PreviewProvider {
+    static var previews: some View {
+        RingShape(percent: 10, startAngle: 0, drawnClockwise: false)
+            .stroke(style: StrokeStyle(lineWidth: 16))
+            .fill(Color.black)
+            .frame(width: 200, height: 200)
+            .previewLayout(.sizeThatFits)
     }
 }

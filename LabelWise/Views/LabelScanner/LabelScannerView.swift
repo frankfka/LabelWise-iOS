@@ -7,9 +7,8 @@ import SwiftUI
 import Combine
 import AVFoundation
 
-// TODO: status bar color
+// TODO: status bar color: https://stackoverflow.com/questions/57063142/swiftui-status-bar-color Ziobro?
 // TODO: Loading and error views
-// TODO: no padding for non iphone x
 struct LabelScannerView: View {
 
     @ObservedObject private var viewModel: ViewModel = ViewModel()
