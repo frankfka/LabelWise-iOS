@@ -13,7 +13,7 @@ extension Font {
 }
 
 extension Text {
-    func withStyle(font: Font = Font.App.normalText, color: Color = Color.App.text) -> Text {
+    func withStyle(font: Font = Font.App.normalText, color: Color = Color.App.SecondaryText) -> Text {
         return self
                 .font(font)
                 .foregroundColor(color)

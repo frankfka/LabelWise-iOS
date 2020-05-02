@@ -145,16 +145,25 @@ struct PhotoActionIcons: View {
 struct LabelScannerActionButtons_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            // Capture icon
-            CaptureIcon(isDisabled: true)
-                .background(Color.black)
-            CaptureIcon(isDisabled: false)
-                .background(Color.black)
-            // Action Icons
-            PhotoActionIcons(isDisabled: true)
-                .background(Color.black)
-            PhotoActionIcons(isDisabled: false)
-                .background(Color.black)
-        }.previewLayout(.sizeThatFits)
+            Group {
+                // Capture icon
+                CaptureIcon(isDisabled: true)
+                CaptureIcon(isDisabled: false)
+                // Action Icons
+                PhotoActionIcons(isDisabled: true)
+                PhotoActionIcons(isDisabled: false)
+            }
+            Group {
+                // Capture icon
+                CaptureIcon(isDisabled: true)
+                CaptureIcon(isDisabled: false)
+                // Action Icons
+                PhotoActionIcons(isDisabled: true)
+                PhotoActionIcons(isDisabled: false)
+            }.environment(\.colorScheme, .dark)
+            // TODO: Helper for dark color scheme
+        }
+        .background(Color.App.Overlay)
+        .previewLayout(.sizeThatFits)
     }
 }

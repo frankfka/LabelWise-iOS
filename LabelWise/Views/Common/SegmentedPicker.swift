@@ -42,11 +42,11 @@ struct SizeAwareViewModifier: ViewModifier {
 }
 
 struct SegmentedPicker: View {
-    private static let ActiveSegmentColor: Color = Color.white
-    private static let BackgroundColor: Color = Color(.systemGroupedBackground)
+    private static let ActiveSegmentColor: Color = Color.App.BackgroundTertiaryFillColor
+    private static let BackgroundColor: Color = Color.App.BackgroundSecondaryFillColor
     private static let ShadowColor: Color = Color.App.Shadow
-    private static let TextColor: Color = Color.App.text
-    private static let SelectedTextColor: Color = Color.App.textDark
+    private static let TextColor: Color = Color.App.SecondaryText
+    private static let SelectedTextColor: Color = Color.App.Text
 
     private static let TextFont: Font = Font.App.smallText
     
@@ -166,6 +166,12 @@ struct SegmentedPicker_Previews: PreviewProvider {
     }
     
     static var previews: some View {
-        SegmentedPickerPreviewView()
+        Group {
+            SegmentedPickerPreviewView()
+            // TODO create a helper for this
+            SegmentedPickerPreviewView()
+                .environment(\.colorScheme, .dark)
+        }
+        .previewLayout(.sizeThatFits)
     }
 }

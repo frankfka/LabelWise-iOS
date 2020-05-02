@@ -9,6 +9,7 @@ import AVFoundation
 
 // TODO: status bar color
 // TODO: Loading and error views
+// TODO: no padding for non iphone x
 struct LabelScannerView: View {
 
     @ObservedObject private var viewModel: ViewModel = ViewModel()
@@ -64,6 +65,10 @@ struct LabelScannerView: View {
 
 struct LabelScannerView_Previews: PreviewProvider {
     static var previews: some View {
-        LabelScannerView()
+        Group {
+            LabelScannerView()
+            // TODO: Helper
+            LabelScannerView().environment(\.colorScheme, .dark)
+        }
     }
 }

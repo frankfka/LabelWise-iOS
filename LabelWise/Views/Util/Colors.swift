@@ -1,6 +1,8 @@
 import Foundation
 import SwiftUI
 
+// Reference: https://github.com/aaronbrethorst/SemanticUI
+// Reference: https://noahgilmore.com/blog/dark-mode-uicolor-compatibility/
 struct AppColors {
     let White: Color = .white
 
@@ -10,10 +12,15 @@ struct AppColors {
     let Affirmative: Color = Color("AppGreen")
     let Destructive: Color = Color("AppRed")
 
+    // Background and Fill Colors
+    let BackgroundPrimaryFillColor: Color = Color(.systemBackground) // Fills main background (furthest back)
+    let BackgroundSecondaryFillColor: Color = Color(.secondarySystemBackground) // Fills background for elements on top of main background
+    let BackgroundTertiaryFillColor: Color = Color(.tertiarySystemBackground) // Fills background for elements on top of secondary background
+
     // Text colors
-    let textDark: Color = Color.init(.label)
-    let text: Color = Color.init(.secondaryLabel)
-    let textLight: Color = Color.init(.tertiaryLabel)
+    let Text: Color = Color.init(.label)
+    let SecondaryText: Color = Color.init(.secondaryLabel)
+    let TertiaryText: Color = Color.init(.tertiaryLabel)
 
     // Primary theme colors
     let PrimaryUIColor: UIColor = UIColor(named: "AppGreen")!

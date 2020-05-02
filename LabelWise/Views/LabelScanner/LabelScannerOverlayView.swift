@@ -80,6 +80,7 @@ struct LabelScannerOverlayView: View {
 
 struct LabelScannerOverlayView_Previews: PreviewProvider {
     static var previews: some View {
+        // TODO
         /*@START_MENU_TOKEN@*/Text("Hello, World!")/*@END_MENU_TOKEN@*/
     }
 }
