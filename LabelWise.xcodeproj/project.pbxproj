@@ -11,6 +11,7 @@
 		110DF067245B1C3300E78245 /* MacronutrientSummaryTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110DF066245B1C3300E78245 /* MacronutrientSummaryTextView.swift */; };
 		110DF069245BE39F00E78245 /* SegmentedPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110DF068245BE39F00E78245 /* SegmentedPicker.swift */; };
 		110DF06B245DB99500E78245 /* LoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110DF06A245DB99400E78245 /* LoadingIndicator.swift */; };
+		110DF070245E65E800E78245 /* HalfRoundedRectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110DF06F245E65E800E78245 /* HalfRoundedRectangle.swift */; };
 		11418C88244D4336001F8E27 /* LabelScannerOverlayHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11418C87244D4336001F8E27 /* LabelScannerOverlayHeaderView.swift */; };
 		11418C8A244D43FD001F8E27 /* LabelScannerOverlayFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11418C89244D43FD001F8E27 /* LabelScannerOverlayFooterView.swift */; };
 		119F8AC9244A7D3C00BB173A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 119F8AC8244A7D3C00BB173A /* AppDelegate.swift */; };
@@ -18,6 +19,8 @@
 		119F8ACF244A7D4300BB173A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 119F8ACE244A7D4300BB173A /* Assets.xcassets */; };
 		119F8AD2244A7D4300BB173A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 119F8AD1244A7D4300BB173A /* Preview Assets.xcassets */; };
 		119F8AD5244A7D4300BB173A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 119F8AD3244A7D4300BB173A /* LaunchScreen.storyboard */; };
+		11DAE98E245F0FD600B6FF70 /* AnalysisScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DAE98D245F0FD600B6FF70 /* AnalysisScrollView.swift */; };
+		11DAE990245F118B00B6FF70 /* AnalysisScrollViewHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DAE98F245F118B00B6FF70 /* AnalysisScrollViewHelpers.swift */; };
 		9C744549554540C8032BFD13 /* Pods_LabelWise.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBB96129287D3E7C9C1E8B9C /* Pods_LabelWise.framework */; };
 		9E04B02AC89E419B26B7CEC0 /* LabelAnalysisService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B36285890D7DEA0D4652 /* LabelAnalysisService.swift */; };
 		9E04B0D78F9E76CC6959A2E8 /* CommonViewModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04BA2103C1A69F655989A5 /* CommonViewModels.swift */; };
@@ -34,7 +37,7 @@
 		9E04BA24D04B3AA88269BC74 /* CameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B5CD47A28F0852F6DEFF /* CameraController.swift */; };
 		9E04BB051D7E409EC334FD8B /* Icons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B8E9B103A32459D4568C /* Icons.swift */; };
 		9E04BB17B3BDE8728BAF761B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B5D30937AB3EE9506EEE /* ContentView.swift */; };
-		9E04BB4DF42A74CE86CA5373 /* RingShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04BEBF75A400DE7744C7C4 /* RingShape.swift */; };
+		9E04BB4DF42A74CE86CA5373 /* Ring.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04BEBF75A400DE7744C7C4 /* Ring.swift */; };
 		9E04BBD795334AC0BBB0C4A5 /* Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B871BED1E591F3F08FFA /* Combine.swift */; };
 		9E04BBF618B4CB82E3D5485A /* NutritionDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B03637D80DC9D780A544 /* NutritionDTO.swift */; };
 		9E04BCAB5E4B867BF3960782 /* SwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04BAA4FD1CB39D6A2F2084 /* SwiftUI.swift */; };
@@ -52,6 +55,7 @@
 		110DF066245B1C3300E78245 /* MacronutrientSummaryTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacronutrientSummaryTextView.swift; sourceTree = "<group>"; };
 		110DF068245BE39F00E78245 /* SegmentedPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedPicker.swift; sourceTree = "<group>"; };
 		110DF06A245DB99400E78245 /* LoadingIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingIndicator.swift; sourceTree = "<group>"; };
+		110DF06F245E65E800E78245 /* HalfRoundedRectangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HalfRoundedRectangle.swift; sourceTree = "<group>"; };
 		11418C87244D4336001F8E27 /* LabelScannerOverlayHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelScannerOverlayHeaderView.swift; sourceTree = "<group>"; };
 		11418C89244D43FD001F8E27 /* LabelScannerOverlayFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelScannerOverlayFooterView.swift; sourceTree = "<group>"; };
 		119F8AC5244A7D3B00BB173A /* LabelWise.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LabelWise.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -61,6 +65,8 @@
 		119F8AD1244A7D4300BB173A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		119F8AD4244A7D4300BB173A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		119F8AD6244A7D4300BB173A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		11DAE98D245F0FD600B6FF70 /* AnalysisScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalysisScrollView.swift; sourceTree = "<group>"; };
+		11DAE98F245F118B00B6FF70 /* AnalysisScrollViewHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalysisScrollViewHelpers.swift; sourceTree = "<group>"; };
 		360BDE15D326DC1D0640C815 /* Pods-LabelWise.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LabelWise.release.xcconfig"; path = "Target Support Files/Pods-LabelWise/Pods-LabelWise.release.xcconfig"; sourceTree = "<group>"; };
 		4AACC73C2D10015894BA828D /* Pods-LabelWise.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LabelWise.debug.xcconfig"; path = "Target Support Files/Pods-LabelWise/Pods-LabelWise.debug.xcconfig"; sourceTree = "<group>"; };
 		9E04B03637D80DC9D780A544 /* NutritionDTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NutritionDTO.swift; sourceTree = "<group>"; };
@@ -88,7 +94,7 @@
 		9E04BC8096C70C13098A91F5 /* TypeAliases.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypeAliases.swift; sourceTree = "<group>"; };
 		9E04BD167436B52702375ABC /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		9E04BE91B4AAE37E9D8B3F1E /* Nutrition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Nutrition.swift; sourceTree = "<group>"; };
-		9E04BEBF75A400DE7744C7C4 /* RingShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RingShape.swift; sourceTree = "<group>"; };
+		9E04BEBF75A400DE7744C7C4 /* Ring.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ring.swift; sourceTree = "<group>"; };
 		FBB96129287D3E7C9C1E8B9C /* Pods_LabelWise.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LabelWise.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -120,6 +126,15 @@
 				110DF066245B1C3300E78245 /* MacronutrientSummaryTextView.swift */,
 			);
 			path = MacronutrientSection;
+			sourceTree = "<group>";
+		};
+		110DF06E245E657400E78245 /* Shapes */ = {
+			isa = PBXGroup;
+			children = (
+				9E04BEBF75A400DE7744C7C4 /* Ring.swift */,
+				110DF06F245E65E800E78245 /* HalfRoundedRectangle.swift */,
+			);
+			path = Shapes;
 			sourceTree = "<group>";
 		};
 		1147D7622457A90400A5D749 /* Charts */ = {
@@ -230,10 +245,12 @@
 		9E04BC172A65632585C42EE0 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				9E04BEBF75A400DE7744C7C4 /* RingShape.swift */,
+				110DF06E245E657400E78245 /* Shapes */,
 				9E04BA2103C1A69F655989A5 /* CommonViewModels.swift */,
 				110DF068245BE39F00E78245 /* SegmentedPicker.swift */,
 				110DF06A245DB99400E78245 /* LoadingIndicator.swift */,
+				11DAE98D245F0FD600B6FF70 /* AnalysisScrollView.swift */,
+				11DAE98F245F118B00B6FF70 /* AnalysisScrollViewHelpers.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -406,9 +423,11 @@
 				119F8AC9244A7D3C00BB173A /* AppDelegate.swift in Sources */,
 				119F8ACB244A7D3C00BB173A /* SceneDelegate.swift in Sources */,
 				9E04B90C5EA0DF367FE35AFD /* LabelScannerView.swift in Sources */,
+				11DAE990245F118B00B6FF70 /* AnalysisScrollViewHelpers.swift in Sources */,
 				11418C8A244D43FD001F8E27 /* LabelScannerOverlayFooterView.swift in Sources */,
 				9E04B5454634C3A52D00058A /* LabelScannerOverlayView.swift in Sources */,
 				9E04BA24D04B3AA88269BC74 /* CameraController.swift in Sources */,
+				110DF070245E65E800E78245 /* HalfRoundedRectangle.swift in Sources */,
 				11418C88244D4336001F8E27 /* LabelScannerOverlayHeaderView.swift in Sources */,
 				9E04B8699075720B0B4A2692 /* CameraView.swift in Sources */,
 				9E04B4B7AFC55A84E1F3654A /* CameraUtil.swift in Sources */,
@@ -418,6 +437,7 @@
 				9E04BB051D7E409EC334FD8B /* Icons.swift in Sources */,
 				9E04B7505FD17516F7996F3A /* Dimensions.swift in Sources */,
 				110DF067245B1C3300E78245 /* MacronutrientSummaryTextView.swift in Sources */,
+				11DAE98E245F0FD600B6FF70 /* AnalysisScrollView.swift in Sources */,
 				110DF069245BE39F00E78245 /* SegmentedPicker.swift in Sources */,
 				9E04BB17B3BDE8728BAF761B /* ContentView.swift in Sources */,
 				9E04BFE2FB40387B47CB3BDC /* Logging.swift in Sources */,
@@ -432,7 +452,7 @@
 				9E04B7F294A2ECE09AB0BDA2 /* LabelScannerActionButtons.swift in Sources */,
 				9E04B4A49EF79D0172103A09 /* MacronutrientRings.swift in Sources */,
 				9E04BE665B751CAEF5B7A290 /* PercentageRing.swift in Sources */,
-				9E04BB4DF42A74CE86CA5373 /* RingShape.swift in Sources */,
+				9E04BB4DF42A74CE86CA5373 /* Ring.swift in Sources */,
 				9E04BDDADC5E07F1CE41FA8E /* MacronutrientSummaryView.swift in Sources */,
 				9E04BBF618B4CB82E3D5485A /* NutritionDTO.swift in Sources */,
 				9E04BFD9C72F1457D428174D /* Nutrition.swift in Sources */,

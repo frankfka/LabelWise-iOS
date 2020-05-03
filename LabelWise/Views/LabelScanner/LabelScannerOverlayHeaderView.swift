@@ -30,7 +30,7 @@ struct LabelScannerOverlayHeaderView: View {
                 .padding(.leading, -LabelScannerOverlayHeaderView.MinSpacerLength)
         }
         .padding(CGFloat.App.Layout.largePadding)
-        .padding(.top, UIDevice.current.hasNotch ?  CGFloat.App.Layout.largePadding : CGFloat.App.Layout.smallPadding)
+        .padding(.top, DeviceProperties.current.hasNotch ?  CGFloat.App.Layout.largePadding : CGFloat.App.Layout.smallPadding)
         .fillWidth()
         .background(LabelScannerOverlayView.OverlayColor)
     }

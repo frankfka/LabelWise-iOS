@@ -26,7 +26,7 @@ struct PercentageRing: View {
     private let foregroundColors: [Color]
     private let startAngle: Double = -90
     private var absolutePercentageAngle: Double {
-        RingShape.percentToAngle(percent: self.percent, startAngle: 0)
+        Ring.percentToAngle(percent: self.percent, startAngle: 0)
     }
     private var relativePercentageAngle: Double {
         // Take into account the startAngle
@@ -73,16 +73,16 @@ struct PercentageRing: View {
         GeometryReader { geometry in
             ZStack {
                 // Background for the ring
-                RingShape()
+                Ring()
                     .stroke(style: StrokeStyle(lineWidth: self.ringWidth))
                     .fill(self.backgroundColor)
                 // Foreground - this is the start color displayed immediately
-                RingShape(percent: self.displayedPercent, startAngle: self.startAngle)
+                Ring(percent: self.displayedPercent, startAngle: self.startAngle)
                         .stroke(style: StrokeStyle(lineWidth: self.ringWidth, lineCap: .round))
                         .fill(self.firstGradientColor)
                 // Foreground - this is the gradient color that we display after a certain time
                 // This is somewhat of a workaround for a nice animation to run
-                RingShape(percent: self.displayedPercent, startAngle: self.startAngle)
+                Ring(percent: self.displayedPercent, startAngle: self.startAngle)
                     .stroke(style: StrokeStyle(lineWidth: self.ringWidth, lineCap: .round))
                     .fill(self.ringGradient)
                     .opacity(self.gradientAndEndCircleOpacity)

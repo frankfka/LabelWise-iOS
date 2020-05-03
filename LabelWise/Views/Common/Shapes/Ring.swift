@@ -9,7 +9,7 @@
 import SwiftUI
 
 // https://liquidcoder.com/swiftui-ring-animation/
-struct RingShape: Shape {
+struct Ring: Shape {
     // Helper function to convert percent values to angles in degrees
     static func percentToAngle(percent: Double, startAngle: Double) -> Double {
         (percent / 100 * 360) + startAngle
@@ -48,7 +48,7 @@ struct RingShape: Shape {
         let height = rect.height
         let radius = min(width, height) / 2
         let center = CGPoint(x: width / 2, y: height / 2)
-        let endAngle = Angle(degrees: RingShape.percentToAngle(percent: self.percent, startAngle: self.startAngle))
+        let endAngle = Angle(degrees: Ring.percentToAngle(percent: self.percent, startAngle: self.startAngle))
         return Path { path in
             path.addArc(center: center, radius: radius, startAngle: Angle(degrees: startAngle), endAngle: endAngle, clockwise: drawnClockwise)
         }
@@ -57,7 +57,7 @@ struct RingShape: Shape {
 
 struct RingShape_Previews: PreviewProvider {
     static var previews: some View {
-        RingShape(percent: 10, startAngle: 0, drawnClockwise: false)
+        Ring(percent: 10, startAngle: 0, drawnClockwise: false)
             .stroke(style: StrokeStyle(lineWidth: 16))
             .fill(Color.black)
             .frame(width: 200, height: 200)

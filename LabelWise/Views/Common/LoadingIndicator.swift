@@ -10,10 +10,10 @@ import SwiftUI
 import Combine
 
 struct LoadingIndicator: View {
-    // TODO: these constants
-    private static let PlaceholderRingColor: Color = Color(.systemGray6)
+    private static let PlaceholderRingColor: Color = Color.App.PrimaryFillColor
     private static let RingWidth: CGFloat = 16
-    private static let RingColors: [Color] = [Color.green, Color.red, Color.yellow]
+    private static let RingColors: [Color] = [Color.App.AppGreen, Color.App.AppBlue, Color.App.AppPurple,
+                                                Color.App.AppRed, Color.App.AppYellow]
     private static let AnimationDuration: Double = 4
     
     // Animated properties
@@ -23,16 +23,18 @@ struct LoadingIndicator: View {
     @State private var indicatorFillPercent: Double = 0
     @State private var indicatorStartAngle: Double = -90
     @State private var drawnClockwise: Bool = false
-    private let colorAnimationTimer: Publishers.Autoconnect<Timer.TimerPublisher> = Timer.publish(every: LoadingIndicator.AnimationDuration, on: .main, in: .common).autoconnect()
+    // Timer to manually animate color changes, as it is not supported with repeating animations
+    private let colorAnimationTimer: Publishers.Autoconnect<Timer.TimerPublisher> =
+            Timer.publish(every: LoadingIndicator.AnimationDuration, on: .main, in: .common).autoconnect()
     
     var body: some View {
         ZStack {
             // Bottom ring as placeholder
-            RingShape()
+            Ring()
                 .stroke(style: StrokeStyle(lineWidth: LoadingIndicator.RingWidth))
                 .fill(LoadingIndicator.PlaceholderRingColor)
             // Top ring for animation
-            RingShape(percent: indicatorFillPercent, startAngle: indicatorStartAngle, drawnClockwise: drawnClockwise)
+            Ring(percent: indicatorFillPercent, startAngle: indicatorStartAngle, drawnClockwise: drawnClockwise)
                 .stroke(style: StrokeStyle(lineWidth: LoadingIndicator.RingWidth, lineCap: .round))
                 .fill(self.color)
                 .opacity(self.opacity)
