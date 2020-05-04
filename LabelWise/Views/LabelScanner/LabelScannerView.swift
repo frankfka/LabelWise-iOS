@@ -8,9 +8,10 @@ import Combine
 import AVFoundation
 
 // TODO: Loading and error views
+// TODO: should check for camera permission, then pop to onboarding if it was turned off
 struct LabelScannerView: View {
 
-    @ObservedObject private var viewModel: ViewModel = ViewModel()
+    @ObservedObject private var viewModel: ViewModel
     // Child view view models
     private var labelTypeVm: ViewModel.LabelTypePickerViewModel {
         ViewModel.LabelTypePickerViewModel(
@@ -33,6 +34,10 @@ struct LabelScannerView: View {
                 cameraError: self.$viewModel.cameraError,
                 onPhotoCapture: self.viewModel.onPhotoCapture
         )
+    }
+
+    init(vm: ViewModel) {
+        self.viewModel = vm
     }
 
     // MARK: Main View
@@ -77,9 +82,12 @@ struct LabelScannerView: View {
 }
 
 struct LabelScannerView_Previews: PreviewProvider {
+
+    static let vm: LabelScannerView.ViewModel = LabelScannerView.ViewModel()
+
     static var previews: some View {
         ColorSchemePreview {
-            LabelScannerView()
+            LabelScannerView(vm: vm)
         }
     }
 }

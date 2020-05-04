@@ -9,44 +9,48 @@
 import SwiftUI
 
 struct NutritionAnalysisView: View {
-    
-    @State private var loading: Bool = true
-    @State private var error: Bool = false
-    
-    private var header: some View {
-        Text("Loading")
-            .withStyle(font: Font.App.heading, color: Color.white)
-    }
-    private var headerBackgroundColor: Color {
-        Color.App.AppGreen
+
+    @ObservedObject private var viewModel: ViewModel
+
+    init(vm: ViewModel) {
+        self.viewModel = vm
     }
     
     var body: some View {
-        VStack {
-            if self.loading {
-                FullScreenLoadingView(loadingText: "Analyzing")
-            } else {
-                AnalysisScrollView(header: self.header, headerBackground: self.headerBackgroundColor) {
-                    VStack {
-                        Spacer()
-                        Text("Test")
-                        Spacer()
-                    }
-                    .fillWidthAndHeight()
-                }
-            }
-        }.onAppear(perform: self.testOnAppear)
+        self.getViewFromViewState()
     }
-    
-    private func testOnAppear() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
-            self.loading = false
+
+    @ViewBuilder private func getViewFromViewState() -> some View {
+        let state = self.viewModel.viewState
+        if state == .displayResults {
+            self.getResultsView()
+        } else if state == .analyzing {
+            FullScreenLoadingView(loadingText: "Analyzing")
+        } else if state == .error {
+            Text("Error")
+        } else {
+            // TODO: Maybe throw a fatal error here?
+            EmptyView()
         }
     }
+
+    // TODO: Computed var https://www.swiftbysundell.com/tips/computed-properties-vs-methods/
+    private func getResultsView() -> some View {
+        let headerView = NutritionAnalysisResultsHeaderView()
+        let headerBackground = Color.App.AppGreen
+        return
+        AnalysisScrollView(header: headerView, headerBackground: headerBackground) {
+            NutritionAnalysisResultsView()
+        }
+    }
+
 }
 
 struct NutritionAnalysisView_Previews: PreviewProvider {
+
+    private static let vm: NutritionAnalysisView.ViewModel = NutritionAnalysisView.ViewModel(analysisService: LabelAnalysisService())
+
     static var previews: some View {
-        NutritionAnalysisView()
+        NutritionAnalysisView(vm: vm)
     }
 }

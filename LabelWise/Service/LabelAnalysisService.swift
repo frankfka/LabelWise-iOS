@@ -7,6 +7,7 @@ import Foundation
 import Combine
 import Alamofire
 
+// TODO: Make this a protocol
 class LabelAnalysisService {
     static let BaseUrl = "https://75f786bb.ngrok.io"
     static let NutritionImageUrl = BaseUrl + "/nutrition/image"

@@ -58,7 +58,7 @@ struct LabelScannerOverlayView: View {
                         self.getViewFinderMask(parentSize: geometry.size)
                             // eoFill allows cutout
                             .fill(style: FillStyle(eoFill: true, antialiased: true))
-                )
+                    )
             }
             // Footer
             LabelScannerOverlayFooterView(vm: self.footerViewModel)

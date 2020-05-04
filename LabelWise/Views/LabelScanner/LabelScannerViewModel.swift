@@ -19,14 +19,12 @@ extension LabelScannerView {
         let labelTypes: [AnalyzeType] = AnalyzeType.allCases
         // Errors
         @Published var cameraError: AppError? = nil
-        // Services
-        private let labelAnalysisService = LabelAnalysisService() // TODO: dep injection
-        private var disposables = Set<AnyCancellable>() // TODO: just have 1, because there is only 1 call here
 
-        // Cancel any in-flight actions
-        deinit {
-            AppLogging.debug("Deinit LabelScannerViewModel")
-            disposables.removeAll()
+        // Callbacks to propagate certain actions up
+        private let onLabelScanned: LabelScannedCallback?
+
+        init(onLabelScanned: LabelScannedCallback? = nil) {
+            self.onLabelScanned = onLabelScanned
         }
 
         // View Actions
@@ -35,17 +33,8 @@ extension LabelScannerView {
                 AppLogging.warn("Captured image is nil but an image was confirmed")
                 return
             }
-            self.labelAnalysisService.analyzeNutrition(base64Image: imageToAnalyze.compressedB64String)
-            .sink(receiveCompletion: { [weak self] completion in
-                if let err = completion.getError() {
-                    print(err)
-                }
-            }, receiveValue: { [weak self] response in
-                print(response.parsedNutrition.calories ?? "None")
-            })
-            .store(in: &disposables)
+            self.onLabelScanned?(imageToAnalyze, self.labelTypes[self.selectedLabelTypeIndex])
         }
-
 
         // MARK: Actions
         func onCapturePhotoTapped() {

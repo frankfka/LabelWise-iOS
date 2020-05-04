@@ -2,8 +2,9 @@ import SwiftUI
 
 struct ContentView: View {
 
+    // In the future, onboarding views will be conditionally shown here
     var body: some View {
-        LabelScannerView()
+        AppView()
     }
 }
 

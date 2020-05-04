@@ -12,7 +12,41 @@ import Combine
 
 extension NutritionAnalysisView {
     class ViewModel: ObservableObject {
-        
+        // View properties
+        @Published var viewState: ViewState = .analyzing
+        @Published var analysisError: Error? = nil
+
+        // Callbacks
+        let onReturnToLabelScannerCallback: VoidCallback?
+
+        // Services
+        private let labelAnalysisService: LabelAnalysisService
+
+        // Cancellables
+        private var analysisCancellable: AnyCancellable? = nil
+
+        // Cancel any in-flight actions
+        deinit {
+            AppLogging.debug("Deinit NutritionAnalysisViewModel")
+            analysisCancellable?.cancel()
+        }
+
+        init(analysisService: LabelAnalysisService, onReturnToLabelScannerCallback: VoidCallback? = nil) {
+            self.labelAnalysisService = analysisService
+            self.onReturnToLabelScannerCallback = onReturnToLabelScannerCallback
+        }
+
+//        private func analyzeNutrition() {
+//            self.labelAnalysisService.analyzeNutrition(base64Image: imageToAnalyze.compressedB64String)
+//                .sink(receiveCompletion: { [weak self] completion in
+//                    if let err = completion.getError() {
+//                        print(err)
+//                    }
+//                }, receiveValue: { [weak self] response in
+//                    print(response.parsedNutrition.calories ?? "None")
+//                })
+//                .store(in: &disposables)
+//        }
     }
 }
 
