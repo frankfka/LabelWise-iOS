@@ -14,8 +14,8 @@ struct AppDimensions {
     }
 
     struct IconDimens {
-        let normal: CGFloat = 24
-        let largeButton: CGFloat = 64
+        let NormalIcon: CGFloat = 24
+        let LargeIcon: CGFloat = 64
     }
 
     struct LayoutDimens {
@@ -30,9 +30,6 @@ struct AppDimensions {
 
         // For drop shadows
         let ShadowRadius: CGFloat = 4
-
-        // Icons
-        let iconSize: CGFloat = 24
     }
 }
 

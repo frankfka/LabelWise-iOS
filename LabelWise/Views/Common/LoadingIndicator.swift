@@ -11,7 +11,7 @@ import Combine
 
 struct LoadingIndicator: View {
     private static let PlaceholderRingColor: Color = Color.App.PrimaryFillColor
-    private static let RingWidth: CGFloat = 16
+    private static let RingWidth: CGFloat = 8
     private static let RingColors: [Color] = [Color.App.AppGreen, Color.App.AppBlue, Color.App.AppPurple,
                                                 Color.App.AppRed, Color.App.AppYellow]
     private static let AnimationDuration: Double = 4
@@ -27,15 +27,22 @@ struct LoadingIndicator: View {
     private let colorAnimationTimer: Publishers.Autoconnect<Timer.TimerPublisher> =
             Timer.publish(every: LoadingIndicator.AnimationDuration, on: .main, in: .common).autoconnect()
     
+    // Configurable properties
+    private let ringWidth: CGFloat
+    
+    init(ringWidth: CGFloat = LoadingIndicator.RingWidth) {
+        self.ringWidth = ringWidth
+    }
+    
     var body: some View {
         ZStack {
             // Bottom ring as placeholder
             Ring()
-                .stroke(style: StrokeStyle(lineWidth: LoadingIndicator.RingWidth))
+                .stroke(style: StrokeStyle(lineWidth: self.ringWidth))
                 .fill(LoadingIndicator.PlaceholderRingColor)
             // Top ring for animation
             Ring(percent: indicatorFillPercent, startAngle: indicatorStartAngle, drawnClockwise: drawnClockwise)
-                .stroke(style: StrokeStyle(lineWidth: LoadingIndicator.RingWidth, lineCap: .round))
+                .stroke(style: StrokeStyle(lineWidth: self.ringWidth, lineCap: .round))
                 .fill(self.color)
                 .opacity(self.opacity)
                 .onAppear {
@@ -45,7 +52,7 @@ struct LoadingIndicator: View {
                     self.rotateColors()
                 })
         }
-        .padding(LoadingIndicator.RingWidth / 2)
+        .padding(self.ringWidth / 2)
     }
     
     // Begin the view animations
@@ -79,7 +86,7 @@ struct LoadingIndicator_Previews: PreviewProvider {
             .padding()
             .background(Color.App.BackgroundPrimaryFillColor)
         }
-        .frame(width: 200, height: 200)
+        .frame(width: 128, height: 128)
         .previewLayout(.sizeThatFits)
     }
 }

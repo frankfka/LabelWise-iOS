@@ -8,55 +8,41 @@
 
 import SwiftUI
 
-// TODO: Extract this to be more generic!
 struct NutritionAnalysisView: View {
     
-    @State private var headerVisible: Bool = false
+    @State private var loading: Bool = true
+    @State private var error: Bool = false
+    
+    private var header: some View {
+        Text("Loading")
+            .withStyle(font: Font.App.heading, color: Color.white)
+    }
+    private var headerBackgroundColor: Color {
+        Color.App.AppGreen
+    }
     
     var body: some View {
-        GeometryReader { geometry in
-            ScrollView {
-                if self.headerVisible {
+        VStack {
+            if self.loading {
+                FullScreenLoadingView(loadingText: "Analyzing")
+            } else {
+                AnalysisScrollView(header: self.header, headerBackground: self.headerBackgroundColor) {
                     VStack {
-                        Text("Header")
-                        Text("Header")
-                        Text("Header")
+                        Spacer()
+                        Text("Test")
+                        Spacer()
                     }
-                    .fillWidth()
-                    .padding(.top, geometry.safeAreaInsets.top)
-                    .padding(.bottom, 12)
-                    .background(Color.App.AppGreen)
+                    .fillWidthAndHeight()
                 }
-                VStack {
-                    Spacer()
-                    Text("Loading")
-                    Spacer()
-                }
-                .frame(minHeight: geometry.size.height)
-                .fillWidth()
-                .background(HalfRoundedRectangle(cornerRadius: 12).foregroundColor(.white))
-                .offset(x: 0, y: -12)
             }
-            .edgesIgnoringSafeArea(.top)
-        }
-        .background(
-            VStack {
-                Rectangle().foregroundColor(Color.App.AppGreen)
-                Rectangle().foregroundColor(Color.white)
-
-            }
-        )
-        .onAppear {
-            self.displayAnimation()
-        }
+        }.onAppear(perform: self.testOnAppear)
     }
     
-    private func displayAnimation() {
-        withAnimation(Animation.easeInOut(duration: 1).repeatForever(autoreverses: true)) {
-            self.headerVisible = true
+    private func testOnAppear() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+            self.loading = false
         }
     }
-    
 }
 
 struct NutritionAnalysisView_Previews: PreviewProvider {

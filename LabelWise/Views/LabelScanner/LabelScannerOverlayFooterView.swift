@@ -34,7 +34,7 @@ extension LabelScannerOverlayFooterView {
 
 // MARK: View
 struct LabelScannerOverlayFooterView: View {
-    private static let ActionIconHeight: CGFloat = CGFloat.App.Icon.largeButton
+    private static let ActionIconHeight: CGFloat = CGFloat.App.Icon.LargeIcon
 
     private let viewModel: ViewModel
     init(vm: ViewModel) {

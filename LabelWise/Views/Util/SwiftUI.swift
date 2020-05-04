@@ -23,6 +23,14 @@ extension View {
     func fillWidthAndHeight() -> some View {
         return self.frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
     }
+    
+    @ViewBuilder func `conditionalModifier`<T>(_ condition: Bool, transform: (Self) -> T) -> some View where T : View {
+        if condition {
+            transform(self)
+        } else {
+            self
+        }
+    }
 }
 
 // https://medium.com/@cafielo/how-to-detect-notch-screen-in-swift-56271827625d

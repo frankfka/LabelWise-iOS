@@ -19,7 +19,6 @@ extension LabelScannerView {
         let labelTypes: [AnalyzeType] = AnalyzeType.allCases
         // Errors
         @Published var cameraError: AppError? = nil
-        @Published var analysisError: AppError? = nil
         // Services
         private let labelAnalysisService = LabelAnalysisService() // TODO: dep injection
         private var disposables = Set<AnyCancellable>() // TODO: just have 1, because there is only 1 call here
@@ -39,7 +38,7 @@ extension LabelScannerView {
             self.labelAnalysisService.analyzeNutrition(base64Image: imageToAnalyze.compressedB64String)
             .sink(receiveCompletion: { [weak self] completion in
                 if let err = completion.getError() {
-                    self?.analysisError = err
+                    print(err)
                 }
             }, receiveValue: { [weak self] response in
                 print(response.parsedNutrition.calories ?? "None")
@@ -91,7 +90,6 @@ extension LabelScannerView.ViewModel {
         case takePhoto // Before capture tapped
         case takingPhoto  // After capture tapped but before photo comes back
         case confirmPhoto
-        case analyzing
         case error
     }
     // For label type picker

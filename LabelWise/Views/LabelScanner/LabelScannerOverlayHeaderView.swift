@@ -11,7 +11,7 @@ import SwiftUI
 // TODO: extract static consts
 struct LabelScannerOverlayHeaderView: View {
     private static let MinSpacerLength: CGFloat = CGFloat.App.Layout.extraLargePadding
-    private static let HelpIconSize: CGFloat = CGFloat.App.Icon.normal
+    private static let HelpIconSize: CGFloat = CGFloat.App.Icon.NormalIcon
 
     var body: some View {
         HStack {

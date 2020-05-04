@@ -24,6 +24,7 @@ struct AppColors {
     let Disabled: Color = Color(.systemGray)
     let Affirmative: Color = AppColors.AppGreen
     let Destructive: Color = AppColors.AppRed
+    let Error: Color = AppColors.AppRed
 
     // Background and Fill Colors
     let BackgroundPrimaryFillColor: Color = Color(.systemBackground) // Fills main background (furthest back)

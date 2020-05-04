@@ -17,13 +17,8 @@ struct ExpandingSectionModifier: ViewModifier {
     }
     
     func body(content: Content) -> some View {
-        Group {
-            if self.isExpanded {
-                content
-            } else {
-                EmptyView()
-            }
-        }
+        content
+            .frame(maxHeight: self.isExpanded ? nil : 0)
     }
 }
 
