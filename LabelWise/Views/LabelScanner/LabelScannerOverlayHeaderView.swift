@@ -13,6 +13,10 @@ struct LabelScannerOverlayHeaderView: View {
     private static let MinSpacerLength: CGFloat = CGFloat.App.Layout.extraLargePadding
     private static let HelpIconSize: CGFloat = CGFloat.App.Icon.NormalIcon
 
+    private var extraTopPadding: CGFloat {
+        UIApplication.hasNotch ?  CGFloat.App.Layout.largePadding : CGFloat.App.Layout.smallPadding
+    }
+
     var body: some View {
         HStack {
             Spacer(minLength: LabelScannerOverlayHeaderView.MinSpacerLength)
@@ -30,7 +34,7 @@ struct LabelScannerOverlayHeaderView: View {
                 .padding(.leading, -LabelScannerOverlayHeaderView.MinSpacerLength)
         }
         .padding(CGFloat.App.Layout.largePadding)
-        .padding(.top, DeviceProperties.current.hasNotch ?  CGFloat.App.Layout.largePadding : CGFloat.App.Layout.smallPadding)
+        .padding(.top, self.extraTopPadding)
         .fillWidth()
         .background(LabelScannerOverlayView.OverlayColor)
     }

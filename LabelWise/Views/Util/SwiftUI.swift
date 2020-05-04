@@ -23,8 +23,7 @@ extension View {
     func fillWidthAndHeight() -> some View {
         return self.frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
     }
-    
-    @ViewBuilder func `conditionalModifier`<T>(_ condition: Bool, transform: (Self) -> T) -> some View where T : View {
+    @ViewBuilder func conditionalModifier<Content: View>(_ condition: Bool, transform: (Self) -> Content) -> some View {
         if condition {
             transform(self)
         } else {
@@ -33,16 +32,19 @@ extension View {
     }
 }
 
-// https://medium.com/@cafielo/how-to-detect-notch-screen-in-swift-56271827625d
-struct DeviceProperties {
-    static let current = DeviceProperties()
-
-    var hasNotch: Bool {
-        let bottom = getWindow()?.safeAreaInsets.bottom ?? 0
+extension UIApplication {
+    // https://stackoverflow.com/questions/57063142/swiftui-status-bar-color
+    class func setStatusBarTextColor(showDarkText: Bool?) {
+        if let vc = UIApplication.getKeyWindow()?.rootViewController as? ContentHostingController {
+            vc.changeStatusBarStyle(showDarkText: showDarkText)
+        }
+    }
+    // https://medium.com/@cafielo/how-to-detect-notch-screen-in-swift-56271827625d
+    class var hasNotch: Bool {
+        let bottom = UIApplication.getKeyWindow()?.safeAreaInsets.bottom ?? 0
         return bottom > 0
     }
-
-    private func getWindow() -> UIWindow? {
+    private class func getKeyWindow() -> UIWindow? {
         return UIApplication.shared.windows.first{ $0.isKeyWindow }
     }
 }

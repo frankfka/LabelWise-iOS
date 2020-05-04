@@ -60,6 +60,9 @@ struct AnalysisScrollView<HeaderContent: View, HeaderBackground: View, BodyConte
                         .fillWidthAndHeight()
                         .background(self.bodyBackground)
                         .offset(x: 0, y: -self.bodyBackgroundRectangleRadius)
+                        .conditionalModifier(true) {
+                            $0
+                    }
                 }
                 .frame(minHeight: geometry.size.height)
             }

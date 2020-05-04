@@ -7,7 +7,6 @@ import SwiftUI
 import Combine
 import AVFoundation
 
-// TODO: status bar color: https://stackoverflow.com/questions/57063142/swiftui-status-bar-color Ziobro?
 // TODO: Loading and error views
 struct LabelScannerView: View {
 
@@ -45,6 +44,8 @@ struct LabelScannerView: View {
         // Note: Extra padding is applied in overlay header & footer views
         .edgesIgnoringSafeArea(.all)
         .fillWidthAndHeight()
+        .onAppear(perform: self.onAppear)
+        .onDisappear(perform: self.onDisappear)
     }
 
     // MARK: Component views
@@ -61,6 +62,18 @@ struct LabelScannerView: View {
             return CameraView(vm: self.cameraViewVm).eraseToAnyView()
         }
     }
+    
+    // MARK: Actions
+    private func onAppear() {
+        // Set the status bar color to light
+        UIApplication.setStatusBarTextColor(showDarkText: false)
+    }
+
+    private func onDisappear() {
+        // Reset status bar color
+        UIApplication.setStatusBarTextColor(showDarkText: nil)
+    }
+    
 }
 
 struct LabelScannerView_Previews: PreviewProvider {

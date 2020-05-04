@@ -16,10 +16,10 @@ extension LabelScannerOverlayFooterView {
         var labelTypePickerVm: PickerViewModel
         @Binding private var viewState: LabelScannerView.ViewModel.ViewState
         var showConfirmPhotoActions: Bool {
-            viewState == .confirmPhoto || viewState == .analyzing
+            viewState == .confirmPhoto
         }
         var disableActions: Bool {
-            viewState == .error || viewState == .loadingCamera || viewState == .analyzing || viewState == .takingPhoto
+            viewState == .error || viewState == .loadingCamera || viewState == .takingPhoto
         }
 
         init(viewState: Binding<LabelScannerView.ViewModel.ViewState>, labelTypePickerVm: PickerViewModel,
@@ -34,9 +34,14 @@ extension LabelScannerOverlayFooterView {
 
 // MARK: View
 struct LabelScannerOverlayFooterView: View {
+    // TODO: static consts
     private static let ActionIconHeight: CGFloat = CGFloat.App.Icon.LargeIcon
 
     private let viewModel: ViewModel
+    private var extraBottomPadding: CGFloat {
+        UIApplication.hasNotch ? CGFloat.App.Layout.smallPadding : 0
+    }
+
     init(vm: ViewModel) {
         self.viewModel = vm
     }
@@ -58,7 +63,7 @@ struct LabelScannerOverlayFooterView: View {
             .frame(height: LabelScannerOverlayFooterView.ActionIconHeight)
             .fillWidth()
         }
-        .padding(.bottom, DeviceProperties.current.hasNotch ? CGFloat.App.Layout.smallPadding : 0)
+        .padding(.bottom, self.extraBottomPadding)
         .padding(CGFloat.App.Layout.largePadding)
         .fillWidth()
         .background(LabelScannerOverlayView.OverlayColor)
