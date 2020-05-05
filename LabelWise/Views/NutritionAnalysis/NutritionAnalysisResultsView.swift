@@ -18,6 +18,15 @@ struct NutritionAnalysisResultsView: View {
         .fillWidthAndHeight()
     }
 }
+extension NutritionAnalysisResultsView {
+    struct ViewModel {
+        private let resultDto: AnalyzeNutritionResponseDTO
+
+        init(dto: AnalyzeNutritionResponseDTO) {
+            self.resultDto = dto
+        }
+    }
+}
 
 struct NutritionAnalysisResultsView_Previews: PreviewProvider {
     static var previews: some View {

@@ -18,8 +18,8 @@ struct AppView: View {
     private var labelScannerViewVm: LabelScannerView.ViewModel {
         LabelScannerView.ViewModel(onLabelScanned: self.viewModel.onLabelScanned)
     }
-    private var nutritionAnalysisViewVm: NutritionAnalysisView.ViewModel {
-        NutritionAnalysisView.ViewModel(
+    private var nutritionAnalysisViewVm: NutritionAnalysisRootView.ViewModel {
+        NutritionAnalysisRootView.ViewModel(
                 analysisService: LabelAnalysisService(),
                 onReturnToLabelScannerCallback: self.viewModel.onReturnToLabelScannerTapped
         )
@@ -30,7 +30,7 @@ struct AppView: View {
         if viewModel.viewState == .scanLabel {
             LabelScannerView(vm: self.labelScannerViewVm)
         } else if viewModel.viewState == .analyzeNutrition {
-            NutritionAnalysisView(vm: self.nutritionAnalysisViewVm)
+            NutritionAnalysisRootView(vm: self.nutritionAnalysisViewVm)
         } else {
             // Generic error view - this should never be called
             FullScreenErrorView().onAppear { AppLogging.error("Invalid view state in AppView") }

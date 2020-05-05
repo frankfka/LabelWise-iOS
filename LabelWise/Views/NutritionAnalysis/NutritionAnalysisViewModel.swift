@@ -10,11 +10,12 @@ import Foundation
 import SwiftUI
 import Combine
 
-extension NutritionAnalysisView {
+extension NutritionAnalysisRootView {
     class ViewModel: ObservableObject {
         // View properties
         @Published var viewState: ViewState = .analyzing
         @Published var analysisError: Error? = nil
+        @Published var analysisResult: AnalyzeNutritionResponseDTO? = nil
 
         // Callbacks
         let onReturnToLabelScannerCallback: VoidCallback?
@@ -34,6 +35,11 @@ extension NutritionAnalysisView {
         init(analysisService: LabelAnalysisService, onReturnToLabelScannerCallback: VoidCallback? = nil) {
             self.labelAnalysisService = analysisService
             self.onReturnToLabelScannerCallback = onReturnToLabelScannerCallback
+            // TODO: Temporary
+            DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+                self.viewState = .displayResults
+                self.analysisResult = AnalyzeNutritionResponseDTO(parsedNutrition: NutritionPreviewModels.FullyParsedNutritionDto, warnings: [])
+            }
         }
 
 //        private func analyzeNutrition() {
@@ -51,7 +57,7 @@ extension NutritionAnalysisView {
 }
 
 // Additional models for vm
-extension NutritionAnalysisView.ViewModel {
+extension NutritionAnalysisRootView.ViewModel {
     // State of the analysis view
     enum ViewState {
         case analyzing

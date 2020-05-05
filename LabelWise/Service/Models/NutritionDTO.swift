@@ -5,19 +5,19 @@
 
 import Foundation
 
-struct AnalyzeNutritionRequestDTO: Codable {
+struct AnalyzeNutritionRequestDTO {
     let type: AnalyzeType
     let base64Image: String
-
+}
+extension AnalyzeNutritionRequestDTO: Codable {
     enum CodingKeys: String, CodingKey {
         case type = "type"
         case base64Image = "b64_img"
     }
 }
 
-struct AnalyzeNutritionResponseDTO: Codable {
-
-    struct ParsedNutrition: Codable {
+struct AnalyzeNutritionResponseDTO {
+    struct ParsedNutrition {
         let calories: Double?
         let carbohydrates: Double?
         let sugar: Double?
@@ -31,14 +31,28 @@ struct AnalyzeNutritionResponseDTO: Codable {
 
     let parsedNutrition: ParsedNutrition
     let warnings: [NutritionWarningDTO]
-
+}
+extension AnalyzeNutritionResponseDTO: Codable {
     enum CodingKeys: String, CodingKey {
         case parsedNutrition = "parsed_nutrition"
         case warnings = "warnings"
     }
 }
+extension AnalyzeNutritionResponseDTO.ParsedNutrition: Codable {
+    enum CodingKeys: String, CodingKey {
+        case calories = "calories"
+        case carbohydrates = "carbohydrates"
+        case sugar = "sugar"
+        case fiber = "fiber"
+        case protein = "protein"
+        case fat = "fat"
+        case satFat = "saturated_fat" // TODO: Double check this
+        case cholesterol = "cholesterol"
+        case sodium = "sodium"
+    }
+}
 
-struct NutritionWarningDTO: Codable {
+struct NutritionWarningDTO {
     enum Level: Int, Codable {
         case none = 0
         case caution = 1
@@ -54,12 +68,14 @@ struct NutritionWarningDTO: Codable {
 
     let code: Code
     let level: Level
-
+}
+extension NutritionWarningDTO: Codable {
     enum CodingKeys: String, CodingKey {
         case code = "code"
         case level = "level"
     }
 }
+
 
 // MARK: Extensions for enum codables
 // TODO: test non-conforming types from alamofire

@@ -9,9 +9,25 @@
 import SwiftUI
 
 struct NutritionAnalysisResultsHeaderView: View {
+
+    // Shared background with AnalysisScrollView
+    var background: some View {
+        Color.App.AppGreen
+    }
+
     var body: some View {
         Text("Loading")
             .withStyle(font: Font.App.heading, color: Color.white)
+    }
+}
+
+extension NutritionAnalysisResultsHeaderView {
+    struct ViewModel {
+        private let resultDto: AnalyzeNutritionResponseDTO
+
+        init(dto: AnalyzeNutritionResponseDTO) {
+            self.resultDto = dto
+        }
     }
 }
 

@@ -89,7 +89,7 @@ class CameraViewController: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        self.view.backgroundColor = .black
+        self.view.backgroundColor = .black // Force background color to be black, looks better
         loadCamera()
     }
 
