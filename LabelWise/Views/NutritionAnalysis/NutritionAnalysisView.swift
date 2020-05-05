@@ -21,12 +21,11 @@ struct NutritionAnalysisView: View {
     }
 
     @ViewBuilder private func getViewFromViewState() -> some View {
-        let state = self.viewModel.viewState
-        if state == .displayResults {
+        if self.viewModel.viewState == .displayResults {
             self.getResultsView()
-        } else if state == .analyzing {
+        } else if self.viewModel.viewState == .analyzing {
             FullScreenLoadingView(loadingText: "Analyzing")
-        } else if state == .error {
+        } else if self.viewModel.viewState == .error {
             Text("Error")
         } else {
             // TODO: Maybe throw a fatal error here?

@@ -59,6 +59,7 @@ struct LabelScannerOverlayView: View {
                             // eoFill allows cutout
                             .fill(style: FillStyle(eoFill: true, antialiased: true))
                     )
+                    .allowsHitTesting(false) // Allow touches to pass through
             }
             // Footer
             LabelScannerOverlayFooterView(vm: self.footerViewModel)

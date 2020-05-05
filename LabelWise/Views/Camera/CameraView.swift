@@ -6,19 +6,22 @@
 import SwiftUI
 import AVFoundation
 
-// TODO: Loading animation
 struct CameraView: UIViewControllerRepresentable {
     typealias UIViewControllerType = CameraViewController
 
     class ViewModel: ObservableObject {
         @Binding var takePicture: Bool // Signals when to take a picture
-        @Binding var cameraError: AppError?  // Binding to an error so that we can propagate state up
+        let onCameraInitialized: VoidCallback?
+        let onCameraError: ErrorCallback?
         let onPhotoCapture: PhotoCaptureCallback? // Called when we take a photo
 
-        init(takePicture: Binding<Bool>, cameraError: Binding<AppError?>,
+        init(takePicture: Binding<Bool>,
+             onCameraInitialized: VoidCallback? = nil,
+             onCameraError: ErrorCallback? = nil,
              onPhotoCapture: PhotoCaptureCallback? = nil) {
             self._takePicture = takePicture
-            self._cameraError = cameraError
+            self.onCameraInitialized = onCameraInitialized
+            self.onCameraError = onCameraError
             self.onPhotoCapture = onPhotoCapture
         }
     }
@@ -29,7 +32,11 @@ struct CameraView: UIViewControllerRepresentable {
     }
 
     func makeCoordinator() -> Coordinator {
-        return Coordinator(cameraError: self.viewModel.$cameraError, onPhotoCapture: self.viewModel.onPhotoCapture)
+        return Coordinator(
+            onCameraInitialized: self.viewModel.onCameraInitialized,
+            onCameraError: self.viewModel.onCameraError,
+            onPhotoCapture: self.viewModel.onPhotoCapture
+        )
     }
 
     // Called when the view is shown
@@ -44,19 +51,23 @@ struct CameraView: UIViewControllerRepresentable {
                                 context: UIViewControllerRepresentableContext<CameraView>) {
         // Take picture if our state calls for it
         if self.viewModel.takePicture, let err = uiViewController.takePicture() {
-            self.viewModel.cameraError = err
+            self.viewModel.onCameraError?(err)
         }
     }
 
     // The coordinator allows the view controller to interact with the state
     // It also serves as the delegate for photo taking
     class Coordinator: NSObject, AVCapturePhotoCaptureDelegate {
+        let onCameraInitialized: VoidCallback?
+        let onCameraError: ErrorCallback?
         private let onPhotoCapture: PhotoCaptureCallback?
-        @Binding private var cameraError: AppError?
 
-        init(cameraError: Binding<AppError?>, onPhotoCapture: PhotoCaptureCallback? = nil) {
+        init(onCameraInitialized: VoidCallback? = nil,
+             onCameraError: ErrorCallback? = nil,
+             onPhotoCapture: PhotoCaptureCallback? = nil) {
+            self.onCameraInitialized = onCameraInitialized
+            self.onCameraError = onCameraError
             self.onPhotoCapture = onPhotoCapture
-            self._cameraError = cameraError
         }
 
         public func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
@@ -66,10 +77,6 @@ struct CameraView: UIViewControllerRepresentable {
             }
             let labelPhotoResult = photo.toLabelImage()
             self.onPhotoCapture?(labelPhotoResult.0, labelPhotoResult.1)
-        }
-
-        func onCameraError(_ error: AppError?) {
-            self.cameraError = error
         }
     }
 }
@@ -82,6 +89,7 @@ class CameraViewController: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        self.view.backgroundColor = .black
         loadCamera()
     }
 
@@ -108,17 +116,20 @@ class CameraViewController: UIViewController {
         view.contentMode = UIView.ContentMode.scaleAspectFit
         cameraController.startSession { [weak self] err in
             guard err == nil else {
-                self?.coordinator?.onCameraError(AppError("Error starting camera session", wrappedError: err))
+                self?.coordinator?.onCameraError?(AppError("Error starting camera session", wrappedError: err))
                 return
             }
             guard let v = self?.view else {
-                self?.coordinator?.onCameraError(AppError("No view to display preview on"))
+                self?.coordinator?.onCameraError?(AppError("No view to display preview on"))
                 return
             }
-            if let err = cameraController.displayPreview(on: v) {
-                self?.coordinator?.onCameraError(AppError("Error displaying camera preview", wrappedError: err))
+            let cameraInitErr = cameraController.displayPreview(on: v)
+            guard cameraInitErr == nil else {
+                self?.coordinator?.onCameraError?(AppError("Error displaying camera preview", wrappedError: err))
+                return
             }
+            self?.coordinator?.onCameraInitialized?()
+            self?.cameraController = cameraController
         }
-        self.cameraController = cameraController
     }
 }

@@ -10,15 +10,17 @@ import Combine
 extension LabelScannerView {
     class ViewModel: ObservableObject {
         // View Attributes
-        // TODO: remove the below, just use state
-        @Published var takePicture: Bool = false // Indicates if we are taking a picture. Image is first captured when this is toggled
         @Published var capturedImage: LabelImage? = nil
-        @Published var viewState: ViewModel.ViewState = .takePhoto // TODO: start in loading
+        @Published var viewState: ViewModel.ViewState = .loadingCamera
+        var takePicture: Bool {
+            // Indicates when to take a picture, define setter to allow for binding
+            get { self.viewState == .takingPhoto }
+            set(newVal) {}
+        }
         // Label types (nutrition/ingredients)
+        private let labelTypes: [AnalyzeType] = AnalyzeType.allCases
         @Published var selectedLabelTypeIndex: Int = 0
-        let labelTypes: [AnalyzeType] = AnalyzeType.allCases
-        // Errors
-        @Published var cameraError: AppError? = nil
+        lazy var displayedLabelTypes: [String] = { labelTypes.map { $0.pickerName } }()
 
         // Callbacks to propagate certain actions up
         private let onLabelScanned: LabelScannedCallback?
@@ -26,52 +28,64 @@ extension LabelScannerView {
         init(onLabelScanned: LabelScannedCallback? = nil) {
             self.onLabelScanned = onLabelScanned
         }
-
-        // View Actions
-        func onCapturedImageConfirmed() {
+    }
+}
+// MARK: Actions
+extension LabelScannerView.ViewModel {
+    func onViewAppear() {
+        // Set the status bar color to light
+        UIApplication.setStatusBarTextColor(showDarkText: false)
+    }
+    func onViewDisappear() {
+        // Reset status bar color
+        UIApplication.setStatusBarTextColor(showDarkText: nil)
+    }
+    func onCameraInitialized() {
+        self.viewState = .takePhoto
+    }
+    func onCameraError(_ err: AppError?) {
+        AppLogging.error("Camera error: \(String(describing: err))")
+        self.viewState = .error
+    }
+    // Called when camera capture icon is tapped
+    func onCapturePhotoTapped() {
+        if self.viewState == .takePhoto {
+            // Take a picture if we're in the right state
+            self.viewState = .takingPhoto
+        } else {
+            AppLogging.debug("Attempting to capture photo in an invalid state. Skipping")
+        }
+    }
+    // Callback when photo is complete
+    func onPhotoCapture(photo: LabelImage?, error: AppError?) {
+        if self.capturedImage != nil {
+            AppLogging.error("Overwriting captured image. Look into this!")
+        }
+        if let photo = photo, error == nil {
+            self.viewState = .confirmPhoto
+            self.capturedImage = photo
+        } else {
+            AppLogging.error("Error from camera during capture: \(String(describing: error))")
+            self.viewState = .error
+        }
+    }
+    // Photo confirmed,
+    func onConfirmPhotoAction(didConfirm: Bool) {
+        if didConfirm {
+            // Image confirmed, pass the image to callback
             guard let imageToAnalyze = capturedImage else {
-                AppLogging.warn("Captured image is nil but an image was confirmed")
+                AppLogging.error("Captured image is nil but an image was confirmed")
+                self.viewState = .error
                 return
             }
             self.onLabelScanned?(imageToAnalyze, self.labelTypes[self.selectedLabelTypeIndex])
-        }
-
-        // MARK: Actions
-        func onCapturePhotoTapped() {
-            if !self.takePicture {
-                // Take a picture if one isn't in progress
-                self.takePicture = true
-                // TODO: Some loading state
-            } else {
-                AppLogging.debug("Attempting to capture photo while current operation is in progress. Skipping")
-            }
-        }
-
-        func onPhotoCapture(photo: LabelImage?, error: AppError?) {
-            if self.capturedImage != nil {
-                AppLogging.warn("Overwriting captured image. Look into this!")
-            }
-            self.takePicture = false
-            if let photo = photo, error == nil {
-                self.capturedImage = photo
-                self.viewState = .confirmPhoto
-            } else {
-                self.cameraError = error
-            }
-        }
-
-        func onConfirmPhotoAction(didConfirm: Bool) {
-            if didConfirm {
-                self.onCapturedImageConfirmed()
-            } else {
-                self.viewState = .takePhoto
-                self.capturedImage = nil
-            }
+        } else {
+            self.viewState = .takePhoto
+            self.capturedImage = nil
         }
     }
 }
-
-// Additional models within the view model
+// MARK: Additional models
 extension LabelScannerView.ViewModel {
     // States of the scanner view
     enum ViewState {
@@ -94,7 +108,7 @@ extension LabelScannerView.ViewModel {
 }
 
 extension AnalyzeType {
-    func getPickerName() -> String {
+    var pickerName: String {
         switch self {
         case .nutrition:
             return "Nutrition"

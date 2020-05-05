@@ -6,7 +6,6 @@
 import Foundation
 import SwiftUI
 
-// TODO: Comment this class
 struct RingedIconModifier: ViewModifier {
     // Standard sizes
     private static let StandardButtonSize: CGFloat = CGFloat.App.Icon.LargeIcon

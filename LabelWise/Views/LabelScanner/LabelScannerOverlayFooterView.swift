@@ -34,8 +34,10 @@ extension LabelScannerOverlayFooterView {
 
 // MARK: View
 struct LabelScannerOverlayFooterView: View {
-    // TODO: static consts
     private static let ActionIconHeight: CGFloat = CGFloat.App.Icon.LargeIcon
+    private static let ViewPadding: CGFloat = CGFloat.App.Layout.largePadding
+    private static let PickerXPadding: CGFloat = CGFloat.App.Layout.largePadding
+    private static let PickerYPadding: CGFloat = CGFloat.App.Layout.normalPadding
 
     private let viewModel: ViewModel
     private var extraBottomPadding: CGFloat {
@@ -50,21 +52,27 @@ struct LabelScannerOverlayFooterView: View {
         VStack {
             // Type picker
             SegmentedPicker(vm: self.viewModel.labelTypePickerVm)
-                .padding(.horizontal, CGFloat.App.Layout.largePadding)
-                .padding(.bottom, CGFloat.App.Layout.normalPadding)
+                .padding(.horizontal, LabelScannerOverlayFooterView.PickerXPadding)
+                .padding(.bottom, LabelScannerOverlayFooterView.PickerYPadding)
             // Action icons
             VStack {
                 if self.viewModel.showConfirmPhotoActions {
-                    PhotoActionIcons(isDisabled: self.viewModel.disableActions, onConfirmPhotoAction: self.viewModel.onConfirmPhotoAction)
+                    PhotoActionIcons(
+                        isDisabled: self.viewModel.disableActions,
+                        onConfirmPhotoAction: self.viewModel.onConfirmPhotoAction
+                    )
                 } else {
-                    CaptureIcon(isDisabled: self.viewModel.disableActions, onTap: self.viewModel.onCapturePhotoTapped)
+                    CaptureIcon(
+                        isDisabled: self.viewModel.disableActions,
+                        onTap: self.viewModel.onCapturePhotoTapped
+                    )
                 }
             }
             .frame(height: LabelScannerOverlayFooterView.ActionIconHeight)
             .fillWidth()
         }
         .padding(.bottom, self.extraBottomPadding)
-        .padding(CGFloat.App.Layout.largePadding)
+        .padding(LabelScannerOverlayFooterView.ViewPadding)
         .fillWidth()
         .background(LabelScannerOverlayView.OverlayColor)
     }
@@ -72,7 +80,7 @@ struct LabelScannerOverlayFooterView: View {
 }
 
 struct LabelScannerOverlayFooterView_Previews: PreviewProvider {
-    static let labelTypePickerVm = LabelScannerView.ViewModel.LabelTypePickerViewModel(selectedIndex: .constant(0), items: AnalyzeType.allCases.map { $0.getPickerName() })
+    static let labelTypePickerVm = LabelScannerView.ViewModel.LabelTypePickerViewModel(selectedIndex: .constant(0), items: AnalyzeType.allCases.map { $0.pickerName })
     static let vm = LabelScannerOverlayFooterView.ViewModel(viewState: .constant(.takePhoto), labelTypePickerVm: labelTypePickerVm)
     static var previews: some View {
         LabelScannerOverlayFooterView(vm: vm)

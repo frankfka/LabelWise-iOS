@@ -36,13 +36,14 @@ struct RoundedRectangleTextButton: View {
                 .withStyle(font: RoundedRectangleTextButton.ButtonFont, color: self.textColor)
                 .padding(.vertical, RoundedRectangleTextButton.VerticalPadding)
                 .padding(.horizontal, RoundedRectangleTextButton.HorizontalPadding)
-                .background(self.background)
         }
+        .background(self.background)
     }
 }
 
 struct ButtonViews_Previews: PreviewProvider {
     static var previews: some View {
+        // TODO: Previews
         Text("")
     }
 }

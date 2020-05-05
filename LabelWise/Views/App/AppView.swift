@@ -9,68 +9,32 @@
 import SwiftUI
 import Combine
 
-// Standard view for label scanning and analyzing
+// TODO: should check for camera permission, then pop to onboarding if it was turned off
+// Root view for label scanning and analyzing
 struct AppView: View {
+    // Primary view model
     @ObservedObject private var viewModel: ViewModel = ViewModel()
-
-    var body: some View {
-        getViewFromViewState()
+    // Child view models
+    private var labelScannerViewVm: LabelScannerView.ViewModel {
+        LabelScannerView.ViewModel(onLabelScanned: self.viewModel.onLabelScanned)
     }
-    
-    @ViewBuilder func getViewFromViewState() -> some View {
-        // Switch statement does not work here
-        if viewModel.viewState == .scanLabel {
-            LabelScannerView(vm: self.getLabelScannerViewVm())
-        } else if viewModel.viewState == .analyzeNutrition {
-            NutritionAnalysisView(vm: self.getNutritionAnalysisViewVm())
-        } else {
-            // TODO: Errorview and loadingview here
-            EmptyView()
-        }
-    }
-
-    // TODO: Consider computed variable instead
-    private func getLabelScannerViewVm() -> LabelScannerView.ViewModel {
-        return LabelScannerView.ViewModel(onLabelScanned: self.viewModel.onLabelScanned)
-    }
-
-    private func getNutritionAnalysisViewVm() -> NutritionAnalysisView.ViewModel {
-        return NutritionAnalysisView.ViewModel(
+    private var nutritionAnalysisViewVm: NutritionAnalysisView.ViewModel {
+        NutritionAnalysisView.ViewModel(
                 analysisService: LabelAnalysisService(),
                 onReturnToLabelScannerCallback: self.viewModel.onReturnToLabelScannerTapped
         )
     }
-}
 
-typealias LabelScannedCallback = (LabelImage, AnalyzeType) -> ()
-
-extension AppView {
-    class ViewModel: ObservableObject {
-        @Published var viewState: ViewState = .scanLabel
-        @Published var scannedImage: LabelImage? = nil
-
-        // Callback from LabelScannerView to kick off analysis
-        func onLabelScanned(image: LabelImage, type: AnalyzeType) {
-            self.scannedImage = image
-            switch type {
-            case .ingredients:
-                break
-            case .nutrition:
-                self.viewState = .analyzeNutrition
-            }
+    @ViewBuilder
+    var body: some View {
+        if viewModel.viewState == .scanLabel {
+            LabelScannerView(vm: self.labelScannerViewVm)
+        } else if viewModel.viewState == .analyzeNutrition {
+            NutritionAnalysisView(vm: self.nutritionAnalysisViewVm)
+        } else {
+            // Generic error view - this should never be called
+            FullScreenErrorView().onAppear { AppLogging.error("Invalid view state in AppView") }
         }
-
-        // Callback from analysis views to return to label scanning
-        func onReturnToLabelScannerTapped() {
-
-        }
-
-    }
-}
-extension AppView.ViewModel {
-    enum ViewState {
-        case scanLabel
-        case analyzeNutrition
     }
 }
 
