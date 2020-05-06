@@ -26,6 +26,7 @@ struct LabelScannerView: View {
         return LabelScannerOverlayView.ViewModel(
             viewMode: self.$viewModel.viewState,
             labelTypePickerVm: labelTypeVm,
+            onHelpIconTapped: self.viewModel.onHelpIconTapped,
             onCapturePhotoTapped: self.viewModel.onCapturePhotoTapped,
             onConfirmPhotoAction: self.viewModel.onConfirmPhotoAction
         )

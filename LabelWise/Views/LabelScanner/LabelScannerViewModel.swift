@@ -40,6 +40,11 @@ extension LabelScannerView.ViewModel {
         // Reset status bar color
         UIApplication.setStatusBarStyle(.default)
     }
+    // Called when header help icon is tapped
+    func onHelpIconTapped() {
+        // TODO This is temporary for testing
+        self.onLabelScanned?(PreviewImages.nutritionLabelImage, self.labelTypes[self.selectedLabelTypeIndex], true)
+    }
     // Called when camera preview is active
     func onCameraInitialized() {
         self.viewState = .takePhoto
@@ -84,7 +89,7 @@ extension LabelScannerView.ViewModel {
                 self.viewState = .error
                 return
             }
-            self.onLabelScanned?(imageToAnalyze, self.labelTypes[self.selectedLabelTypeIndex])
+            self.onLabelScanned?(imageToAnalyze, self.labelTypes[self.selectedLabelTypeIndex], false)
         } else {
             self.viewState = .takePhoto
             self.capturedImage = nil

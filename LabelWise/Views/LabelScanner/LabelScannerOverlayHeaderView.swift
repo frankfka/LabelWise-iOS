@@ -9,12 +9,22 @@
 import SwiftUI
 
 struct LabelScannerOverlayHeaderView: View {
+    // View
+    private static let ViewPadding: CGFloat = CGFloat.App.Layout.normalPadding
     private static let MinSpacerLength: CGFloat = CGFloat.App.Layout.extraLargePadding
+    // Help Icon
     private static let HelpIconSize: CGFloat = CGFloat.App.Icon.SmallIcon
-    private static let ViewPadding: CGFloat = CGFloat.App.Layout.largePadding
+    private static let HelpIconTappablePadding: CGFloat = CGFloat.App.Layout.smallPadding
+    // Help text
     private static let HelpTextFont: Font = Font.App.SmallText
     private static let HelpTextColor: Color = Color.App.White
     private static let HelpIconColor: Color = Color.App.White
+
+    private let helpIconTappedCallback: VoidCallback?
+
+    init(helpIconTappedCallback: VoidCallback? = nil) {
+        self.helpIconTappedCallback = helpIconTappedCallback
+    }
 
     var body: some View {
         HStack {
@@ -23,14 +33,16 @@ struct LabelScannerOverlayHeaderView: View {
                 .withStyle(font: LabelScannerOverlayHeaderView.HelpTextFont, color: LabelScannerOverlayHeaderView.HelpTextColor)
                 .multilineTextAlignment(.center)
                 .lineLimit(nil)
+                // Center the text
+                .offset(x: LabelScannerOverlayHeaderView.HelpIconSize + LabelScannerOverlayHeaderView.HelpIconTappablePadding, y: 0)
             Spacer(minLength: LabelScannerOverlayHeaderView.MinSpacerLength)
             Image.App.QuestionMarkCircleFill
                 .resizable()
                 .frame(width: LabelScannerOverlayHeaderView.HelpIconSize,
                         height: LabelScannerOverlayHeaderView.HelpIconSize)
+                .padding(LabelScannerOverlayHeaderView.HelpIconTappablePadding)
                 .foregroundColor(LabelScannerOverlayHeaderView.HelpIconColor)
-                // Allow center element to be centered
-                .padding(.leading, -LabelScannerOverlayHeaderView.MinSpacerLength)
+                .onTapGesture { self.helpIconTappedCallback?() }
         }
         .padding(LabelScannerOverlayHeaderView.ViewPadding)
         .fillWidth()
@@ -40,6 +52,7 @@ struct LabelScannerOverlayHeaderView: View {
 struct LabelScannerOverlayHeaderView_Previews: PreviewProvider {
     static var previews: some View {
         LabelScannerOverlayHeaderView()
+            .background(Color.App.Overlay)
             .previewLayout(.sizeThatFits)
     }
 }

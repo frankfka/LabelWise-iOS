@@ -7,7 +7,7 @@ import Foundation
 import SwiftUI
 
 // Passed up from label scanner
-typealias LabelScannedCallback = (LabelImage, AnalyzeType) -> ()
+typealias LabelScannedCallback = (LabelImage, AnalyzeType, Bool) -> () // TODO: 3rd argument is temp for testing
 
 // MARK: Root view model
 extension AppView {
@@ -20,13 +20,19 @@ extension AppView {
 // MARK: Actions for view model
 extension AppView.ViewModel {
     // Callback from LabelScannerView to kick off analysis
-    func onLabelScanned(image: LabelImage, type: AnalyzeType) {
+    func onLabelScanned(image: LabelImage, type: AnalyzeType, isTest: Bool) {
         switch type {
         case .ingredients:
             break
         case .nutrition:
             self.viewState = .analyzeNutrition
-            self.analyzeNutritionPublisher = labelAnalysisService.analyzeNutrition(base64Image: image.compressedB64String)
+            if isTest {
+                let parsedNutrition = PreviewNutritionModels.FullyParsedNutritionDto
+                let response = AnalyzeNutritionResponseDTO(parsedNutrition: parsedNutrition, warnings: [])
+                self.analyzeNutritionPublisher = MockAnalysisService.getNutritionResponsePublisher(response: response)
+            } else {
+                self.analyzeNutritionPublisher = labelAnalysisService.analyzeNutrition(base64Image: image.compressedB64String)
+            }
         }
     }
     // Callback from analysis views to return to label scanning

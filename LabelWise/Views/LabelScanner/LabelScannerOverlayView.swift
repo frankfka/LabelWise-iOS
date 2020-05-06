@@ -10,13 +10,15 @@ extension LabelScannerOverlayView {
     struct ViewModel {
         @Binding var viewState: LabelScannerView.ViewModel.ViewState
         var labelTypePickerVm: PickerViewModel
+        let onHelpIconTapped: VoidCallback?
         let onCapturePhotoTapped: VoidCallback?
         let onConfirmPhotoAction: BoolCallback?
 
         init(viewMode: Binding<LabelScannerView.ViewModel.ViewState>, labelTypePickerVm: PickerViewModel,
-             onCapturePhotoTapped: VoidCallback? = nil, onConfirmPhotoAction: BoolCallback? = nil) {
+             onHelpIconTapped: VoidCallback? = nil, onCapturePhotoTapped: VoidCallback? = nil, onConfirmPhotoAction: BoolCallback? = nil) {
             self._viewState = viewMode
             self.labelTypePickerVm = labelTypePickerVm
+            self.onHelpIconTapped = onHelpIconTapped
             self.onCapturePhotoTapped = onCapturePhotoTapped
             self.onConfirmPhotoAction = onConfirmPhotoAction
         }
@@ -49,7 +51,7 @@ struct LabelScannerOverlayView: View {
         GeometryReader { outerGeometry in // Outer geometry to read safe area insets
             VStack(spacing: 0) {
                 // Header
-                LabelScannerOverlayHeaderView()
+                LabelScannerOverlayHeaderView(helpIconTappedCallback: self.viewModel.onHelpIconTapped)
                     .padding(.top, outerGeometry.safeAreaInsets.top)
                     .background(LabelScannerOverlayView.OverlayColor)
                 // Camera overlay with hole for full camera view
