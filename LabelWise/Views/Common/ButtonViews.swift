@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct RoundedRectangleTextButton: View {
-    private static let ButtonFont: Font = Font.App.normalText
+    private static let ButtonFont: Font = Font.App.NormalText
     private static let HorizontalPadding: CGFloat = CGFloat.App.Layout.largePadding
     private static let VerticalPadding: CGFloat = CGFloat.App.Layout.normalPadding
     private static let BackgroundCornerRadius: CGFloat = CGFloat.App.Layout.CornerRadius

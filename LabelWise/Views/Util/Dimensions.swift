@@ -8,13 +8,16 @@ struct AppDimensions {
     let Layout = LayoutDimens()
 
     struct FontDimens {
-        let small: CGFloat = 12
-        let normal: CGFloat = 16
-        let large: CGFloat = 20
+        let Small: CGFloat = 12
+        let Normal: CGFloat = 16
+        let Large: CGFloat = 20
+        let Subtitle: CGFloat = 26
+        let Heading: CGFloat = 34
     }
 
     struct IconDimens {
-        let NormalIcon: CGFloat = 24
+        let SmallIcon: CGFloat = 24
+        let NormalIcon: CGFloat = 36
         let LargeIcon: CGFloat = 64
     }
 

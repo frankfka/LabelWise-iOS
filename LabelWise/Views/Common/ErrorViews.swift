@@ -12,9 +12,9 @@ struct ErrorDialogView: View {
     private static let ErrorIcon: Image = Image.App.XMarkCircleFill
     private static let ErrorIconColor: Color = Color.App.Error
     private static let ErrorIconSize: CGFloat = CGFloat.App.Icon.LargeIcon
-    private static let ErrorHeaderFont: Font = Font.App.heading
+    private static let ErrorHeaderFont: Font = Font.App.LargeText
     private static let ErrorHeaderTextColor: Color = Color.App.Error
-    private static let ErrorMessageFont: Font = Font.App.normalText
+    private static let ErrorMessageFont: Font = Font.App.NormalText
     private static let ErrorMessageTextColor: Color = Color.App.SecondaryText
     private static let ErrorButtonTopPadding: CGFloat = CGFloat.App.Layout.normalPadding
     
@@ -68,9 +68,9 @@ struct FullScreenErrorView: View {
     private static let ErrorIcon: Image = Image.App.XMarkCircleFill
     private static let ErrorIconColor: Color = Color.App.Error
     private static let ErrorIconSize: CGFloat = CGFloat.App.Icon.LargeIcon
-    private static let ErrorHeaderFont: Font = Font.App.heading
+    private static let ErrorHeaderFont: Font = Font.App.LargeText
     private static let ErrorHeaderTextColor: Color = Color.App.Error
-    private static let ErrorMessageFont: Font = Font.App.normalText
+    private static let ErrorMessageFont: Font = Font.App.NormalText
     private static let ErrorMessageTextColor: Color = Color.App.SecondaryText
     private static let ErrorButtonTopPadding: CGFloat = CGFloat.App.Layout.normalPadding
     

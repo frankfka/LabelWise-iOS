@@ -48,7 +48,7 @@ struct SegmentedPicker: View {
     private static let TextColor: Color = Color.App.SecondaryText
     private static let SelectedTextColor: Color = Color.App.Text
 
-    private static let TextFont: Font = Font.App.smallText
+    private static let TextFont: Font = Font.App.SmallText
     
     private static let SegmentCornerRadius: CGFloat = CGFloat.App.Layout.CornerRadius
     private static let ShadowRadius: CGFloat = CGFloat.App.Layout.ShadowRadius

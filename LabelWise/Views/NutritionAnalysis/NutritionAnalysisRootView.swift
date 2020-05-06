@@ -50,9 +50,9 @@ struct NutritionAnalysisRootView: View {
         if self.viewModel.viewState == .displayResults {
             resultsView
         } else if self.viewModel.viewState == .analyzing {
-            FullScreenLoadingView(loadingText: "Analyzing")
+            FullScreenLoadingView(loadingText: "Analyzing", onCancelCallback: self.viewModel.onReturnToLabelScannerCallback)
         } else {
-            FullScreenErrorView()
+            FullScreenErrorView(errorMessage: "We couldn't analyze the label.", onTryAgainTapped: self.viewModel.onReturnToLabelScannerCallback)
         }
     }
 }

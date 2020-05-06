@@ -17,7 +17,7 @@ struct NutritionAnalysisResultsHeaderView: View {
 
     var body: some View {
         Text("Loading")
-            .withStyle(font: Font.App.heading, color: Color.white)
+            .withStyle(font: Font.App.LargeText, color: Color.white)
     }
 }
 
