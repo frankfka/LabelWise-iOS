@@ -8,7 +8,6 @@
 
 import SwiftUI
 
-// TODO: extract static consts
 struct LabelScannerOverlayHeaderView: View {
     private static let MinSpacerLength: CGFloat = CGFloat.App.Layout.extraLargePadding
     private static let HelpIconSize: CGFloat = CGFloat.App.Icon.NormalIcon
@@ -16,10 +15,6 @@ struct LabelScannerOverlayHeaderView: View {
     private static let HelpTextFont: Font = Font.App.smallText
     private static let HelpTextColor: Color = Color.App.White
     private static let HelpIconColor: Color = Color.App.White
-
-    private var extraTopPadding: CGFloat {
-        UIApplication.hasNotch ?  CGFloat.App.Layout.largePadding : CGFloat.App.Layout.smallPadding
-    }
 
     var body: some View {
         HStack {
@@ -38,9 +33,7 @@ struct LabelScannerOverlayHeaderView: View {
                 .padding(.leading, -LabelScannerOverlayHeaderView.MinSpacerLength)
         }
         .padding(LabelScannerOverlayHeaderView.ViewPadding)
-        .padding(.top, self.extraTopPadding)
         .fillWidth()
-        .background(LabelScannerOverlayView.OverlayColor)
     }
 }
 

@@ -46,7 +46,7 @@ extension AnalyzeNutritionResponseDTO.ParsedNutrition: Codable {
         case fiber = "fiber"
         case protein = "protein"
         case fat = "fat"
-        case satFat = "saturated_fat" // TODO: Double check this
+        case satFat = "saturated_fat"
         case cholesterol = "cholesterol"
         case sodium = "sodium"
     }
@@ -64,6 +64,7 @@ struct NutritionWarningDTO {
         case lowFiber = "LOW_FIBER"
         case highSatFat = "HIGH_SAT_FAT"
         case highCholesterol = "HIGH_CHOLESTEROL"
+        case unknown = "UNKNOWN"
     }
 
     let code: Code
@@ -75,21 +76,14 @@ extension NutritionWarningDTO: Codable {
         case level = "level"
     }
 }
-
-
-// MARK: Extensions for enum codables
-// TODO: test non-conforming types from alamofire
+// MARK: Extensions for enum decodables - default to an unknown value so we can filter it out
 extension NutritionWarningDTO.Level {
-//    init(from decoder: Decoder) throws {
-//        let values = try decoder.container(keyedBy: CodingKeys.self)
-//        if let value = try? values.decode(Int.self, forKey: .count) {
-//            self = .count(number: value)
-//            return
-//        }
-//        if let value = try? values.decode(String.self, forKey: .title) {
-//            self = .title(value)
-//            return
-//        }
-//        throw PostTypeCodingError.decoding("Whoops! \(dump(values))")
-//    }
+    public init(from decoder: Decoder) throws {
+        self = try NutritionWarningDTO.Level(rawValue: decoder.singleValueContainer().decode(RawValue.self)) ?? .none
+    }
+}
+extension NutritionWarningDTO.Code {
+    public init(from decoder: Decoder) throws {
+        self = try NutritionWarningDTO.Code(rawValue: decoder.singleValueContainer().decode(RawValue.self)) ?? .unknown
+    }
 }

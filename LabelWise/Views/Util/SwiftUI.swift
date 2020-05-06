@@ -34,9 +34,9 @@ extension View {
 
 extension UIApplication {
     // https://stackoverflow.com/questions/57063142/swiftui-status-bar-color
-    class func setStatusBarTextColor(showDarkText: Bool?) {
+    class func setStatusBarStyle(_ style: UIStatusBarStyle) {
         if let vc = UIApplication.getKeyWindow()?.rootViewController as? ContentHostingController {
-            vc.changeStatusBarStyle(showDarkText: showDarkText)
+            vc.changeStatusBarStyle(style)
         }
     }
     // https://medium.com/@cafielo/how-to-detect-notch-screen-in-swift-56271827625d

@@ -20,8 +20,8 @@ struct AppView: View {
     }
     private var nutritionAnalysisViewVm: NutritionAnalysisRootView.ViewModel {
         NutritionAnalysisRootView.ViewModel(
-                analysisService: LabelAnalysisService(),
-                onReturnToLabelScannerCallback: self.viewModel.onReturnToLabelScannerTapped
+            resultPublisher: self.viewModel.analyzeNutritionPublisher,
+            onReturnToLabelScannerCallback: self.viewModel.onReturnToLabelScannerTapped
         )
     }
 

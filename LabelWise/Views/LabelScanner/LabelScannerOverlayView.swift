@@ -40,29 +40,35 @@ struct LabelScannerOverlayView: View {
             onConfirmPhotoAction: self.viewModel.onConfirmPhotoAction
         )
     }
-    
+
     init(vm: ViewModel) {
         self.viewModel = vm
     }
     
     var body: some View {
-        VStack(spacing: 0) {
-            // Header
-            LabelScannerOverlayHeaderView()
-            // Camera overlay with hole for full camera view
-            GeometryReader { geometry in
-                // Rectangle with viewfinder cut-out
-                Rectangle()
-                    .fill(LabelScannerOverlayView.OverlayColor)
-                    .mask(
-                        self.getViewFinderMask(parentSize: geometry.size)
-                            // eoFill allows cutout
-                            .fill(style: FillStyle(eoFill: true, antialiased: true))
-                    )
-                    .allowsHitTesting(false) // Allow touches to pass through
+        GeometryReader { outerGeometry in // Outer geometry to read safe area insets
+            VStack(spacing: 0) {
+                // Header
+                LabelScannerOverlayHeaderView()
+                    .padding(.top, outerGeometry.safeAreaInsets.top)
+                    .background(LabelScannerOverlayView.OverlayColor)
+                // Camera overlay with hole for full camera view
+                GeometryReader { overlayCutoutGeometry in
+                    // Rectangle with viewfinder cut-out
+                    Rectangle()
+                        .fill(LabelScannerOverlayView.OverlayColor)
+                        .mask(
+                            self.getViewFinderMask(parentSize: overlayCutoutGeometry.size)
+                                // eoFill allows cutout
+                                .fill(style: FillStyle(eoFill: true, antialiased: true))
+                        )
+                        .allowsHitTesting(false) // Allow touches to pass through
+                }
+                // Footer
+                LabelScannerOverlayFooterView(vm: self.footerViewModel)
+                    .padding(.bottom, outerGeometry.safeAreaInsets.bottom)
+                    .background(LabelScannerOverlayView.OverlayColor)
             }
-            // Footer
-            LabelScannerOverlayFooterView(vm: self.footerViewModel)
         }
     }
     
@@ -80,8 +86,11 @@ struct LabelScannerOverlayView: View {
 }
 
 struct LabelScannerOverlayView_Previews: PreviewProvider {
+
+    private static let labelTypePickerVm = LabelScannerView.ViewModel.LabelTypePickerViewModel(selectedIndex: .constant(0), items: AnalyzeType.allCases.map { $0.pickerName })
+    private static let vm = LabelScannerOverlayView.ViewModel(viewMode: .constant(.takePhoto), labelTypePickerVm: labelTypePickerVm)
+
     static var previews: some View {
-        // TODO
-        /*@START_MENU_TOKEN@*/Text("Hello, World!")/*@END_MENU_TOKEN@*/
+        LabelScannerOverlayView(vm: vm)
     }
 }

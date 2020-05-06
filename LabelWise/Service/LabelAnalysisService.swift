@@ -7,9 +7,12 @@ import Foundation
 import Combine
 import Alamofire
 
-// TODO: Make this a protocol
-class LabelAnalysisService {
-    static let BaseUrl = "https://75f786bb.ngrok.io"
+protocol LabelAnalysisService {
+    func analyzeNutrition(base64Image: String) -> ServicePublisher<AnalyzeNutritionResponseDTO>
+}
+
+class LabelAnalysisServiceImpl: LabelAnalysisService {
+    static let BaseUrl = "https://a74ffa03.ngrok.io/"
     static let NutritionImageUrl = BaseUrl + "/nutrition/image"
     static let IngredientsImageUrl = BaseUrl + "/ingredients/image"
 
@@ -23,7 +26,7 @@ class LabelAnalysisService {
 
     private func analyzeNutrition(base64Image: String, onComplete: @escaping ServiceCallback<AnalyzeNutritionResponseDTO>) {
         let requestParams = AnalyzeNutritionRequestDTO(type: .nutrition, base64Image: base64Image)
-        AF.request(LabelAnalysisService.NutritionImageUrl, method: .post,
+        AF.request(LabelAnalysisServiceImpl.NutritionImageUrl, method: .post,
                         parameters: requestParams, encoder: JSONParameterEncoder.default)
                 .responseDecodable(of: AnalyzeNutritionResponseDTO.self) { response in
                     switch response.result {

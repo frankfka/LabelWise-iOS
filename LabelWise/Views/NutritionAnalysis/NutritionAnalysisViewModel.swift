@@ -14,17 +14,13 @@ extension NutritionAnalysisRootView {
     class ViewModel: ObservableObject {
         // View properties
         @Published var viewState: ViewState = .analyzing
-        @Published var analysisError: Error? = nil
         @Published var analysisResult: AnalyzeNutritionResponseDTO? = nil
 
         // Callbacks
         let onReturnToLabelScannerCallback: VoidCallback?
 
-        // Services
-        private let labelAnalysisService: LabelAnalysisService
-
         // Cancellables
-        private var analysisCancellable: AnyCancellable? = nil
+        private var analysisCancellable: AnyCancellable?
 
         // Cancel any in-flight actions
         deinit {
@@ -32,27 +28,27 @@ extension NutritionAnalysisRootView {
             analysisCancellable?.cancel()
         }
 
-        init(analysisService: LabelAnalysisService, onReturnToLabelScannerCallback: VoidCallback? = nil) {
-            self.labelAnalysisService = analysisService
+        // Technically, the publisher is non-nullable but this will just hang in a cancellable loading state
+        init(resultPublisher: ServicePublisher<AnalyzeNutritionResponseDTO>? = nil,
+             onReturnToLabelScannerCallback: VoidCallback? = nil) {
             self.onReturnToLabelScannerCallback = onReturnToLabelScannerCallback
+            if resultPublisher == nil {
+                AppLogging.error("Initializing NutritionAnalysisRootViewModel with null resultPublisher")
+            }
+            self.analysisCancellable = resultPublisher?.sink(receiveCompletion: { [weak self] completion in
+                // TODO: change view states here?
+                if let err = completion.getError() {
+                    AppLogging.error("Error analyzing nutrition: \(String(describing: err))")
+                }
+            }, receiveValue: { [weak self] response in
+                print(response.parsedNutrition.calories ?? "None")
+            })
             // TODO: Temporary
             DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
                 self.viewState = .displayResults
                 self.analysisResult = AnalyzeNutritionResponseDTO(parsedNutrition: NutritionPreviewModels.FullyParsedNutritionDto, warnings: [])
             }
         }
-
-//        private func analyzeNutrition() {
-//            self.labelAnalysisService.analyzeNutrition(base64Image: imageToAnalyze.compressedB64String)
-//                .sink(receiveCompletion: { [weak self] completion in
-//                    if let err = completion.getError() {
-//                        print(err)
-//                    }
-//                }, receiveValue: { [weak self] response in
-//                    print(response.parsedNutrition.calories ?? "None")
-//                })
-//                .store(in: &disposables)
-//        }
     }
 }
 

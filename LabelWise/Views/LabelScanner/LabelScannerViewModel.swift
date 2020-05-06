@@ -34,18 +34,24 @@ extension LabelScannerView {
 extension LabelScannerView.ViewModel {
     func onViewAppear() {
         // Set the status bar color to light
-        UIApplication.setStatusBarTextColor(showDarkText: false)
+        UIApplication.setStatusBarStyle(.lightContent)
     }
     func onViewDisappear() {
         // Reset status bar color
-        UIApplication.setStatusBarTextColor(showDarkText: nil)
+        UIApplication.setStatusBarStyle(.default)
     }
+    // Called when camera preview is active
     func onCameraInitialized() {
         self.viewState = .takePhoto
     }
+    // Called when any error occurs, either during init or capture
     func onCameraError(_ err: AppError?) {
         AppLogging.error("Camera error: \(String(describing: err))")
         self.viewState = .error
+    }
+    // Called when user tries again after an error occurs
+    func onErrorTryAgainTapped() {
+        self.viewState = .loadingCamera
     }
     // Called when camera capture icon is tapped
     func onCapturePhotoTapped() {

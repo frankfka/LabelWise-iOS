@@ -59,7 +59,7 @@ struct NutritionAnalysisRootView: View {
 
 struct NutritionAnalysisView_Previews: PreviewProvider {
 
-    private static let vm: NutritionAnalysisRootView.ViewModel = NutritionAnalysisRootView.ViewModel(analysisService: LabelAnalysisService())
+    private static let vm: NutritionAnalysisRootView.ViewModel = NutritionAnalysisRootView.ViewModel()
 
     static var previews: some View {
         NutritionAnalysisRootView(vm: vm)

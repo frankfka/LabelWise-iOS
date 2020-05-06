@@ -48,7 +48,7 @@ struct LabelScannerView: View {
                     .fillWidthAndHeight()
                     .eraseToAnyView()
         } else if self.viewModel.viewState == .error {
-            return FullScreenErrorView(onTryAgainTapped: { print("TODO") } ).eraseToAnyView()
+            return FullScreenErrorView(onTryAgainTapped: self.viewModel.onErrorTryAgainTapped).eraseToAnyView()
         } else {
             // Default to taking photo
             return CameraView(vm: self.cameraViewVm).eraseToAnyView()

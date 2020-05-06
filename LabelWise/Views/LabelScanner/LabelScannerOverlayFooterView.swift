@@ -40,9 +40,6 @@ struct LabelScannerOverlayFooterView: View {
     private static let PickerYPadding: CGFloat = CGFloat.App.Layout.normalPadding
 
     private let viewModel: ViewModel
-    private var extraBottomPadding: CGFloat {
-        UIApplication.hasNotch ? CGFloat.App.Layout.smallPadding : 0
-    }
 
     init(vm: ViewModel) {
         self.viewModel = vm
@@ -71,10 +68,8 @@ struct LabelScannerOverlayFooterView: View {
             .frame(height: LabelScannerOverlayFooterView.ActionIconHeight)
             .fillWidth()
         }
-        .padding(.bottom, self.extraBottomPadding)
         .padding(LabelScannerOverlayFooterView.ViewPadding)
         .fillWidth()
-        .background(LabelScannerOverlayView.OverlayColor)
     }
     
 }

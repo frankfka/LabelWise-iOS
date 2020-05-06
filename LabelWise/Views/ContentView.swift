@@ -14,13 +14,8 @@ class ContentHostingController: UIHostingController<ContentView> {
         currentStatusBarStyle
     }
     // Passing nil will set the style to default
-    // TODO: maybe an enum here?
-    func changeStatusBarStyle(showDarkText: Bool?) {
-        if let showDarkText = showDarkText {
-            self.currentStatusBarStyle = showDarkText ? .darkContent : .lightContent
-        } else {
-            self.currentStatusBarStyle = .default
-        }
+    func changeStatusBarStyle(_ style: UIStatusBarStyle) {
+        self.currentStatusBarStyle = style
         self.setNeedsStatusBarAppearanceUpdate()
     }
 }

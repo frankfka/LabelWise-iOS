@@ -12,25 +12,26 @@ typealias LabelScannedCallback = (LabelImage, AnalyzeType) -> ()
 // MARK: Root view model
 extension AppView {
     class ViewModel: ObservableObject {
+        private let labelAnalysisService: LabelAnalysisService = LabelAnalysisServiceImpl() // TODO service injection: https://github.com/hmlongco/Resolver
         @Published private(set) var viewState: ViewState = .scanLabel
-        @Published private(set) var scannedImage: LabelImage? = nil
+        private(set) var analyzeNutritionPublisher: ServicePublisher<AnalyzeNutritionResponseDTO>? = nil
     }
 }
 // MARK: Actions for view model
 extension AppView.ViewModel {
     // Callback from LabelScannerView to kick off analysis
     func onLabelScanned(image: LabelImage, type: AnalyzeType) {
-        self.scannedImage = image
         switch type {
         case .ingredients:
             break
         case .nutrition:
             self.viewState = .analyzeNutrition
+            self.analyzeNutritionPublisher = labelAnalysisService.analyzeNutrition(base64Image: image.compressedB64String)
         }
     }
     // Callback from analysis views to return to label scanning
     func onReturnToLabelScannerTapped() {
-        self.scannedImage = nil
+        self.analyzeNutritionPublisher = nil
         self.viewState = .scanLabel
     }
 }
