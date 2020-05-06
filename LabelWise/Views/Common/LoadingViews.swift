@@ -16,7 +16,7 @@ struct FullScreenLoadingView: View {
     private static let IndicatorSize: CGFloat = 48
     private static let RingWidth: CGFloat = 6
     // Text
-    private static let TextPadding: CGFloat = CGFloat.App.Layout.smallPadding
+    private static let TextPadding: CGFloat = CGFloat.App.Layout.normalPadding
     private static let TextFont: Font = Font.App.LargeText
     private static let TextColor: Color = Color.App.SecondaryText
     // Cancel Icon

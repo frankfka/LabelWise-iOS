@@ -36,18 +36,15 @@ extension NutritionAnalysisRootView {
                 AppLogging.error("Initializing NutritionAnalysisRootViewModel with null resultPublisher")
             }
             self.analysisCancellable = resultPublisher?.sink(receiveCompletion: { [weak self] completion in
-                // TODO: change view states here?
                 if let err = completion.getError() {
                     AppLogging.error("Error analyzing nutrition: \(String(describing: err))")
+                    self?.viewState = .error
                 }
             }, receiveValue: { [weak self] response in
-                print(response.parsedNutrition.calories ?? "None")
+                AppLogging.debug("Success analyzing nutrition. Parsed \(response.parsedNutrition.calories ?? 0) calories")
+                self?.viewState = .displayResults
+                self?.analysisResult = response
             })
-            // TODO: Temporary
-            DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
-                self.viewState = .displayResults
-                self.analysisResult = AnalyzeNutritionResponseDTO(parsedNutrition: NutritionPreviewModels.FullyParsedNutritionDto, warnings: [])
-            }
         }
     }
 }

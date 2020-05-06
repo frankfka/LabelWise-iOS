@@ -28,7 +28,7 @@ struct AnalyzeNutritionResponseDTO {
         let cholesterol: Double?
         let sodium: Double?
     }
-
+    let status: String = "SUCCESS" // TODO: Need to implement on backend
     let parsedNutrition: ParsedNutrition
     let warnings: [NutritionWarningDTO]
 }

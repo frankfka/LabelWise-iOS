@@ -9,19 +9,22 @@
 import SwiftUI
 
 struct ErrorDialogView: View {
+    // View
+    private static let SectionPadding: CGFloat = CGFloat.App.Layout.normalPadding
+    // Icon
     private static let ErrorIcon: Image = Image.App.XMarkCircleFill
     private static let ErrorIconColor: Color = Color.App.Error
     private static let ErrorIconSize: CGFloat = CGFloat.App.Icon.LargeIcon
-    private static let ErrorHeaderFont: Font = Font.App.LargeText
+    // Text
+    private static let TextPadding: CGFloat = CGFloat.App.Layout.extraSmallPadding // Padding between text elements
+    private static let ErrorHeaderFont: Font = Font.App.Subtitle
     private static let ErrorHeaderTextColor: Color = Color.App.Error
     private static let ErrorMessageFont: Font = Font.App.NormalText
     private static let ErrorMessageTextColor: Color = Color.App.SecondaryText
-    private static let ErrorButtonTopPadding: CGFloat = CGFloat.App.Layout.normalPadding
     
     private let onTryAgainTappedCallback: VoidCallback? // Button won't be shown if this isn't provided
     private let errorTitle: String
     private let errorMessage: String
-    
     
     init(errorTitle: String? = nil, errorMessage: String? = nil, onTryAgainTapped: VoidCallback? = nil) {
         self.onTryAgainTappedCallback = onTryAgainTapped
@@ -30,12 +33,12 @@ struct ErrorDialogView: View {
     }
     
     var body: some View {
-        VStack {
-            Section {
-                ErrorDialogView.ErrorIcon
-                    .resizable()
-                    .frame(width: ErrorDialogView.ErrorIconSize, height: ErrorDialogView.ErrorIconSize)
-                    .foregroundColor(ErrorDialogView.ErrorIconColor)
+        VStack(spacing: ErrorDialogView.SectionPadding) {
+            ErrorDialogView.ErrorIcon
+                .resizable()
+                .frame(width: ErrorDialogView.ErrorIconSize, height: ErrorDialogView.ErrorIconSize)
+                .foregroundColor(ErrorDialogView.ErrorIconColor)
+            VStack(spacing: ErrorDialogView.TextPadding) {
                 Text(self.errorTitle)
                     .withStyle(font: ErrorDialogView.ErrorHeaderFont, color: ErrorDialogView.ErrorHeaderTextColor)
                 Text(self.errorMessage)
@@ -48,7 +51,6 @@ struct ErrorDialogView: View {
                     backgroundColor: Color.App.Error,
                     onTap: self.onTryAgainTapped
                 )
-                .padding(.top, ErrorDialogView.ErrorButtonTopPadding)
             }
         }
     }
