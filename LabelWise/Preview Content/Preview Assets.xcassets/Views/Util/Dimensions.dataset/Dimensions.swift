@@ -16,7 +16,6 @@ struct AppDimensions {
     }
 
     struct IconDimens {
-        let ExtraSmallIcon: CGFloat = 16
         let SmallIcon: CGFloat = 24
         let NormalIcon: CGFloat = 36
         let LargeIcon: CGFloat = 64

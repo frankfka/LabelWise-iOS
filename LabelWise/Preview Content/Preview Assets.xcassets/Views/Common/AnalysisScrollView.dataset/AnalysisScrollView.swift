@@ -10,14 +10,10 @@ import SwiftUI
 
 struct AnalysisScrollView<HeaderContent: View, HeaderBackground: View, BodyContent: View>: View {
     // Not static as static constants are not supported in generic types
-    private let navBarPadding: CGFloat = CGFloat.App.Layout.normalPadding
     private let headerPadding: CGFloat = CGFloat.App.Layout.extraLargePadding
     private let bodyBackgroundRectangleRadius: CGFloat = CGFloat.App.Layout.CornerRadius
     private let bodyBackgroundColor: Color = Color.App.BackgroundPrimaryFillColor
-    private let backButtonContentColor: Color = Color.App.White
     private let onAppearAnimationDuration: Double = 0.8
-
-    private let onBackPressedCallback: VoidCallback?
     
     // Views
     private let headerContent: HeaderContent
@@ -41,48 +37,34 @@ struct AnalysisScrollView<HeaderContent: View, HeaderBackground: View, BodyConte
     // Expand
     @State private var isExpanded: Bool = false
 
-    init(header: HeaderContent, headerBackground: HeaderBackground, onBackPressedCallback: VoidCallback? = nil,
-         @ViewBuilder body: ContentGenerator<BodyContent>) {
+    init(header: HeaderContent, headerBackground: HeaderBackground, @ViewBuilder body: ContentGenerator<BodyContent>) {
         self.headerContent = header
         self.headerBackground = headerBackground
         self.bodyContent = body()
-        self.onBackPressedCallback = onBackPressedCallback
     }
 
     var body: some View {
         GeometryReader { geometry in
-            VStack {
-                // Navigation bar that overflows onto safe area
-                HStack {
-                    BackButton(
-                        contentColor: self.backButtonContentColor,
-                        text: "Scan Another",
-                        onTapCallback: self.onBackPressedCallback
-                    )
-                    Spacer()
-                }
-                .fillWidth()
-                .padding(.top, self.navBarPadding)
-                .padding(.horizontal, self.navBarPadding)
-                .padding(.top, geometry.safeAreaInsets.top)
-                .background(self.headerBackground)
-                .modifier(ExpandingSectionModifier(isExpanded: self.$isExpanded))
-                // Main content
-                ScrollView(showsIndicators: false) {
-                    VStack(spacing: 0) {
-                        self.headerContent
-                            .fillWidth()
-                            .padding(.bottom, self.bodyBackgroundRectangleRadius)
-                            .padding(self.headerPadding)
-                            .background(self.headerBackground)
-                            .modifier(ExpandingSectionModifier(isExpanded: self.$isExpanded))
-                        self.bodyContent
-                            .fillWidthAndHeight()
-                            .background(self.bodyBackground)
-                            .offset(x: 0, y: -self.bodyBackgroundRectangleRadius)
+            ScrollView {
+                VStack {
+                    self.headerContent
+                        .fillWidth()
+                        // For layout
+                        .padding(.top, geometry.safeAreaInsets.top)
+                        .padding(.bottom, self.bodyBackgroundRectangleRadius)
+                        // For readability
+                        .padding(self.headerPadding)
+                        .background(self.headerBackground)
+                        .modifier(ExpandingSectionModifier(isExpanded: self.$isExpanded))
+                    self.bodyContent
+                        .fillWidthAndHeight()
+                        .background(self.bodyBackground)
+                        .offset(x: 0, y: -self.bodyBackgroundRectangleRadius)
+                        .conditionalModifier(true) {
+                            $0
                     }
-                    .frame(minHeight: geometry.size.height)
                 }
+                .frame(minHeight: geometry.size.height)
             }
             .fillWidthAndHeight()
             .edgesIgnoringSafeArea(.top)

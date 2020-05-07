@@ -27,30 +27,19 @@ struct NutritionAnalysisRootView: View {
         })
     }
     // Child views
-    private var loadingView: some View {
-        FullScreenLoadingView(loadingText: "Analyzing", onCancelCallback: self.viewModel.onReturnToLabelScannerCallback)
-    }
-    private var errorView: some View {
-        FullScreenErrorView(errorMessage: "We couldn't analyze the label.", onTryAgainTapped: self.viewModel.onReturnToLabelScannerCallback)
-    }
     @ViewBuilder
     private var resultsView: some View {
-        if resultsViewVm != nil {
-            resultsViewVm.map({ (headerVm, bodyVm) in
-                getResultsView(headerVm: headerVm, bodyVm: bodyVm)
-            })
-        } else {
-            // If we show resultsView without a proper VM, this is an error case
-            errorView
-        }
+        EmptyView()  // Show nothing if resultsVm is nil
+        resultsViewVm.map({ (headerVm, bodyVm) in
+            getResultsView(headerVm: headerVm, bodyVm: bodyVm)
+        })
     }
     private func getResultsView(headerVm: NutritionAnalysisResultsHeaderView.ViewModel,
                                 bodyVm: NutritionAnalysisResultsView.ViewModel) -> some View {
-        let headerBackground = NutritionAnalysisResultsHeaderView(vm: headerVm)
+        let headerBackground = NutritionAnalysisResultsHeaderView()
         return AnalysisScrollView(
                 header: headerBackground,
-                headerBackground: headerBackground.background,
-                onBackPressedCallback: self.viewModel.onReturnToLabelScannerCallback) {
+                headerBackground: headerBackground.background) {
             NutritionAnalysisResultsView()
         }
     }
@@ -61,9 +50,9 @@ struct NutritionAnalysisRootView: View {
         if self.viewModel.viewState == .displayResults {
             resultsView
         } else if self.viewModel.viewState == .analyzing {
-            loadingView
+            FullScreenLoadingView(loadingText: "Analyzing", onCancelCallback: self.viewModel.onReturnToLabelScannerCallback)
         } else {
-            errorView
+            FullScreenErrorView(errorMessage: "We couldn't analyze the label.", onTryAgainTapped: self.viewModel.onReturnToLabelScannerCallback)
         }
     }
 }

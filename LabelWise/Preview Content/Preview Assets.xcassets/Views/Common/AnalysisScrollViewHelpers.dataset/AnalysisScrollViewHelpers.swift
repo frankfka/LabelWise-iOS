@@ -18,7 +18,6 @@ struct ExpandingSectionModifier: ViewModifier {
     
     func body(content: Content) -> some View {
         content
-            .opacity(self.isExpanded ? 1 : 0)
             .frame(maxHeight: self.isExpanded ? nil : 0)
     }
 }
