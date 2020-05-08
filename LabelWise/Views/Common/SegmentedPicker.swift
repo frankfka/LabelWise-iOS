@@ -117,8 +117,6 @@ struct SegmentedPicker: View {
                 .padding(.vertical, SegmentedPicker.SegmentYPadding)
                 .padding(.horizontal, SegmentedPicker.SegmentXPadding)
                 .fillWidth()
-                // Makes full width tappable
-                .contentShape(Rectangle())
                 // Watch for the size of the
                 .modifier(SizeAwareViewModifier(viewSize: self.$segmentSize))
                 .onTapGesture { self.onItemTap(index: index) }
@@ -168,6 +166,7 @@ struct SegmentedPicker_Previews: PreviewProvider {
     static var previews: some View {
         ColorSchemePreview {
             SegmentedPickerPreviewView()
+            .padding()
         }
         .previewLayout(.sizeThatFits)
     }

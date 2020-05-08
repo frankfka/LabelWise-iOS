@@ -54,7 +54,10 @@ extension NutritionAnalysisResultsHeaderView {
             }
         }
         var caloriesText: String {
-            String(format: "%.1f", resultDto.parsedNutrition.calories ?? 0)
+            if let calories = resultDto.parsedNutrition.calories {
+                return calories.toString(numDecimalDigits: 1)
+            }
+            return String.NoNumberPlaceholderText
         }
 
         init(dto: AnalyzeNutritionResponseDTO) {

@@ -77,12 +77,12 @@ struct PercentageRing: View {
                     .stroke(style: StrokeStyle(lineWidth: self.ringWidth))
                     .fill(self.backgroundColor)
                 // Foreground - this is the start color displayed immediately
-                Ring(percent: self.displayedPercent, startAngle: self.startAngle)
+                Ring(percent: self.displayedPercent, startAngle: self.startAngle, drawnClockwise: true)
                         .stroke(style: StrokeStyle(lineWidth: self.ringWidth, lineCap: .round))
                         .fill(self.firstGradientColor)
                 // Foreground - this is the gradient color that we display after a certain time
                 // This is somewhat of a workaround for a nice animation to run
-                Ring(percent: self.displayedPercent, startAngle: self.startAngle)
+                Ring(percent: self.displayedPercent, startAngle: self.startAngle, drawnClockwise: true)
                     .stroke(style: StrokeStyle(lineWidth: self.ringWidth, lineCap: .round))
                     .fill(self.ringGradient)
                     .opacity(self.gradientAndEndCircleOpacity)

@@ -8,20 +8,8 @@
 
 import SwiftUI
 
+// MARK: View
 struct MacronutrientRings: View {
-
-    struct ViewModel {
-        let carbPercentage: Double
-        let proteinPercentage: Double
-        let fatPercentage: Double
-
-        init(carbPercentage: Double?, proteinPercentage: Double?, fatPercentage: Double?) {
-            self.carbPercentage = carbPercentage ?? 0
-            self.proteinPercentage = proteinPercentage ?? 0
-            self.fatPercentage = fatPercentage ?? 0
-        }
-    }
-
     private static let CarbBackgroundColor: Color = Color.App.CarbIndicator.opacity(0.2)
     private static let ProteinBackgroundColor: Color = Color.App.ProteinIndicator.opacity(0.2)
     private static let FatBackgroundColor: Color = Color.App.FatIndicator.opacity(0.2)
@@ -63,7 +51,8 @@ struct MacronutrientRings: View {
     private func getPercentageRing(percent: Double, parentSize: CGSize,
                                    backgroundColor: Color, foregroundColors: [Color]) -> some View {
         let maxDimension = getMinDimension(size: parentSize)
-        return PercentageRing(percent: percent, ringWidth: maxDimension * MacronutrientRings.RelativeRingWidth, backgroundColor: backgroundColor, foregroundColors: foregroundColors)
+        return PercentageRing(percent: percent, ringWidth: maxDimension * MacronutrientRings.RelativeRingWidth,
+                backgroundColor: backgroundColor, foregroundColors: foregroundColors)
     }
     
     private func getMinDimension(size: CGSize) -> CGFloat {
@@ -71,10 +60,24 @@ struct MacronutrientRings: View {
     }
     
 }
+// MARK: View model
+extension MacronutrientRings {
+    struct ViewModel {
+        let carbPercentage: Double
+        let proteinPercentage: Double
+        let fatPercentage: Double
+
+        init(macros: Macronutrients) {
+            self.carbPercentage = macros.carbsPercentage ?? 0
+            self.proteinPercentage = macros.proteinPercentage ?? 0
+            self.fatPercentage = macros.fatsPercentage ?? 0
+        }
+    }
+}
 
 struct MacronutrientRings_Previews: PreviewProvider {
 
-    private static let vm = MacronutrientRings.ViewModel(carbPercentage: 20, proteinPercentage: 3, fatPercentage: 40)
+    private static let vm = MacronutrientRings.ViewModel(macros: PreviewNutritionModels.FullyParsedMacronutrients)
 
     static var previews: some View {
         MacronutrientRings(vm: vm)
