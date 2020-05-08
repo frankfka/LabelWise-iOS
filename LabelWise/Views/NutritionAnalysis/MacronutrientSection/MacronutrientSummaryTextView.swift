@@ -10,6 +10,12 @@ import SwiftUI
 
 // MARK: View
 struct MacronutrientSummaryTextView: View {
+    private static let AmountTextFont: Font = Font.App.NormalTextBold
+    private static let AmountTextColor: Color = Color.App.Text
+    private static let AmountTextSeparation: CGFloat = CGFloat.App.Layout.smallPadding
+    private static let MacroNameFont: Font = Font.App.NormalTextBold
+    private static let DVFont: Font = Font.App.SmallText
+    private static let DVColor: Color = Color.App.SecondaryText
     
     private let viewModel: ViewModel
     
@@ -30,22 +36,18 @@ struct MacronutrientSummaryTextView: View {
     
     @ViewBuilder
     private func getTextRow(name: String, amount: String, dv: String, color: Color) -> some View {
-        // TODO: Consider a left divider here with color
-        // TODO: Alignment?
         HStack(alignment: .bottom, spacing: 0) {
             Text(amount)
-                .withStyle(font: Font.App.NormalText, color: Color.App.Text)
-                .bold()
-                .lineLimit(1)
-                .padding(.trailing, CGFloat.App.Layout.smallPadding)
+                .withStyle(font: MacronutrientSummaryTextView.AmountTextFont, color: MacronutrientSummaryTextView.AmountTextColor)
+                .singleLine()
+                .padding(.trailing, MacronutrientSummaryTextView.AmountTextSeparation)
             Text(name)
-                .withStyle(font: Font.App.NormalText, color: color)
-                .bold()
-                .lineLimit(1)
+                .withStyle(font: MacronutrientSummaryTextView.MacroNameFont, color: color)
+                .singleLine()
             Spacer(minLength: CGFloat.App.Layout.normalPadding)
             Text(dv)
-                .withStyle(font: Font.App.SmallText, color: Color.App.SecondaryText)
-                .lineLimit(1)
+                .withStyle(font: MacronutrientSummaryTextView.DVFont, color: MacronutrientSummaryTextView.DVColor)
+                .singleLine()
         }
     }
     

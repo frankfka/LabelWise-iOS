@@ -113,7 +113,7 @@ struct SegmentedPicker: View {
                 // Dark test for selected segment
                 .withStyle(font: SegmentedPicker.TextFont,
                            color: isSelected ? SegmentedPicker.SelectedTextColor: SegmentedPicker.TextColor)
-                .lineLimit(1)
+                .singleLine()
                 .padding(.vertical, SegmentedPicker.SegmentYPadding)
                 .padding(.horizontal, SegmentedPicker.SegmentXPadding)
                 .fillWidth()

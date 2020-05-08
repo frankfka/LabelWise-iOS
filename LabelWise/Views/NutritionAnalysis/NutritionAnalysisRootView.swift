@@ -51,7 +51,7 @@ struct NutritionAnalysisRootView: View {
                 header: headerBackground,
                 headerBackground: headerBackground.background,
                 onBackPressedCallback: self.viewModel.onReturnToLabelScannerCallback) {
-            NutritionAnalysisResultsView()
+                    NutritionAnalysisResultsView(vm: bodyVm)
         }
     }
 

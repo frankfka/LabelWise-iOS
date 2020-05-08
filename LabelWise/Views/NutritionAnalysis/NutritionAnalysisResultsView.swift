@@ -9,18 +9,33 @@
 import SwiftUI
 
 struct NutritionAnalysisResultsView: View {
+    
+    private var macroSummaryViewVm: MacronutrientSummaryView.ViewModel {
+        MacronutrientSummaryView.ViewModel(
+            dto: self.viewModel.resultDto.parsedNutrition,
+            dailyValues: DailyNutritionValues()
+        )
+    }
+    
+    private let viewModel: ViewModel
+    
+    init(vm: ViewModel) {
+        self.viewModel = vm
+    }
+    
     var body: some View {
         VStack {
-            Spacer()
-            Text("Test")
-            Spacer()
+            MacronutrientSummaryView(vm: self.macroSummaryViewVm)
+                .modifier(AnalysisSectionModifier(title: "Macronutrients"))
+            Spacer().fillHeight()
         }
+        .padding(CGFloat.App.Layout.normalPadding)
         .fillWidthAndHeight()
     }
 }
 extension NutritionAnalysisResultsView {
     struct ViewModel {
-        private let resultDto: AnalyzeNutritionResponseDTO
+        let resultDto: AnalyzeNutritionResponseDTO
 
         init(dto: AnalyzeNutritionResponseDTO) {
             self.resultDto = dto
@@ -29,7 +44,17 @@ extension NutritionAnalysisResultsView {
 }
 
 struct NutritionAnalysisResultsView_Previews: PreviewProvider {
+    private static let vm = NutritionAnalysisResultsView.ViewModel(
+        dto: AnalyzeNutritionResponseDTO(
+            parsedNutrition: PreviewNutritionModels.FullyParsedNutritionDto,
+            warnings: []
+        )
+    )
+    
     static var previews: some View {
-        NutritionAnalysisResultsView()
+        ColorSchemePreview {
+            NutritionAnalysisResultsView(vm: vm)
+                .background(Color.App.BackgroundPrimaryFillColor)
+        }
     }
 }

@@ -28,7 +28,7 @@ struct MacronutrientRings: View {
         GeometryReader { geometry in
             ZStack {
                 // Carbs - Biggest
-                self.getPercentageRing(percent: self.viewModel.carbPercentage, parentSize: geometry.size,
+                self.getPercentageRing(percent: self.viewModel.carbsPercentage, parentSize: geometry.size,
                                        backgroundColor: MacronutrientRings.CarbBackgroundColor,
                                        foregroundColors: MacronutrientRings.CarbGradientColors)
                         .frame(width: self.getMinDimension(size: geometry.size), height: self.getMinDimension(size: geometry.size))
@@ -63,14 +63,14 @@ struct MacronutrientRings: View {
 // MARK: View model
 extension MacronutrientRings {
     struct ViewModel {
-        let carbPercentage: Double
+        let carbsPercentage: Double
         let proteinPercentage: Double
         let fatPercentage: Double
 
         init(macros: Macronutrients) {
-            self.carbPercentage = macros.carbsPercentage ?? 0
-            self.proteinPercentage = macros.proteinPercentage ?? 0
-            self.fatPercentage = macros.fatsPercentage ?? 0
+            self.carbsPercentage = macros.carbsDailyValuePercentage ?? 0
+            self.proteinPercentage = macros.proteinDailyValuePercentage ?? 0
+            self.fatPercentage = macros.fatsDailyValuePercentage ?? 0
         }
     }
 }

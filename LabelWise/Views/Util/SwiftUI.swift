@@ -31,6 +31,14 @@ extension View {
         }
     }
 }
+extension Text {
+    func singleLine() -> some View {
+        self.lineLimit(1)
+    }
+    func multiline() -> some View {
+        self.lineLimit(nil)
+    }
+}
 
 extension UIApplication {
     // https://stackoverflow.com/questions/57063142/swiftui-status-bar-color

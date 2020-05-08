@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="fc06ac05-0031-4719-9d90-6a241fa74c08" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/LabelWise/Views/Common/Analysis/AnalysisSectionView.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/LabelWise.xcodeproj/project.pbxproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Preview Content/Preview Assets.xcassets/Views/App/AppView.dataset/AppView.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Preview Content/Preview Assets.xcassets/Views/App/AppView.dataset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Preview Content/Preview Assets.xcassets/Views/App/AppViewModel.dataset/AppViewModel.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Preview Content/Preview Assets.xcassets/Views/App/AppViewModel.dataset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Preview Content/Preview Assets.xcassets/Views/App/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Preview Content/Preview Assets.xcassets/Views/Camera/CameraController.dataset/CameraController.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Preview Content/Preview Assets.xcassets/Views/Camera/CameraController.dataset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Preview Content/Preview Assets.xcassets/Views/Camera/CameraUtil.dataset/CameraUtil.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Preview Content/Preview Assets.xcassets/Views/Camera/CameraUtil.dataset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Preview Content/Preview Assets.xcassets/Views/Camera/CameraView.dataset/CameraView.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Preview Content/Preview Assets.xcassets/Views/Camera/CameraView.dataset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Preview Content/Preview Assets.xcassets/Views/Camera/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Preview Content/Preview Assets.xcassets/Views/Charts/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Preview Content/Preview Assets.xcassets/Views/Charts/PercentageRing.dataset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Preview Content/Preview Assets.xcassets/Views/Charts/PercentageRing.dataset/PercentageRing.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Preview Content/Preview Assets.xcassets/Views/Common/AnalysisScrollView.dataset/AnalysisScrollView.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Preview Content/Preview Assets.xcassets/Views/Common/AnalysisScrollView.dataset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Preview Content/Preview Assets.xcassets/Views/Common/AnalysisScrollViewHelpers.dataset/AnalysisScrollViewHelpers.swift" beforeDir="false" afterPath="$PROJECT_DIR$/LabelWise/Views/Common/Analysis/AnalysisScrollViewHelpers.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Preview Content/Preview Assets.xcassets/Views/Common/AnalysisScrollViewHelpers.dataset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Preview Content/Preview Assets.xcassets/Views/Common/ButtonViews.dataset/ButtonViews.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Preview Content/Preview Assets.xcassets/Views/Common/ButtonViews.dataset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Preview Content/Preview Assets.xcassets/Views/Common/CommonViewModels.dataset/CommonViewModels.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Preview Content/Preview Assets.xcassets/Views/Common/CommonViewModels.dataset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Preview Content/Preview Assets.xcassets/Views/Common/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Preview Content/Preview Assets.xcassets/Views/Common/ErrorViews.dataset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Preview Content/Preview Assets.xcassets/Views/Common/ErrorViews.dataset/ErrorViews.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Preview Content/Preview Assets.xcassets/Views/Common/LoadingIndicator.dataset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Preview Content/Preview Assets.xcassets/Views/Common/LoadingIndicator.dataset/LoadingIndicator.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Preview Content/Preview Assets.xcassets/Views/Common/LoadingViews.dataset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Preview Content/Preview Assets.xcassets/Views/Common/LoadingViews.dataset/LoadingViews.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Preview Content/Preview Assets.xcassets/Views/Common/SegmentedPicker.dataset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Preview Content/Preview Assets.xcassets/Views/Common/SegmentedPicker.dataset/SegmentedPicker.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Preview Content/Preview Assets.xcassets/Views/Common/Shapes/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Preview Content/Preview Assets.xcassets/Views/Common/Shapes/HalfRoundedRectangle.dataset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Preview Content/Preview Assets.xcassets/Views/Common/Shapes/HalfRoundedRectangle.dataset/HalfRoundedRectangle.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Preview Content/Preview Assets.xcassets/Views/Common/Shapes/Ring.dataset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Preview Content/Preview Assets.xcassets/Views/Common/Shapes/Ring.dataset/Ring.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Preview Content/Preview Assets.xcassets/Views/ContentView.dataset/ContentView.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Preview Content/Preview Assets.xcassets/Views/ContentView.dataset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Preview Content/Preview Assets.xcassets/Views/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Preview Content/Preview Assets.xcassets/Views/LabelScanner/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Preview Content/Preview Assets.xcassets/Views/LabelScanner/LabelScannerActionButtons.dataset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Preview Content/Preview Assets.xcassets/Views/LabelScanner/LabelScannerActionButtons.dataset/LabelScannerActionButtons.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Preview Content/Preview Assets.xcassets/Views/LabelScanner/LabelScannerOverlayFooterView.dataset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Preview Content/Preview Assets.xcassets/Views/LabelScanner/LabelScannerOverlayFooterView.dataset/LabelScannerOverlayFooterView.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Preview Content/Preview Assets.xcassets/Views/LabelScanner/LabelScannerOverlayHeaderView.dataset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Preview Content/Preview Assets.xcassets/Views/LabelScanner/LabelScannerOverlayHeaderView.dataset/LabelScannerOverlayHeaderView.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Preview Content/Preview Assets.xcassets/Views/LabelScanner/LabelScannerOverlayView.dataset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Preview Content/Preview Assets.xcassets/Views/LabelScanner/LabelScannerOverlayView.dataset/LabelScannerOverlayView.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Preview Content/Preview Assets.xcassets/Views/LabelScanner/LabelScannerView.dataset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Preview Content/Preview Assets.xcassets/Views/LabelScanner/LabelScannerView.dataset/LabelScannerView.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Preview Content/Preview Assets.xcassets/Views/LabelScanner/LabelScannerViewModel.dataset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Preview Content/Preview Assets.xcassets/Views/LabelScanner/LabelScannerViewModel.dataset/LabelScannerViewModel.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Preview Content/Preview Assets.xcassets/Views/NutritionAnalysis/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Preview Content/Preview Assets.xcassets/Views/NutritionAnalysis/MacronutrientSection/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Preview Content/Preview Assets.xcassets/Views/NutritionAnalysis/MacronutrientSection/MacronutrientRings.dataset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Preview Content/Preview Assets.xcassets/Views/NutritionAnalysis/MacronutrientSection/MacronutrientRings.dataset/MacronutrientRings.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Preview Content/Preview Assets.xcassets/Views/NutritionAnalysis/MacronutrientSection/MacronutrientSummaryTextView.dataset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Preview Content/Preview Assets.xcassets/Views/NutritionAnalysis/MacronutrientSection/MacronutrientSummaryTextView.dataset/MacronutrientSummaryTextView.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Preview Content/Preview Assets.xcassets/Views/NutritionAnalysis/MacronutrientSection/MacronutrientSummaryView.dataset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Preview Content/Preview Assets.xcassets/Views/NutritionAnalysis/MacronutrientSection/MacronutrientSummaryView.dataset/MacronutrientSummaryView.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Preview Content/Preview Assets.xcassets/Views/NutritionAnalysis/NutritionAnalysisResultsHeaderView.dataset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Preview Content/Preview Assets.xcassets/Views/NutritionAnalysis/NutritionAnalysisResultsHeaderView.dataset/NutritionAnalysisResultsHeaderView.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Preview Content/Preview Assets.xcassets/Views/NutritionAnalysis/NutritionAnalysisResultsView.dataset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Preview Content/Preview Assets.xcassets/Views/NutritionAnalysis/NutritionAnalysisResultsView.dataset/NutritionAnalysisResultsView.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Preview Content/Preview Assets.xcassets/Views/NutritionAnalysis/NutritionAnalysisRootView.dataset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Preview Content/Preview Assets.xcassets/Views/NutritionAnalysis/NutritionAnalysisRootView.dataset/NutritionAnalysisRootView.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Preview Content/Preview Assets.xcassets/Views/NutritionAnalysis/NutritionAnalysisViewModel.dataset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Preview Content/Preview Assets.xcassets/Views/NutritionAnalysis/NutritionAnalysisViewModel.dataset/NutritionAnalysisViewModel.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Preview Content/Preview Assets.xcassets/Views/OnboardingView.dataset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Preview Content/Preview Assets.xcassets/Views/OnboardingView.dataset/OnboardingView.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Preview Content/Preview Assets.xcassets/Views/Util/Colors.dataset/Colors.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Preview Content/Preview Assets.xcassets/Views/Util/Colors.dataset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Preview Content/Preview Assets.xcassets/Views/Util/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Preview Content/Preview Assets.xcassets/Views/Util/Dimensions.dataset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Preview Content/Preview Assets.xcassets/Views/Util/Dimensions.dataset/Dimensions.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Preview Content/Preview Assets.xcassets/Views/Util/Icons.dataset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Preview Content/Preview Assets.xcassets/Views/Util/Icons.dataset/Icons.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Preview Content/Preview Assets.xcassets/Views/Util/SwiftUI.dataset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Preview Content/Preview Assets.xcassets/Views/Util/SwiftUI.dataset/SwiftUI.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Preview Content/Preview Assets.xcassets/Views/Util/Typography.dataset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Preview Content/Preview Assets.xcassets/Views/Util/Typography.dataset/Typography.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Views/Charts/PercentageRing.swift" beforeDir="false" afterPath="$PROJECT_DIR$/LabelWise/Views/Charts/PercentageRing.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Views/Common/AnalysisScrollView.swift" beforeDir="false" afterPath="$PROJECT_DIR$/LabelWise/Views/Common/Analysis/AnalysisScrollView.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Views/Common/AnalysisScrollViewHelpers.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Views/Common/SegmentedPicker.swift" beforeDir="false" afterPath="$PROJECT_DIR$/LabelWise/Views/Common/SegmentedPicker.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Views/ContentView.swift" beforeDir="false" afterPath="$PROJECT_DIR$/LabelWise/Views/ContentView.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Views/LabelScanner/LabelScannerOverlayHeaderView.swift" beforeDir="false" afterPath="$PROJECT_DIR$/LabelWise/Views/LabelScanner/LabelScannerOverlayHeaderView.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Views/NutritionAnalysis/MacronutrientSection/MacronutrientRings.swift" beforeDir="false" afterPath="$PROJECT_DIR$/LabelWise/Views/NutritionAnalysis/MacronutrientSection/MacronutrientRings.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Views/NutritionAnalysis/MacronutrientSection/MacronutrientSummaryTextView.swift" beforeDir="false" afterPath="$PROJECT_DIR$/LabelWise/Views/NutritionAnalysis/MacronutrientSection/MacronutrientSummaryTextView.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Views/NutritionAnalysis/MacronutrientSection/MacronutrientSummaryView.swift" beforeDir="false" afterPath="$PROJECT_DIR$/LabelWise/Views/NutritionAnalysis/MacronutrientSection/MacronutrientSummaryView.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Views/NutritionAnalysis/NutritionAnalysisResultsView.swift" beforeDir="false" afterPath="$PROJECT_DIR$/LabelWise/Views/NutritionAnalysis/NutritionAnalysisResultsView.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Views/NutritionAnalysis/NutritionAnalysisRootView.swift" beforeDir="false" afterPath="$PROJECT_DIR$/LabelWise/Views/NutritionAnalysis/NutritionAnalysisRootView.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Views/Util/SwiftUI.swift" beforeDir="false" afterPath="$PROJECT_DIR$/LabelWise/Views/Util/SwiftUI.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Views/Util/Typography.swift" beforeDir="false" afterPath="$PROJECT_DIR$/LabelWise/Views/Util/Typography.swift" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="iphonesimulator_39C1A2A4-1D3A-4C35-9F2B-4329698E0819" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1ah3grUAAs4arJgIyZibAYMyzDX" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="OBJC.PRESERVED_TARGET_SELECTION" value="LabelWise" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="RunManager">
+    <configuration name="LabelWise" type="AppleRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="LabelWise" TARGET_NAME="LabelWise" CONFIG_NAME="Debug" SCHEME_NAME="LabelWise" IS_LOCATION_SIMULATION_ALLOWED="true" APPLICATION_LANGUAGE="IDELaunchSchemeLanguageUseSystemLanguage" APPLICATION_REGION="" RUN_TARGET_PROJECT_NAME="LabelWise" RUN_TARGET_NAME="LabelWise" MAKE_ACTIVE="TRUE" SHOULD_DEBUG_EXTENSIONS="false">
+      <EXTENSION ID="org.jetbrains.appcode.reveal.RevealRunConfigurationExtension">
+        <REVEAL_SETTINGS autoInject="false" autoInstall="true" askToEnableAutoInstall="true" />
+      </EXTENSION>
+      <embedded_app_extension_list />
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="fc06ac05-0031-4719-9d90-6a241fa74c08" name="Default Changelist" comment="" />
+      <created>1587174115116</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1587174115116</updated>
+      <workItem from="1587174129282" duration="594000" />
+      <workItem from="1587227916138" duration="795000" />
+      <workItem from="1587240787491" duration="20000" />
+      <workItem from="1587260608770" duration="1012000" />
+      <workItem from="1587270477701" duration="997000" />
+      <workItem from="1587312949367" duration="4040000" />
+      <workItem from="1587348553770" duration="2519000" />
+      <workItem from="1587400463067" duration="3508000" />
+      <workItem from="1587483020914" duration="984000" />
+      <workItem from="1587487759841" duration="650000" />
+      <workItem from="1587521404559" duration="2093000" />
+      <workItem from="1587571814519" duration="2740000" />
+      <workItem from="1587591598547" duration="5822000" />
+      <workItem from="1587661709763" duration="2569000" />
+      <workItem from="1587702705726" duration="1876000" />
+      <workItem from="1587747820604" duration="3984000" />
+      <workItem from="1587780433567" duration="8988000" />
+      <workItem from="1587863790743" duration="3245000" />
+      <workItem from="1587916122925" duration="46000" />
+      <workItem from="1587918080576" duration="3967000" />
+      <workItem from="1587955295255" duration="4580000" />
+      <workItem from="1588017201246" duration="3242000" />
+      <workItem from="1588090832495" duration="2263000" />
+      <workItem from="1588171538196" duration="1399000" />
+      <workItem from="1588197345646" duration="28425000" />
+      <workItem from="1588481112868" duration="492000" />
+      <workItem from="1588516292847" duration="38506000" />
+      <workItem from="1588775367177" duration="18919000" />
+      <workItem from="1588947135304" duration="105000" />
+      <workItem from="1588947276611" duration="55000" />
+      <workItem from="1588947334709" duration="3320000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="-860" y="219" key="#com.intellij.ide.util.MemberChooser" timestamp="1588277126754">
+      <screen x="-1440" y="23" width="1440" height="877" />
+    </state>
+    <state x="-860" y="219" key="#com.intellij.ide.util.MemberChooser/-1440.23.1440.877/0.23.1920.1000@-1440.23.1440.877" timestamp="1588277126754" />
+    <state x="773" y="246" key="#com.intellij.ide.util.MemberChooser/-1440.23.1440.877/0.23.1920.1000@0.23.1920.1000" timestamp="1588222273282" />
+    <state x="648" y="266" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1587485238752">
+      <screen x="0" y="23" width="1920" height="1000" />
+    </state>
+    <state x="648" y="266" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/-1440.23.1440.877/0.23.1920.1000@0.23.1920.1000" timestamp="1587485238752" />
+    <state x="314" y="189" width="1240" height="620" key="DiffContextDialog" timestamp="1588914712695">
+      <screen x="0" y="23" width="1920" height="1000" />
+    </state>
+    <state x="314" y="189" width="1240" height="620" key="DiffContextDialog/-1440.23.1440.877/0.23.1920.1000@-1440.23.1440.877" timestamp="1588914712695" />
+    <state x="469" y="162" key="SettingsEditor" timestamp="1587487801405">
+      <screen x="0" y="23" width="1920" height="1000" />
+    </state>
+    <state x="469" y="162" key="SettingsEditor/-1440.23.1440.877/0.23.1920.1000@0.23.1920.1000" timestamp="1587487801405" />
+    <state x="686" y="121" key="VCS.ChangeListViewerDialog" timestamp="1588913728220">
+      <screen x="0" y="23" width="1920" height="1000" />
+    </state>
+    <state x="686" y="121" key="VCS.ChangeListViewerDialog/-1440.23.1440.877/0.23.1920.1000@0.23.1920.1000" timestamp="1588913728220" />
+    <state x="-1119" y="184" width="1119" height="555" key="find.popup" timestamp="1588950597594">
+      <screen x="-1440" y="23" width="1440" height="877" />
+    </state>
+    <state x="-1119" y="184" width="1119" height="555" key="find.popup/-1440.23.1440.877/0.23.1920.1000@-1440.23.1440.877" timestamp="1588950597594" />
+    <state x="561" y="207" width="938" height="632" key="find.popup/-1440.23.1440.877/0.23.1920.1000@0.23.1920.1000" timestamp="1588949620460" />
+    <state x="421" y="174" width="640" height="518" key="find.popup/0.23.1440.820@0.23.1440.820" timestamp="1588631804346" />
+    <state x="513" y="240" width="894" height="771" key="search.everywhere.popup" timestamp="1588948110293">
+      <screen x="0" y="23" width="1920" height="1000" />
+    </state>
+    <state x="-1055" y="213" width="670" height="676" key="search.everywhere.popup/-1440.23.1440.877/0.23.1920.1000@-1440.23.1440.877" timestamp="1588881935665" />
+    <state x="513" y="240" width="894" height="771" key="search.everywhere.popup/-1440.23.1440.877/0.23.1920.1000@0.23.1920.1000" timestamp="1588948110293" />
+    <state x="385" y="201" width="671" height="633" key="search.everywhere.popup/0.23.1440.820@0.23.1440.820" timestamp="1588903752336" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>jar://$APPLICATION_HOME_DIR$/Resources/module_cache_11E503a.zip!/5.2.2/x86_64/iphonesimulator13.4/SwiftUI/SwiftUI.swift</url>
+          <line>8776</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

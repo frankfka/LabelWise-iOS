@@ -13,7 +13,7 @@ struct PercentageRing: View {
     private static let ShadowColor: Color = Color.App.Shadow
     private static let ShadowRadius: CGFloat = CGFloat.App.Layout.ShadowRadius
     private static let ShadowOffsetMultiplier: CGFloat = ShadowRadius + 2
-    private static let AnimationDuration: Double = 0.6
+    private static let AnimationDuration: Double = 1
 
     // Used for animations
     @State private var displayedPercent: Double = 0

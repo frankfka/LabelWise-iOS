@@ -15,7 +15,9 @@ struct AnalysisScrollView<HeaderContent: View, HeaderBackground: View, BodyConte
     private let bodyBackgroundRectangleRadius: CGFloat = CGFloat.App.Layout.CornerRadius
     private let bodyBackgroundColor: Color = Color.App.BackgroundPrimaryFillColor
     private let backButtonContentColor: Color = Color.App.White
-    private let onAppearAnimationDuration: Double = 0.8
+    private let onAppearExpandAnimationDuration: Double = 0.8
+    private let onAppearOpacityAnimationDelay: Double = 0.6
+    private let onAppearOpacityAnimationDuration: Double = 0.4
 
     private let onBackPressedCallback: VoidCallback?
     
@@ -38,8 +40,9 @@ struct AnalysisScrollView<HeaderContent: View, HeaderBackground: View, BodyConte
         )
     }
     
-    // Expand
+    // Animations
     @State private var isExpanded: Bool = false
+    @State private var showContent: Bool = false // Show content after expanding
 
     init(header: HeaderContent, headerBackground: HeaderBackground, onBackPressedCallback: VoidCallback? = nil,
          @ViewBuilder body: ContentGenerator<BodyContent>) {
@@ -66,19 +69,21 @@ struct AnalysisScrollView<HeaderContent: View, HeaderBackground: View, BodyConte
                 .padding(.horizontal, self.navBarPadding)
                 .padding(.top, geometry.safeAreaInsets.top)
                 .background(self.headerBackground)
-                .modifier(ExpandingSectionModifier(isExpanded: self.$isExpanded))
+                .modifier(ExpandingSectionModifier(isExpanded: self.$isExpanded))  // Nav bar will expand as well
                 // Main content
                 ScrollView(showsIndicators: false) {
                     VStack(spacing: 0) {
                         self.headerContent
+                            .opacity(self.showContent ? 1 : 0) // Only show content after initial expansion
                             .fillWidth()
-                            .padding(.bottom, self.bodyBackgroundRectangleRadius)
+                            .padding(.bottom, self.bodyBackgroundRectangleRadius) // Bottom padding for rounded rect
                             .padding(self.headerPadding)
                             .background(self.headerBackground)
-                            .modifier(ExpandingSectionModifier(isExpanded: self.$isExpanded))
+                            .modifier(ExpandingSectionModifier(isExpanded: self.$isExpanded)) // Helper for expansion
                         self.bodyContent
+                            .opacity(self.showContent ? 1 : 0) // Only show content after initial expansion
                             .fillWidthAndHeight()
-                            .background(self.bodyBackground)
+                            .background(self.bodyBackground) // Apply rounded rectangle background
                             .offset(x: 0, y: -self.bodyBackgroundRectangleRadius)
                     }
                     .frame(minHeight: geometry.size.height)
@@ -93,8 +98,13 @@ struct AnalysisScrollView<HeaderContent: View, HeaderBackground: View, BodyConte
     
     private func onAppear() {
         // Expand header
-        withAnimation(Animation.easeInOut(duration: self.onAppearAnimationDuration)) {
+        withAnimation(Animation.easeInOut(duration: self.onAppearExpandAnimationDuration)) {
             self.isExpanded = true
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + self.onAppearOpacityAnimationDelay) {
+            withAnimation(Animation.easeInOut(duration: self.onAppearOpacityAnimationDuration)) {
+                self.showContent = true
+            }
         }
     }
     

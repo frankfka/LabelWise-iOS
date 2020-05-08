@@ -16,20 +16,19 @@ extension Double {
 }
 
 struct MacronutrientSummaryView: View {
-
+    
     struct ViewModel {
         let dailyValues: DailyNutritionValues
         let macros: Macronutrients
-
-        init(dto: AnalyzeNutritionResponseDTO.ParsedNutrition,
-             dailyValues: DailyNutritionValues = DailyNutritionValues()) {
+        
+        init(dto: AnalyzeNutritionResponseDTO.ParsedNutrition, dailyValues: DailyNutritionValues) {
             self.macros = Macronutrients(nutritionDto: dto, dailyValues: dailyValues)
             self.dailyValues = dailyValues
         }
     }
-
+    
     private let viewModel: ViewModel
-
+    
     init(vm: ViewModel) {
         self.viewModel = vm
     }
@@ -44,17 +43,15 @@ struct MacronutrientSummaryView: View {
     private var distributionViewVm: MacronutrientDistributionView.ViewModel {
         MacronutrientDistributionView.ViewModel(macros: self.viewModel.macros)
     }
-
+    
     var body: some View {
         GeometryReader { geometry in
-            VStack {
-                HStack(spacing: CGFloat.App.Layout.normalPadding) {
-                    MacronutrientRings(vm: self.ringViewVm)
+            HStack(spacing: CGFloat.App.Layout.normalPadding) {
+                MacronutrientRings(vm: self.ringViewVm)
                         .frame(width: geometry.size.width / 3, height: geometry.size.width / 3)
-                    VStack {
-                        MacronutrientSummaryTextView(vm: self.summaryTextViewVm)
-                        MacronutrientDistributionView(vm: self.distributionViewVm)
-                    }
+                VStack {
+                    MacronutrientSummaryTextView(vm: self.summaryTextViewVm)
+                    MacronutrientDistributionView(vm: self.distributionViewVm)
                 }
             }
         }
@@ -62,7 +59,10 @@ struct MacronutrientSummaryView: View {
 }
 
 struct MacronutrientSummaryView_Previews: PreviewProvider {
-    private static let vm = MacronutrientSummaryView.ViewModel(dto: PreviewNutritionModels.FullyParsedNutritionDto)
+    private static let vm = MacronutrientSummaryView.ViewModel(
+        dto: PreviewNutritionModels.FullyParsedNutritionDto,
+        dailyValues: DailyNutritionValues()
+    )
     
     static var previews: some View {
         ColorSchemePreview {

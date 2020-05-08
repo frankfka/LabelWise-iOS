@@ -13,7 +13,6 @@ class ContentHostingController: UIHostingController<ContentView> {
     override var preferredStatusBarStyle: UIStatusBarStyle {
         currentStatusBarStyle
     }
-    // Passing nil will set the style to default
     func changeStatusBarStyle(_ style: UIStatusBarStyle) {
         self.currentStatusBarStyle = style
         self.setNeedsStatusBarAppearanceUpdate()
