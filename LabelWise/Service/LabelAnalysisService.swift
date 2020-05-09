@@ -12,7 +12,7 @@ protocol LabelAnalysisService {
 }
 
 class LabelAnalysisServiceImpl: LabelAnalysisService {
-    static let BaseUrl = "https://a74ffa03.ngrok.io/"
+    static let BaseUrl = "https://97013df1.ngrok.io/"
     static let NutritionImageUrl = BaseUrl + "/nutrition/image"
     static let IngredientsImageUrl = BaseUrl + "/ingredients/image"
 

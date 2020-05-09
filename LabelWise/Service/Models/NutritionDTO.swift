@@ -5,6 +5,7 @@
 
 import Foundation
 
+// MARK: Request
 struct AnalyzeNutritionRequestDTO {
     let type: AnalyzeType
     let base64Image: String
@@ -16,7 +17,14 @@ extension AnalyzeNutritionRequestDTO: Codable {
     }
 }
 
+// MARK: Response
 struct AnalyzeNutritionResponseDTO {
+    enum Status: String, Codable {
+        case complete = "COMPLETE"
+        case incomplete = "INCOMPLETE"
+        case insufficient = "INSUFFICIENT"
+        case unknown = "UNKNOWN"
+    }
     struct ParsedNutrition {
         let calories: Double?
         let carbohydrates: Double?
@@ -28,14 +36,15 @@ struct AnalyzeNutritionResponseDTO {
         let cholesterol: Double?
         let sodium: Double?
     }
-    let status: String = "SUCCESS" // TODO: Need to implement on backend
+    let status: Status
     let parsedNutrition: ParsedNutrition
-    let warnings: [NutritionWarningDTO]
+    let insights: [NutritionInsightDTO]
 }
 extension AnalyzeNutritionResponseDTO: Codable {
     enum CodingKeys: String, CodingKey {
+        case status = "status"
         case parsedNutrition = "parsed_nutrition"
-        case warnings = "warnings"
+        case insights = "insights"
     }
 }
 extension AnalyzeNutritionResponseDTO.ParsedNutrition: Codable {
@@ -52,13 +61,15 @@ extension AnalyzeNutritionResponseDTO.ParsedNutrition: Codable {
     }
 }
 
-struct NutritionWarningDTO {
-    enum Level: Int, Codable {
+struct NutritionInsightDTO {
+    enum InsightType: Int, Codable {
         case none = 0
-        case caution = 1
-        case severe = 2
+        case positive = 1
+        case cautionWarn = -1
+        case cautionSevere = -2
     }
     enum Code: String, Codable {
+        // Warnings
         case highSodium = "HIGH_SODIUM"
         case highSugar = "HIGH_SUGAR"
         case lowFiber = "LOW_FIBER"
@@ -68,22 +79,27 @@ struct NutritionWarningDTO {
     }
 
     let code: Code
-    let level: Level
+    let type: InsightType
 }
-extension NutritionWarningDTO: Codable {
+extension NutritionInsightDTO: Codable {
     enum CodingKeys: String, CodingKey {
         case code = "code"
-        case level = "level"
+        case type = "type"
     }
 }
 // MARK: Extensions for enum decodables - default to an unknown value so we can filter it out
-extension NutritionWarningDTO.Level {
+extension NutritionInsightDTO.InsightType {
     public init(from decoder: Decoder) throws {
-        self = try NutritionWarningDTO.Level(rawValue: decoder.singleValueContainer().decode(RawValue.self)) ?? .none
+        self = try NutritionInsightDTO.InsightType(rawValue: decoder.singleValueContainer().decode(RawValue.self)) ?? .none
     }
 }
-extension NutritionWarningDTO.Code {
+extension NutritionInsightDTO.Code {
     public init(from decoder: Decoder) throws {
-        self = try NutritionWarningDTO.Code(rawValue: decoder.singleValueContainer().decode(RawValue.self)) ?? .unknown
+        self = try NutritionInsightDTO.Code(rawValue: decoder.singleValueContainer().decode(RawValue.self)) ?? .unknown
+    }
+}
+extension AnalyzeNutritionResponseDTO.Status {
+    public init(from decoder: Decoder) throws {
+        self = try AnalyzeNutritionResponseDTO.Status(rawValue: decoder.singleValueContainer().decode(RawValue.self)) ?? .unknown
     }
 }

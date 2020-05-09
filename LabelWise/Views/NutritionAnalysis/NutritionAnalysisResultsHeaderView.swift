@@ -46,8 +46,8 @@ extension NutritionAnalysisResultsHeaderView {
         private let resultDto: AnalyzeNutritionResponseDTO
         // Computed view constants
         var backgroundColor: Color {
-            if resultDto.warnings.isEmpty {
-                // No warnings
+            if resultDto.insights.isEmpty {
+                // TODO: Change this to fit insights structure
                 return Color.App.AppGreen
             } else {
                 return Color.App.AppYellow
@@ -68,8 +68,9 @@ extension NutritionAnalysisResultsHeaderView {
 
 struct NutritionAnalysisResultsHeaderView_Previews: PreviewProvider {
     private static let vm = NutritionAnalysisResultsHeaderView.ViewModel(dto: AnalyzeNutritionResponseDTO(
+            status: .complete,
             parsedNutrition: PreviewNutritionModels.FullyParsedNutritionDto,
-            warnings: [])
+            insights: [])
     )
 
     static var previews: some View {

@@ -46,8 +46,9 @@ extension NutritionAnalysisResultsView {
 struct NutritionAnalysisResultsView_Previews: PreviewProvider {
     private static let vm = NutritionAnalysisResultsView.ViewModel(
         dto: AnalyzeNutritionResponseDTO(
+            status: .complete,
             parsedNutrition: PreviewNutritionModels.FullyParsedNutritionDto,
-            warnings: []
+            insights: []
         )
     )
     
