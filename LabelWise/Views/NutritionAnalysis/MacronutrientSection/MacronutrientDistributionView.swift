@@ -10,9 +10,7 @@ import SwiftUI
 
 // MARK: View
 struct MacronutrientDistributionView: View {
-    private static let PlaceholderColor: Color = Color.App.PrimaryFillColor
-    private static let BarHeight: CGFloat = 8
-    private static let BorderRadius: CGFloat = 4
+    private static let BarHeight: CGFloat = 10
 
     private let viewModel: ViewModel
 
@@ -21,39 +19,23 @@ struct MacronutrientDistributionView: View {
     }
 
     var body: some View {
-            ZStack(alignment: .leading) {
-                GeometryReader { geometry in
-                // Bottom placeholder
-                self.getRectangle(relativeWidth: 1, parentSize: geometry.size, color: MacronutrientDistributionView.PlaceholderColor)
-                // Macronutrient bars
-                HStack(spacing: 0) {
-                    self.getRectangle(relativeWidth: self.viewModel.carbsRelativeWidth,
-                            parentSize: geometry.size, color: Color.App.CarbIndicator)
-                    self.getRectangle(relativeWidth: self.viewModel.proteinRelativeWidth,
-                            parentSize: geometry.size, color: Color.App.ProteinIndicator)
-                    self.getRectangle(relativeWidth: self.viewModel.fatsRelativeWidth,
-                            parentSize: geometry.size, color: Color.App.FatIndicator)
-                }
-            }
-            .frame(height: MacronutrientDistributionView.BarHeight)
-            .clipShape(RoundedRectangle(cornerRadius: MacronutrientDistributionView.BorderRadius))
-        }
-    }
-    
-    @ViewBuilder
-    private func getRectangle(relativeWidth: Double, parentSize: CGSize, color: Color) -> some View {
-        Rectangle()
-            .frame(width: parentSize.width * relativeWidth.toCGFloat())
-            .foregroundColor(color)
+        NutrientBreakdownBarChartView(values: self.viewModel.chartValues, barHeight: MacronutrientDistributionView.BarHeight)
     }
 }
 
 // MARK: View model
 extension MacronutrientDistributionView {
     struct ViewModel {
-        let carbsRelativeWidth: Double
-        let proteinRelativeWidth: Double
-        let fatsRelativeWidth: Double
+        private let carbsRelativeWidth: Double
+        private let proteinRelativeWidth: Double
+        private let fatsRelativeWidth: Double
+        var chartValues: [NutrientBreakdownBarChartView.Value] {
+            [
+                NutrientBreakdownBarChartView.Value(relativeWidth: carbsRelativeWidth, color: Color.App.CarbIndicator),
+                NutrientBreakdownBarChartView.Value(relativeWidth: proteinRelativeWidth, color: Color.App.ProteinIndicator),
+                NutrientBreakdownBarChartView.Value(relativeWidth: fatsRelativeWidth, color: Color.App.FatIndicator)
+            ]
+        }
         
         init(macros: Macronutrients) {
             // Ensure that total percentage is less than 100%, we may have cases where it is less (bad parsing)

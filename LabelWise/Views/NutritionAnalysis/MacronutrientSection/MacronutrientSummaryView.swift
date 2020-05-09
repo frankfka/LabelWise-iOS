@@ -16,21 +16,16 @@ extension Double {
 }
 
 struct MacronutrientSummaryView: View {
-    
-    struct ViewModel {
-        let dailyValues: DailyNutritionValues
-        let macros: Macronutrients
-        
-        init(dto: AnalyzeNutritionResponseDTO.ParsedNutrition, dailyValues: DailyNutritionValues) {
-            self.macros = Macronutrients(nutritionDto: dto, dailyValues: dailyValues)
-            self.dailyValues = dailyValues
-        }
-    }
-    
+    private static let MacroRingsMaxRelativeSize: CGFloat = 1/3
+    private static let ViewSpacing: CGFloat = CGFloat.App.Layout.normalPadding
+
     private let viewModel: ViewModel
+    // In a scroll view, we must have geometry reader in the outermost layer, so this is passed down
+    private let approximateMinDimension: CGFloat
     
-    init(vm: ViewModel) {
+    init(vm: ViewModel, approximateMinDimension: CGFloat) {
         self.viewModel = vm
+        self.approximateMinDimension = approximateMinDimension
     }
     
     // Child view models
@@ -45,15 +40,24 @@ struct MacronutrientSummaryView: View {
     }
     
     var body: some View {
-        GeometryReader { geometry in
-            HStack(spacing: CGFloat.App.Layout.normalPadding) {
-                MacronutrientRings(vm: self.ringViewVm)
-                        .frame(width: geometry.size.width / 3, height: geometry.size.width / 3)
-                VStack {
-                    MacronutrientSummaryTextView(vm: self.summaryTextViewVm)
-                    MacronutrientDistributionView(vm: self.distributionViewVm)
-                }
-            }
+        VStack(spacing: MacronutrientSummaryView.ViewSpacing) {
+            MacronutrientRings(vm: self.ringViewVm)
+                .frame(maxWidth: self.approximateMinDimension * MacronutrientSummaryView.MacroRingsMaxRelativeSize,
+                        maxHeight: self.approximateMinDimension * MacronutrientSummaryView.MacroRingsMaxRelativeSize)
+            MacronutrientSummaryTextView(vm: self.summaryTextViewVm)
+            MacronutrientDistributionView(vm: self.distributionViewVm)
+        }
+    }
+}
+// MARK: View Model
+extension MacronutrientSummaryView {
+    struct ViewModel {
+        let dailyValues: DailyNutritionValues
+        let macros: Macronutrients
+
+        init(dto: AnalyzeNutritionResponseDTO.ParsedNutrition, dailyValues: DailyNutritionValues) {
+            self.macros = Macronutrients(nutritionDto: dto, dailyValues: dailyValues)
+            self.dailyValues = dailyValues
         }
     }
 }
@@ -66,7 +70,7 @@ struct MacronutrientSummaryView_Previews: PreviewProvider {
     
     static var previews: some View {
         ColorSchemePreview {
-            MacronutrientSummaryView(vm: vm)
+            MacronutrientSummaryView(vm: vm, approximateMinDimension: 400)
                 .padding()
                 .background(Color.App.BackgroundPrimaryFillColor)
         }

@@ -15,6 +15,7 @@
 		1113446D246356D60091B757 /* BackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1113446C246356D60091B757 /* BackButton.swift */; };
 		1113446F246467D40091B757 /* MacronutrientDistributionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1113446E246467D40091B757 /* MacronutrientDistributionView.swift */; };
 		112FFD1524661F77008E9377 /* AnalysisIconTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112FFD1424661F77008E9377 /* AnalysisIconTextView.swift */; };
+		112FFD1724665EE4008E9377 /* NutrientBreakdownBarChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112FFD1624665EE4008E9377 /* NutrientBreakdownBarChartView.swift */; };
 		11418C88244D4336001F8E27 /* LabelScannerOverlayHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11418C87244D4336001F8E27 /* LabelScannerOverlayHeaderView.swift */; };
 		11418C8A244D43FD001F8E27 /* LabelScannerOverlayFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11418C89244D43FD001F8E27 /* LabelScannerOverlayFooterView.swift */; };
 		119F35592465A1FA00754B57 /* LabelScannerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04BA7C75C3AF19E69A510A /* LabelScannerViewModel.swift */; };
@@ -75,6 +76,7 @@
 		1113446C246356D60091B757 /* BackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButton.swift; sourceTree = "<group>"; };
 		1113446E246467D40091B757 /* MacronutrientDistributionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacronutrientDistributionView.swift; sourceTree = "<group>"; };
 		112FFD1424661F77008E9377 /* AnalysisIconTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalysisIconTextView.swift; sourceTree = "<group>"; };
+		112FFD1624665EE4008E9377 /* NutrientBreakdownBarChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutrientBreakdownBarChartView.swift; sourceTree = "<group>"; };
 		11418C87244D4336001F8E27 /* LabelScannerOverlayHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelScannerOverlayHeaderView.swift; sourceTree = "<group>"; };
 		11418C89244D43FD001F8E27 /* LabelScannerOverlayFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelScannerOverlayFooterView.swift; sourceTree = "<group>"; };
 		119F8AC5244A7D3B00BB173A /* LabelWise.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LabelWise.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -322,6 +324,7 @@
 				11DAE997245FD72100B6FF70 /* NutritionAnalysisViewModel.swift */,
 				11DAE99D2460C28400B6FF70 /* NutritionAnalysisResultsView.swift */,
 				9E04BBBBF4D797E921748F1D /* NutritionAnalysisResultsHeaderView.swift */,
+				112FFD1624665EE4008E9377 /* NutrientBreakdownBarChartView.swift */,
 			);
 			path = NutritionAnalysis;
 			sourceTree = "<group>";
@@ -522,6 +525,7 @@
 				9E04B4A49EF79D0172103A09 /* MacronutrientRings.swift in Sources */,
 				112FFD1524661F77008E9377 /* AnalysisIconTextView.swift in Sources */,
 				9E04BE665B751CAEF5B7A290 /* PercentageRing.swift in Sources */,
+				112FFD1724665EE4008E9377 /* NutrientBreakdownBarChartView.swift in Sources */,
 				9E04BB4DF42A74CE86CA5373 /* Ring.swift in Sources */,
 				9E04BDDADC5E07F1CE41FA8E /* MacronutrientSummaryView.swift in Sources */,
 				9E04BBF618B4CB82E3D5485A /* NutritionDTO.swift in Sources */,

@@ -24,14 +24,21 @@ struct NutritionAnalysisResultsView: View {
     }
     
     var body: some View {
-        VStack {
-            MacronutrientSummaryView(vm: self.macroSummaryViewVm)
-                .modifier(AnalysisSectionModifier(title: "Macronutrients"))
-            Spacer().fillHeight()
+        GeometryReader { geometry in
+            VStack {
+                MacronutrientSummaryView(vm: self.macroSummaryViewVm, approximateMinDimension: self.getMinBodyDimension(from: geometry))
+                    .modifier(AnalysisSectionModifier(title: "Macronutrients"))
+                Spacer()
+            }
+            .padding(CGFloat.App.Layout.normalPadding)
+            .fillWidthAndHeight()
         }
-        .padding(CGFloat.App.Layout.normalPadding)
-        .fillWidthAndHeight()
     }
+
+    func getMinBodyDimension(from geometry: GeometryProxy) -> CGFloat {
+        return min(geometry.size.width, geometry.size.height)
+    }
+
 }
 extension NutritionAnalysisResultsView {
     struct ViewModel {

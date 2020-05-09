@@ -25,7 +25,7 @@ struct MacronutrientSummaryTextView: View {
     
     var body: some View {
         VStack {
-            getTextRow(name: "Carbs", amount: self.viewModel.carbsAmount,
+            getTextRow(name: "Carbohydrates", amount: self.viewModel.carbsAmount,
                        dv: self.viewModel.carbsDV, color: Color.App.CarbIndicator)
             getTextRow(name: "Protein", amount: self.viewModel.proteinAmount,
                        dv: self.viewModel.proteinDV, color: Color.App.ProteinIndicator)

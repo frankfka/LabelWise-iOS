@@ -40,9 +40,13 @@ struct AnalysisSectionModifier: ViewModifier {
     }
     
     func body(content: Content) -> some View {
-        VStack(alignment: .leading, spacing: AnalysisSectionModifier.TitleBottomPadding) {
-            Text(self.title)
-                .withStyle(font: AnalysisSectionModifier.TitleFont, color: AnalysisSectionModifier.TitleColor)
+        VStack(spacing: 0) {
+            HStack {
+                Text(self.title)
+                        .withStyle(font: AnalysisSectionModifier.TitleFont, color: AnalysisSectionModifier.TitleColor)
+                        .padding(.bottom, AnalysisSectionModifier.TitleBottomPadding)
+                Spacer()
+            }
             content
         }
         .padding(AnalysisSectionModifier.SectionInsetPadding)
