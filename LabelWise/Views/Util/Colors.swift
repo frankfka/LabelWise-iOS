@@ -51,6 +51,9 @@ struct AppColors {
     let CarbIndicatorLight: Color = Color("AppGreenLight")
     let FatIndicator: Color = AppColors.AppBlue
     let FatIndicatorLight: Color = Color("AppBlueLight")
+    let SugarIndicator: Color = AppColors.AppRed
+    let FiberIndicator: Color = AppColors.AppBlue
+
 }
 
 extension Color {

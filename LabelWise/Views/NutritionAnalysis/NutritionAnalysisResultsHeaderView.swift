@@ -57,7 +57,7 @@ extension NutritionAnalysisResultsHeaderView {
             if let calories = resultDto.parsedNutrition.calories {
                 return calories.toString(numDecimalDigits: 1)
             }
-            return String.NoNumberPlaceholderText
+            return StringFormatters.NoNumberPlaceholderText
         }
 
         init(dto: AnalyzeNutritionResponseDTO) {

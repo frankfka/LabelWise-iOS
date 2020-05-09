@@ -10,13 +10,13 @@ import SwiftUI
 
 struct ErrorDialogView: View {
     // View
-    private static let SectionPadding: CGFloat = CGFloat.App.Layout.normalPadding
+    private static let SectionPadding: CGFloat = CGFloat.App.Layout.Padding
     // Icon
     private static let ErrorIcon: Image = Image.App.XMarkCircleFill
     private static let ErrorIconColor: Color = Color.App.Error
     private static let ErrorIconSize: CGFloat = CGFloat.App.Icon.LargeIcon
     // Text
-    private static let TextPadding: CGFloat = CGFloat.App.Layout.extraSmallPadding // Padding between text elements
+    private static let TextPadding: CGFloat = CGFloat.App.Layout.SmallestPadding // Padding between text elements
     private static let ErrorHeaderFont: Font = Font.App.Subtitle
     private static let ErrorHeaderTextColor: Color = Color.App.Error
     private static let ErrorMessageFont: Font = Font.App.NormalText
@@ -74,7 +74,7 @@ struct FullScreenErrorView: View {
     private static let ErrorHeaderTextColor: Color = Color.App.Error
     private static let ErrorMessageFont: Font = Font.App.NormalText
     private static let ErrorMessageTextColor: Color = Color.App.SecondaryText
-    private static let ErrorButtonTopPadding: CGFloat = CGFloat.App.Layout.normalPadding
+    private static let ErrorButtonTopPadding: CGFloat = CGFloat.App.Layout.Padding
     
     private let onTryAgainTappedCallback: VoidCallback?
     private let errorTitle: String?

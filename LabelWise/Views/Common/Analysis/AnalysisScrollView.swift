@@ -10,8 +10,8 @@ import SwiftUI
 
 struct AnalysisScrollView<HeaderContent: View, HeaderBackground: View, BodyContent: View>: View {
     // Not static as static constants are not supported in generic types
-    private let navBarPadding: CGFloat = CGFloat.App.Layout.normalPadding
-    private let headerPadding: CGFloat = CGFloat.App.Layout.extraLargePadding
+    private let navBarPadding: CGFloat = CGFloat.App.Layout.Padding
+    private let headerPadding: CGFloat = CGFloat.App.Layout.LargestPadding
     private let bodyBackgroundRectangleRadius: CGFloat = CGFloat.App.Layout.CornerRadius
     private let bodyBackgroundColor: Color = Color.App.BackgroundPrimaryFillColor
     private let backButtonContentColor: Color = Color.App.White
@@ -81,6 +81,7 @@ struct AnalysisScrollView<HeaderContent: View, HeaderBackground: View, BodyConte
                             .background(self.headerBackground)
                             .modifier(ExpandingSectionModifier(isExpanded: self.$isExpanded)) // Helper for expansion
                         self.bodyContent
+                            .padding(.top, self.bodyBackgroundRectangleRadius) // Top padding for rounded rect
                             .opacity(self.showContent ? 1 : 0) // Only show content after initial expansion
                             .fillWidthAndHeight()
                             .background(self.bodyBackground) // Apply rounded rectangle background

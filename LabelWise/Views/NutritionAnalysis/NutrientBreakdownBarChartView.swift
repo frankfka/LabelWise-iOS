@@ -13,6 +13,26 @@ struct NutrientBreakdownBarChartView: View {
     private static let PlaceholderValue: Value = Value(relativeWidth: 1, color: PlaceholderColor)
     private static let DefaultBarHeight: CGFloat = 36
     private static let CornerRadius: CGFloat = CGFloat.App.Layout.CornerRadius
+    // Helper function to get values from (Data, Color for Data), Data is in % if percentageForm is true
+    // Additionally, we will scale relative widths to <= 1 if scaledToUnity is true
+    static func getValues(from data: [(Double, Color)], percentageForm: Bool,
+                          scaledToUnity: Bool = true) -> [NutrientBreakdownBarChartView.Value] {
+        var dataScale: Double = 1
+        if scaledToUnity {
+            // Scale values to <= 1 total width
+            var totalWidth = 0.0
+            for item in data {
+                totalWidth += percentageForm ? item.0.toDecimal() : item.0
+            }
+            if totalWidth > 1 {
+                dataScale = 1 / totalWidth
+            }
+        }
+        return data.map { item in
+            let itemValue = (percentageForm ? item.0.toDecimal() : item.0) * dataScale
+            return NutrientBreakdownBarChartView.Value(relativeWidth: itemValue, color: item.1)
+        }
+    }
     
     struct Value {
         let relativeWidth: Double
@@ -26,7 +46,6 @@ struct NutrientBreakdownBarChartView: View {
         self.values = values
         self.barHeight = barHeight
     }
-    
     
     var body: some View {
         ZStack(alignment: .leading) {

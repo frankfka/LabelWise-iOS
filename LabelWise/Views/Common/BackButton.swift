@@ -11,9 +11,9 @@ import SwiftUI
 struct BackButton: View {
     private static let BackIcon: Image = Image.App.LeftChevron
     private static let IconSize: CGFloat = CGFloat.App.Icon.ExtraSmallIcon
-    private static let ElementSpacing: CGFloat = CGFloat.App.Layout.smallPadding
+    private static let ElementSpacing: CGFloat = CGFloat.App.Layout.SmallPadding
     private static let TextFont: Font = Font.App.NormalText
-    private static let TappableAreaPadding: CGFloat = CGFloat.App.Layout.smallPadding
+    private static let TappableAreaPadding: CGFloat = CGFloat.App.Layout.SmallPadding
     
     private let contentColor: Color
     private let text: String

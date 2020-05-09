@@ -106,7 +106,7 @@ struct CaptureIcon: View {
 struct PhotoActionIcons: View {
     private static let ConfirmIcon: Image = Image.App.CheckmarkCircleFill
     private static let CancelIcon: Image = Image.App.XMarkCircleFill
-    private static let ButtonSpacing: CGFloat = CGFloat.App.Layout.extraLargePadding
+    private static let ButtonSpacing: CGFloat = CGFloat.App.Layout.LargestPadding
     private static let ButtonColor: Color = Color.App.BackgroundSecondaryFillColor
     private static let ConfirmRingColor: Color = Color.App.Affirmative
     private static let CancelRingColor: Color = Color.App.Destructive

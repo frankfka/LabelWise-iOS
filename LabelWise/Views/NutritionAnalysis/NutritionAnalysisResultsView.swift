@@ -9,12 +9,17 @@
 import SwiftUI
 
 struct NutritionAnalysisResultsView: View {
-    
-    private var macroSummaryViewVm: MacronutrientSummaryView.ViewModel {
-        MacronutrientSummaryView.ViewModel(
+    private static let SectionSpacing: CGFloat = CGFloat.App.Layout.LargePadding
+
+    private let dailyValues = DailyNutritionValues()
+    private var macroSummaryViewVm: MacronutrientSectionView.ViewModel {
+        MacronutrientSectionView.ViewModel(
             dto: self.viewModel.resultDto.parsedNutrition,
-            dailyValues: DailyNutritionValues()
+            dailyValues: dailyValues
         )
+    }
+    private var carbohydratesSectionViewVm: CarbohydratesSectionView.ViewModel {
+        CarbohydratesSectionView.ViewModel(dto: self.viewModel.resultDto.parsedNutrition, dailyValues: dailyValues)
     }
     
     private let viewModel: ViewModel
@@ -25,12 +30,14 @@ struct NutritionAnalysisResultsView: View {
     
     var body: some View {
         GeometryReader { geometry in
-            VStack {
-                MacronutrientSummaryView(vm: self.macroSummaryViewVm, approximateMinDimension: self.getMinBodyDimension(from: geometry))
+            VStack(spacing: NutritionAnalysisResultsView.SectionSpacing) {
+                MacronutrientSectionView(vm: self.macroSummaryViewVm, approximateMinDimension: self.getMinBodyDimension(from: geometry))
                     .modifier(AnalysisSectionModifier(title: "Macronutrients"))
+                CarbohydratesSectionView(vm: self.carbohydratesSectionViewVm)
+                    .modifier(AnalysisSectionModifier(title: "Carbohydrates"))
                 Spacer()
             }
-            .padding(CGFloat.App.Layout.normalPadding)
+            .padding(CGFloat.App.Layout.Padding)
             .fillWidthAndHeight()
         }
     }

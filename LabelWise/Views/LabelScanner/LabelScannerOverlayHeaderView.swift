@@ -10,11 +10,11 @@ import SwiftUI
 
 struct LabelScannerOverlayHeaderView: View {
     // View
-    private static let ViewPadding: CGFloat = CGFloat.App.Layout.normalPadding
-    private static let MinSpacerLength: CGFloat = CGFloat.App.Layout.extraLargePadding
+    private static let ViewPadding: CGFloat = CGFloat.App.Layout.Padding
+    private static let MinSpacerLength: CGFloat = CGFloat.App.Layout.LargestPadding
     // Help Icon
     private static let HelpIconSize: CGFloat = CGFloat.App.Icon.SmallIcon
-    private static let HelpIconTappablePadding: CGFloat = CGFloat.App.Layout.smallPadding
+    private static let HelpIconTappablePadding: CGFloat = CGFloat.App.Layout.SmallPadding
     // Help text
     private static let HelpTextFont: Font = Font.App.SmallText
     private static let HelpTextColor: Color = Color.App.White

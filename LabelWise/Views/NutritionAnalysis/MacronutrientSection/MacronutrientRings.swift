@@ -68,9 +68,9 @@ extension MacronutrientRings {
         let fatPercentage: Double
 
         init(macros: Macronutrients) {
-            self.carbsPercentage = macros.carbsDailyValuePercentage ?? 0
-            self.proteinPercentage = macros.proteinDailyValuePercentage ?? 0
-            self.fatPercentage = macros.fatsDailyValuePercentage ?? 0
+            self.carbsPercentage = macros.carbsDailyValuePercentage
+            self.proteinPercentage = macros.proteinDailyValuePercentage
+            self.fatPercentage = macros.fatsDailyValuePercentage
         }
     }
 }

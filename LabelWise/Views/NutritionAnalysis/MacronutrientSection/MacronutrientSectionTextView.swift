@@ -9,10 +9,11 @@
 import SwiftUI
 
 // MARK: View
-struct MacronutrientSummaryTextView: View {
+struct MacronutrientSectionTextView: View {
+    private static let TextRowSpacing: CGFloat = CGFloat.App.Layout.SmallestPadding
     private static let AmountTextFont: Font = Font.App.NormalTextBold
     private static let AmountTextColor: Color = Color.App.Text
-    private static let AmountTextSeparation: CGFloat = CGFloat.App.Layout.smallPadding
+    private static let AmountTextSeparation: CGFloat = CGFloat.App.Layout.SmallestPadding
     private static let MacroNameFont: Font = Font.App.NormalTextBold
     private static let DVFont: Font = Font.App.SmallText
     private static let DVColor: Color = Color.App.SecondaryText
@@ -24,7 +25,7 @@ struct MacronutrientSummaryTextView: View {
     }
     
     var body: some View {
-        VStack {
+        VStack(spacing: MacronutrientSectionTextView.TextRowSpacing) {
             getTextRow(name: "Carbohydrates", amount: self.viewModel.carbsAmount,
                        dv: self.viewModel.carbsDV, color: Color.App.CarbIndicator)
             getTextRow(name: "Protein", amount: self.viewModel.proteinAmount,
@@ -38,42 +39,23 @@ struct MacronutrientSummaryTextView: View {
     private func getTextRow(name: String, amount: String, dv: String, color: Color) -> some View {
         HStack(alignment: .bottom, spacing: 0) {
             Text(amount)
-                .withStyle(font: MacronutrientSummaryTextView.AmountTextFont, color: MacronutrientSummaryTextView.AmountTextColor)
+                .withStyle(font: MacronutrientSectionTextView.AmountTextFont, color: MacronutrientSectionTextView.AmountTextColor)
                 .singleLine()
-                .padding(.trailing, MacronutrientSummaryTextView.AmountTextSeparation)
+                .padding(.trailing, MacronutrientSectionTextView.AmountTextSeparation)
             Text(name)
-                .withStyle(font: MacronutrientSummaryTextView.MacroNameFont, color: color)
+                .withStyle(font: MacronutrientSectionTextView.MacroNameFont, color: color)
                 .singleLine()
-            Spacer(minLength: CGFloat.App.Layout.normalPadding)
+            Spacer(minLength: CGFloat.App.Layout.Padding)
             Text(dv)
-                .withStyle(font: MacronutrientSummaryTextView.DVFont, color: MacronutrientSummaryTextView.DVColor)
+                .withStyle(font: MacronutrientSectionTextView.DVFont, color: MacronutrientSectionTextView.DVColor)
                 .singleLine()
         }
     }
     
 }
 // MARK: View model
-extension MacronutrientSummaryTextView {
+extension MacronutrientSectionTextView {
     struct ViewModel {
-        private static func formatAmount(_ amount: Double?) -> String {
-            let amountStr: String
-            if let amount = amount {
-                amountStr = "\(amount.toString(numDecimalDigits: 1))"
-            } else {
-                amountStr = String.NoNumberPlaceholderText
-            }
-            return "\(amountStr)g"
-        }
-        private static func formatDVPercent(_ percent: Double?) -> String {
-            let dvString: String
-            if let percent = percent {
-                dvString = percent.toString(numDecimalDigits: 0)
-            } else {
-                dvString = String.NoNumberPlaceholderText
-            }
-            return "(\(dvString)% DV)"
-        }
-    
         let carbsAmount: String
         let carbsDV: String
         let proteinAmount: String
@@ -82,23 +64,23 @@ extension MacronutrientSummaryTextView {
         let fatsDV: String
 
         init(macros: Macronutrients) {
-            self.carbsAmount = ViewModel.formatAmount(macros.carbsGrams)
-            self.proteinAmount = ViewModel.formatAmount(macros.proteinGrams)
-            self.fatsAmount = ViewModel.formatAmount(macros.fatsGrams)
-            self.carbsDV = ViewModel.formatDVPercent(macros.carbsDailyValuePercentage)
-            self.proteinDV = ViewModel.formatDVPercent(macros.proteinDailyValuePercentage)
-            self.fatsDV = ViewModel.formatDVPercent(macros.fatsDailyValuePercentage)
+            self.carbsAmount = StringFormatters.formatNutrientAmount(macros.carbsGrams)
+            self.proteinAmount = StringFormatters.formatNutrientAmount(macros.proteinGrams)
+            self.fatsAmount = StringFormatters.formatNutrientAmount(macros.fatsGrams)
+            self.carbsDV = StringFormatters.formatDVPercent(macros.carbsDailyValuePercentage)
+            self.proteinDV = StringFormatters.formatDVPercent(macros.proteinDailyValuePercentage)
+            self.fatsDV = StringFormatters.formatDVPercent(macros.fatsDailyValuePercentage)
         }
     }
 }
 
 struct MacronutrientSummaryTextView_Previews: PreviewProvider {
     // TODO: no info formatting
-    private static let vm = MacronutrientSummaryTextView.ViewModel(macros: PreviewNutritionModels.FullyParsedMacronutrients)
+    private static let vm = MacronutrientSectionTextView.ViewModel(macros: PreviewNutritionModels.FullyParsedMacronutrients)
     
     static var previews: some View {
         ColorSchemePreview {
-            MacronutrientSummaryTextView(vm: vm)
+            MacronutrientSectionTextView(vm: vm)
                 .padding()
                 .background(Color.App.BackgroundPrimaryFillColor)
         }

@@ -69,43 +69,19 @@ struct Macronutrients {
     let calories: Double?
     let carbsGrams: Double?
     var carbsPercentage: Double? {
-        if let carbsGrams = carbsGrams, let calories = calories, calories > 0 {
-            return (carbsGrams * Macronutrients.CaloriesPerGramCarbs / calories).toPercent()
-        }
-        return nil
+        NutritionViewUtils.getPercentage(amount: (carbsGrams ?? 0) * Macronutrients.CaloriesPerGramCarbs, total: calories)
     }
-    var carbsDailyValuePercentage: Double? {
-        if let carbsGrams = carbsGrams, dailyValues.carbohydrates > 0 {
-            return (carbsGrams / dailyValues.carbohydrates).toPercent()
-        }
-        return nil
-    }
+    var carbsDailyValuePercentage: Double { NutritionViewUtils.getDailyValuePercentage(amount: carbsGrams, dailyValue: dailyValues.carbohydrates) }
     let proteinGrams: Double?
     var proteinPercentage: Double? {
-        if let proteinGrams = proteinGrams, let calories = calories, calories > 0 {
-            return (proteinGrams * Macronutrients.CaloriesPerGramProtein / calories).toPercent()
-        }
-        return nil
+        NutritionViewUtils.getPercentage(amount: (proteinGrams ?? 0) * Macronutrients.CaloriesPerGramProtein, total: calories)
     }
-    var proteinDailyValuePercentage: Double? {
-        if let proteinGrams = proteinGrams, dailyValues.protein > 0 {
-            return (proteinGrams / dailyValues.protein).toPercent()
-        }
-        return nil
-    }
+    var proteinDailyValuePercentage: Double { NutritionViewUtils.getDailyValuePercentage(amount: proteinGrams, dailyValue: dailyValues.protein) }
     let fatsGrams: Double?
     var fatsPercentage: Double? {
-        if let fatsGrams = fatsGrams, let calories = calories, calories > 0 {
-            return (fatsGrams * Macronutrients.CaloriesPerGramFat / calories).toPercent()
-        }
-        return nil
+        NutritionViewUtils.getPercentage(amount: (fatsGrams ?? 0) * Macronutrients.CaloriesPerGramFat, total: calories)
     }
-    var fatsDailyValuePercentage: Double? {
-        if let fatsGrams = fatsGrams, dailyValues.fat > 0 {
-            return (fatsGrams / dailyValues.fat).toPercent()
-        }
-        return nil
-    }
+    var fatsDailyValuePercentage: Double { NutritionViewUtils.getDailyValuePercentage(amount: fatsGrams, dailyValue: dailyValues.fat) }
 
     init(nutritionDto: AnalyzeNutritionResponseDTO.ParsedNutrition, dailyValues: DailyNutritionValues) {
         self.dailyValues = dailyValues

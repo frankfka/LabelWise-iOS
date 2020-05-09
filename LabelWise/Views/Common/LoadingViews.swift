@@ -11,19 +11,19 @@ import SwiftUI
 struct FullScreenLoadingView: View {
     // View
     private static let Background: Color = Color.App.BackgroundPrimaryFillColor
-    private static let ViewPadding: CGFloat = CGFloat.App.Layout.largePadding
+    private static let ViewPadding: CGFloat = CGFloat.App.Layout.MediumPadding
     // Loading Indicator
     private static let IndicatorSize: CGFloat = 48
     private static let RingWidth: CGFloat = 6
     // Text
-    private static let TextPadding: CGFloat = CGFloat.App.Layout.normalPadding
+    private static let TextPadding: CGFloat = CGFloat.App.Layout.Padding
     private static let TextFont: Font = Font.App.LargeText
     private static let TextColor: Color = Color.App.SecondaryText
     // Cancel Icon
     private static let CancelIcon: Image = Image.App.XMarkCircleFill
     private static let IconColor: Color = Color.App.AppYellow
     private static let IconSize: CGFloat = CGFloat.App.Icon.NormalIcon
-    private static let IconTappablePadding: CGFloat = CGFloat.App.Layout.smallPadding
+    private static let IconTappablePadding: CGFloat = CGFloat.App.Layout.SmallPadding
     
     private let loadingText: String
     private let onCancelCallback: VoidCallback? // Button to cancel won't be shown unless this is provided

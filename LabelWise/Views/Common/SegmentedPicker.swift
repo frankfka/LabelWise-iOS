@@ -52,9 +52,9 @@ struct SegmentedPicker: View {
     
     private static let SegmentCornerRadius: CGFloat = CGFloat.App.Layout.CornerRadius
     private static let ShadowRadius: CGFloat = CGFloat.App.Layout.ShadowRadius
-    private static let SegmentXPadding: CGFloat = CGFloat.App.Layout.normalPadding
-    private static let SegmentYPadding: CGFloat = CGFloat.App.Layout.smallPadding
-    private static let PickerPadding: CGFloat = CGFloat.App.Layout.extraSmallPadding
+    private static let SegmentXPadding: CGFloat = CGFloat.App.Layout.Padding
+    private static let SegmentYPadding: CGFloat = CGFloat.App.Layout.SmallPadding
+    private static let PickerPadding: CGFloat = CGFloat.App.Layout.SmallestPadding
     
     private static let AnimationDuration: Double = 0.1
     

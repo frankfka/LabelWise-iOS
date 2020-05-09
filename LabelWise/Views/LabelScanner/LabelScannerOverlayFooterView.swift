@@ -35,9 +35,9 @@ extension LabelScannerOverlayFooterView {
 // MARK: View
 struct LabelScannerOverlayFooterView: View {
     private static let ActionIconHeight: CGFloat = CGFloat.App.Icon.LargeIcon
-    private static let ViewPadding: CGFloat = CGFloat.App.Layout.largePadding
-    private static let PickerXPadding: CGFloat = CGFloat.App.Layout.largePadding
-    private static let PickerYPadding: CGFloat = CGFloat.App.Layout.normalPadding
+    private static let ViewPadding: CGFloat = CGFloat.App.Layout.MediumPadding
+    private static let PickerXPadding: CGFloat = CGFloat.App.Layout.MediumPadding
+    private static let PickerYPadding: CGFloat = CGFloat.App.Layout.Padding
 
     private let viewModel: ViewModel
 

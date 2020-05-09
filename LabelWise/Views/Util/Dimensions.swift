@@ -24,11 +24,12 @@ struct AppDimensions {
 
     struct LayoutDimens {
         // Padding
-        let extraLargePadding: CGFloat = 48
-        let largePadding: CGFloat = 24
-        let normalPadding: CGFloat = 16
-        let smallPadding: CGFloat = 8
-        let extraSmallPadding: CGFloat = 4
+        let LargestPadding: CGFloat = 48
+        let LargePadding: CGFloat = 36
+        let MediumPadding: CGFloat = 24
+        let Padding: CGFloat = 16
+        let SmallPadding: CGFloat = 8
+        let SmallestPadding: CGFloat = 4
 
         let CornerRadius: CGFloat = 16
 
