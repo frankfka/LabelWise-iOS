@@ -20,4 +20,5 @@ typealias ServicePublisher<SuccessType> = AnyPublisher<SuccessType, AppError>
 typealias ServiceFuture<SuccessType> = Future<SuccessType, AppError>
 
 // MARK: SwiftUI
+typealias GeometryAwareContentGenerator<Content: View> = (GeometryProxy) -> Content
 typealias ContentGenerator<Content: View> = () -> Content

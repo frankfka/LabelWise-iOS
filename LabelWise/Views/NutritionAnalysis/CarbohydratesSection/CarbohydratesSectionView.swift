@@ -30,26 +30,9 @@ struct CarbohydratesSectionView: View {
         VStack(spacing: CarbohydratesSectionView.VerticalItemSpacing) {
             NutrientBreakdownBarChartView(values: self.viewModel.barChartValues)
                 .padding(.bottom, CarbohydratesSectionView.ChartBottomPadding)
-            getTextRow(name: "Total", amount: self.viewModel.carbsAmount, dv: self.viewModel.carbsDV, color: Color.App.Text)
-            getTextRow(name: "Sugar", amount: self.viewModel.sugarAmount, dv: self.viewModel.sugarDV, color: Color.App.SugarIndicator)
-            getTextRow(name: "Fiber", amount: self.viewModel.fiberAmount, dv: self.viewModel.fiberDV, color: Color.App.FiberIndicator)
-        }
-    }
-    
-    @ViewBuilder
-    private func getTextRow(name: String, amount: String, dv: String, color: Color) -> some View {
-        HStack(alignment: .bottom, spacing: 0) {
-            Text(amount)
-                .withStyle(font: CarbohydratesSectionView.AmountTextFont, color: CarbohydratesSectionView.AmountTextColor)
-                .singleLine()
-                .padding(.trailing, CarbohydratesSectionView.AmountTextSeparation)
-            Text(name)
-                .withStyle(font: CarbohydratesSectionView.NutrientNameFont, color: color)
-                .singleLine()
-            Spacer(minLength: CGFloat.App.Layout.Padding)
-            Text(dv)
-                .withStyle(font: CarbohydratesSectionView.DVFont, color: CarbohydratesSectionView.DVColor)
-                .singleLine()
+            NutrientDescriptionTextRowView(name: "Total", amount: self.viewModel.carbsAmount, dv: self.viewModel.carbsDV, indicatorColor: Color.App.Text)
+            NutrientDescriptionTextRowView(name: "Sugar", amount: self.viewModel.sugarAmount, dv: self.viewModel.sugarDV, indicatorColor: Color.App.SugarIndicator)
+            NutrientDescriptionTextRowView(name: "Fiber", amount: self.viewModel.fiberAmount, dv: self.viewModel.fiberDV, indicatorColor: Color.App.FiberIndicator)
         }
     }
 }

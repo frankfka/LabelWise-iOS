@@ -91,3 +91,16 @@ struct Macronutrients {
         self.fatsGrams = nutritionDto.fat
     }
 }
+enum NutrientAmountUnit {
+    case grams
+    case milligrams
+
+    var abbreviatedString: String {
+        switch self {
+        case .grams:
+            return "g"
+        case .milligrams:
+            return "mg"
+        }
+    }
+}

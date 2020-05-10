@@ -50,8 +50,8 @@ struct NutritionAnalysisRootView: View {
         return AnalysisScrollView(
                 header: headerBackground,
                 headerBackground: headerBackground.background,
-                onBackPressedCallback: self.viewModel.onReturnToLabelScannerCallback) {
-                    NutritionAnalysisResultsView(vm: bodyVm)
+                onBackPressedCallback: self.viewModel.onReturnToLabelScannerCallback) { parentGeometry in
+                    NutritionAnalysisResultsView(vm: bodyVm, parentSize: parentGeometry.size)
         }
     }
 

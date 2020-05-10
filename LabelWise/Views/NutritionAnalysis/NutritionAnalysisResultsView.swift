@@ -21,24 +21,27 @@ struct NutritionAnalysisResultsView: View {
     private var carbohydratesSectionViewVm: CarbohydratesSectionView.ViewModel {
         CarbohydratesSectionView.ViewModel(dto: self.viewModel.resultDto.parsedNutrition, dailyValues: dailyValues)
     }
+    private var fatsSectionViewVm: FatsSectionView.ViewModel {
+        FatsSectionView.ViewModel(dto: self.viewModel.resultDto.parsedNutrition, dailyValues: dailyValues)
+    }
     
     private let viewModel: ViewModel
+    private let parentSize: CGSize? // Making this nullable to make previews easier
     
-    init(vm: ViewModel) {
+    init(vm: ViewModel, parentSize: CGSize? = nil) {
         self.viewModel = vm
+        self.parentSize = parentSize
     }
     
     var body: some View {
-        GeometryReader { geometry in
-            VStack(spacing: NutritionAnalysisResultsView.SectionSpacing) {
-                MacronutrientSectionView(vm: self.macroSummaryViewVm, approximateMinDimension: self.getMinBodyDimension(from: geometry))
+        VStack(spacing: NutritionAnalysisResultsView.SectionSpacing) {
+            MacronutrientSectionView(vm: self.macroSummaryViewVm, parentSize: self.parentSize)
                     .modifier(AnalysisSectionModifier(title: "Macronutrients"))
-                CarbohydratesSectionView(vm: self.carbohydratesSectionViewVm)
+            CarbohydratesSectionView(vm: self.carbohydratesSectionViewVm)
                     .modifier(AnalysisSectionModifier(title: "Carbohydrates"))
-                Spacer()
-            }
-            .padding(CGFloat.App.Layout.Padding)
-            .fillWidthAndHeight()
+            FatsSectionView(vm: self.fatsSectionViewVm)
+                    .modifier(AnalysisSectionModifier(title: "Fats"))
+            Spacer()
         }
     }
 

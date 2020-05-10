@@ -7,16 +7,23 @@ import Foundation
 import SwiftUI
 
 struct MacronutrientSectionView: View {
-    private static let MacroRingsMaxRelativeSize: CGFloat = 1/3
+    private static let MacroRingsRelativeSize: CGFloat = 1/2
     private static let ViewSpacing: CGFloat = CGFloat.App.Layout.Padding
 
     private let viewModel: ViewModel
     // In a scroll view, we must have geometry reader in the outermost layer, so this is passed down
-    private let approximateMinDimension: CGFloat
+    private let parentSize: CGSize?
+    private var macroRingViewSize: CGFloat? {
+        if let parentSize = parentSize {
+            let minDimension = min(parentSize.width, parentSize.height)
+            return minDimension * MacronutrientSectionView.MacroRingsRelativeSize
+        }
+        return nil
+    }
     
-    init(vm: ViewModel, approximateMinDimension: CGFloat) {
+    init(vm: ViewModel, parentSize: CGSize? = nil) {
         self.viewModel = vm
-        self.approximateMinDimension = approximateMinDimension
+        self.parentSize = parentSize
     }
     
     // Child view models
@@ -32,10 +39,7 @@ struct MacronutrientSectionView: View {
     
     var body: some View {
         VStack(spacing: MacronutrientSectionView.ViewSpacing) {
-            MacronutrientRings(vm: self.ringViewVm)
-                .frame(maxWidth: self.approximateMinDimension * MacronutrientSectionView.MacroRingsMaxRelativeSize,
-                        maxHeight: self.approximateMinDimension * MacronutrientSectionView.MacroRingsMaxRelativeSize)
-                .padding(.horizontal) // Weird bug where background rings don't show if we don't have this padding
+            MacronutrientRings(vm: self.ringViewVm, preferredViewSize: self.macroRingViewSize)
             MacronutrientSectionTextView(vm: self.summaryTextViewVm)
             MacronutrientDistributionView(vm: self.distributionViewVm)
         }
@@ -62,7 +66,7 @@ struct MacronutrientSummaryView_Previews: PreviewProvider {
     
     static var previews: some View {
         ColorSchemePreview {
-            MacronutrientSectionView(vm: vm, approximateMinDimension: 400)
+            MacronutrientSectionView(vm: vm)
                 .padding()
                 .background(Color.App.BackgroundPrimaryFillColor)
         }

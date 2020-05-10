@@ -17,6 +17,8 @@
 		112FFD1524661F77008E9377 /* AnalysisIconTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112FFD1424661F77008E9377 /* AnalysisIconTextView.swift */; };
 		112FFD1724665EE4008E9377 /* NutrientBreakdownBarChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112FFD1624665EE4008E9377 /* NutrientBreakdownBarChartView.swift */; };
 		112FFD192466F20D008E9377 /* CarbohydratesSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112FFD182466F20D008E9377 /* CarbohydratesSectionView.swift */; };
+		112FFD1C246714A7008E9377 /* FatsSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112FFD1B246714A7008E9377 /* FatsSectionView.swift */; };
+		112FFD1E2467156F008E9377 /* NutrientDescriptionTextRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112FFD1D2467156F008E9377 /* NutrientDescriptionTextRowView.swift */; };
 		11418C88244D4336001F8E27 /* LabelScannerOverlayHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11418C87244D4336001F8E27 /* LabelScannerOverlayHeaderView.swift */; };
 		11418C8A244D43FD001F8E27 /* LabelScannerOverlayFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11418C89244D43FD001F8E27 /* LabelScannerOverlayFooterView.swift */; };
 		119F35592465A1FA00754B57 /* LabelScannerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04BA7C75C3AF19E69A510A /* LabelScannerViewModel.swift */; };
@@ -80,6 +82,8 @@
 		112FFD1424661F77008E9377 /* AnalysisIconTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalysisIconTextView.swift; sourceTree = "<group>"; };
 		112FFD1624665EE4008E9377 /* NutrientBreakdownBarChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutrientBreakdownBarChartView.swift; sourceTree = "<group>"; };
 		112FFD182466F20D008E9377 /* CarbohydratesSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarbohydratesSectionView.swift; sourceTree = "<group>"; };
+		112FFD1B246714A7008E9377 /* FatsSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FatsSectionView.swift; sourceTree = "<group>"; };
+		112FFD1D2467156F008E9377 /* NutrientDescriptionTextRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutrientDescriptionTextRowView.swift; sourceTree = "<group>"; };
 		11418C87244D4336001F8E27 /* LabelScannerOverlayHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelScannerOverlayHeaderView.swift; sourceTree = "<group>"; };
 		11418C89244D43FD001F8E27 /* LabelScannerOverlayFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelScannerOverlayFooterView.swift; sourceTree = "<group>"; };
 		119F8AC5244A7D3B00BB173A /* LabelWise.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LabelWise.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -174,6 +178,24 @@
 				110DF06F245E65E800E78245 /* HalfRoundedRectangle.swift */,
 			);
 			path = Shapes;
+			sourceTree = "<group>";
+		};
+		112FFD1A24671497008E9377 /* FatsSection */ = {
+			isa = PBXGroup;
+			children = (
+				112FFD1B246714A7008E9377 /* FatsSectionView.swift */,
+			);
+			path = FatsSection;
+			sourceTree = "<group>";
+		};
+		112FFD1F246719E8008E9377 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				112FFD1624665EE4008E9377 /* NutrientBreakdownBarChartView.swift */,
+				9E04B012625D81E2756DF440 /* NutritionViewUtils.swift */,
+				112FFD1D2467156F008E9377 /* NutrientDescriptionTextRowView.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 		1147D7622457A90400A5D749 /* Charts */ = {
@@ -331,14 +353,14 @@
 		9E04BC4A80B4161593F432FC /* NutritionAnalysis */ = {
 			isa = PBXGroup;
 			children = (
+				9E04B1B9555CBE436A887AEF /* CarbohydratesSection */,
+				112FFD1F246719E8008E9377 /* Common */,
+				112FFD1A24671497008E9377 /* FatsSection */,
 				110DF065245B1C1D00E78245 /* MacronutrientSection */,
 				110DF063245B1BCF00E78245 /* NutritionAnalysisRootView.swift */,
 				11DAE997245FD72100B6FF70 /* NutritionAnalysisViewModel.swift */,
 				11DAE99D2460C28400B6FF70 /* NutritionAnalysisResultsView.swift */,
 				9E04BBBBF4D797E921748F1D /* NutritionAnalysisResultsHeaderView.swift */,
-				112FFD1624665EE4008E9377 /* NutrientBreakdownBarChartView.swift */,
-				9E04B1B9555CBE436A887AEF /* CarbohydratesSection */,
-				9E04B012625D81E2756DF440 /* NutritionViewUtils.swift */,
 			);
 			path = NutritionAnalysis;
 			sourceTree = "<group>";
@@ -523,6 +545,7 @@
 				11DAE994245FA72B00B6FF70 /* ErrorViews.swift in Sources */,
 				110DF067245B1C3300E78245 /* MacronutrientSectionTextView.swift in Sources */,
 				110DF069245BE39F00E78245 /* SegmentedPicker.swift in Sources */,
+				112FFD1E2467156F008E9377 /* NutrientDescriptionTextRowView.swift in Sources */,
 				11DAE992245F5C1B00B6FF70 /* LoadingViews.swift in Sources */,
 				9E04BB17B3BDE8728BAF761B /* ContentView.swift in Sources */,
 				11DAE996245FAFE000B6FF70 /* ButtonViews.swift in Sources */,
@@ -537,6 +560,7 @@
 				9E04BBD795334AC0BBB0C4A5 /* Combine.swift in Sources */,
 				110DF064245B1BD000E78245 /* NutritionAnalysisRootView.swift in Sources */,
 				9E04B7F294A2ECE09AB0BDA2 /* LabelScannerActionButtons.swift in Sources */,
+				112FFD1C246714A7008E9377 /* FatsSectionView.swift in Sources */,
 				9E04B4A49EF79D0172103A09 /* MacronutrientRings.swift in Sources */,
 				112FFD1524661F77008E9377 /* AnalysisIconTextView.swift in Sources */,
 				9E04BE665B751CAEF5B7A290 /* PercentageRing.swift in Sources */,

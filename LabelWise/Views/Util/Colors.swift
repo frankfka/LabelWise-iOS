@@ -50,6 +50,8 @@ struct AppColors {
     let CarbIndicator: Color = AppColors.AppGreen
     let CarbIndicatorLight: Color = Color("AppGreenLight")
     let FatIndicator: Color = AppColors.AppBlue
+    let SatFatIndicator: Color = AppColors.AppYellow
+    let CholesterolIndicator: Color = AppColors.AppPurple
     let FatIndicatorLight: Color = Color("AppBlueLight")
     let SugarIndicator: Color = AppColors.AppRed
     let FiberIndicator: Color = AppColors.AppBlue

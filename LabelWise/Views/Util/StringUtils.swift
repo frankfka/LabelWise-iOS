@@ -17,14 +17,14 @@ extension Double {
 struct StringFormatters {
     static let NoNumberPlaceholderText: String = "--"
 
-    static func formatNutrientAmount(_ amount: Double?) -> String {
+    static func formatNutrientAmount(_ amount: Double?, unit: NutrientAmountUnit = .grams) -> String {
         let amountStr: String
         if let amount = amount {
             amountStr = "\(amount.toString(numDecimalDigits: 0))"
         } else {
             amountStr = NoNumberPlaceholderText
         }
-        return "\(amountStr)g"
+        return "\(amountStr)\(unit.abbreviatedString)"
     }
     static func formatDVPercent(_ percent: Double?) -> String {
         let dvString: String

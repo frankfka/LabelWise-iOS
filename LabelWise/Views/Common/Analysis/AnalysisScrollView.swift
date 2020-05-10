@@ -12,9 +12,13 @@ struct AnalysisScrollView<HeaderContent: View, HeaderBackground: View, BodyConte
     // Not static as static constants are not supported in generic types
     private let navBarPadding: CGFloat = CGFloat.App.Layout.Padding
     private let headerPadding: CGFloat = CGFloat.App.Layout.LargestPadding
+    private let backButtonContentColor: Color = Color.App.White
+    
     private let bodyBackgroundRectangleRadius: CGFloat = CGFloat.App.Layout.CornerRadius
     private let bodyBackgroundColor: Color = Color.App.BackgroundPrimaryFillColor
-    private let backButtonContentColor: Color = Color.App.White
+    private let bodyContentPadding: CGFloat = CGFloat.App.Layout.Padding
+    private let bodyContentBottomPadding: CGFloat = CGFloat.App.Layout.Padding
+    
     private let onAppearExpandAnimationDuration: Double = 0.8
     private let onAppearOpacityAnimationDelay: Double = 0.6
     private let onAppearOpacityAnimationDuration: Double = 0.4
@@ -24,7 +28,7 @@ struct AnalysisScrollView<HeaderContent: View, HeaderBackground: View, BodyConte
     // Views
     private let headerContent: HeaderContent
     private let headerBackground: HeaderBackground
-    private let bodyContent: BodyContent
+    private let bodyContentGenerator: GeometryAwareContentGenerator<BodyContent>
     
     // Composed views
     private var bodyBackground: some View {
@@ -45,10 +49,10 @@ struct AnalysisScrollView<HeaderContent: View, HeaderBackground: View, BodyConte
     @State private var showContent: Bool = false // Show content after expanding
 
     init(header: HeaderContent, headerBackground: HeaderBackground, onBackPressedCallback: VoidCallback? = nil,
-         @ViewBuilder body: ContentGenerator<BodyContent>) {
+         @ViewBuilder body: @escaping GeometryAwareContentGenerator<BodyContent>) {
         self.headerContent = header
         self.headerBackground = headerBackground
-        self.bodyContent = body()
+        self.bodyContentGenerator = body
         self.onBackPressedCallback = onBackPressedCallback
     }
 
@@ -80,7 +84,8 @@ struct AnalysisScrollView<HeaderContent: View, HeaderBackground: View, BodyConte
                             .padding(self.headerPadding)
                             .background(self.headerBackground)
                             .modifier(ExpandingSectionModifier(isExpanded: self.$isExpanded)) // Helper for expansion
-                        self.bodyContent
+                        self.bodyContentGenerator(geometry)
+                            .padding(self.bodyContentPadding)
                             .padding(.top, self.bodyBackgroundRectangleRadius) // Top padding for rounded rect
                             .opacity(self.showContent ? 1 : 0) // Only show content after initial expansion
                             .fillWidthAndHeight()
@@ -88,6 +93,7 @@ struct AnalysisScrollView<HeaderContent: View, HeaderBackground: View, BodyConte
                             .offset(x: 0, y: -self.bodyBackgroundRectangleRadius)
                     }
                     .frame(minHeight: geometry.size.height)
+                    .padding(.bottom, self.bodyContentBottomPadding) // Bottom padding to give some space to bottom of scrollview
                 }
             }
             .fillWidthAndHeight()
@@ -124,7 +130,7 @@ struct AnalysisScrollView_Previews: PreviewProvider {
     static var previews: some View {
         AnalysisScrollView(
             header: PlaceholderHeader,
-            headerBackground: Color.App.AppGreen) {
+            headerBackground: Color.App.AppGreen) { viewGeometry in
             VStack {
                 Text("Hello World")
             }

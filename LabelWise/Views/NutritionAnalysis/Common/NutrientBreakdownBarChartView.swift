@@ -11,7 +11,7 @@ import SwiftUI
 struct NutrientBreakdownBarChartView: View {
     private static let PlaceholderColor: Color = Color.App.PrimaryFillColor
     private static let PlaceholderValue: Value = Value(relativeWidth: 1, color: PlaceholderColor)
-    private static let DefaultBarHeight: CGFloat = 36
+    private static let DefaultBarHeight: CGFloat = 24
     private static let CornerRadius: CGFloat = CGFloat.App.Layout.CornerRadius
     // Helper function to get values from (Data, Color for Data), Data is in % if percentageForm is true
     // Additionally, we will scale relative widths to <= 1 if scaledToUnity is true
