@@ -8,10 +8,14 @@
 
 import SwiftUI
 
+// TODO: Deal with incomplete and insufficient statuses
 struct NutritionAnalysisResultsView: View {
     private static let SectionSpacing: CGFloat = CGFloat.App.Layout.LargePadding
 
     private let dailyValues = DailyNutritionValues()
+    private var insightsViewVm: InsightsSectionView.ViewModel {
+        InsightsSectionView.ViewModel(dto: self.viewModel.resultDto)
+    }
     private var macroSummaryViewVm: MacronutrientSectionView.ViewModel {
         MacronutrientSectionView.ViewModel(
             dto: self.viewModel.resultDto.parsedNutrition,
@@ -35,6 +39,10 @@ struct NutritionAnalysisResultsView: View {
     
     var body: some View {
         VStack(spacing: NutritionAnalysisResultsView.SectionSpacing) {
+            if self.insightsViewVm.hasMessages {
+                InsightsSectionView(vm: self.insightsViewVm)
+                    .modifier(AnalysisSectionModifier(title: "Insights"))
+            }
             MacronutrientSectionView(vm: self.macroSummaryViewVm, parentSize: self.parentSize)
                     .modifier(AnalysisSectionModifier(title: "Macronutrients"))
             CarbohydratesSectionView(vm: self.carbohydratesSectionViewVm)
@@ -65,7 +73,7 @@ struct NutritionAnalysisResultsView_Previews: PreviewProvider {
         dto: AnalyzeNutritionResponseDTO(
             status: .complete,
             parsedNutrition: PreviewNutritionModels.FullyParsedNutritionDto,
-            insights: []
+            insights: PreviewNutritionModels.MultipleInsightsPerType
         )
     )
     
@@ -73,6 +81,6 @@ struct NutritionAnalysisResultsView_Previews: PreviewProvider {
         ColorSchemePreview {
             NutritionAnalysisResultsView(vm: vm)
                 .background(Color.App.BackgroundPrimaryFillColor)
-        }
+        }.previewLayout(.sizeThatFits)
     }
 }

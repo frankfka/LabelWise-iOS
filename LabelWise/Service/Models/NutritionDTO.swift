@@ -69,6 +69,11 @@ struct NutritionInsightDTO {
         case cautionSevere = -2
     }
     enum Code: String, Codable {
+        // Positive
+        case lowSodium = "LOW_SODIUM"
+        case lowSugar = "LOW_SUGAR"
+        case highFiber = "HIGH_FIBER"
+        case highProtein = "HIGH_PROTEIN"
         // Warnings
         case highSodium = "HIGH_SODIUM"
         case highSugar = "HIGH_SUGAR"

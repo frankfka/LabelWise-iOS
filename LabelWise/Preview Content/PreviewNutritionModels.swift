@@ -6,6 +6,7 @@
 import Foundation
 
 struct PreviewNutritionModels {
+    // MARK: Parsed Nutrition
     // Fully parsed
     static let FullyParsedNutritionDto: AnalyzeNutritionResponseDTO.ParsedNutrition =
             AnalyzeNutritionResponseDTO.ParsedNutrition(
@@ -25,4 +26,13 @@ struct PreviewNutritionModels {
     // Partially parsed
 
     // Nothing parsed
+
+    // MARK: Insights
+    static let MultipleInsightsPerType: [NutritionInsightDTO] = [
+        NutritionInsightDTO(code: .lowSugar, type: .positive),
+        NutritionInsightDTO(code: .highFiber, type: .positive),
+        NutritionInsightDTO(code: .highSatFat, type: .cautionWarn),
+        NutritionInsightDTO(code: .highCholesterol, type: .cautionSevere),
+        NutritionInsightDTO(code: .highSodium, type: .cautionSevere)
+    ]
 }

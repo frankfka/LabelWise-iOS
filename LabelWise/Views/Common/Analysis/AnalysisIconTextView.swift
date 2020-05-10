@@ -35,6 +35,7 @@ struct AnalysisIconTextView: View {
                 .foregroundColor(self.color)
             Text(self.text)
                 .withStyle(font: AnalysisIconTextView.TextFont, color: self.color)
+                .multiline()
         }
     }
 }
@@ -77,8 +78,9 @@ struct AnalysisIconTextView_Previews: PreviewProvider {
                 
                 AnalysisIconTextView(text: "Warning Text", type: .cautionWarning)
                 
-                AnalysisIconTextView(text: "Severe Warning Text", type: .severeWarning)
+                AnalysisIconTextView(text: "Severe Warning Text On Multiple Lines", type: .severeWarning)
             }
+            .frame(width: 200)
             .padding()
             .background(Color.App.BackgroundSecondaryFillColor)
         }

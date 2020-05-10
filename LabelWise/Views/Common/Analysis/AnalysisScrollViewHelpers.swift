@@ -26,7 +26,7 @@ struct ExpandingSectionModifier: ViewModifier {
 struct AnalysisSectionModifier: ViewModifier {
     private static let TitleFont: Font = Font.App.LargeTextBold
     private static let TitleColor: Color = Color.App.Text
-    private static let TitleBottomPadding: CGFloat = CGFloat.App.Layout.MediumPadding
+    private static let TitleBottomPadding: CGFloat = CGFloat.App.Layout.Padding
     private static let SectionInsetPadding: CGFloat = CGFloat.App.Layout.Padding
     private static let Background: some View = {
         RoundedRectangle(cornerRadius: CGFloat.App.Layout.CornerRadius)
