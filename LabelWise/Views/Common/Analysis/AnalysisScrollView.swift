@@ -118,7 +118,6 @@ struct AnalysisScrollView<HeaderContent: View, HeaderBackground: View, BodyConte
             }
         }
     }
-    
 }
 
 

@@ -18,20 +18,24 @@ struct InsightsSectionView: View {
     }
     
     var body: some View {
-        VStack(alignment: .leading, spacing: InsightsSectionView.MessageSpacing) {
-            Group {
-                ForEach(self.viewModel.positiveMessages, id: \.self) { msg in
-                    AnalysisIconTextView(text: msg, type: .positive)
+        HStack {
+            // HStack to allow for leading alignment
+            VStack(alignment: .leading, spacing: InsightsSectionView.MessageSpacing) {
+                Group {
+                    ForEach(self.viewModel.positiveMessages, id: \.self) { msg in
+                        AnalysisIconTextView(text: msg, type: .positive)
+                    }
+                    ForEach(self.viewModel.warnCautionMessages, id: \.self) { msg in
+                        AnalysisIconTextView(text: msg, type: .cautionWarning)
+                    }
+                    ForEach(self.viewModel.severeCautionMessages, id: \.self) { msg in
+                        AnalysisIconTextView(text: msg, type: .severeWarning)
+                    }
                 }
-                ForEach(self.viewModel.warnCautionMessages, id: \.self) { msg in
-                    AnalysisIconTextView(text: msg, type: .cautionWarning)
-                }
-                ForEach(self.viewModel.severeCautionMessages, id: \.self) { msg in
-                    AnalysisIconTextView(text: msg, type: .severeWarning)
-                }
+                // A workaround for multiline text in ScrollView
+                .fixedSize(horizontal: false, vertical: true)
             }
-            // A workaround for multiline text in ScrollView
-            .fixedSize(horizontal: false, vertical: true)
+            Spacer()
         }
     }
 }
