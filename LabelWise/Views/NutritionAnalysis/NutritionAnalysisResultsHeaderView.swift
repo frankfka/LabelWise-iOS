@@ -12,7 +12,11 @@ struct NutritionAnalysisResultsHeaderView: View {
 
     private static let CaloriesNumericalFont: Font = Font.App.Heading
     private static let CaloriesDescriptionFont: Font = Font.App.LargeText
+    private static let NumInsightsFont: Font = Font.App.LargeText
     private static let ElementColor: Color = Color.App.White
+    private static let CalorieTextSpacing: CGFloat = CGFloat.App.Layout.SmallestPadding
+    private static let CalorieSectionBottomPadding: CGFloat = CGFloat.App.Layout.SmallPadding
+    private static let VerticalElementSpacing: CGFloat = CGFloat.App.Layout.SmallPadding
 
     private let viewModel: ViewModel
     init(vm: ViewModel) {
@@ -25,15 +29,32 @@ struct NutritionAnalysisResultsHeaderView: View {
     }
 
     var body: some View {
-        HStack(alignment: .bottom) {
-            Spacer()
-            Text(self.viewModel.caloriesText)
-                .withStyle(font: Font.App.Heading, color: Color.App.White)
-            Text("cals")
-                .withStyle(font: Font.App.LargeText, color: Color.App.White)
-                // Custom alignment guide so it looks more aligned
-                .alignmentGuide(.bottom) { d in d[.bottom] + 4 }
-            Spacer()
+        VStack(spacing: NutritionAnalysisResultsHeaderView.VerticalElementSpacing) {
+            HStack(alignment: .bottom, spacing: NutritionAnalysisResultsHeaderView.CalorieTextSpacing) {
+                Spacer()
+                Text(self.viewModel.caloriesText)
+                    .withStyle(font: NutritionAnalysisResultsHeaderView.CaloriesNumericalFont,
+                            color: NutritionAnalysisResultsHeaderView.ElementColor)
+                Text("cals")
+                    .withStyle(font: NutritionAnalysisResultsHeaderView.CaloriesDescriptionFont,
+                            color: NutritionAnalysisResultsHeaderView.ElementColor)
+                    // Custom alignment guide so it looks more aligned
+                    .alignmentGuide(.bottom) { d in d[.bottom] + 4 }
+                Spacer()
+            }
+            .padding(.bottom, NutritionAnalysisResultsHeaderView.CalorieSectionBottomPadding)
+            AnalysisIconTextView(
+                text: self.viewModel.parseResultText,
+                type: self.viewModel.didParseAll ? .positive : .cautionWarning,
+                customColor: NutritionAnalysisResultsHeaderView.ElementColor
+            )
+            self.viewModel.numInsightsText.map {
+                AnalysisIconTextView(
+                    text: $0,
+                    type: self.viewModel.hasWarnings ? .cautionWarning : .positive,
+                    customColor: NutritionAnalysisResultsHeaderView.ElementColor
+                )
+            }
         }
         .fillWidth()
         .background(self.background)
@@ -45,19 +66,48 @@ extension NutritionAnalysisResultsHeaderView {
         // Root response
         private let resultDto: AnalyzeNutritionResponseDTO
         // Computed view constants
+        var numCautionWarnings: Int {
+            resultDto.insights.filter { $0.type == .cautionWarn }.count
+        }
+        var numSevereWarnings: Int {
+            resultDto.insights.filter { $0.type == .cautionSevere }.count
+        }
+        var hasWarnings: Bool {
+            numCautionWarnings + numSevereWarnings > 0
+        }
+        var numPositiveWarnings: Int {
+            resultDto.insights.filter { $0.type == .positive }.count
+        }
+        // Background color
         var backgroundColor: Color {
-            if resultDto.insights.isEmpty {
-                // TODO: Change this to fit insights structure
-                return Color.App.AppGreen
-            } else {
+            if numSevereWarnings > 0 {
+                return Color.App.AppRed
+            } else if numCautionWarnings > 0 {
                 return Color.App.AppYellow
             }
+            return Color.App.AppGreen
         }
         var caloriesText: String {
             if let calories = resultDto.parsedNutrition.calories {
                 return calories.toString(numDecimalDigits: 1)
             }
             return StringFormatters.NoNumberPlaceholderText
+        }
+        var numInsightsText: String? {
+            let numInsights = resultDto.insights.count
+            if numInsights > 0 {
+                let numWarnings = numCautionWarnings + numSevereWarnings
+                if numWarnings > 0 {
+                    return " \(numWarnings) nutrition warnings"
+                } else {
+                    return "\(numInsights) insights"
+                }
+            }
+            return nil
+        }
+        var didParseAll: Bool { resultDto.status == .complete }
+        var parseResultText: String {
+            didParseAll ? "Complete nutritional profile was parsed" : "Could not find some nutritional information"
         }
 
         init(dto: AnalyzeNutritionResponseDTO) {

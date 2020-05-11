@@ -8,9 +8,11 @@
 
 import SwiftUI
 
+// TODO: look into drag gesture to go back
 struct AnalysisScrollView<HeaderContent: View, HeaderBackground: View, BodyContent: View>: View {
     // Not static as static constants are not supported in generic types
     private let navBarPadding: CGFloat = CGFloat.App.Layout.Padding
+    private let headerTopPadding: CGFloat = CGFloat.App.Layout.LargePadding
     private let headerPadding: CGFloat = CGFloat.App.Layout.LargestPadding
     private let backButtonContentColor: Color = Color.App.White
     
@@ -81,7 +83,9 @@ struct AnalysisScrollView<HeaderContent: View, HeaderBackground: View, BodyConte
                             .opacity(self.showContent ? 1 : 0) // Only show content after initial expansion
                             .fillWidth()
                             .padding(.bottom, self.bodyBackgroundRectangleRadius) // Bottom padding for rounded rect
-                            .padding(self.headerPadding)
+                            .padding(.top, self.headerTopPadding) // Smaller top padding to accommodate for nav bar
+                            .padding(.horizontal, self.headerPadding)
+                            .padding(.bottom, self.headerPadding)
                             .background(self.headerBackground)
                             .modifier(ExpandingSectionModifier(isExpanded: self.$isExpanded)) // Helper for expansion
                         self.bodyContentGenerator(geometry)

@@ -28,7 +28,8 @@ extension AppView.ViewModel {
             self.viewState = .analyzeNutrition
             if isTest {
                 let parsedNutrition = PreviewNutritionModels.FullyParsedNutritionDto
-                let response = AnalyzeNutritionResponseDTO(status: .complete, parsedNutrition: parsedNutrition, insights: [])
+                let insights = PreviewNutritionModels.MultipleInsightsPerType
+                let response = AnalyzeNutritionResponseDTO(status: .complete, parsedNutrition: parsedNutrition, insights: insights)
                 self.analyzeNutritionPublisher = MockAnalysisService.getNutritionResponsePublisher(response: response)
             } else {
                 self.analyzeNutritionPublisher = labelAnalysisService.analyzeNutrition(base64Image: image.compressedB64String)

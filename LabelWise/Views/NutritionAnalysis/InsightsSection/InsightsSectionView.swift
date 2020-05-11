@@ -76,23 +76,23 @@ extension NutritionInsightDTO.Code {
     func getStringDescription(with nutrition: AnalyzeNutritionResponseDTO.ParsedNutrition) -> String {
         switch self {
         case .lowSodium:
-            return "This has a low amount of sodium."
+            return "This has a low amount of sodium (\(StringFormatters.formatNutrientAmount(nutrition.sodium, unit: .milligrams)))."
         case .lowSugar:
-            return "This has a low amount of sugar."
+            return "This has a low amount of sugar (\(StringFormatters.formatNutrientAmount(nutrition.sugar)))."
         case .highFiber:
-            return "This has a lot of fiber."
+            return "This has a lot of fiber (\(StringFormatters.formatNutrientAmount(nutrition.fiber)))."
         case .highProtein:
-            return "This has a lot of protein."
+            return "This has a lot of protein (\(StringFormatters.formatNutrientAmount(nutrition.protein)))."
         case .highSodium:
-            return "This has a lot of sodium. The recommended daily limit is 2,300 mg."
+            return "This has a lot of sodium (\(StringFormatters.formatNutrientAmount(nutrition.sodium, unit: .milligrams)))."
         case .highSugar:
-            return "This has a lot of sugar. Try to minimize sugar intake."
+            return "This has a lot of sugar (\(StringFormatters.formatNutrientAmount(nutrition.sugar)))."
         case .lowFiber:
-            return "This does not have a lot of fiber. The recommended daily intake is 30g."
+            return "This does not have a lot of fiber (\(StringFormatters.formatNutrientAmount(nutrition.fiber)))."
         case .highSatFat:
-            return "This has a lot of saturated fat."
+            return "This has a lot of saturated fat (\(StringFormatters.formatNutrientAmount(nutrition.satFat)))."
         case .highCholesterol:
-            return "This has a lot of cholesterol."
+            return "This has a lot of cholesterol (\(StringFormatters.formatNutrientAmount(nutrition.cholesterol, unit: .milligrams)))."
         case .unknown:
             return ""
         }

@@ -15,16 +15,19 @@ struct AnalysisIconTextView: View {
     
     private let text: String
     private let type: TextType
+    private let customColor: Color?
+
     private var icon: Image {
         self.type.getIcon()
     }
     private var color: Color {
-        self.type.getColor()
+        self.customColor ?? self.type.getColor()
     }
     
-    init(text: String, type: TextType) {
+    init(text: String, type: TextType, customColor: Color? = nil) {
         self.text = text
         self.type = type
+        self.customColor = customColor
     }
     
     var body: some View {

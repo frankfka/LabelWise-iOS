@@ -50,6 +50,7 @@ struct AnalysisSectionModifier: ViewModifier {
             content
         }
         .padding(AnalysisSectionModifier.SectionInsetPadding)
+        .fillWidth()
         .background(AnalysisSectionModifier.Background)
     }
 }

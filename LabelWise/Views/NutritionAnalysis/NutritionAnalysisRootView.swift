@@ -19,12 +19,12 @@ struct NutritionAnalysisRootView: View {
 
     // Child view models
     private var resultsViewVm: (NutritionAnalysisResultsHeaderView.ViewModel, NutritionAnalysisResultsView.ViewModel)? {
-        self.viewModel.analysisResult.map({
+        self.viewModel.analysisResult.map {
             (
                 NutritionAnalysisResultsHeaderView.ViewModel(dto: $0),
                 NutritionAnalysisResultsView.ViewModel(dto: $0)
             )
-        })
+        }
     }
     // Child views
     private var loadingView: some View {
