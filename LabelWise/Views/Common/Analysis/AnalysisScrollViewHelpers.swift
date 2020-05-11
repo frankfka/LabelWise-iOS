@@ -35,12 +35,14 @@ struct AnalysisSectionModifier: ViewModifier {
     }()
     
     private let title: String
-    init(title: String) {
+    private let alignment: HorizontalAlignment
+    init(title: String, alignment: HorizontalAlignment = .center) {
         self.title = title
+        self.alignment = alignment
     }
     
     func body(content: Content) -> some View {
-        VStack(spacing: 0) {
+        VStack(alignment: self.alignment, spacing: 0) {
             HStack {
                 Text(self.title)
                     .withStyle(font: AnalysisSectionModifier.TitleFont, color: AnalysisSectionModifier.TitleColor)

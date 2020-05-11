@@ -41,7 +41,7 @@ struct NutritionAnalysisResultsView: View {
         VStack(spacing: NutritionAnalysisResultsView.SectionSpacing) {
             if self.insightsViewVm.hasMessages {
                 InsightsSectionView(vm: self.insightsViewVm)
-                    .modifier(AnalysisSectionModifier(title: "Insights"))
+                    .modifier(AnalysisSectionModifier(title: "Insights", alignment: .leading))
             }
             MacronutrientSectionView(vm: self.macroSummaryViewVm, parentSize: self.parentSize)
                     .modifier(AnalysisSectionModifier(title: "Macronutrients"))

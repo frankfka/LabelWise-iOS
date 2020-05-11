@@ -3,9 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="fc06ac05-0031-4719-9d90-6a241fa74c08" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LabelWise/Views/Common/Analysis/AnalysisScrollView.swift" beforeDir="false" afterPath="$PROJECT_DIR$/LabelWise/Views/Common/Analysis/AnalysisScrollView.swift" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LabelWise/Views/Common/Analysis/AnalysisScrollViewHelpers.swift" beforeDir="false" afterPath="$PROJECT_DIR$/LabelWise/Views/Common/Analysis/AnalysisScrollViewHelpers.swift" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LabelWise/Views/NutritionAnalysis/InsightsSection/InsightsSectionView.swift" beforeDir="false" afterPath="$PROJECT_DIR$/LabelWise/Views/NutritionAnalysis/InsightsSection/InsightsSectionView.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Views/NutritionAnalysis/NutritionAnalysisResultsView.swift" beforeDir="false" afterPath="$PROJECT_DIR$/LabelWise/Views/NutritionAnalysis/NutritionAnalysisResultsView.swift" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,7 +89,7 @@
       <workItem from="1588947334709" duration="3431000" />
       <workItem from="1588957943652" duration="6807000" />
       <workItem from="1588996938717" duration="10415000" />
-      <workItem from="1589130207396" duration="7508000" />
+      <workItem from="1589130207396" duration="8062000" />
     </task>
     <servers />
   </component>

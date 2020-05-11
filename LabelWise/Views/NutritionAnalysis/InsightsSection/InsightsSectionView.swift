@@ -16,26 +16,22 @@ struct InsightsSectionView: View {
     init(vm: ViewModel) {
         self.viewModel = vm
     }
-    
+
     var body: some View {
-        HStack {
-            // HStack to allow for leading alignment
-            VStack(alignment: .leading, spacing: InsightsSectionView.MessageSpacing) {
-                Group {
-                    ForEach(self.viewModel.positiveMessages, id: \.self) { msg in
-                        AnalysisIconTextView(text: msg, type: .positive)
-                    }
-                    ForEach(self.viewModel.warnCautionMessages, id: \.self) { msg in
-                        AnalysisIconTextView(text: msg, type: .cautionWarning)
-                    }
-                    ForEach(self.viewModel.severeCautionMessages, id: \.self) { msg in
-                        AnalysisIconTextView(text: msg, type: .severeWarning)
-                    }
+        VStack(alignment: .leading, spacing: InsightsSectionView.MessageSpacing) {
+            Group {
+                ForEach(self.viewModel.positiveMessages, id: \.self) { msg in
+                    AnalysisIconTextView(text: msg, type: .positive)
                 }
-                // A workaround for multiline text in ScrollView
-                .fixedSize(horizontal: false, vertical: true)
+                ForEach(self.viewModel.warnCautionMessages, id: \.self) { msg in
+                    AnalysisIconTextView(text: msg, type: .cautionWarning)
+                }
+                ForEach(self.viewModel.severeCautionMessages, id: \.self) { msg in
+                    AnalysisIconTextView(text: msg, type: .severeWarning)
+                }
             }
-            Spacer()
+            // A workaround for multiline text in ScrollView
+            .fixedSize(horizontal: false, vertical: true)
         }
     }
 }
