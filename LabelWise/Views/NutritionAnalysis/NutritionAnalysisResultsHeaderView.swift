@@ -107,7 +107,7 @@ extension NutritionAnalysisResultsHeaderView {
         }
         var didParseAll: Bool { resultDto.status == .complete }
         var parseResultText: String {
-            didParseAll ? "Complete nutritional profile was parsed" : "Could not find some nutritional information"
+            didParseAll ? "Parsed complete nutritional profile" : "Nutritional information is incomplete"
         }
 
         init(dto: AnalyzeNutritionResponseDTO) {

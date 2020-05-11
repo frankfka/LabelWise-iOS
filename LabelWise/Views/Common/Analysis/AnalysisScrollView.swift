@@ -12,8 +12,9 @@ import SwiftUI
 struct AnalysisScrollView<HeaderContent: View, HeaderBackground: View, BodyContent: View>: View {
     // Not static as static constants are not supported in generic types
     private let navBarPadding: CGFloat = CGFloat.App.Layout.Padding
+    private let headerHorizontalPadding: CGFloat = CGFloat.App.Layout.Padding
     private let headerTopPadding: CGFloat = CGFloat.App.Layout.LargePadding
-    private let headerPadding: CGFloat = CGFloat.App.Layout.LargestPadding
+    private let headerBottomPadding: CGFloat = CGFloat.App.Layout.LargestPadding
     private let backButtonContentColor: Color = Color.App.White
     
     private let bodyBackgroundRectangleRadius: CGFloat = CGFloat.App.Layout.CornerRadius
@@ -21,9 +22,9 @@ struct AnalysisScrollView<HeaderContent: View, HeaderBackground: View, BodyConte
     private let bodyContentPadding: CGFloat = CGFloat.App.Layout.Padding
     private let bodyContentBottomPadding: CGFloat = CGFloat.App.Layout.Padding
     
-    private let onAppearExpandAnimationDuration: Double = 0.8
-    private let onAppearOpacityAnimationDelay: Double = 0.6
-    private let onAppearOpacityAnimationDuration: Double = 0.4
+    private let onAppearExpandAnimationDuration: Double = 1
+    private let onAppearOpacityAnimationDelay: Double = 0.2
+    private let onAppearOpacityAnimationDuration: Double = 1.2
 
     private let onBackPressedCallback: VoidCallback?
     
@@ -75,7 +76,6 @@ struct AnalysisScrollView<HeaderContent: View, HeaderBackground: View, BodyConte
                 .padding(.horizontal, self.navBarPadding)
                 .padding(.top, geometry.safeAreaInsets.top)
                 .background(self.headerBackground)
-                .modifier(ExpandingSectionModifier(isExpanded: self.$isExpanded))  // Nav bar will expand as well
                 // Main content
                 ScrollView(showsIndicators: false) {
                     VStack(spacing: 0) {
@@ -83,9 +83,9 @@ struct AnalysisScrollView<HeaderContent: View, HeaderBackground: View, BodyConte
                             .opacity(self.showContent ? 1 : 0) // Only show content after initial expansion
                             .fillWidth()
                             .padding(.bottom, self.bodyBackgroundRectangleRadius) // Bottom padding for rounded rect
-                            .padding(.top, self.headerTopPadding) // Smaller top padding to accommodate for nav bar
-                            .padding(.horizontal, self.headerPadding)
-                            .padding(.bottom, self.headerPadding)
+                            .padding(.bottom, self.headerBottomPadding) // Larger bottom padding
+                            .padding(.horizontal, self.headerHorizontalPadding)
+                            .padding(.top, self.headerTopPadding)
                             .background(self.headerBackground)
                             .modifier(ExpandingSectionModifier(isExpanded: self.$isExpanded)) // Helper for expansion
                         self.bodyContentGenerator(geometry)

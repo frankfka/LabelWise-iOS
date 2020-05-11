@@ -30,8 +30,13 @@ struct NutritionAnalysisRootView: View {
     private var loadingView: some View {
         FullScreenLoadingView(loadingText: "Analyzing", onCancelCallback: self.viewModel.onReturnToLabelScannerCallback)
     }
-    private var errorView: some View {
-        FullScreenErrorView(errorMessage: "We couldn't analyze the label.", onTryAgainTapped: self.viewModel.onReturnToLabelScannerCallback)
+    private var insufficientInfoErrorView: some View {
+        FullScreenErrorView(errorMessage: "We couldn't find enough nutritional information. Try taking another picture.",
+                onTryAgainTapped: self.viewModel.onReturnToLabelScannerCallback)
+    }
+    private var genericErrorView: some View {
+        FullScreenErrorView(errorMessage: "Something went wrong. We couldn't analyze the label.",
+                onTryAgainTapped: self.viewModel.onReturnToLabelScannerCallback)
     }
     @ViewBuilder
     private var resultsView: some View {
@@ -41,7 +46,7 @@ struct NutritionAnalysisRootView: View {
             })
         } else {
             // If we show resultsView without a proper VM, this is an error case
-            errorView
+            genericErrorView
         }
     }
     private func getResultsView(headerVm: NutritionAnalysisResultsHeaderView.ViewModel,
@@ -62,8 +67,10 @@ struct NutritionAnalysisRootView: View {
             resultsView
         } else if self.viewModel.viewState == .analyzing {
             loadingView
+        } else if self.viewModel.viewState == .insufficientInfo {
+            insufficientInfoErrorView
         } else {
-            errorView
+            genericErrorView
         }
     }
 }

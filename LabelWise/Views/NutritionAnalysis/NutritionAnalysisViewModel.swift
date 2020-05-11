@@ -38,11 +38,14 @@ extension NutritionAnalysisRootView {
             self.analysisCancellable = resultPublisher?.sink(receiveCompletion: { [weak self] completion in
                 if let err = completion.getError() {
                     AppLogging.error("Error analyzing nutrition: \(String(describing: err))")
-                    self?.viewState = .error
+                    self?.viewState = .analyzeError
                 }
             }, receiveValue: { [weak self] response in
                 AppLogging.debug("Success analyzing nutrition. Parsed \(response.parsedNutrition.calories ?? 0) calories")
-                self?.viewState = .displayResults
+                // Display results if we have complete parsing or some info parsed
+                self?.viewState = (response.status == .complete || response.status == .incomplete) ? .displayResults :
+                        // Either insufficient or some weird error from API where we don't know the status
+                        (response.status == .unknown) ? .analyzeError : .insufficientInfo
                 self?.analysisResult = response
             })
         }
@@ -54,8 +57,9 @@ extension NutritionAnalysisRootView.ViewModel {
     // State of the analysis view
     enum ViewState {
         case analyzing
-        case error
+        case analyzeError
         case displayResults
+        case insufficientInfo
     }
 }
 

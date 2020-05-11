@@ -41,8 +41,11 @@ struct ErrorDialogView: View {
             VStack(spacing: ErrorDialogView.TextPadding) {
                 Text(self.errorTitle)
                     .withStyle(font: ErrorDialogView.ErrorHeaderFont, color: ErrorDialogView.ErrorHeaderTextColor)
+                    .singleLine()
                 Text(self.errorMessage)
                     .withStyle(font: ErrorDialogView.ErrorMessageFont, color: ErrorDialogView.ErrorMessageTextColor)
+                    .multiline()
+                    .multilineTextAlignment(.center)
             }
             if self.onTryAgainTappedCallback != nil {
                 RoundedRectangleTextButton(
@@ -67,6 +70,7 @@ struct ErrorDialogView: View {
 
 struct FullScreenErrorView: View {
     private static let Background: Color = Color.App.BackgroundPrimaryFillColor
+    private static let ViewPadding: CGFloat = CGFloat.App.Layout.LargePadding
     private static let ErrorIcon: Image = Image.App.XMarkCircleFill
     private static let ErrorIconColor: Color = Color.App.Error
     private static let ErrorIconSize: CGFloat = CGFloat.App.Icon.LargeIcon
@@ -95,6 +99,7 @@ struct FullScreenErrorView: View {
                 errorMessage: self.errorMessage,
                 onTryAgainTapped: self.onTryAgainTappedCallback
             )
+            .padding(FullScreenErrorView.ViewPadding)
             Spacer()
         }
         .fillWidthAndHeight()
