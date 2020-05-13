@@ -3,11 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="fc06ac05-0031-4719-9d90-6a241fa74c08" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LabelWise/Views/App/AppViewModel.swift" beforeDir="false" afterPath="$PROJECT_DIR$/LabelWise/Views/App/AppViewModel.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LabelWise/Views/Common/Analysis/AnalysisScrollView.swift" beforeDir="false" afterPath="$PROJECT_DIR$/LabelWise/Views/Common/Analysis/AnalysisScrollView.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LabelWise/Views/Common/ErrorViews.swift" beforeDir="false" afterPath="$PROJECT_DIR$/LabelWise/Views/Common/ErrorViews.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LabelWise/Views/NutritionAnalysis/NutritionAnalysisResultsHeaderView.swift" beforeDir="false" afterPath="$PROJECT_DIR$/LabelWise/Views/NutritionAnalysis/NutritionAnalysisResultsHeaderView.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LabelWise/Views/NutritionAnalysis/NutritionAnalysisRootView.swift" beforeDir="false" afterPath="$PROJECT_DIR$/LabelWise/Views/NutritionAnalysis/NutritionAnalysisRootView.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Preview Content/PreviewNutritionModels.swift" beforeDir="false" afterPath="$PROJECT_DIR$/LabelWise/Preview Content/PreviewNutritionModels.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Views/Common/SegmentedPicker.swift" beforeDir="false" afterPath="$PROJECT_DIR$/LabelWise/Views/Common/SegmentedPicker.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Views/NutritionAnalysis/CarbohydratesSection/CarbohydratesSectionView.swift" beforeDir="false" afterPath="$PROJECT_DIR$/LabelWise/Views/NutritionAnalysis/CarbohydratesSection/CarbohydratesSectionView.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Views/NutritionAnalysis/Common/NutritionViewUtils.swift" beforeDir="false" afterPath="$PROJECT_DIR$/LabelWise/Views/NutritionAnalysis/Common/NutritionViewUtils.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Views/NutritionAnalysis/FatsSection/FatsSectionView.swift" beforeDir="false" afterPath="$PROJECT_DIR$/LabelWise/Views/NutritionAnalysis/FatsSection/FatsSectionView.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Views/NutritionAnalysis/MacronutrientSection/MacronutrientRings.swift" beforeDir="false" afterPath="$PROJECT_DIR$/LabelWise/Views/NutritionAnalysis/MacronutrientSection/MacronutrientRings.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Views/NutritionAnalysis/NutritionAnalysisResultsView.swift" beforeDir="false" afterPath="$PROJECT_DIR$/LabelWise/Views/NutritionAnalysis/NutritionAnalysisResultsView.swift" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LabelWise/Views/NutritionAnalysis/NutritionAnalysisViewModel.swift" beforeDir="false" afterPath="$PROJECT_DIR$/LabelWise/Views/NutritionAnalysis/NutritionAnalysisViewModel.swift" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -93,7 +95,7 @@
       <workItem from="1588957943652" duration="6807000" />
       <workItem from="1588996938717" duration="10415000" />
       <workItem from="1589130207396" duration="8161000" />
-      <workItem from="1589206465055" duration="1262000" />
+      <workItem from="1589206465055" duration="3073000" />
     </task>
     <servers />
   </component>
@@ -122,16 +124,16 @@
       <screen x="0" y="23" width="1920" height="1000" />
     </state>
     <state x="686" y="121" key="VCS.ChangeListViewerDialog/-1440.23.1440.877/0.23.1920.1000@0.23.1920.1000" timestamp="1588913728220" />
-    <state x="561" y="207" width="938" height="632" key="find.popup" timestamp="1589207254837">
-      <screen x="0" y="23" width="1920" height="1000" />
+    <state x="-1119" y="184" width="1119" height="555" key="find.popup" timestamp="1589336153494">
+      <screen x="-1440" y="23" width="1440" height="877" />
     </state>
-    <state x="-1119" y="184" width="1119" height="555" key="find.popup/-1440.23.1440.877/0.23.1920.1000@-1440.23.1440.877" timestamp="1589164184778" />
-    <state x="561" y="207" width="938" height="632" key="find.popup/-1440.23.1440.877/0.23.1920.1000@0.23.1920.1000" timestamp="1589207254837" />
+    <state x="-1119" y="184" width="1119" height="555" key="find.popup/-1440.23.1440.877/0.23.1920.1000@-1440.23.1440.877" timestamp="1589336153494" />
+    <state x="561" y="207" width="938" height="632" key="find.popup/-1440.23.1440.877/0.23.1920.1000@0.23.1920.1000" timestamp="1589295061708" />
     <state x="421" y="174" width="640" height="518" key="find.popup/0.23.1440.820@0.23.1440.820" timestamp="1588631804346" />
-    <state x="513" y="240" width="894" height="771" key="search.everywhere.popup" timestamp="1589206921721">
-      <screen x="0" y="23" width="1920" height="1000" />
+    <state x="-1055" y="213" width="670" height="676" key="search.everywhere.popup" timestamp="1589336524736">
+      <screen x="-1440" y="23" width="1440" height="877" />
     </state>
-    <state x="-1055" y="213" width="670" height="676" key="search.everywhere.popup/-1440.23.1440.877/0.23.1920.1000@-1440.23.1440.877" timestamp="1589142043494" />
+    <state x="-1055" y="213" width="670" height="676" key="search.everywhere.popup/-1440.23.1440.877/0.23.1920.1000@-1440.23.1440.877" timestamp="1589336524736" />
     <state x="513" y="240" width="894" height="771" key="search.everywhere.popup/-1440.23.1440.877/0.23.1920.1000@0.23.1920.1000" timestamp="1589206921721" />
     <state x="385" y="201" width="671" height="633" key="search.everywhere.popup/0.23.1440.820@0.23.1440.820" timestamp="1589144973629" />
   </component>

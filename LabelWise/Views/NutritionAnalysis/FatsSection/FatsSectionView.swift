@@ -43,9 +43,9 @@ extension FatsSectionView {
         let cholesterolDV: String
         
         init(dto: AnalyzeNutritionResponseDTO.ParsedNutrition, dailyValues: DailyNutritionValues) {
-            let satFat = dto.satFat ?? 0
-            let cholesterol = dto.cholesterol ?? 0
-            let totalFat = dto.fat ?? 0
+            let satFat = dto.satFat
+            let cholesterol = dto.cholesterol
+            let totalFat = dto.fat
             
             // Text
             self.fatAmount = StringFormatters.formatNutrientAmount(totalFat)
@@ -58,7 +58,7 @@ extension FatsSectionView {
             // Bar chart
             var chartValues: [NutrientBreakdownBarChartView.Value] = []
             // Don't calculate if we don't have total carbs
-            if totalFat > 0 {
+            if let satFat = satFat, let totalFat = totalFat, totalFat > 0 {
                 chartValues = NutrientBreakdownBarChartView.getValues(from: [
                     (satFat / totalFat, Color.App.SatFatIndicator)
                 ], percentageForm: false)

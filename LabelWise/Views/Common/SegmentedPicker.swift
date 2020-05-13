@@ -117,7 +117,7 @@ struct SegmentedPicker: View {
                 .padding(.vertical, SegmentedPicker.SegmentYPadding)
                 .padding(.horizontal, SegmentedPicker.SegmentXPadding)
                 .fillWidth()
-                // Watch for the size of the
+                // Watch for the size of the view
                 .modifier(SizeAwareViewModifier(viewSize: self.$segmentSize))
                 .onTapGesture { self.onItemTap(index: index) }
                 .eraseToAnyView()

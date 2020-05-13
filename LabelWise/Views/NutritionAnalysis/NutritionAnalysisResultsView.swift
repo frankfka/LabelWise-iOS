@@ -8,7 +8,6 @@
 
 import SwiftUI
 
-// TODO: Deal with incomplete and insufficient statuses
 struct NutritionAnalysisResultsView: View {
     private static let SectionSpacing: CGFloat = CGFloat.App.Layout.LargePadding
 
@@ -69,18 +68,37 @@ extension NutritionAnalysisResultsView {
 }
 
 struct NutritionAnalysisResultsView_Previews: PreviewProvider {
-    private static let vm = NutritionAnalysisResultsView.ViewModel(
+    private static let fullyParsedVm = NutritionAnalysisResultsView.ViewModel(
         dto: AnalyzeNutritionResponseDTO(
             status: .complete,
             parsedNutrition: PreviewNutritionModels.FullyParsedNutritionDto,
             insights: PreviewNutritionModels.MultipleInsightsPerType
         )
     )
+    private static let partiallyParsedVm = NutritionAnalysisResultsView.ViewModel(
+        dto: AnalyzeNutritionResponseDTO(
+            status: .incomplete,
+            parsedNutrition: PreviewNutritionModels.PartiallyParsedNutritionDto,
+            insights: []
+        )
+    )
+    private static let noneParsedVm = NutritionAnalysisResultsView.ViewModel(
+        dto: AnalyzeNutritionResponseDTO(
+            status: .incomplete,
+            parsedNutrition: PreviewNutritionModels.NoneParsedNutritionDto,
+            insights: []
+        )
+    )
+    
     
     static var previews: some View {
         ColorSchemePreview {
-            NutritionAnalysisResultsView(vm: vm)
-                .background(Color.App.BackgroundPrimaryFillColor)
+            Group {
+                NutritionAnalysisResultsView(vm: fullyParsedVm)
+                NutritionAnalysisResultsView(vm: partiallyParsedVm)
+                NutritionAnalysisResultsView(vm: noneParsedVm)
+            }
+            .background(Color.App.BackgroundPrimaryFillColor)
         }.previewLayout(.sizeThatFits)
     }
 }

@@ -21,9 +21,9 @@ struct NutritionViewUtils {
         }
         return (amount / total).toPercent()
     }
-    static func getDailyValuePercentage(amount: Double?, dailyValue: Double) -> Double {
+    static func getDailyValuePercentage(amount: Double?, dailyValue: Double) -> Double? {
         guard let amount = amount else {
-            return 0
+            return nil
         }
         guard dailyValue > 0 else {
             return 100

@@ -50,9 +50,11 @@ extension CarbohydratesSectionView {
         let fiberDV: String
         
         init(dto: AnalyzeNutritionResponseDTO.ParsedNutrition, dailyValues: DailyNutritionValues) {
-            let sugar = dto.sugar ?? 0
-            let fiber = dto.fiber ?? 0
-            let totalCarbs = dto.carbohydrates ?? (sugar + fiber) // Default to carbs = sugar + fiber
+            let sugar = dto.sugar
+            let nonNilSugar = sugar ?? 0
+            let fiber = dto.fiber
+            let nonNilFiber = fiber ?? 0
+            let totalCarbs = dto.carbohydrates
             
             // Text
             self.carbsAmount = StringFormatters.formatNutrientAmount(totalCarbs)
@@ -65,10 +67,10 @@ extension CarbohydratesSectionView {
             // Bar chart
             var chartValues: [NutrientBreakdownBarChartView.Value] = []
             // Don't calculate if we don't have total carbs
-            if totalCarbs > 0 {
+            if let totalCarbs = totalCarbs, totalCarbs > 0 {
                 chartValues = NutrientBreakdownBarChartView.getValues(from: [
-                    (sugar / totalCarbs, Color.App.SugarIndicator),
-                    (fiber / totalCarbs, Color.App.FiberIndicator)
+                    (nonNilSugar / totalCarbs, Color.App.SugarIndicator),
+                    (nonNilFiber / totalCarbs, Color.App.FiberIndicator)
                 ], percentageForm: false)
             }
             self.barChartValues = chartValues

@@ -75,17 +75,17 @@ struct Macronutrients {
     var carbsPercentage: Double? {
         NutritionViewUtils.getPercentage(amount: (carbsGrams ?? 0) * Macronutrients.CaloriesPerGramCarbs, total: calories)
     }
-    var carbsDailyValuePercentage: Double { NutritionViewUtils.getDailyValuePercentage(amount: carbsGrams, dailyValue: dailyValues.carbohydrates) }
+    var carbsDailyValuePercentage: Double? { NutritionViewUtils.getDailyValuePercentage(amount: carbsGrams, dailyValue: dailyValues.carbohydrates) }
     let proteinGrams: Double?
     var proteinPercentage: Double? {
         NutritionViewUtils.getPercentage(amount: (proteinGrams ?? 0) * Macronutrients.CaloriesPerGramProtein, total: calories)
     }
-    var proteinDailyValuePercentage: Double { NutritionViewUtils.getDailyValuePercentage(amount: proteinGrams, dailyValue: dailyValues.protein) }
+    var proteinDailyValuePercentage: Double? { NutritionViewUtils.getDailyValuePercentage(amount: proteinGrams, dailyValue: dailyValues.protein) }
     let fatsGrams: Double?
     var fatsPercentage: Double? {
         NutritionViewUtils.getPercentage(amount: (fatsGrams ?? 0) * Macronutrients.CaloriesPerGramFat, total: calories)
     }
-    var fatsDailyValuePercentage: Double { NutritionViewUtils.getDailyValuePercentage(amount: fatsGrams, dailyValue: dailyValues.fat) }
+    var fatsDailyValuePercentage: Double? { NutritionViewUtils.getDailyValuePercentage(amount: fatsGrams, dailyValue: dailyValues.fat) }
 
     init(nutritionDto: AnalyzeNutritionResponseDTO.ParsedNutrition, dailyValues: DailyNutritionValues) {
         self.dailyValues = dailyValues
