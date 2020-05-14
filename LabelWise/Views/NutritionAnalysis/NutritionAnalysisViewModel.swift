@@ -11,47 +11,102 @@ import SwiftUI
 import Combine
 
 extension NutritionAnalysisRootView {
-    class ViewModel: ObservableObject {
-        // View properties
-        @Published var viewState: ViewState = .analyzing
-        @Published var analysisResult: AnalyzeNutritionResponseDTO? = nil
-
-        // Callbacks
-        let onReturnToLabelScannerCallback: VoidCallback?
-
-        // Cancellables
-        private var analysisCancellable: AnyCancellable?
-
-        // Cancel any in-flight actions
-        deinit {
-            AppLogging.debug("Deinit NutritionAnalysisViewModel")
-            analysisCancellable?.cancel()
+    class ViewModel: StateMachineViewModel<ViewModel.State, ViewModel.Action> {
+        // State machine
+        enum State {
+            case analyzing
+            case analyzeError
+            case displayResults
+            case insufficientInfo
+        }
+        enum Action {
+            case analyzed(result: AnalyzeNutritionResponseDTO)
+            case analyzeError(err: AppError)
+            case returnToScanner
         }
 
-        // Technically, the publisher is non-nullable but this will just hang in a cancellable loading state
+        // Middleware
+        override var middleware: [Middleware<Action>] {
+            get {
+                [
+                    self.loggingMiddleware,
+                    self.analyzeSuccessMiddleware,
+                    self.returnToScannerMiddleware
+                ]
+            }
+            set {}
+        }
+
+        // View-specific properties
+        @Published var analysisResult: AnalyzeNutritionResponseDTO? = nil
+        private let onReturnToLabelScannerCallback: VoidCallback?
+        private var analysisCancellable: AnyCancellable?
+
+        // Initialization
         init(resultPublisher: ServicePublisher<AnalyzeNutritionResponseDTO>? = nil,
              onReturnToLabelScannerCallback: VoidCallback? = nil) {
             self.onReturnToLabelScannerCallback = onReturnToLabelScannerCallback
+            super.init(state: .analyzing)
             if resultPublisher == nil {
-                AppLogging.error("Initializing NutritionAnalysisRootViewModel with null resultPublisher")
+                AppLogging.warn("Initializing NutritionAnalysisRootViewModel with null resultPublisher")
             }
+            // Run the network call on init
             self.analysisCancellable = resultPublisher?.sink(receiveCompletion: { [weak self] completion in
                 if let err = completion.getError() {
-                    AppLogging.error("Error analyzing nutrition: \(String(describing: err))")
-                    self?.viewState = .analyzeError
+                    self?.send(.analyzeError(err: err))
                 }
             }, receiveValue: { [weak self] response in
-                AppLogging.debug("Success analyzing nutrition. Parsed \(response.parsedNutrition.calories ?? 0) calories")
-                // Display results if we have complete parsing or some info parsed
-                self?.viewState = (response.status == .complete || response.status == .incomplete) ? .displayResults :
-                        // Either insufficient or some weird error from API where we don't know the status
-                        (response.status == .unknown) ? .analyzeError : .insufficientInfo
-                self?.analysisResult = response
+                self?.send(.analyzed(result: response))
+            })
+        }
+
+        override func nextState(for action: Action) -> State? {
+            switch state {
+            case .analyzing:
+                switch action {
+                case let .analyzed(result):
+                    // Display results if we have complete parsing or some info parsed
+                    return (result.status == .complete || result.status == .incomplete) ? .displayResults :
+                            // Either insufficient or some weird error from API where we don't know the status
+                            (result.status == .unknown) ? .analyzeError : .insufficientInfo
+                case .analyzeError:
+                    return .analyzeError
+                case .returnToScanner:
+                    return nil
+                }
+            case .analyzeError:
+                return nil // Terminal state
+            case .displayResults:
+                return nil // Terminal state
+            case .insufficientInfo:
+                return nil // Terminal state
+            }
+        }
+
+        // MARK: Middleware
+        private func analyzeSuccessMiddleware(_ action: Action) {
+            if case let .analyzed(result) = action {
+                // Populate required property
+                self.analysisResult = result
+            }
+        }
+        private func returnToScannerMiddleware(_ action: Action) {
+            if case .returnToScanner = action {
+                self.onReturnToLabelScannerCallback?()
+            }
+        }
+        private var loggingMiddleware: Middleware<Action> {
+            AppMiddleware.getLoggingMiddleware(state: self.state, getErr: { action in
+                switch action {
+                case let .analyzeError(err):
+                    return err
+                default:
+                    return nil
+                }
             })
         }
     }
 }
-
 // MARK: Additional models for vm
 extension NutritionAnalysisRootView.ViewModel {
     // State of the analysis view
@@ -75,17 +130,23 @@ struct Macronutrients {
     var carbsPercentage: Double? {
         NutritionViewUtils.getPercentage(amount: (carbsGrams ?? 0) * Macronutrients.CaloriesPerGramCarbs, total: calories)
     }
-    var carbsDailyValuePercentage: Double? { NutritionViewUtils.getDailyValuePercentage(amount: carbsGrams, dailyValue: dailyValues.carbohydrates) }
+    var carbsDailyValuePercentage: Double? {
+        NutritionViewUtils.getDailyValuePercentage(amount: carbsGrams, dailyValue: dailyValues.carbohydrates)
+    }
     let proteinGrams: Double?
     var proteinPercentage: Double? {
         NutritionViewUtils.getPercentage(amount: (proteinGrams ?? 0) * Macronutrients.CaloriesPerGramProtein, total: calories)
     }
-    var proteinDailyValuePercentage: Double? { NutritionViewUtils.getDailyValuePercentage(amount: proteinGrams, dailyValue: dailyValues.protein) }
+    var proteinDailyValuePercentage: Double? {
+        NutritionViewUtils.getDailyValuePercentage(amount: proteinGrams, dailyValue: dailyValues.protein)
+    }
     let fatsGrams: Double?
     var fatsPercentage: Double? {
         NutritionViewUtils.getPercentage(amount: (fatsGrams ?? 0) * Macronutrients.CaloriesPerGramFat, total: calories)
     }
-    var fatsDailyValuePercentage: Double? { NutritionViewUtils.getDailyValuePercentage(amount: fatsGrams, dailyValue: dailyValues.fat) }
+    var fatsDailyValuePercentage: Double? {
+        NutritionViewUtils.getDailyValuePercentage(amount: fatsGrams, dailyValue: dailyValues.fat)
+    }
 
     init(nutritionDto: AnalyzeNutritionResponseDTO.ParsedNutrition, dailyValues: DailyNutritionValues) {
         self.dailyValues = dailyValues

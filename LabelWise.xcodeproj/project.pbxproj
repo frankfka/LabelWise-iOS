@@ -40,6 +40,7 @@
 		9E04B0D78F9E76CC6959A2E8 /* CommonViewModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04BA2103C1A69F655989A5 /* CommonViewModels.swift */; };
 		9E04B1087D30ADFAF5BE453F /* AnalysisScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B86EAECBC066F3CC5771 /* AnalysisScrollView.swift */; };
 		9E04B142786F16FB6E2E3BBF /* TypeAliases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04BC8096C70C13098A91F5 /* TypeAliases.swift */; };
+		9E04B172CC25879E8404484A /* StateMachineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B89AB3A4B3A0C31582C3 /* StateMachineViewModel.swift */; };
 		9E04B33DEFFBE48D78AE37B0 /* AppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04BAD266C83AEEE18F15FC /* AppView.swift */; };
 		9E04B37E977F193711FE02F8 /* NutritionViewUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B012625D81E2756DF440 /* NutritionViewUtils.swift */; };
 		9E04B4A49EF79D0172103A09 /* MacronutrientRings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04BA76BDF053BBA9738EFF /* MacronutrientRings.swift */; };
@@ -49,6 +50,7 @@
 		9E04B5681E96C167CA813550 /* NutritionAnalysisResultsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04BBBBF4D797E921748F1D /* NutritionAnalysisResultsHeaderView.swift */; };
 		9E04B6C77E939385281ABC2E /* PreviewNutritionModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B3D769B65F5EF259181D /* PreviewNutritionModels.swift */; };
 		9E04B7505FD17516F7996F3A /* Dimensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B87D15FDBB8C359F6235 /* Dimensions.swift */; };
+		9E04B797E8BB98AFCF9676CA /* Middleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04BE50AA32D8E2890CB871 /* Middleware.swift */; };
 		9E04B7F294A2ECE09AB0BDA2 /* LabelScannerActionButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04BAC86FBCB14C754D2ADC /* LabelScannerActionButtons.swift */; };
 		9E04B8699075720B0B4A2692 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B5990AFB8E3D0DF17188 /* CameraView.swift */; };
 		9E04B90C5EA0DF367FE35AFD /* LabelScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04BAC96CFB27478E9AFA42 /* LabelScannerView.swift */; };
@@ -119,6 +121,7 @@
 		9E04B86EAECBC066F3CC5771 /* AnalysisScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalysisScrollView.swift; sourceTree = "<group>"; };
 		9E04B871BED1E591F3F08FFA /* Combine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Combine.swift; sourceTree = "<group>"; };
 		9E04B87D15FDBB8C359F6235 /* Dimensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dimensions.swift; sourceTree = "<group>"; };
+		9E04B89AB3A4B3A0C31582C3 /* StateMachineViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StateMachineViewModel.swift; sourceTree = "<group>"; };
 		9E04B8A4CAFCF4080DA6BD0E /* CameraUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraUtil.swift; sourceTree = "<group>"; };
 		9E04B8E9B103A32459D4568C /* Icons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Icons.swift; sourceTree = "<group>"; };
 		9E04B9362E437F4975BE9934 /* PreviewUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewUtils.swift; sourceTree = "<group>"; };
@@ -134,6 +137,7 @@
 		9E04BBF54EEA7382665A8137 /* AnalysisScrollViewHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalysisScrollViewHelpers.swift; sourceTree = "<group>"; };
 		9E04BC8096C70C13098A91F5 /* TypeAliases.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypeAliases.swift; sourceTree = "<group>"; };
 		9E04BD167436B52702375ABC /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
+		9E04BE50AA32D8E2890CB871 /* Middleware.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Middleware.swift; sourceTree = "<group>"; };
 		9E04BE91B4AAE37E9D8B3F1E /* Nutrition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Nutrition.swift; sourceTree = "<group>"; };
 		9E04BE97221A3328813B0FB5 /* MockLabelAnalysisService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockLabelAnalysisService.swift; sourceTree = "<group>"; };
 		9E04BEBF75A400DE7744C7C4 /* Ring.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ring.swift; sourceTree = "<group>"; };
@@ -272,6 +276,15 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		9E04B08D8CC8868D7E708E35 /* StateMachine */ = {
+			isa = PBXGroup;
+			children = (
+				9E04B89AB3A4B3A0C31582C3 /* StateMachineViewModel.swift */,
+				9E04BE50AA32D8E2890CB871 /* Middleware.swift */,
+			);
+			path = StateMachine;
+			sourceTree = "<group>";
+		};
 		9E04B192A505AA3051D1C716 /* Service */ = {
 			isa = PBXGroup;
 			children = (
@@ -356,6 +369,7 @@
 				11DAE995245FAFE000B6FF70 /* ButtonViews.swift */,
 				1113446C246356D60091B757 /* BackButton.swift */,
 				9E04BBEAB75B1C9A937822A7 /* Analysis */,
+				9E04B08D8CC8868D7E708E35 /* StateMachine */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -593,6 +607,8 @@
 				9E04B048BE62E1AADA922C57 /* AnalysisScrollViewHelpers.swift in Sources */,
 				9E04B1087D30ADFAF5BE453F /* AnalysisScrollView.swift in Sources */,
 				9E04B37E977F193711FE02F8 /* NutritionViewUtils.swift in Sources */,
+				9E04B172CC25879E8404484A /* StateMachineViewModel.swift in Sources */,
+				9E04B797E8BB98AFCF9676CA /* Middleware.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
