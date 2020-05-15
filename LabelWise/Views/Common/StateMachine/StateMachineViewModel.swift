@@ -13,9 +13,9 @@ To conform, override the following:
 - var middleware
 - func nextState(for action: Action) -> State?
 **/
-class StateMachineViewModel<State, Action>: ObservableObject {
+class StateMachineViewModel<State, Action> {
     // State of the current view
-    @Published var state: State {
+    var state: State {
         willSet { leaveState(state) } // Leaving current state
         didSet { enterState(state) } // Entering new state
     }

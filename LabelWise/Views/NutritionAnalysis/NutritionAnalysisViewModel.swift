@@ -11,7 +11,7 @@ import SwiftUI
 import Combine
 
 extension NutritionAnalysisRootView {
-    class ViewModel: StateMachineViewModel<ViewModel.State, ViewModel.Action> {
+    class ViewModel: StateMachineViewModel<ViewModel.State, ViewModel.Action>, ObservableObject {
         // State machine
         enum State {
             case analyzing
@@ -80,6 +80,11 @@ extension NutritionAnalysisRootView {
             case .insufficientInfo:
                 return nil // Terminal state
             }
+        }
+
+        override func enterState(_ state: State) {
+            super.enterState(state)
+            self.objectWillChange.send() // This allows views to reload whenever state is changed
         }
 
         // MARK: Actions

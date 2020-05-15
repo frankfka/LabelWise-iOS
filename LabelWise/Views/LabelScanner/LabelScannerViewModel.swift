@@ -8,7 +8,7 @@ import SwiftUI
 import Combine
 
 extension LabelScannerView {
-    class ViewModel: StateMachineViewModel<ViewModel.State, ViewModel.Action> {
+    class ViewModel: StateMachineViewModel<ViewModel.State, ViewModel.Action>, ObservableObject {
         // State machine
         enum State {
             case loadingCamera
@@ -49,7 +49,7 @@ extension LabelScannerView {
             set(newVal) {}
         }
         // Label types (nutrition/ingredients)
-        var selectedLabelTypeIndex: Int = 0 { didSet { self.objectWillChange.send() } }
+        @Published var selectedLabelTypeIndex: Int = 0
         private let labelTypes: [AnalyzeType] = AnalyzeType.allCases
         lazy var displayedLabelTypes: [String] = { labelTypes.map { $0.pickerName } }()
         // Callbacks to propagate certain actions up
@@ -102,6 +102,11 @@ extension LabelScannerView {
                 }
             case .confirmedPhoto: return nil // Terminal state
             }
+        }
+
+        override func enterState(_ state: State) {
+            super.enterState(state)
+            self.objectWillChange.send() // This allows views to reload whenever state is changed
         }
 
         // MARK: Middleware
