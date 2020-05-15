@@ -22,16 +22,13 @@ extension NutritionAnalysisRootView {
         enum Action {
             case analyzed(result: AnalyzeNutritionResponseDTO)
             case analyzeError(err: AppError)
-            case returnToScanner
         }
 
         // Middleware
         override var middleware: [Middleware<Action>] {
             get {
                 [
-                    self.loggingMiddleware,
-                    self.analyzeSuccessMiddleware,
-                    self.returnToScannerMiddleware
+                    self.loggingMiddleware
                 ]
             }
             set {}
@@ -65,14 +62,16 @@ extension NutritionAnalysisRootView {
             case .analyzing:
                 switch action {
                 case let .analyzed(result):
-                    // Display results if we have complete parsing or some info parsed
-                    return (result.status == .complete || result.status == .incomplete) ? .displayResults :
-                            // Either insufficient or some weird error from API where we don't know the status
-                            (result.status == .unknown) ? .analyzeError : .insufficientInfo
+                    if result.status == .complete || result.status == .incomplete {
+                        self.analysisResult = result
+                        return .displayResults
+                    } else if result.status == .unknown {
+                        return .analyzeError
+                    } else {
+                        return .insufficientInfo
+                    }
                 case .analyzeError:
                     return .analyzeError
-                case .returnToScanner:
-                    return nil
                 }
             case .analyzeError:
                 return nil // Terminal state
@@ -83,18 +82,12 @@ extension NutritionAnalysisRootView {
             }
         }
 
+        // MARK: Actions
+        func returnToLabelScanner() {
+            self.onReturnToLabelScannerCallback?()
+        }
+
         // MARK: Middleware
-        private func analyzeSuccessMiddleware(_ action: Action) {
-            if case let .analyzed(result) = action {
-                // Populate required property
-                self.analysisResult = result
-            }
-        }
-        private func returnToScannerMiddleware(_ action: Action) {
-            if case .returnToScanner = action {
-                self.onReturnToLabelScannerCallback?()
-            }
-        }
         private var loggingMiddleware: Middleware<Action> {
             AppMiddleware.getLoggingMiddleware(state: self.state, getErr: { action in
                 switch action {
@@ -107,17 +100,6 @@ extension NutritionAnalysisRootView {
         }
     }
 }
-// MARK: Additional models for vm
-extension NutritionAnalysisRootView.ViewModel {
-    // State of the analysis view
-    enum ViewState {
-        case analyzing
-        case analyzeError
-        case displayResults
-        case insufficientInfo
-    }
-}
-
 // MARK: Additional helper models
 struct Macronutrients {
     static let CaloriesPerGramCarbs: Double = 4

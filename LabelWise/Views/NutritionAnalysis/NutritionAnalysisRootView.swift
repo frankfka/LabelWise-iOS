@@ -27,15 +27,15 @@ struct NutritionAnalysisRootView: View {
     }
     // Child views
     private var loadingView: some View {
-        FullScreenLoadingView(loadingText: "Analyzing", onCancelCallback: self.returnToLabelScanner)
+        FullScreenLoadingView(loadingText: "Analyzing", onCancelCallback: self.viewModel.returnToLabelScanner)
     }
     private var insufficientInfoErrorView: some View {
         FullScreenErrorView(errorMessage: "We couldn't find enough nutritional information. Try taking another picture.",
-                onTryAgainTapped: self.returnToLabelScanner)
+                onTryAgainTapped: self.viewModel.returnToLabelScanner)
     }
     private var genericErrorView: some View {
         FullScreenErrorView(errorMessage: "Something went wrong. We couldn't analyze the label.",
-                onTryAgainTapped: self.returnToLabelScanner)
+                onTryAgainTapped: self.viewModel.returnToLabelScanner)
     }
     @ViewBuilder
     private var resultsView: some View {
@@ -54,7 +54,7 @@ struct NutritionAnalysisRootView: View {
         return AnalysisScrollView(
                 header: headerBackground,
                 headerBackground: headerBackground.background,
-                onBackPressedCallback: self.returnToLabelScanner) { parentGeometry in
+                onBackPressedCallback: self.viewModel.returnToLabelScanner) { parentGeometry in
                     NutritionAnalysisResultsView(vm: bodyVm, parentSize: parentGeometry.size)
         }
     }
@@ -71,11 +71,6 @@ struct NutritionAnalysisRootView: View {
         } else {
             genericErrorView
         }
-    }
-
-    // MARK: Actions
-    private func returnToLabelScanner() {
-        self.viewModel.send(.returnToScanner)
     }
 }
 

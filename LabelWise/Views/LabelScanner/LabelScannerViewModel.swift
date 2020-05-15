@@ -8,29 +8,116 @@ import SwiftUI
 import Combine
 
 extension LabelScannerView {
-    class ViewModel: ObservableObject {
-        // View Attributes
-        @Published var capturedImage: LabelImage? = nil
-        @Published var viewState: ViewModel.ViewState = .loadingCamera
+    class ViewModel: StateMachineViewModel<ViewModel.State, ViewModel.Action> {
+        // State machine
+        enum State {
+            case loadingCamera
+            case takePhoto // Before capture tapped
+            case takingPhoto  // After capture tapped but before photo comes back
+            case confirmingPhoto(image: LabelImage)
+            case confirmedPhoto // Terminal state
+            case error
+        }
+        enum Action {
+            case cameraInitSuccess
+            case cameraInitError(err: AppError)
+            case reloadCamera
+            case takePhoto
+            case takePhotoSuccess(capturedImage: LabelImage)
+            case takePhotoError(err: AppError)
+            case confirmPhoto
+            case cancelPhoto
+        }
+
+        // Middleware
+        override var middleware: [Middleware<Action>] {
+            get {
+                [self.loggingMiddleware]
+            }
+            set {}
+        }
+
+        // View-specific attributes
         var takePicture: Bool {
             // Indicates when to take a picture, define setter to allow for binding
-            get { self.viewState == .takingPhoto }
+            get {
+                if case .takingPhoto = self.state {
+                    return true
+                }
+                return false
+            }
             set(newVal) {}
         }
         // Label types (nutrition/ingredients)
+        var selectedLabelTypeIndex: Int = 0 { didSet { self.objectWillChange.send() } }
         private let labelTypes: [AnalyzeType] = AnalyzeType.allCases
-        @Published var selectedLabelTypeIndex: Int = 0
         lazy var displayedLabelTypes: [String] = { labelTypes.map { $0.pickerName } }()
-
         // Callbacks to propagate certain actions up
         private let onLabelScanned: LabelScannedCallback?
 
         init(onLabelScanned: LabelScannedCallback? = nil) {
             self.onLabelScanned = onLabelScanned
+            super.init(state: .loadingCamera)
+        }
+
+        // MARK: State Machine
+        override func nextState(for action: Action) -> State? {
+            switch state {
+            case .loadingCamera:
+                switch action {
+                case .cameraInitSuccess:
+                    return .takePhoto
+                case .cameraInitError:
+                    return .error
+                default: return nil
+                }
+            case .takePhoto:
+                switch action {
+                case .takePhoto:
+                    return .takingPhoto
+                default: return nil
+                }
+            case .takingPhoto:
+                switch action {
+                case let .takePhotoSuccess(img):
+                    return .confirmingPhoto(image: img)
+                case .takePhotoError:
+                    return .error
+                default: return nil
+                }
+            case let .confirmingPhoto(img):
+                switch action {
+                case .confirmPhoto:
+                    self.onLabelScanned?(img, self.labelTypes[self.selectedLabelTypeIndex], false)
+                    return .confirmedPhoto
+                case .cancelPhoto:
+                    return .loadingCamera
+                default: return nil
+                }
+            case .error:
+                switch action {
+                case .reloadCamera:
+                    return .loadingCamera
+                default: return nil
+                }
+            case .confirmedPhoto: return nil // Terminal state
+            }
+        }
+
+        // MARK: Middleware
+        private var loggingMiddleware: Middleware<Action> {
+            AppMiddleware.getLoggingMiddleware(state: self.state, getErr: { action in
+                switch action {
+                case let .takePhotoError(err), let .cameraInitError(err):
+                    return err
+                default:
+                    return nil
+                }
+            })
         }
     }
 }
-// MARK: Actions
+// MARK: View Actions
 extension LabelScannerView.ViewModel {
     func onViewAppear() {
         // Set the status bar color to light
@@ -47,65 +134,39 @@ extension LabelScannerView.ViewModel {
     }
     // Called when camera preview is active
     func onCameraInitialized() {
-        self.viewState = .takePhoto
+        self.send(.cameraInitSuccess)
     }
     // Called when any error occurs, either during init or capture
     func onCameraError(_ err: AppError?) {
-        AppLogging.error("Camera error: \(String(describing: err))")
-        self.viewState = .error
+        self.send(.cameraInitError(err: err ?? AppError("Camera error")))
     }
     // Called when user tries again after an error occurs
     func onErrorTryAgainTapped() {
-        self.viewState = .loadingCamera
+        self.send(.reloadCamera)
     }
     // Called when camera capture icon is tapped
     func onCapturePhotoTapped() {
-        if self.viewState == .takePhoto {
-            // Take a picture if we're in the right state
-            self.viewState = .takingPhoto
-        } else {
-            AppLogging.debug("Attempting to capture photo in an invalid state. Skipping")
-        }
+        self.send(.takePhoto)
     }
     // Callback when photo is complete
     func onPhotoCapture(photo: LabelImage?, error: AppError?) {
-        if self.capturedImage != nil {
-            AppLogging.error("Overwriting captured image. Look into this!")
-        }
         if let photo = photo, error == nil {
-            self.viewState = .confirmPhoto
-            self.capturedImage = photo
+            self.send(.takePhotoSuccess(capturedImage: photo))
         } else {
-            AppLogging.error("Error from camera during capture: \(String(describing: error))")
-            self.viewState = .error
+            self.send(.takePhotoError(err: error ?? AppError("Error taking photo", wrappedError: error)))
         }
     }
     // Photo confirmed,
     func onConfirmPhotoAction(didConfirm: Bool) {
         if didConfirm {
-            // Image confirmed, pass the image to callback
-            guard let imageToAnalyze = capturedImage else {
-                AppLogging.error("Captured image is nil but an image was confirmed")
-                self.viewState = .error
-                return
-            }
-            self.onLabelScanned?(imageToAnalyze, self.labelTypes[self.selectedLabelTypeIndex], false)
+            self.send(.confirmPhoto)
         } else {
-            self.viewState = .takePhoto
-            self.capturedImage = nil
+            self.send(.cancelPhoto)
         }
     }
 }
 // MARK: Additional models
 extension LabelScannerView.ViewModel {
-    // States of the scanner view
-    enum ViewState {
-        case loadingCamera
-        case takePhoto // Before capture tapped
-        case takingPhoto  // After capture tapped but before photo comes back
-        case confirmPhoto
-        case error
-    }
     // For label type picker
     struct LabelTypePickerViewModel: PickerViewModel {
         var selectedIndex: Binding<Int>
@@ -117,7 +178,7 @@ extension LabelScannerView.ViewModel {
         }
     }
 }
-
+// MARK: Helper extensions
 extension AnalyzeType {
     var pickerName: String {
         switch self {

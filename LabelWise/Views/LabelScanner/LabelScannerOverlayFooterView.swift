@@ -14,17 +14,24 @@ extension LabelScannerOverlayFooterView {
         let onCapturePhotoTapped: VoidCallback?
         let onConfirmPhotoAction: BoolCallback?
         var labelTypePickerVm: PickerViewModel
-        @Binding private var viewState: LabelScannerView.ViewModel.ViewState
+        @Binding private var state: LabelScannerView.ViewModel.State
         var showConfirmPhotoActions: Bool {
-            viewState == .confirmPhoto
+            if case .confirmingPhoto = state { return true } else { return false }
         }
         var disableActions: Bool {
-            viewState == .error || viewState == .loadingCamera || viewState == .takingPhoto
+            if case .error = state {
+                return true
+            } else if case .loadingCamera = state {
+                return true
+            } else if case .takingPhoto = state {
+                return true
+            }
+            return false
         }
 
-        init(viewState: Binding<LabelScannerView.ViewModel.ViewState>, labelTypePickerVm: PickerViewModel,
+        init(state: Binding<LabelScannerView.ViewModel.State>, labelTypePickerVm: PickerViewModel,
              onCapturePhotoTapped: VoidCallback? = nil, onConfirmPhotoAction: BoolCallback? = nil) {
-            self._viewState = viewState
+            self._state = state
             self.labelTypePickerVm = labelTypePickerVm
             self.onCapturePhotoTapped = onCapturePhotoTapped
             self.onConfirmPhotoAction = onConfirmPhotoAction
@@ -76,7 +83,7 @@ struct LabelScannerOverlayFooterView: View {
 
 struct LabelScannerOverlayFooterView_Previews: PreviewProvider {
     static let labelTypePickerVm = LabelScannerView.ViewModel.LabelTypePickerViewModel(selectedIndex: .constant(0), items: AnalyzeType.allCases.map { $0.pickerName })
-    static let vm = LabelScannerOverlayFooterView.ViewModel(viewState: .constant(.takePhoto), labelTypePickerVm: labelTypePickerVm)
+    static let vm = LabelScannerOverlayFooterView.ViewModel(state: .constant(.takePhoto), labelTypePickerVm: labelTypePickerVm)
     static var previews: some View {
         LabelScannerOverlayFooterView(vm: vm)
     }

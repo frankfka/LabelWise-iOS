@@ -12,15 +12,16 @@ struct AppMiddleware {
     static func getLoggingMiddleware<State, Action>(state: State,
                                                     getErr: ActionToWrappedErrorFunction<Action>?) -> Middleware<Action> {
         { action in
-            AppLogging.debug("State \(getName(state)) - Dispatching \(getName(action))")
+            AppLogging.debug("State \(StateMachineViewModel<State,Action>.getName(state)) - Dispatching \(StateMachineViewModel<State,Action>.getName(action))")
             if let getErr = getErr, let err = getErr(action) {
                 AppLogging.error("Error Action : \(err)")
             }
         }
     }
-
+}
+extension StateMachineViewModel {
     // Returns the name of the action and state
-    private static func getName<T>(_ item: T) -> String {
+    static func getName<T>(_ item: T) -> String {
         Mirror(reflecting: item).children.first?.label ?? String(describing: item)
     }
 }

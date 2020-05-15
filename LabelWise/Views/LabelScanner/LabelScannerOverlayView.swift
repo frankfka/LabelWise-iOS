@@ -8,15 +8,15 @@ import SwiftUI
 // MARK: View Model
 extension LabelScannerOverlayView {
     struct ViewModel {
-        @Binding var viewState: LabelScannerView.ViewModel.ViewState
+        @Binding var state: LabelScannerView.ViewModel.State
         var labelTypePickerVm: PickerViewModel
         let onHelpIconTapped: VoidCallback?
         let onCapturePhotoTapped: VoidCallback?
         let onConfirmPhotoAction: BoolCallback?
 
-        init(viewMode: Binding<LabelScannerView.ViewModel.ViewState>, labelTypePickerVm: PickerViewModel,
+        init(state: Binding<LabelScannerView.ViewModel.State>, labelTypePickerVm: PickerViewModel,
              onHelpIconTapped: VoidCallback? = nil, onCapturePhotoTapped: VoidCallback? = nil, onConfirmPhotoAction: BoolCallback? = nil) {
-            self._viewState = viewMode
+            self._state = state
             self.labelTypePickerVm = labelTypePickerVm
             self.onHelpIconTapped = onHelpIconTapped
             self.onCapturePhotoTapped = onCapturePhotoTapped
@@ -36,7 +36,7 @@ struct LabelScannerOverlayView: View {
     private let viewModel: ViewModel
     private var footerViewModel: LabelScannerOverlayFooterView.ViewModel {
         return LabelScannerOverlayFooterView.ViewModel(
-            viewState: self.viewModel.$viewState,
+            state: self.viewModel.$state,
             labelTypePickerVm: self.viewModel.labelTypePickerVm,
             onCapturePhotoTapped: self.viewModel.onCapturePhotoTapped,
             onConfirmPhotoAction: self.viewModel.onConfirmPhotoAction
@@ -90,7 +90,7 @@ struct LabelScannerOverlayView: View {
 struct LabelScannerOverlayView_Previews: PreviewProvider {
 
     private static let labelTypePickerVm = LabelScannerView.ViewModel.LabelTypePickerViewModel(selectedIndex: .constant(0), items: AnalyzeType.allCases.map { $0.pickerName })
-    private static let vm = LabelScannerOverlayView.ViewModel(viewMode: .constant(.takePhoto), labelTypePickerVm: labelTypePickerVm)
+    private static let vm = LabelScannerOverlayView.ViewModel(state: .constant(.takePhoto), labelTypePickerVm: labelTypePickerVm)
 
     static var previews: some View {
         LabelScannerOverlayView(vm: vm)

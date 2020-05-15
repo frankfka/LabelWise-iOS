@@ -5,8 +5,14 @@
 
 import Foundation
 import SwiftUI
+import Combine
 
 typealias Middleware<Action> = (Action) -> ()
+/**
+To conform, override the following:
+- var middleware
+- func nextState(for action: Action) -> State?
+**/
 class StateMachineViewModel<State, Action>: ObservableObject {
     // State of the current view
     @Published var state: State {
@@ -15,7 +21,7 @@ class StateMachineViewModel<State, Action>: ObservableObject {
     }
     // Middleware to run before entering next state
     var middleware: [Middleware<Action>] = []
-    
+
     init(state: State) {
         self.state = state
     }
@@ -32,8 +38,12 @@ class StateMachineViewModel<State, Action>: ObservableObject {
     func nextState(for action: Action) -> State? { nil }
 
     // Called when leaving/entering a given state - override these to have stateful side effects
-    func leaveState(_ state: State) {}
-    func enterState(_ state: State) {}
+    func leaveState(_ state: State) {
+        AppLogging.debug("Leaving state \(StateMachineViewModel<State, Action>.getName(state))")
+    }
+    func enterState(_ state: State) {
+        AppLogging.debug("Entering state \(StateMachineViewModel<State, Action>.getName(state))")
+    }
 
     // Runs the defined middleware
     private func runMiddleware(_ action: Action) {

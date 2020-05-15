@@ -9,7 +9,7 @@ import AVFoundation
 struct CameraView: UIViewControllerRepresentable {
     typealias UIViewControllerType = CameraViewController
 
-    class ViewModel: ObservableObject {
+    struct ViewModel {
         @Binding var takePicture: Bool // Signals when to take a picture
         let onCameraInitialized: VoidCallback?
         let onCameraError: ErrorCallback?

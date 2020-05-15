@@ -24,7 +24,7 @@ struct LabelScannerView: View {
     }
     private var overlayViewVm: LabelScannerOverlayView.ViewModel {
         return LabelScannerOverlayView.ViewModel(
-            viewMode: self.$viewModel.viewState,
+            state: self.$viewModel.state,
             labelTypePickerVm: labelTypeVm,
             onHelpIconTapped: self.viewModel.onHelpIconTapped,
             onCapturePhotoTapped: self.viewModel.onCapturePhotoTapped,
@@ -41,18 +41,19 @@ struct LabelScannerView: View {
     }
     // Child views
     var viewForCurrentState: some View {
-        // TODO: Using anyview here, should fix with some sort of state machine
-        if self.viewModel.viewState == .confirmPhoto, let capturedImage = self.viewModel.capturedImage {
+        if case let .confirmingPhoto(capturedImage) = self.viewModel.state {
             return Image(uiImage: capturedImage.uiImage)
                     .resizable()
                     .aspectRatio(capturedImage.uiImage.size, contentMode: .fill)
                     .fillWidthAndHeight()
                     .eraseToAnyView()
-        } else if self.viewModel.viewState == .error {
-            return FullScreenErrorView(onTryAgainTapped: self.viewModel.onErrorTryAgainTapped).eraseToAnyView()
+        } else if case .error = self.viewModel.state {
+            return FullScreenErrorView(onTryAgainTapped: self.viewModel.onErrorTryAgainTapped)
+                    .eraseToAnyView()
         } else {
             // Default to taking photo
-            return CameraView(vm: self.cameraViewVm).eraseToAnyView()
+            return CameraView(vm: self.cameraViewVm)
+                    .eraseToAnyView()
         }
     }
 
