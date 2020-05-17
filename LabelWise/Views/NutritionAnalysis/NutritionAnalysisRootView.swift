@@ -19,9 +19,12 @@ struct NutritionAnalysisRootView: View {
     // Child view models
     private var resultsViewVm: (NutritionAnalysisResultsHeaderView.ViewModel, NutritionAnalysisResultsView.ViewModel)? {
         self.viewModel.analysisResult.map {
-            (
-                NutritionAnalysisResultsHeaderView.ViewModel(dto: $0),
-                NutritionAnalysisResultsView.ViewModel(dto: $0)
+            let status = $0.status
+            let insights = $0.insights
+            let nutrition = Nutrition(dto: $0.parsedNutrition, dailyValues: DailyNutritionValues())
+            return (
+                NutritionAnalysisResultsHeaderView.ViewModel(nutrition: nutrition, insights: insights, parseStatus: status),
+                NutritionAnalysisResultsView.ViewModel(nutrition: nutrition, insights: insights)
             )
         }
     }

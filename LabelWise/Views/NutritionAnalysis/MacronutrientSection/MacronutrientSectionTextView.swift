@@ -45,20 +45,20 @@ extension MacronutrientSectionTextView {
         let fatsAmount: String
         let fatsDV: String
 
-        init(macros: Macronutrients) {
-            self.carbsAmount = StringFormatters.formatNutrientAmount(macros.carbsGrams)
-            self.proteinAmount = StringFormatters.formatNutrientAmount(macros.proteinGrams)
-            self.fatsAmount = StringFormatters.formatNutrientAmount(macros.fatsGrams)
-            self.carbsDV = StringFormatters.formatDVPercent(macros.carbsDailyValuePercentage)
-            self.proteinDV = StringFormatters.formatDVPercent(macros.proteinDailyValuePercentage)
-            self.fatsDV = StringFormatters.formatDVPercent(macros.fatsDailyValuePercentage)
+        init(nutrition: Nutrition) {
+            self.carbsAmount = StringFormatters.formatNutrientAmount(nutrition.carbohydrates)
+            self.proteinAmount = StringFormatters.formatNutrientAmount(nutrition.protein)
+            self.fatsAmount = StringFormatters.formatNutrientAmount(nutrition.fat)
+            self.carbsDV = StringFormatters.formatDVPercent(nutrition.carbohydratesDVPercent)
+            self.proteinDV = StringFormatters.formatDVPercent(nutrition.proteinDVPercent)
+            self.fatsDV = StringFormatters.formatDVPercent(nutrition.fatDVPercent)
         }
     }
 }
 
 struct MacronutrientSummaryTextView_Previews: PreviewProvider {
     // TODO: no info formatting
-    private static let vm = MacronutrientSectionTextView.ViewModel(macros: PreviewNutritionModels.FullyParsedMacronutrients)
+    private static let vm = MacronutrientSectionTextView.ViewModel(nutrition: PreviewNutritionModels.FullyParsedNutrition)
     
     static var previews: some View {
         ColorSchemePreview {

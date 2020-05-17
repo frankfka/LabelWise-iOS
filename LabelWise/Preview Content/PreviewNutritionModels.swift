@@ -21,10 +21,6 @@ struct PreviewNutritionModels {
                     sodium: 240
             )
     static let FullyParsedNutrition: Nutrition = Nutrition(dto: FullyParsedNutritionDto, dailyValues: DailyNutritionValues())
-    static let FullyParsedMacronutrients: Macronutrients = Macronutrients(
-            nutritionDto: FullyParsedNutritionDto,
-            dailyValues: DailyNutritionValues()
-    )
     // Improperly parsed
 
     // Partially parsed
@@ -40,10 +36,7 @@ struct PreviewNutritionModels {
                     cholesterol: 15,
                     sodium: nil
             )
-    static let PartiallyParsedMacronutrients: Macronutrients = Macronutrients(
-            nutritionDto: PartiallyParsedNutritionDto,
-            dailyValues: DailyNutritionValues()
-    )
+    static let PartiallyParsedNutrition: Nutrition = Nutrition(dto: PartiallyParsedNutritionDto, dailyValues: DailyNutritionValues())
     // Nothing parsed
     static let NoneParsedNutritionDto: AnalyzeNutritionResponseDTO.ParsedNutrition =
             AnalyzeNutritionResponseDTO.ParsedNutrition(
@@ -57,10 +50,7 @@ struct PreviewNutritionModels {
                     cholesterol: nil,
                     sodium: nil
             )
-    static let NoneParsedMacronutrients: Macronutrients = Macronutrients(
-            nutritionDto: NoneParsedNutritionDto,
-            dailyValues: DailyNutritionValues()
-    )
+    static let NoneParsedNutrition: Nutrition = Nutrition(dto: NoneParsedNutritionDto, dailyValues: DailyNutritionValues())
 
     // MARK: Insights
     static let MultipleInsightsPerType: [NutritionInsightDTO] = [

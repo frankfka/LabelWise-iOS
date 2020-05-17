@@ -11,21 +11,17 @@ import SwiftUI
 struct NutritionAnalysisResultsView: View {
     private static let SectionSpacing: CGFloat = CGFloat.App.Layout.LargePadding
 
-    private let dailyValues = DailyNutritionValues()
     private var insightsViewVm: InsightsSectionView.ViewModel {
-        InsightsSectionView.ViewModel(dto: self.viewModel.resultDto)
+        InsightsSectionView.ViewModel(insights: self.viewModel.insights, nutrition: self.viewModel.nutrition)
     }
     private var macroSummaryViewVm: MacronutrientSectionView.ViewModel {
-        MacronutrientSectionView.ViewModel(
-            dto: self.viewModel.resultDto.parsedNutrition,
-            dailyValues: dailyValues
-        )
+        MacronutrientSectionView.ViewModel(nutrition: self.viewModel.nutrition)
     }
     private var carbohydratesSectionViewVm: CarbohydratesSectionView.ViewModel {
-        CarbohydratesSectionView.ViewModel(dto: self.viewModel.resultDto.parsedNutrition, dailyValues: dailyValues)
+        CarbohydratesSectionView.ViewModel(nutrition: self.viewModel.nutrition)
     }
     private var fatsSectionViewVm: FatsSectionView.ViewModel {
-        FatsSectionView.ViewModel(dto: self.viewModel.resultDto.parsedNutrition, dailyValues: dailyValues)
+        FatsSectionView.ViewModel(nutrition: self.viewModel.nutrition)
     }
     
     private let viewModel: ViewModel
@@ -59,35 +55,28 @@ struct NutritionAnalysisResultsView: View {
 }
 extension NutritionAnalysisResultsView {
     struct ViewModel {
-        let resultDto: AnalyzeNutritionResponseDTO
+        let nutrition: Nutrition
+        let insights: [NutritionInsightDTO]
 
-        init(dto: AnalyzeNutritionResponseDTO) {
-            self.resultDto = dto
+        init(nutrition: Nutrition, insights: [NutritionInsightDTO]) {
+            self.nutrition = nutrition
+            self.insights = insights
         }
     }
 }
 
 struct NutritionAnalysisResultsView_Previews: PreviewProvider {
     private static let fullyParsedVm = NutritionAnalysisResultsView.ViewModel(
-        dto: AnalyzeNutritionResponseDTO(
-            status: .complete,
-            parsedNutrition: PreviewNutritionModels.FullyParsedNutritionDto,
-            insights: PreviewNutritionModels.MultipleInsightsPerType
-        )
+        nutrition: PreviewNutritionModels.FullyParsedNutrition,
+        insights: PreviewNutritionModels.MultipleInsightsPerType
     )
     private static let partiallyParsedVm = NutritionAnalysisResultsView.ViewModel(
-        dto: AnalyzeNutritionResponseDTO(
-            status: .incomplete,
-            parsedNutrition: PreviewNutritionModels.PartiallyParsedNutritionDto,
-            insights: []
-        )
+        nutrition: PreviewNutritionModels.PartiallyParsedNutrition,
+        insights: []
     )
     private static let noneParsedVm = NutritionAnalysisResultsView.ViewModel(
-        dto: AnalyzeNutritionResponseDTO(
-            status: .incomplete,
-            parsedNutrition: PreviewNutritionModels.NoneParsedNutritionDto,
-            insights: []
-        )
+        nutrition: PreviewNutritionModels.NoneParsedNutrition,
+        insights: []
     )
     
     

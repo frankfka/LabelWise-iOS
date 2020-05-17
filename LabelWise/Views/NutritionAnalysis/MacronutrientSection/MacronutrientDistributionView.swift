@@ -29,11 +29,11 @@ extension MacronutrientDistributionView {
     struct ViewModel {
         let chartValues: [NutrientBreakdownBarChartView.Value]
         
-        init(macros: Macronutrients) {
+        init(nutrition: Nutrition) {
             // Ensure that total percentage is less than 100%, we may have cases where it is less (bad parsing)
-            let carbsPercentage = macros.carbsPercentage ?? 0
-            let proteinPercentage = macros.proteinPercentage ?? 0
-            let fatsPercentage = macros.fatsPercentage ?? 0
+            let carbsPercentage = nutrition.carbohydratesPercent ?? 0
+            let proteinPercentage = nutrition.proteinPercent ?? 0
+            let fatsPercentage = nutrition.fatPercent ?? 0
             self.chartValues = NutrientBreakdownBarChartView.getValues(from: [
                 (carbsPercentage, Color.App.CarbIndicator),
                 (proteinPercentage, Color.App.ProteinIndicator),
@@ -45,7 +45,7 @@ extension MacronutrientDistributionView {
 
 struct MacronutrientDistributionView_Previews: PreviewProvider {
 
-    private static let vm = MacronutrientDistributionView.ViewModel(macros: PreviewNutritionModels.FullyParsedMacronutrients)
+    private static let vm = MacronutrientDistributionView.ViewModel(nutrition: PreviewNutritionModels.FullyParsedNutrition)
 
     static var previews: some View {
         ColorSchemePreview {

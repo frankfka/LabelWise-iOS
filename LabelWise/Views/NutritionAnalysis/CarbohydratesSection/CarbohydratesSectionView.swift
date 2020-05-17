@@ -49,20 +49,20 @@ extension CarbohydratesSectionView {
         let fiberAmount: String
         let fiberDV: String
         
-        init(dto: AnalyzeNutritionResponseDTO.ParsedNutrition, dailyValues: DailyNutritionValues) {
-            let sugar = dto.sugar
+        init(nutrition: Nutrition) {
+            let sugar = nutrition.sugar
             let nonNilSugar = sugar ?? 0
-            let fiber = dto.fiber
+            let fiber = nutrition.fiber
             let nonNilFiber = fiber ?? 0
-            let totalCarbs = dto.carbohydrates
+            let totalCarbs = nutrition.carbohydrates
             
             // Text
             self.carbsAmount = StringFormatters.formatNutrientAmount(totalCarbs)
-            self.carbsDV = StringFormatters.formatDVPercent(NutritionViewUtils.getDailyValuePercentage(amount: totalCarbs, dailyValue: dailyValues.carbohydrates))
+            self.carbsDV = StringFormatters.formatDVPercent(nutrition.carbohydratesDVPercent)
             self.sugarAmount = StringFormatters.formatNutrientAmount(sugar)
-            self.sugarDV = StringFormatters.formatDVPercent(NutritionViewUtils.getDailyValuePercentage(amount: sugar, dailyValue: dailyValues.sugar))
+            self.sugarDV = StringFormatters.formatDVPercent(nutrition.sugarDVPercent)
             self.fiberAmount = StringFormatters.formatNutrientAmount(fiber)
-            self.fiberDV = StringFormatters.formatDVPercent(NutritionViewUtils.getDailyValuePercentage(amount: fiber, dailyValue: dailyValues.fiber))
+            self.fiberDV = StringFormatters.formatDVPercent(nutrition.fiberDVPercent)
             
             // Bar chart
             var chartValues: [NutrientBreakdownBarChartView.Value] = []
@@ -79,8 +79,7 @@ extension CarbohydratesSectionView {
 }
 
 struct CarbohydratesSectionView_Previews: PreviewProvider {
-    private static let vm = CarbohydratesSectionView.ViewModel(dto: PreviewNutritionModels.FullyParsedNutritionDto,
-                                                               dailyValues: DailyNutritionValues())
+    private static let vm = CarbohydratesSectionView.ViewModel(nutrition: PreviewNutritionModels.FullyParsedNutrition)
     
     static var previews: some View {
         ColorSchemePreview {

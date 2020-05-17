@@ -46,13 +46,12 @@ extension InsightsSectionView {
             return severeCautionMessages.count + warnCautionMessages.count + positiveMessages.count > 0
         }
         
-        init(dto: AnalyzeNutritionResponseDTO) {
+        init(insights: [NutritionInsightDTO], nutrition: Nutrition) {
             var severeCautionMessages: [String] = []
             var warnCautionMessages: [String] = []
             var positiveMessages: [String] = []
-            let parsedNutrition = dto.parsedNutrition
-            dto.insights.forEach { insight in
-                let message = insight.code.getStringDescription(with: parsedNutrition)
+            insights.forEach { insight in
+                let message = insight.code.getStringDescription(with: nutrition)
                 switch insight.type {
                 case .positive:
                     positiveMessages.append(message)
@@ -73,7 +72,7 @@ extension InsightsSectionView {
 
 // MARK: Extension to get description from code
 extension NutritionInsightDTO.Code {
-    func getStringDescription(with nutrition: AnalyzeNutritionResponseDTO.ParsedNutrition) -> String {
+    func getStringDescription(with nutrition: Nutrition) -> String {
         switch self {
         case .lowSodium:
             return "This has a low amount of sodium (\(StringFormatters.formatNutrientAmount(nutrition.sodium, unit: .milligrams)))."
@@ -100,11 +99,10 @@ extension NutritionInsightDTO.Code {
 }
 
 struct InsightsSectionView_Previews: PreviewProvider {
-    private static let vm = InsightsSectionView.ViewModel(dto: AnalyzeNutritionResponseDTO(
-        status: .complete,
-        parsedNutrition: PreviewNutritionModels.FullyParsedNutritionDto,
-        insights: PreviewNutritionModels.MultipleInsightsPerType
-    ))
+    private static let vm = InsightsSectionView.ViewModel(
+        insights: PreviewNutritionModels.MultipleInsightsPerType,
+        nutrition: PreviewNutritionModels.FullyParsedNutrition
+    )
     
     static var previews: some View {
         ColorSchemePreview {

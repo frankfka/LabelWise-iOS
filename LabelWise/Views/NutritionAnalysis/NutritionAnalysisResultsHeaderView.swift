@@ -63,20 +63,22 @@ struct NutritionAnalysisResultsHeaderView: View {
 
 extension NutritionAnalysisResultsHeaderView {
     struct ViewModel {
-        // Root response
-        private let resultDto: AnalyzeNutritionResponseDTO
+        // Root data
+        private let insights: [NutritionInsightDTO]
+        private let nutrition: Nutrition
+        private let parseStatus: AnalyzeNutritionResponseDTO.Status
         // Computed view constants
         var numCautionWarnings: Int {
-            resultDto.insights.filter { $0.type == .cautionWarn }.count
+            insights.filter { $0.type == .cautionWarn }.count
         }
         var numSevereWarnings: Int {
-            resultDto.insights.filter { $0.type == .cautionSevere }.count
+            insights.filter { $0.type == .cautionSevere }.count
         }
         var hasWarnings: Bool {
             numCautionWarnings + numSevereWarnings > 0
         }
         var numPositiveWarnings: Int {
-            resultDto.insights.filter { $0.type == .positive }.count
+            insights.filter { $0.type == .positive }.count
         }
         // Background color
         var backgroundColor: Color {
@@ -88,13 +90,13 @@ extension NutritionAnalysisResultsHeaderView {
             return Color.App.AppGreen
         }
         var caloriesText: String {
-            if let calories = resultDto.parsedNutrition.calories {
+            if let calories = nutrition.calories {
                 return calories.toString(numDecimalDigits: 1)
             }
             return StringFormatters.NoNumberPlaceholderText
         }
         var numInsightsText: String? {
-            let numInsights = resultDto.insights.count
+            let numInsights = insights.count
             if numInsights > 0 {
                 let numWarnings = numCautionWarnings + numSevereWarnings
                 if numWarnings > 0 {
@@ -105,22 +107,24 @@ extension NutritionAnalysisResultsHeaderView {
             }
             return nil
         }
-        var didParseAll: Bool { resultDto.status == .complete }
+        var didParseAll: Bool { parseStatus == .complete }
         var parseResultText: String {
             didParseAll ? "Parsed complete nutritional profile" : "Nutritional information is incomplete"
         }
 
-        init(dto: AnalyzeNutritionResponseDTO) {
-            self.resultDto = dto
+        init(nutrition: Nutrition, insights: [NutritionInsightDTO], parseStatus: AnalyzeNutritionResponseDTO.Status) {
+            self.parseStatus = parseStatus
+            self.nutrition = nutrition
+            self.insights = insights
         }
     }
 }
 
 struct NutritionAnalysisResultsHeaderView_Previews: PreviewProvider {
-    private static let vm = NutritionAnalysisResultsHeaderView.ViewModel(dto: AnalyzeNutritionResponseDTO(
-            status: .complete,
-            parsedNutrition: PreviewNutritionModels.FullyParsedNutritionDto,
-            insights: [])
+    private static let vm = NutritionAnalysisResultsHeaderView.ViewModel(
+        nutrition: PreviewNutritionModels.FullyParsedNutrition,
+        insights: [],
+        parseStatus: .complete
     )
 
     static var previews: some View {

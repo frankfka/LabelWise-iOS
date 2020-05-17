@@ -72,17 +72,17 @@ extension MacronutrientRings {
         let proteinPercentage: Double
         let fatPercentage: Double
 
-        init(macros: Macronutrients) {
-            self.carbsPercentage = macros.carbsDailyValuePercentage ?? 0
-            self.proteinPercentage = macros.proteinDailyValuePercentage ?? 0
-            self.fatPercentage = macros.fatsDailyValuePercentage ?? 0
+        init(nutrition: Nutrition) {
+            self.carbsPercentage = nutrition.carbohydratesDVPercent ?? 0
+            self.proteinPercentage = nutrition.proteinDVPercent ?? 0
+            self.fatPercentage = nutrition.fatDVPercent ?? 0
         }
     }
 }
 
 struct MacronutrientRings_Previews: PreviewProvider {
 
-    private static let vm = MacronutrientRings.ViewModel(macros: PreviewNutritionModels.FullyParsedMacronutrients)
+    private static let vm = MacronutrientRings.ViewModel(nutrition: PreviewNutritionModels.FullyParsedNutrition)
 
     static var previews: some View {
         MacronutrientRings(vm: vm)

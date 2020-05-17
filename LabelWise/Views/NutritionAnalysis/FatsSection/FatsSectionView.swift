@@ -42,18 +42,18 @@ extension FatsSectionView {
         let cholesterolAmount: String
         let cholesterolDV: String
         
-        init(dto: AnalyzeNutritionResponseDTO.ParsedNutrition, dailyValues: DailyNutritionValues) {
-            let satFat = dto.satFat
-            let cholesterol = dto.cholesterol
-            let totalFat = dto.fat
+        init(nutrition: Nutrition) {
+            let satFat = nutrition.satFat
+            let cholesterol = nutrition.cholesterol
+            let totalFat = nutrition.fat
             
             // Text
             self.fatAmount = StringFormatters.formatNutrientAmount(totalFat)
-            self.fatDV = StringFormatters.formatDVPercent(NutritionViewUtils.getDailyValuePercentage(amount: totalFat, dailyValue: dailyValues.fat))
+            self.fatDV = StringFormatters.formatDVPercent(nutrition.fatDVPercent)
             self.satFatAmount = StringFormatters.formatNutrientAmount(satFat)
-            self.satFatDV = StringFormatters.formatDVPercent(NutritionViewUtils.getDailyValuePercentage(amount: satFat, dailyValue: dailyValues.satFat))
+            self.satFatDV = StringFormatters.formatDVPercent(nutrition.satFatDVPercent)
             self.cholesterolAmount = StringFormatters.formatNutrientAmount(cholesterol, unit: .milligrams)
-            self.cholesterolDV = StringFormatters.formatDVPercent(NutritionViewUtils.getDailyValuePercentage(amount: cholesterol, dailyValue: dailyValues.cholesterol))
+            self.cholesterolDV = StringFormatters.formatDVPercent(nutrition.cholesterolDVPercent)
             
             // Bar chart
             var chartValues: [NutrientBreakdownBarChartView.Value] = []
@@ -69,8 +69,7 @@ extension FatsSectionView {
 }
 
 struct FatsSectionView_Previews: PreviewProvider {
-    private static let vm = FatsSectionView.ViewModel(dto: PreviewNutritionModels.FullyParsedNutritionDto,
-            dailyValues: DailyNutritionValues())
+    private static let vm = FatsSectionView.ViewModel(nutrition: PreviewNutritionModels.FullyParsedNutrition)
 
     static var previews: some View {
         ColorSchemePreview {

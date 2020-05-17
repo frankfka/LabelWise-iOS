@@ -28,13 +28,13 @@ struct MacronutrientSectionView: View {
     
     // Child view models
     private var ringViewVm: MacronutrientRings.ViewModel {
-        MacronutrientRings.ViewModel(macros: self.viewModel.macros)
+        MacronutrientRings.ViewModel(nutrition: self.viewModel.nutrition)
     }
     private var summaryTextViewVm: MacronutrientSectionTextView.ViewModel {
-        MacronutrientSectionTextView.ViewModel(macros: self.viewModel.macros)
+        MacronutrientSectionTextView.ViewModel(nutrition: self.viewModel.nutrition)
     }
     private var distributionViewVm: MacronutrientDistributionView.ViewModel {
-        MacronutrientDistributionView.ViewModel(macros: self.viewModel.macros)
+        MacronutrientDistributionView.ViewModel(nutrition: self.viewModel.nutrition)
     }
     
     var body: some View {
@@ -48,21 +48,16 @@ struct MacronutrientSectionView: View {
 // MARK: View Model
 extension MacronutrientSectionView {
     struct ViewModel {
-        let dailyValues: DailyNutritionValues
-        let macros: Macronutrients
+        let nutrition: Nutrition
 
-        init(dto: AnalyzeNutritionResponseDTO.ParsedNutrition, dailyValues: DailyNutritionValues) {
-            self.macros = Macronutrients(nutritionDto: dto, dailyValues: dailyValues)
-            self.dailyValues = dailyValues
+        init(nutrition: Nutrition) {
+            self.nutrition = nutrition
         }
     }
 }
 
 struct MacronutrientSummaryView_Previews: PreviewProvider {
-    private static let vm = MacronutrientSectionView.ViewModel(
-        dto: PreviewNutritionModels.FullyParsedNutritionDto,
-        dailyValues: DailyNutritionValues()
-    )
+    private static let vm = MacronutrientSectionView.ViewModel(nutrition: PreviewNutritionModels.FullyParsedNutrition)
     
     static var previews: some View {
         ColorSchemePreview {
