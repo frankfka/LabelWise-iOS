@@ -89,8 +89,8 @@ struct NutritionTableView: View {
     
     private let viewModel: ViewModel
     
-    init() {
-        self.viewModel = ViewModel(nutrition: PreviewNutritionModels.FullyParsedNutrition)
+    init(vm: ViewModel) {
+        self.viewModel = vm
     }
     
     var body: some View {
@@ -173,7 +173,9 @@ extension NutritionTableView {
 }
 
 struct NutritionTableView_Previews: PreviewProvider {
+    private static let fullyParsedVm = NutritionTableView.ViewModel(nutrition: PreviewNutritionModels.FullyParsedNutrition)
+
     static var previews: some View {
-        NutritionTableView()
+        NutritionTableView(vm: fullyParsedVm)
     }
 }

@@ -11,6 +11,9 @@ import SwiftUI
 struct NutritionAnalysisResultsView: View {
     private static let SectionSpacing: CGFloat = CGFloat.App.Layout.LargePadding
 
+    private var parsedNutritionViewVm: ParsedNutritionSectionView.ViewModel {
+        ParsedNutritionSectionView.ViewModel(nutrition: self.viewModel.nutrition)
+    }
     private var insightsViewVm: InsightsSectionView.ViewModel {
         InsightsSectionView.ViewModel(insights: self.viewModel.insights, nutrition: self.viewModel.nutrition)
     }
@@ -34,6 +37,8 @@ struct NutritionAnalysisResultsView: View {
     
     var body: some View {
         VStack(spacing: NutritionAnalysisResultsView.SectionSpacing) {
+            ParsedNutritionSectionView(vm: self.parsedNutritionViewVm)
+                .modifier(AnalysisSectionModifier(alignment: .center))
             if self.insightsViewVm.hasMessages {
                 InsightsSectionView(vm: self.insightsViewVm)
                     .modifier(AnalysisSectionModifier(title: "Insights", alignment: .leading))

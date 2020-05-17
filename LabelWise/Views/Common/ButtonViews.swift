@@ -46,5 +46,7 @@ struct ButtonViews_Previews: PreviewProvider {
         ColorSchemePreview {
             RoundedRectangleTextButton("Button", textColor: Color.App.White, backgroundColor: Color.App.AppGreen)
         }
+        .padding()
+        .previewLayout(.sizeThatFits)
     }
 }

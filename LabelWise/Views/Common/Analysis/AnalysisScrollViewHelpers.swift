@@ -34,9 +34,9 @@ struct AnalysisSectionModifier: ViewModifier {
             .shadow(color: Color.App.Shadow, radius: 8, x: 0, y: 8)
     }()
     
-    private let title: String
+    private let title: String?
     private let alignment: HorizontalAlignment
-    init(title: String, alignment: HorizontalAlignment = .center) {
+    init(title: String? = nil, alignment: HorizontalAlignment = .center) {
         self.title = title
         self.alignment = alignment
     }
@@ -44,9 +44,11 @@ struct AnalysisSectionModifier: ViewModifier {
     func body(content: Content) -> some View {
         VStack(alignment: self.alignment, spacing: 0) {
             HStack {
-                Text(self.title)
-                    .withStyle(font: AnalysisSectionModifier.TitleFont, color: AnalysisSectionModifier.TitleColor)
-                    .padding(.bottom, AnalysisSectionModifier.TitleBottomPadding)
+                self.title.map {
+                    Text($0)
+                        .withStyle(font: AnalysisSectionModifier.TitleFont, color: AnalysisSectionModifier.TitleColor)
+                        .padding(.bottom, AnalysisSectionModifier.TitleBottomPadding)
+                }
                 Spacer()
             }
             content
