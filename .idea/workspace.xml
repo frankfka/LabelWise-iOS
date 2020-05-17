@@ -2,10 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fc06ac05-0031-4719-9d90-6a241fa74c08" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/LabelWise/Views/NutritionAnalysis/NutritionTableSection/NutritionTableView.swift" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LabelWise/Views/Common/StateMachine/StateMachineViewModel.swift" beforeDir="false" afterPath="$PROJECT_DIR$/LabelWise/Views/Common/StateMachine/StateMachineViewModel.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LabelWise/Views/LabelScanner/LabelScannerViewModel.swift" beforeDir="false" afterPath="$PROJECT_DIR$/LabelWise/Views/LabelScanner/LabelScannerViewModel.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/LabelWise.xcodeproj/project.pbxproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Preview Content/PreviewNutritionModels.swift" beforeDir="false" afterPath="$PROJECT_DIR$/LabelWise/Preview Content/PreviewNutritionModels.swift" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LabelWise/Views/NutritionAnalysis/NutritionAnalysisViewModel.swift" beforeDir="false" afterPath="$PROJECT_DIR$/LabelWise/Views/NutritionAnalysis/NutritionAnalysisViewModel.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Views/Util/SwiftUI.swift" beforeDir="false" afterPath="$PROJECT_DIR$/LabelWise/Views/Util/SwiftUI.swift" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,7 +96,7 @@
       <workItem from="1589345889063" duration="8685000" />
       <workItem from="1589467035616" duration="1359000" />
       <workItem from="1589486602774" duration="4414000" />
-      <workItem from="1589515351641" duration="5611000" />
+      <workItem from="1589515351641" duration="8542000" />
     </task>
     <servers />
   </component>
@@ -123,18 +125,18 @@
       <screen x="0" y="23" width="1920" height="1000" />
     </state>
     <state x="686" y="121" key="VCS.ChangeListViewerDialog/-1440.23.1440.877/0.23.1920.1000@0.23.1920.1000" timestamp="1588913728220" />
-    <state x="561" y="207" width="938" height="632" key="find.popup" timestamp="1589554501724">
-      <screen x="0" y="23" width="1920" height="1000" />
+    <state x="421" y="174" width="640" height="522" key="find.popup" timestamp="1589664188790">
+      <screen x="0" y="23" width="1440" height="820" />
     </state>
     <state x="-1119" y="184" width="1119" height="555" key="find.popup/-1440.23.1440.877/0.23.1920.1000@-1440.23.1440.877" timestamp="1589486724663" />
     <state x="561" y="207" width="938" height="632" key="find.popup/-1440.23.1440.877/0.23.1920.1000@0.23.1920.1000" timestamp="1589554501724" />
-    <state x="421" y="174" width="640" height="518" key="find.popup/0.23.1440.820@0.23.1440.820" timestamp="1589423343788" />
-    <state x="385" y="201" width="671" height="633" key="search.everywhere.popup" timestamp="1589575197499">
+    <state x="421" y="174" width="640" height="522" key="find.popup/0.23.1440.820@0.23.1440.820" timestamp="1589664188790" />
+    <state x="385" y="201" width="671" height="633" key="search.everywhere.popup" timestamp="1589664343706">
       <screen x="0" y="23" width="1440" height="820" />
     </state>
     <state x="-1055" y="213" width="670" height="676" key="search.everywhere.popup/-1440.23.1440.877/0.23.1920.1000@-1440.23.1440.877" timestamp="1589486871345" />
     <state x="513" y="240" width="894" height="771" key="search.everywhere.popup/-1440.23.1440.877/0.23.1920.1000@0.23.1920.1000" timestamp="1589206921721" />
-    <state x="385" y="201" width="671" height="633" key="search.everywhere.popup/0.23.1440.820@0.23.1440.820" timestamp="1589575197499" />
+    <state x="385" y="201" width="671" height="633" key="search.everywhere.popup/0.23.1440.820@0.23.1440.820" timestamp="1589664343706" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

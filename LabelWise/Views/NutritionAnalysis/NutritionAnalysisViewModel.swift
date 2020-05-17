@@ -19,6 +19,7 @@ extension NutritionAnalysisRootView {
             case displayResults
             case insufficientInfo
         }
+
         enum Action {
             case analyzed(result: AnalyzeNutritionResponseDTO)
             case analyzeError(err: AppError)
@@ -31,7 +32,8 @@ extension NutritionAnalysisRootView {
                     self.loggingMiddleware
                 ]
             }
-            set {}
+            set {
+            }
         }
 
         // View-specific properties
@@ -105,7 +107,72 @@ extension NutritionAnalysisRootView {
         }
     }
 }
+
+// TODO: Use this everywhere
 // MARK: Additional helper models
+struct Nutrition {
+    private let dto: AnalyzeNutritionResponseDTO.ParsedNutrition
+    private let dailyValues: DailyNutritionValues
+    var calories: Double? {
+        dto.calories
+    }
+    var caloriesDVPercent: Double? {
+        NutritionViewUtils.getDailyValuePercentage(amount: calories, dailyValue: dailyValues.calories)
+    }
+    var carbohydrates: Double? {
+        dto.carbohydrates
+    }
+    var carbohydratesDVPercent: Double? {
+        NutritionViewUtils.getDailyValuePercentage(amount: carbohydrates, dailyValue: dailyValues.carbohydrates)
+    }
+    var sugar: Double? {
+        dto.sugar
+    }
+    var sugarDVPercent: Double? {
+        NutritionViewUtils.getDailyValuePercentage(amount: sugar, dailyValue: dailyValues.sugar)
+    }
+    var fiber: Double? {
+        dto.fiber
+    }
+    var fiberDVPercent: Double? {
+        NutritionViewUtils.getDailyValuePercentage(amount: fiber, dailyValue: dailyValues.fiber)
+    }
+    var protein: Double? {
+        dto.protein
+    }
+    var proteinDVPercent: Double? {
+        NutritionViewUtils.getDailyValuePercentage(amount: protein, dailyValue: dailyValues.protein)
+    }
+    var fat: Double? {
+        dto.fat
+    }
+    var fatDVPercent: Double? {
+        NutritionViewUtils.getDailyValuePercentage(amount: fat, dailyValue: dailyValues.fat)
+    }
+    var satFat: Double? {
+        dto.satFat
+    }
+    var satFatDVPercent: Double? {
+        NutritionViewUtils.getDailyValuePercentage(amount: satFat, dailyValue: dailyValues.satFat)
+    }
+    var cholesterol: Double? {
+        dto.cholesterol
+    }
+    var cholesterolDVPercent: Double? {
+        NutritionViewUtils.getDailyValuePercentage(amount: cholesterol, dailyValue: dailyValues.cholesterol)
+    }
+    var sodium: Double? {
+        dto.sodium
+    }
+    var sodiumDVPercent: Double? {
+        NutritionViewUtils.getDailyValuePercentage(amount: sodium, dailyValue: dailyValues.sodium)
+    }
+
+    init(dto: AnalyzeNutritionResponseDTO.ParsedNutrition, dailyValues: DailyNutritionValues) {
+        self.dto = dto
+        self.dailyValues = dailyValues
+    }
+}
 struct Macronutrients {
     static let CaloriesPerGramCarbs: Double = 4
     static let CaloriesPerGramProtein: Double = 4
@@ -143,12 +210,16 @@ struct Macronutrients {
         self.fatsGrams = nutritionDto.fat
     }
 }
+
 enum NutrientAmountUnit {
+    case none
     case grams
     case milligrams
 
     var abbreviatedString: String {
         switch self {
+        case .none:
+            return ""
         case .grams:
             return "g"
         case .milligrams:

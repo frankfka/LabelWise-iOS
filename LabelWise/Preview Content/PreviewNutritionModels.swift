@@ -20,6 +20,7 @@ struct PreviewNutritionModels {
                     cholesterol: 15,
                     sodium: 240
             )
+    static let FullyParsedNutrition: Nutrition = Nutrition(dto: FullyParsedNutritionDto, dailyValues: DailyNutritionValues())
     static let FullyParsedMacronutrients: Macronutrients = Macronutrients(
             nutritionDto: FullyParsedNutritionDto,
             dailyValues: DailyNutritionValues()

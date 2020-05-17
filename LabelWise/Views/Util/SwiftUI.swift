@@ -39,7 +39,11 @@ extension Text {
         self.lineLimit(nil)
     }
 }
-
+extension Array {
+    func showDividerAfter(index: Int) -> Bool {
+        return index < self.count - 1
+    }
+}
 extension UIApplication {
     // https://stackoverflow.com/questions/57063142/swiftui-status-bar-color
     class func setStatusBarStyle(_ style: UIStatusBarStyle) {
