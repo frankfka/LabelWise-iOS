@@ -77,12 +77,12 @@ struct PercentageRing: View {
                     .stroke(style: StrokeStyle(lineWidth: self.ringWidth))
                     .fill(self.backgroundColor)
                 // Foreground - this is the start color displayed immediately
-                Ring(percent: self.displayedPercent, startAngle: self.startAngle, drawnClockwise: true)
+                Ring(percent: self.displayedPercent, startAngle: self.startAngle, drawnClockwise: false)
                         .stroke(style: StrokeStyle(lineWidth: self.ringWidth, lineCap: .round))
                         .fill(self.firstGradientColor)
                 // Foreground - this is the gradient color that we display after a certain time
                 // This is somewhat of a workaround for a nice animation to run
-                Ring(percent: self.displayedPercent, startAngle: self.startAngle, drawnClockwise: true)
+                Ring(percent: self.displayedPercent, startAngle: self.startAngle, drawnClockwise: false)
                     .stroke(style: StrokeStyle(lineWidth: self.ringWidth, lineCap: .round))
                     .fill(self.ringGradient)
                     .opacity(self.gradientAndEndCircleOpacity)
@@ -118,12 +118,16 @@ struct PercentageRing: View {
 
     // Animation for onAppear
     private func runOnAppearAnimation(duration: Double = PercentageRing.AnimationDuration) {
-        withAnimation(.easeInOut(duration: duration)) {
-            self.displayedPercent = percent
-        }
-        withAnimation(Animation.easeInOut(duration: duration / 2).delay(duration / 2)) {
-            self.gradientAndEndCircleOpacity = 1
-        }
+        self.displayedPercent = percent
+        self.gradientAndEndCircleOpacity = 1
+        // TODO: Need to fix this animation, makes scrollview onAppear very weird
+        // Instead of using withAnimation, consider using some sort of timer to increment values to the final percent
+//        withAnimation(.easeInOut(duration: duration)) {
+//            self.displayedPercent = percent
+//        }
+//        withAnimation(Animation.easeInOut(duration: duration / 2).delay(duration / 2)) {
+//            self.gradientAndEndCircleOpacity = 1
+//        }
     }
     
     // Returns (x, y) location of the start of the arc

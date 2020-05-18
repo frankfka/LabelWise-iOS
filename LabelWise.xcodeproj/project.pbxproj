@@ -7,93 +7,79 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		110DF064245B1BD000E78245 /* NutritionAnalysisRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110DF063245B1BCF00E78245 /* NutritionAnalysisRootView.swift */; };
-		110DF067245B1C3300E78245 /* MacronutrientSectionTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110DF066245B1C3300E78245 /* MacronutrientSectionTextView.swift */; };
-		110DF069245BE39F00E78245 /* SegmentedPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110DF068245BE39F00E78245 /* SegmentedPicker.swift */; };
-		110DF06B245DB99500E78245 /* LoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110DF06A245DB99400E78245 /* LoadingIndicator.swift */; };
-		110DF070245E65E800E78245 /* HalfRoundedRectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110DF06F245E65E800E78245 /* HalfRoundedRectangle.swift */; };
-		1113446D246356D60091B757 /* BackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1113446C246356D60091B757 /* BackButton.swift */; };
-		1113446F246467D40091B757 /* MacronutrientDistributionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1113446E246467D40091B757 /* MacronutrientDistributionView.swift */; };
-		112FFD1524661F77008E9377 /* AnalysisIconTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112FFD1424661F77008E9377 /* AnalysisIconTextView.swift */; };
-		112FFD1724665EE4008E9377 /* NutrientBreakdownBarChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112FFD1624665EE4008E9377 /* NutrientBreakdownBarChartView.swift */; };
-		112FFD192466F20D008E9377 /* CarbohydratesSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112FFD182466F20D008E9377 /* CarbohydratesSectionView.swift */; };
-		112FFD1C246714A7008E9377 /* FatsSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112FFD1B246714A7008E9377 /* FatsSectionView.swift */; };
-		112FFD1E2467156F008E9377 /* NutrientDescriptionTextRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112FFD1D2467156F008E9377 /* NutrientDescriptionTextRowView.swift */; };
-		11418C88244D4336001F8E27 /* LabelScannerOverlayHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11418C87244D4336001F8E27 /* LabelScannerOverlayHeaderView.swift */; };
-		11418C8A244D43FD001F8E27 /* LabelScannerOverlayFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11418C89244D43FD001F8E27 /* LabelScannerOverlayFooterView.swift */; };
-		11602DC5246F82D20083AF17 /* NutritionTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11602DC4246F82D20083AF17 /* NutritionTableView.swift */; };
-		11602DC72471A6C70083AF17 /* ParsedNutritionSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11602DC62471A6C70083AF17 /* ParsedNutritionSectionView.swift */; };
-		1163661324686BB6000AC800 /* InsightsSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1163661224686BB6000AC800 /* InsightsSectionView.swift */; };
-		119F35592465A1FA00754B57 /* LabelScannerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04BA7C75C3AF19E69A510A /* LabelScannerViewModel.swift */; };
+		11602DC924723CE10083AF17 /* AppConfig.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 11602DC824723CE10083AF17 /* AppConfig.xcconfig */; };
 		119F8AC9244A7D3C00BB173A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 119F8AC8244A7D3C00BB173A /* AppDelegate.swift */; };
 		119F8ACB244A7D3C00BB173A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 119F8ACA244A7D3C00BB173A /* SceneDelegate.swift */; };
 		119F8ACF244A7D4300BB173A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 119F8ACE244A7D4300BB173A /* Assets.xcassets */; };
 		119F8AD2244A7D4300BB173A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 119F8AD1244A7D4300BB173A /* Preview Assets.xcassets */; };
 		119F8AD5244A7D4300BB173A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 119F8AD3244A7D4300BB173A /* LaunchScreen.storyboard */; };
-		11DAE992245F5C1B00B6FF70 /* LoadingViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DAE991245F5C1B00B6FF70 /* LoadingViews.swift */; };
-		11DAE994245FA72B00B6FF70 /* ErrorViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DAE993245FA72B00B6FF70 /* ErrorViews.swift */; };
-		11DAE996245FAFE000B6FF70 /* ButtonViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DAE995245FAFE000B6FF70 /* ButtonViews.swift */; };
-		11DAE998245FD72100B6FF70 /* NutritionAnalysisViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DAE997245FD72100B6FF70 /* NutritionAnalysisViewModel.swift */; };
-		11DAE99C2460661300B6FF70 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DAE99B2460661300B6FF70 /* OnboardingView.swift */; };
-		11DAE99E2460C28400B6FF70 /* NutritionAnalysisResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DAE99D2460C28400B6FF70 /* NutritionAnalysisResultsView.swift */; };
 		9C744549554540C8032BFD13 /* Pods_LabelWise.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBB96129287D3E7C9C1E8B9C /* Pods_LabelWise.framework */; };
 		9E04B02AC89E419B26B7CEC0 /* LabelAnalysisService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B36285890D7DEA0D4652 /* LabelAnalysisService.swift */; };
-		9E04B048BE62E1AADA922C57 /* AnalysisScrollViewHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04BBF54EEA7382665A8137 /* AnalysisScrollViewHelpers.swift */; };
-		9E04B0D78F9E76CC6959A2E8 /* CommonViewModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04BA2103C1A69F655989A5 /* CommonViewModels.swift */; };
-		9E04B1087D30ADFAF5BE453F /* AnalysisScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B86EAECBC066F3CC5771 /* AnalysisScrollView.swift */; };
+		9E04B0A5B739BAB8B761D8D1 /* AppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04BA1F20B00F6B13B7DC32 /* AppView.swift */; };
+		9E04B102898D491DD9BEB166 /* ButtonViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04BA7CABA6E92E997F6AF3 /* ButtonViews.swift */; };
 		9E04B142786F16FB6E2E3BBF /* TypeAliases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04BC8096C70C13098A91F5 /* TypeAliases.swift */; };
-		9E04B172CC25879E8404484A /* StateMachineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B89AB3A4B3A0C31582C3 /* StateMachineViewModel.swift */; };
-		9E04B33DEFFBE48D78AE37B0 /* AppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04BAD266C83AEEE18F15FC /* AppView.swift */; };
-		9E04B37E977F193711FE02F8 /* NutritionViewUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B012625D81E2756DF440 /* NutritionViewUtils.swift */; };
-		9E04B4A49EF79D0172103A09 /* MacronutrientRings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04BA76BDF053BBA9738EFF /* MacronutrientRings.swift */; };
-		9E04B4B7AFC55A84E1F3654A /* CameraUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B8A4CAFCF4080DA6BD0E /* CameraUtil.swift */; };
+		9E04B143D34DDF6710A4A86F /* NutritionTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04BE502DF224765BCC0F8E /* NutritionTableView.swift */; };
+		9E04B156F5995FB71C98290D /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B89756E6EB040FED8E1F /* CameraView.swift */; };
+		9E04B15ABF1896310F67FAA6 /* LabelScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B49BC11BE362B82E7120 /* LabelScannerView.swift */; };
+		9E04B1B2B0CD96DA6DCDCE10 /* LoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04BAB0205588C074E9C5F6 /* LoadingIndicator.swift */; };
+		9E04B1BFEDE4A3B8DB3BF128 /* SwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04BB5D5B71B278CD02BFD5 /* SwiftUI.swift */; };
+		9E04B1FC9EF3EA2A5BB6B5AF /* AnalysisScrollViewHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B53ED0679A24D6991D53 /* AnalysisScrollViewHelpers.swift */; };
+		9E04B25BC4427AF1CB0B9BF5 /* AppViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04BE93CD4C44D55AB25D93 /* AppViewModel.swift */; };
+		9E04B27328BECD534E4FD147 /* PercentageRing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04BBD579FBAACE5F8070E4 /* PercentageRing.swift */; };
+		9E04B2AA71E8B38CCAAF50AF /* NutritionViewUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04BC720873423804A1A199 /* NutritionViewUtils.swift */; };
+		9E04B2DD0FF0195B5610A013 /* LabelScannerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B6B95DE69B3FAF849640 /* LabelScannerViewModel.swift */; };
+		9E04B33443EDCFCB9074FCA2 /* Typography.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04BD7BBB7DB316AA349BF2 /* Typography.swift */; };
+		9E04B347536BAFA440E910FA /* ParsedNutritionSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B7D277FDECA7DEA2F997 /* ParsedNutritionSectionView.swift */; };
+		9E04B3476F66D7F88E129F5E /* AnalysisIconTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B44935A3095E1CFE051C /* AnalysisIconTextView.swift */; };
+		9E04B3517369FFD84FBB10A7 /* CarbohydratesSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B337A999B5EE2EE18D30 /* CarbohydratesSectionView.swift */; };
+		9E04B385F9C8B726D2A7F175 /* NutritionAnalysisRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B1379328F410E4F17E6B /* NutritionAnalysisRootView.swift */; };
+		9E04B3960B2AAED0A382DEF3 /* AnalysisScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B580BB85ECB0F4CEE2CF /* AnalysisScrollView.swift */; };
+		9E04B3980252C5E5919A80EB /* BackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04BA65862DF99BF33EF604 /* BackButton.swift */; };
+		9E04B3E9A543BB48AEF9DBBF /* FatsSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B256AC44CE9A4EEEECCB /* FatsSectionView.swift */; };
+		9E04B4542D206920236CA88B /* LoadingViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04BCF9D6353FE5AD2A07B9 /* LoadingViews.swift */; };
+		9E04B473E83B0984A43ED40F /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04BFD384637ACF1329F7C2 /* OnboardingView.swift */; };
+		9E04B4888BC6AA6D3840B45F /* MacronutrientSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04BA6F394626F727916457 /* MacronutrientSectionView.swift */; };
+		9E04B4B64D7E6A6C9AB5D79D /* CommonViewModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B3DDBE0873BEA51F4F08 /* CommonViewModels.swift */; };
 		9E04B544B94680E6D0270437 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04BD167436B52702375ABC /* Common.swift */; };
-		9E04B5454634C3A52D00058A /* LabelScannerOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B27BF5D2A9200CBC7D1D /* LabelScannerOverlayView.swift */; };
-		9E04B5681E96C167CA813550 /* NutritionAnalysisResultsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04BBBBF4D797E921748F1D /* NutritionAnalysisResultsHeaderView.swift */; };
+		9E04B57C7F5EBC6DE3518E41 /* CameraUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B788652E2ADAFAFC5E0D /* CameraUtil.swift */; };
+		9E04B5D0C4B19664B2912E0D /* LabelScannerActionButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B6B96AFFC4626999F5C5 /* LabelScannerActionButtons.swift */; };
+		9E04B606AD16A06F54CA2B0C /* StateMachineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04BD8B301B3B805681E16B /* StateMachineViewModel.swift */; };
+		9E04B643A9CDE841543789DC /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04BB1655737F6309127E0E /* Config.swift */; };
 		9E04B6C77E939385281ABC2E /* PreviewNutritionModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B3D769B65F5EF259181D /* PreviewNutritionModels.swift */; };
-		9E04B7505FD17516F7996F3A /* Dimensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B87D15FDBB8C359F6235 /* Dimensions.swift */; };
-		9E04B797E8BB98AFCF9676CA /* Middleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04BE50AA32D8E2890CB871 /* Middleware.swift */; };
-		9E04B7F294A2ECE09AB0BDA2 /* LabelScannerActionButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04BAC86FBCB14C754D2ADC /* LabelScannerActionButtons.swift */; };
-		9E04B8699075720B0B4A2692 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B5990AFB8E3D0DF17188 /* CameraView.swift */; };
-		9E04B90C5EA0DF367FE35AFD /* LabelScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04BAC96CFB27478E9AFA42 /* LabelScannerView.swift */; };
-		9E04BA24D04B3AA88269BC74 /* CameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B5CD47A28F0852F6DEFF /* CameraController.swift */; };
+		9E04B6DCDA6B2ED8F5A76597 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B855EC300A3B029C3FAE /* ContentView.swift */; };
+		9E04B7E2679F3B0F3A841E6F /* NutrientDescriptionTextRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B16BAD27AD65A32B1847 /* NutrientDescriptionTextRowView.swift */; };
+		9E04B84CF332B340CE188806 /* InsightsSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04BC1D4777745317A8B0DB /* InsightsSectionView.swift */; };
+		9E04B8A0CAA00A9735A85212 /* Icons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B4C4004F2C897A5E1869 /* Icons.swift */; };
+		9E04B94A821D6F66DE3FF332 /* NutritionAnalysisViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B63E8A8AD04D844C9BB3 /* NutritionAnalysisViewModel.swift */; };
+		9E04B9626A446388E0809433 /* ErrorViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B8E683A9522D32575D6F /* ErrorViews.swift */; };
 		9E04BA312C25D90043FD7D00 /* PreviewImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04BF04A3540E93A3AD845B /* PreviewImages.swift */; };
-		9E04BB051D7E409EC334FD8B /* Icons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B8E9B103A32459D4568C /* Icons.swift */; };
-		9E04BB17B3BDE8728BAF761B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B5D30937AB3EE9506EEE /* ContentView.swift */; };
-		9E04BB4DF42A74CE86CA5373 /* Ring.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04BEBF75A400DE7744C7C4 /* Ring.swift */; };
+		9E04BA657C1497DAE42E7228 /* Dimensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B788C541E5EFB6F5FD22 /* Dimensions.swift */; };
+		9E04BAAAEDDD912C602C502B /* HalfRoundedRectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04BDFD09E5831BA92CB7C1 /* HalfRoundedRectangle.swift */; };
+		9E04BABA8914D16B545F7279 /* CameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04BF01F97167B5DBE4BC2C /* CameraController.swift */; };
+		9E04BABAF1E07CE0CB72CC08 /* LabelScannerOverlayFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B93A22C0F9C24901675C /* LabelScannerOverlayFooterView.swift */; };
+		9E04BB25BD69C38890EFBDA4 /* Ring.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B2493D89D67528381F3F /* Ring.swift */; };
 		9E04BB67631DA20D89434EBB /* MockLabelAnalysisService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04BE97221A3328813B0FB5 /* MockLabelAnalysisService.swift */; };
+		9E04BBC8CAFDB08DD6B088EE /* SegmentedPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B38F7443F9ADB9812F52 /* SegmentedPicker.swift */; };
+		9E04BBD1087E042AC5325EC4 /* LabelScannerOverlayHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B59AF0108506D62C0D19 /* LabelScannerOverlayHeaderView.swift */; };
 		9E04BBD795334AC0BBB0C4A5 /* Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B871BED1E591F3F08FFA /* Combine.swift */; };
+		9E04BBE1F7A26C04059E39C0 /* MacronutrientRings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B1E6AB256C2579ACCED4 /* MacronutrientRings.swift */; };
 		9E04BBF618B4CB82E3D5485A /* NutritionDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B03637D80DC9D780A544 /* NutritionDTO.swift */; };
-		9E04BC1DCF6FFE5024EB65BB /* StringUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04BF26F4C4A73C634FFAED /* StringUtils.swift */; };
-		9E04BCAB5E4B867BF3960782 /* SwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04BAA4FD1CB39D6A2F2084 /* SwiftUI.swift */; };
-		9E04BD70D8AE1DBCCEB4C89C /* AppViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04BA6333DB57E43F43FFA2 /* AppViewModel.swift */; };
-		9E04BDAC7C97D8F2252012E5 /* Typography.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B1C29ECB90493462BCB4 /* Typography.swift */; };
-		9E04BDDADC5E07F1CE41FA8E /* MacronutrientSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B646AAC676D8D396BE37 /* MacronutrientSectionView.swift */; };
+		9E04BBF80BA076C3A9EC5068 /* NutrientBreakdownBarChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04BD63E3C2FDD24234B3E1 /* NutrientBreakdownBarChartView.swift */; };
+		9E04BCC3EEE75ED7B1145E34 /* NutritionAnalysisResultsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04BFF475105AA282DE299B /* NutritionAnalysisResultsHeaderView.swift */; };
+		9E04BCDC9B6933E1272C8A81 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04BD0BD2943F4AA2F4CE11 /* Colors.swift */; };
+		9E04BDB288469E4904545F16 /* NutritionAnalysisResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B3961E453EE9F5A3C478 /* NutritionAnalysisResultsView.swift */; };
+		9E04BDD0AD3BD484D8A02A88 /* MacronutrientDistributionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04BC5535836932B47DF1D1 /* MacronutrientDistributionView.swift */; };
+		9E04BDFDBD14EB8C69454694 /* Middleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04BA5464EDAC4587D221B5 /* Middleware.swift */; };
+		9E04BE08BA9E027F0F36D89A /* LabelScannerOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04BA3184E2DE61CB3F978B /* LabelScannerOverlayView.swift */; };
 		9E04BE1293934E79D5EF4EA8 /* PreviewUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B9362E437F4975BE9934 /* PreviewUtils.swift */; };
-		9E04BE665B751CAEF5B7A290 /* PercentageRing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B817D6CF582314870379 /* PercentageRing.swift */; };
-		9E04BEC2EE1485DE2071FEEA /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B05B31A950ACF965B49A /* Colors.swift */; };
+		9E04BE9214400350B1BFB6DB /* StringUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B1A9C151D4086BDFFD1A /* StringUtils.swift */; };
+		9E04BEFCA615D5A621191621 /* MacronutrientSectionTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B3F8EA63E8BBC8FB0AB2 /* MacronutrientSectionTextView.swift */; };
 		9E04BFD9C72F1457D428174D /* Nutrition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04BE91B4AAE37E9D8B3F1E /* Nutrition.swift */; };
 		9E04BFE2FB40387B47CB3BDC /* Logging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B61BDB41D939BF20F08F /* Logging.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		110DF063245B1BCF00E78245 /* NutritionAnalysisRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionAnalysisRootView.swift; sourceTree = "<group>"; };
-		110DF066245B1C3300E78245 /* MacronutrientSectionTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacronutrientSectionTextView.swift; sourceTree = "<group>"; };
-		110DF068245BE39F00E78245 /* SegmentedPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedPicker.swift; sourceTree = "<group>"; };
-		110DF06A245DB99400E78245 /* LoadingIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingIndicator.swift; sourceTree = "<group>"; };
-		110DF06F245E65E800E78245 /* HalfRoundedRectangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HalfRoundedRectangle.swift; sourceTree = "<group>"; };
-		1113446C246356D60091B757 /* BackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButton.swift; sourceTree = "<group>"; };
-		1113446E246467D40091B757 /* MacronutrientDistributionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacronutrientDistributionView.swift; sourceTree = "<group>"; };
-		112FFD1424661F77008E9377 /* AnalysisIconTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalysisIconTextView.swift; sourceTree = "<group>"; };
-		112FFD1624665EE4008E9377 /* NutrientBreakdownBarChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutrientBreakdownBarChartView.swift; sourceTree = "<group>"; };
-		112FFD182466F20D008E9377 /* CarbohydratesSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarbohydratesSectionView.swift; sourceTree = "<group>"; };
-		112FFD1B246714A7008E9377 /* FatsSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FatsSectionView.swift; sourceTree = "<group>"; };
-		112FFD1D2467156F008E9377 /* NutrientDescriptionTextRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutrientDescriptionTextRowView.swift; sourceTree = "<group>"; };
-		11418C87244D4336001F8E27 /* LabelScannerOverlayHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelScannerOverlayHeaderView.swift; sourceTree = "<group>"; };
-		11418C89244D43FD001F8E27 /* LabelScannerOverlayFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelScannerOverlayFooterView.swift; sourceTree = "<group>"; };
-		11602DC4246F82D20083AF17 /* NutritionTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionTableView.swift; sourceTree = "<group>"; };
-		11602DC62471A6C70083AF17 /* ParsedNutritionSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParsedNutritionSectionView.swift; sourceTree = "<group>"; };
-		1163661224686BB6000AC800 /* InsightsSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsightsSectionView.swift; sourceTree = "<group>"; };
+		11602DC824723CE10083AF17 /* AppConfig.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = AppConfig.xcconfig; sourceTree = "<group>"; };
 		119F8AC5244A7D3B00BB173A /* LabelWise.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LabelWise.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		119F8AC8244A7D3C00BB173A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		119F8ACA244A7D3C00BB173A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -101,52 +87,70 @@
 		119F8AD1244A7D4300BB173A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		119F8AD4244A7D4300BB173A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		119F8AD6244A7D4300BB173A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		11DAE991245F5C1B00B6FF70 /* LoadingViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViews.swift; sourceTree = "<group>"; };
-		11DAE993245FA72B00B6FF70 /* ErrorViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorViews.swift; sourceTree = "<group>"; };
-		11DAE995245FAFE000B6FF70 /* ButtonViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonViews.swift; sourceTree = "<group>"; };
-		11DAE997245FD72100B6FF70 /* NutritionAnalysisViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionAnalysisViewModel.swift; sourceTree = "<group>"; };
-		11DAE99B2460661300B6FF70 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
-		11DAE99D2460C28400B6FF70 /* NutritionAnalysisResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionAnalysisResultsView.swift; sourceTree = "<group>"; };
 		360BDE15D326DC1D0640C815 /* Pods-LabelWise.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LabelWise.release.xcconfig"; path = "Target Support Files/Pods-LabelWise/Pods-LabelWise.release.xcconfig"; sourceTree = "<group>"; };
 		4AACC73C2D10015894BA828D /* Pods-LabelWise.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LabelWise.debug.xcconfig"; path = "Target Support Files/Pods-LabelWise/Pods-LabelWise.debug.xcconfig"; sourceTree = "<group>"; };
-		9E04B012625D81E2756DF440 /* NutritionViewUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NutritionViewUtils.swift; sourceTree = "<group>"; };
 		9E04B03637D80DC9D780A544 /* NutritionDTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NutritionDTO.swift; sourceTree = "<group>"; };
-		9E04B05B31A950ACF965B49A /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
-		9E04B1C29ECB90493462BCB4 /* Typography.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Typography.swift; sourceTree = "<group>"; };
-		9E04B27BF5D2A9200CBC7D1D /* LabelScannerOverlayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelScannerOverlayView.swift; sourceTree = "<group>"; };
+		9E04B1379328F410E4F17E6B /* NutritionAnalysisRootView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NutritionAnalysisRootView.swift; sourceTree = "<group>"; };
+		9E04B16BAD27AD65A32B1847 /* NutrientDescriptionTextRowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NutrientDescriptionTextRowView.swift; sourceTree = "<group>"; };
+		9E04B1A9C151D4086BDFFD1A /* StringUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringUtils.swift; sourceTree = "<group>"; };
+		9E04B1E6AB256C2579ACCED4 /* MacronutrientRings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MacronutrientRings.swift; sourceTree = "<group>"; };
+		9E04B2493D89D67528381F3F /* Ring.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ring.swift; sourceTree = "<group>"; };
+		9E04B256AC44CE9A4EEEECCB /* FatsSectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FatsSectionView.swift; sourceTree = "<group>"; };
+		9E04B337A999B5EE2EE18D30 /* CarbohydratesSectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarbohydratesSectionView.swift; sourceTree = "<group>"; };
 		9E04B36285890D7DEA0D4652 /* LabelAnalysisService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelAnalysisService.swift; sourceTree = "<group>"; };
+		9E04B38F7443F9ADB9812F52 /* SegmentedPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentedPicker.swift; sourceTree = "<group>"; };
+		9E04B3961E453EE9F5A3C478 /* NutritionAnalysisResultsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NutritionAnalysisResultsView.swift; sourceTree = "<group>"; };
 		9E04B3D769B65F5EF259181D /* PreviewNutritionModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewNutritionModels.swift; sourceTree = "<group>"; };
-		9E04B5990AFB8E3D0DF17188 /* CameraView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
-		9E04B5CD47A28F0852F6DEFF /* CameraController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraController.swift; sourceTree = "<group>"; };
-		9E04B5D30937AB3EE9506EEE /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		9E04B3DDBE0873BEA51F4F08 /* CommonViewModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonViewModels.swift; sourceTree = "<group>"; };
+		9E04B3F8EA63E8BBC8FB0AB2 /* MacronutrientSectionTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MacronutrientSectionTextView.swift; sourceTree = "<group>"; };
+		9E04B44935A3095E1CFE051C /* AnalysisIconTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalysisIconTextView.swift; sourceTree = "<group>"; };
+		9E04B49BC11BE362B82E7120 /* LabelScannerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelScannerView.swift; sourceTree = "<group>"; };
+		9E04B4C4004F2C897A5E1869 /* Icons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Icons.swift; sourceTree = "<group>"; };
+		9E04B53ED0679A24D6991D53 /* AnalysisScrollViewHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalysisScrollViewHelpers.swift; sourceTree = "<group>"; };
+		9E04B580BB85ECB0F4CEE2CF /* AnalysisScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalysisScrollView.swift; sourceTree = "<group>"; };
+		9E04B59AF0108506D62C0D19 /* LabelScannerOverlayHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelScannerOverlayHeaderView.swift; sourceTree = "<group>"; };
 		9E04B61BDB41D939BF20F08F /* Logging.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logging.swift; sourceTree = "<group>"; };
-		9E04B646AAC676D8D396BE37 /* MacronutrientSectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MacronutrientSectionView.swift; sourceTree = "<group>"; };
-		9E04B817D6CF582314870379 /* PercentageRing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PercentageRing.swift; sourceTree = "<group>"; };
-		9E04B86EAECBC066F3CC5771 /* AnalysisScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalysisScrollView.swift; sourceTree = "<group>"; };
+		9E04B63E8A8AD04D844C9BB3 /* NutritionAnalysisViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NutritionAnalysisViewModel.swift; sourceTree = "<group>"; };
+		9E04B6B95DE69B3FAF849640 /* LabelScannerViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelScannerViewModel.swift; sourceTree = "<group>"; };
+		9E04B6B96AFFC4626999F5C5 /* LabelScannerActionButtons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelScannerActionButtons.swift; sourceTree = "<group>"; };
+		9E04B788652E2ADAFAFC5E0D /* CameraUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraUtil.swift; sourceTree = "<group>"; };
+		9E04B788C541E5EFB6F5FD22 /* Dimensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dimensions.swift; sourceTree = "<group>"; };
+		9E04B7D277FDECA7DEA2F997 /* ParsedNutritionSectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParsedNutritionSectionView.swift; sourceTree = "<group>"; };
+		9E04B855EC300A3B029C3FAE /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		9E04B871BED1E591F3F08FFA /* Combine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Combine.swift; sourceTree = "<group>"; };
-		9E04B87D15FDBB8C359F6235 /* Dimensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dimensions.swift; sourceTree = "<group>"; };
-		9E04B89AB3A4B3A0C31582C3 /* StateMachineViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StateMachineViewModel.swift; sourceTree = "<group>"; };
-		9E04B8A4CAFCF4080DA6BD0E /* CameraUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraUtil.swift; sourceTree = "<group>"; };
-		9E04B8E9B103A32459D4568C /* Icons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Icons.swift; sourceTree = "<group>"; };
+		9E04B89756E6EB040FED8E1F /* CameraView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
+		9E04B8E683A9522D32575D6F /* ErrorViews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorViews.swift; sourceTree = "<group>"; };
 		9E04B9362E437F4975BE9934 /* PreviewUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewUtils.swift; sourceTree = "<group>"; };
-		9E04BA2103C1A69F655989A5 /* CommonViewModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonViewModels.swift; sourceTree = "<group>"; };
-		9E04BA6333DB57E43F43FFA2 /* AppViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppViewModel.swift; sourceTree = "<group>"; };
-		9E04BA76BDF053BBA9738EFF /* MacronutrientRings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MacronutrientRings.swift; sourceTree = "<group>"; };
-		9E04BA7C75C3AF19E69A510A /* LabelScannerViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelScannerViewModel.swift; sourceTree = "<group>"; };
-		9E04BAA4FD1CB39D6A2F2084 /* SwiftUI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftUI.swift; sourceTree = "<group>"; };
-		9E04BAC86FBCB14C754D2ADC /* LabelScannerActionButtons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelScannerActionButtons.swift; sourceTree = "<group>"; };
-		9E04BAC96CFB27478E9AFA42 /* LabelScannerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelScannerView.swift; sourceTree = "<group>"; };
-		9E04BAD266C83AEEE18F15FC /* AppView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppView.swift; sourceTree = "<group>"; };
-		9E04BBBBF4D797E921748F1D /* NutritionAnalysisResultsHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NutritionAnalysisResultsHeaderView.swift; sourceTree = "<group>"; };
-		9E04BBF54EEA7382665A8137 /* AnalysisScrollViewHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalysisScrollViewHelpers.swift; sourceTree = "<group>"; };
+		9E04B93A22C0F9C24901675C /* LabelScannerOverlayFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelScannerOverlayFooterView.swift; sourceTree = "<group>"; };
+		9E04BA1F20B00F6B13B7DC32 /* AppView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppView.swift; sourceTree = "<group>"; };
+		9E04BA3184E2DE61CB3F978B /* LabelScannerOverlayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelScannerOverlayView.swift; sourceTree = "<group>"; };
+		9E04BA5464EDAC4587D221B5 /* Middleware.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Middleware.swift; sourceTree = "<group>"; };
+		9E04BA65862DF99BF33EF604 /* BackButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackButton.swift; sourceTree = "<group>"; };
+		9E04BA6F394626F727916457 /* MacronutrientSectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MacronutrientSectionView.swift; sourceTree = "<group>"; };
+		9E04BA7CABA6E92E997F6AF3 /* ButtonViews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonViews.swift; sourceTree = "<group>"; };
+		9E04BAB0205588C074E9C5F6 /* LoadingIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingIndicator.swift; sourceTree = "<group>"; };
+		9E04BB1655737F6309127E0E /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		9E04BB5D5B71B278CD02BFD5 /* SwiftUI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftUI.swift; sourceTree = "<group>"; };
+		9E04BBD579FBAACE5F8070E4 /* PercentageRing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PercentageRing.swift; sourceTree = "<group>"; };
+		9E04BC1D4777745317A8B0DB /* InsightsSectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InsightsSectionView.swift; sourceTree = "<group>"; };
+		9E04BC5535836932B47DF1D1 /* MacronutrientDistributionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MacronutrientDistributionView.swift; sourceTree = "<group>"; };
+		9E04BC720873423804A1A199 /* NutritionViewUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NutritionViewUtils.swift; sourceTree = "<group>"; };
 		9E04BC8096C70C13098A91F5 /* TypeAliases.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypeAliases.swift; sourceTree = "<group>"; };
+		9E04BCF9D6353FE5AD2A07B9 /* LoadingViews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingViews.swift; sourceTree = "<group>"; };
+		9E04BD0BD2943F4AA2F4CE11 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		9E04BD167436B52702375ABC /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
-		9E04BE50AA32D8E2890CB871 /* Middleware.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Middleware.swift; sourceTree = "<group>"; };
+		9E04BD63E3C2FDD24234B3E1 /* NutrientBreakdownBarChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NutrientBreakdownBarChartView.swift; sourceTree = "<group>"; };
+		9E04BD7BBB7DB316AA349BF2 /* Typography.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Typography.swift; sourceTree = "<group>"; };
+		9E04BD8B301B3B805681E16B /* StateMachineViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StateMachineViewModel.swift; sourceTree = "<group>"; };
+		9E04BDFD09E5831BA92CB7C1 /* HalfRoundedRectangle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HalfRoundedRectangle.swift; sourceTree = "<group>"; };
+		9E04BE502DF224765BCC0F8E /* NutritionTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NutritionTableView.swift; sourceTree = "<group>"; };
 		9E04BE91B4AAE37E9D8B3F1E /* Nutrition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Nutrition.swift; sourceTree = "<group>"; };
+		9E04BE93CD4C44D55AB25D93 /* AppViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppViewModel.swift; sourceTree = "<group>"; };
 		9E04BE97221A3328813B0FB5 /* MockLabelAnalysisService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockLabelAnalysisService.swift; sourceTree = "<group>"; };
-		9E04BEBF75A400DE7744C7C4 /* Ring.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ring.swift; sourceTree = "<group>"; };
+		9E04BF01F97167B5DBE4BC2C /* CameraController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraController.swift; sourceTree = "<group>"; };
 		9E04BF04A3540E93A3AD845B /* PreviewImages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewImages.swift; sourceTree = "<group>"; };
-		9E04BF26F4C4A73C634FFAED /* StringUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringUtils.swift; sourceTree = "<group>"; };
+		9E04BFD384637ACF1329F7C2 /* OnboardingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		9E04BFF475105AA282DE299B /* NutritionAnalysisResultsHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NutritionAnalysisResultsHeaderView.swift; sourceTree = "<group>"; };
 		FBB96129287D3E7C9C1E8B9C /* Pods_LabelWise.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LabelWise.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -168,69 +172,6 @@
 				FBB96129287D3E7C9C1E8B9C /* Pods_LabelWise.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		110DF065245B1C1D00E78245 /* MacronutrientSection */ = {
-			isa = PBXGroup;
-			children = (
-				9E04BA76BDF053BBA9738EFF /* MacronutrientRings.swift */,
-				9E04B646AAC676D8D396BE37 /* MacronutrientSectionView.swift */,
-				110DF066245B1C3300E78245 /* MacronutrientSectionTextView.swift */,
-				1113446E246467D40091B757 /* MacronutrientDistributionView.swift */,
-			);
-			path = MacronutrientSection;
-			sourceTree = "<group>";
-		};
-		110DF06E245E657400E78245 /* Shapes */ = {
-			isa = PBXGroup;
-			children = (
-				9E04BEBF75A400DE7744C7C4 /* Ring.swift */,
-				110DF06F245E65E800E78245 /* HalfRoundedRectangle.swift */,
-			);
-			path = Shapes;
-			sourceTree = "<group>";
-		};
-		112FFD1A24671497008E9377 /* FatsSection */ = {
-			isa = PBXGroup;
-			children = (
-				112FFD1B246714A7008E9377 /* FatsSectionView.swift */,
-			);
-			path = FatsSection;
-			sourceTree = "<group>";
-		};
-		112FFD1F246719E8008E9377 /* Common */ = {
-			isa = PBXGroup;
-			children = (
-				112FFD1624665EE4008E9377 /* NutrientBreakdownBarChartView.swift */,
-				9E04B012625D81E2756DF440 /* NutritionViewUtils.swift */,
-				112FFD1D2467156F008E9377 /* NutrientDescriptionTextRowView.swift */,
-			);
-			path = Common;
-			sourceTree = "<group>";
-		};
-		1147D7622457A90400A5D749 /* Charts */ = {
-			isa = PBXGroup;
-			children = (
-				9E04B817D6CF582314870379 /* PercentageRing.swift */,
-			);
-			path = Charts;
-			sourceTree = "<group>";
-		};
-		11602DC3246F829E0083AF17 /* ParsedNutritionSection */ = {
-			isa = PBXGroup;
-			children = (
-				11602DC4246F82D20083AF17 /* NutritionTableView.swift */,
-				11602DC62471A6C70083AF17 /* ParsedNutritionSectionView.swift */,
-			);
-			path = ParsedNutritionSection;
-			sourceTree = "<group>";
-		};
-		1163661124686BA0000AC800 /* InsightsSection */ = {
-			isa = PBXGroup;
-			children = (
-				1163661224686BB6000AC800 /* InsightsSectionView.swift */,
-			);
-			path = InsightsSection;
 			sourceTree = "<group>";
 		};
 		119F8ABC244A7D3B00BB173A = {
@@ -260,10 +201,11 @@
 				119F8AD3244A7D4300BB173A /* LaunchScreen.storyboard */,
 				119F8AD6244A7D4300BB173A /* Info.plist */,
 				119F8AD0244A7D4300BB173A /* Preview Content */,
-				9E04BFA38526EDB3D7CDABAF /* Views */,
 				9E04B192A505AA3051D1C716 /* Service */,
 				9E04BDD525AD8F4399F2A4A4 /* Models */,
 				9E04BBFEA95FF88889468066 /* Utils */,
+				11602DC824723CE10083AF17 /* AppConfig.xcconfig */,
+				9E04BB5B5D52ED865F6E2DB4 /* Views */,
 			);
 			path = LabelWise;
 			sourceTree = "<group>";
@@ -289,13 +231,15 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		9E04B08D8CC8868D7E708E35 /* StateMachine */ = {
+		9E04B1039AE80DC71E8225D6 /* MacronutrientSection */ = {
 			isa = PBXGroup;
 			children = (
-				9E04B89AB3A4B3A0C31582C3 /* StateMachineViewModel.swift */,
-				9E04BE50AA32D8E2890CB871 /* Middleware.swift */,
+				9E04B1E6AB256C2579ACCED4 /* MacronutrientRings.swift */,
+				9E04BA6F394626F727916457 /* MacronutrientSectionView.swift */,
+				9E04B3F8EA63E8BBC8FB0AB2 /* MacronutrientSectionTextView.swift */,
+				9E04BC5535836932B47DF1D1 /* MacronutrientDistributionView.swift */,
 			);
-			path = StateMachine;
+			path = MacronutrientSection;
 			sourceTree = "<group>";
 		};
 		9E04B192A505AA3051D1C716 /* Service */ = {
@@ -308,57 +252,141 @@
 			path = Service;
 			sourceTree = "<group>";
 		};
-		9E04B1B9555CBE436A887AEF /* CarbohydratesSection */ = {
+		9E04B2739B339F527A234DE9 /* Analysis */ = {
 			isa = PBXGroup;
 			children = (
-				112FFD182466F20D008E9377 /* CarbohydratesSectionView.swift */,
+				9E04B44935A3095E1CFE051C /* AnalysisIconTextView.swift */,
+				9E04B53ED0679A24D6991D53 /* AnalysisScrollViewHelpers.swift */,
+				9E04B580BB85ECB0F4CEE2CF /* AnalysisScrollView.swift */,
 			);
-			path = CarbohydratesSection;
+			path = Analysis;
 			sourceTree = "<group>";
 		};
-		9E04B1EE4365848BBD863D72 /* App */ = {
+		9E04B2927241DD233C21A26D /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				9E04BAD266C83AEEE18F15FC /* AppView.swift */,
-				9E04BA6333DB57E43F43FFA2 /* AppViewModel.swift */,
+				9E04B3F122917E027F0BBA8C /* Shapes */,
+				9E04B3DDBE0873BEA51F4F08 /* CommonViewModels.swift */,
+				9E04B38F7443F9ADB9812F52 /* SegmentedPicker.swift */,
+				9E04BAB0205588C074E9C5F6 /* LoadingIndicator.swift */,
+				9E04BCF9D6353FE5AD2A07B9 /* LoadingViews.swift */,
+				9E04B8E683A9522D32575D6F /* ErrorViews.swift */,
+				9E04BA7CABA6E92E997F6AF3 /* ButtonViews.swift */,
+				9E04BA65862DF99BF33EF604 /* BackButton.swift */,
+				9E04B2739B339F527A234DE9 /* Analysis */,
+				9E04BA1CF0B1398BF28385F2 /* StateMachine */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		9E04B30F465C872910D03D4A /* NutritionAnalysis */ = {
+			isa = PBXGroup;
+			children = (
+				9E04B422DE8B9A863F069213 /* ParsedNutritionSection */,
+				9E04BCCA493D383380DEAB16 /* InsightsSection */,
+				9E04BF43F3C34AF8E628D5D5 /* CarbohydratesSection */,
+				9E04B8E9C1A60262E42B6EB6 /* Common */,
+				9E04BDFC2CD13FB063DA9524 /* FatsSection */,
+				9E04B1039AE80DC71E8225D6 /* MacronutrientSection */,
+				9E04B1379328F410E4F17E6B /* NutritionAnalysisRootView.swift */,
+				9E04B63E8A8AD04D844C9BB3 /* NutritionAnalysisViewModel.swift */,
+				9E04B3961E453EE9F5A3C478 /* NutritionAnalysisResultsView.swift */,
+				9E04BFF475105AA282DE299B /* NutritionAnalysisResultsHeaderView.swift */,
+			);
+			path = NutritionAnalysis;
+			sourceTree = "<group>";
+		};
+		9E04B3F122917E027F0BBA8C /* Shapes */ = {
+			isa = PBXGroup;
+			children = (
+				9E04B2493D89D67528381F3F /* Ring.swift */,
+				9E04BDFD09E5831BA92CB7C1 /* HalfRoundedRectangle.swift */,
+			);
+			path = Shapes;
+			sourceTree = "<group>";
+		};
+		9E04B422DE8B9A863F069213 /* ParsedNutritionSection */ = {
+			isa = PBXGroup;
+			children = (
+				9E04BE502DF224765BCC0F8E /* NutritionTableView.swift */,
+				9E04B7D277FDECA7DEA2F997 /* ParsedNutritionSectionView.swift */,
+			);
+			path = ParsedNutritionSection;
+			sourceTree = "<group>";
+		};
+		9E04B44EF28FBC452F2F1A5E /* App */ = {
+			isa = PBXGroup;
+			children = (
+				9E04BA1F20B00F6B13B7DC32 /* AppView.swift */,
+				9E04BE93CD4C44D55AB25D93 /* AppViewModel.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
 		};
-		9E04B2B64C022DC0252E846E /* Util */ = {
+		9E04B6F1DB671C5F2C36D25C /* Camera */ = {
 			isa = PBXGroup;
 			children = (
-				9E04B1C29ECB90493462BCB4 /* Typography.swift */,
-				9E04B05B31A950ACF965B49A /* Colors.swift */,
-				9E04B8E9B103A32459D4568C /* Icons.swift */,
-				9E04B87D15FDBB8C359F6235 /* Dimensions.swift */,
-				9E04BAA4FD1CB39D6A2F2084 /* SwiftUI.swift */,
-				9E04BF26F4C4A73C634FFAED /* StringUtils.swift */,
+				9E04BF01F97167B5DBE4BC2C /* CameraController.swift */,
+				9E04B89756E6EB040FED8E1F /* CameraView.swift */,
+				9E04B788652E2ADAFAFC5E0D /* CameraUtil.swift */,
+			);
+			path = Camera;
+			sourceTree = "<group>";
+		};
+		9E04B7EA98B80112E94F96E8 /* Charts */ = {
+			isa = PBXGroup;
+			children = (
+				9E04BBD579FBAACE5F8070E4 /* PercentageRing.swift */,
+			);
+			path = Charts;
+			sourceTree = "<group>";
+		};
+		9E04B8E9C1A60262E42B6EB6 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				9E04BD63E3C2FDD24234B3E1 /* NutrientBreakdownBarChartView.swift */,
+				9E04BC720873423804A1A199 /* NutritionViewUtils.swift */,
+				9E04B16BAD27AD65A32B1847 /* NutrientDescriptionTextRowView.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		9E04BA1CF0B1398BF28385F2 /* StateMachine */ = {
+			isa = PBXGroup;
+			children = (
+				9E04BD8B301B3B805681E16B /* StateMachineViewModel.swift */,
+				9E04BA5464EDAC4587D221B5 /* Middleware.swift */,
+			);
+			path = StateMachine;
+			sourceTree = "<group>";
+		};
+		9E04BA530793F61EB6689752 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				9E04BD7BBB7DB316AA349BF2 /* Typography.swift */,
+				9E04BD0BD2943F4AA2F4CE11 /* Colors.swift */,
+				9E04B4C4004F2C897A5E1869 /* Icons.swift */,
+				9E04B788C541E5EFB6F5FD22 /* Dimensions.swift */,
+				9E04BB5D5B71B278CD02BFD5 /* SwiftUI.swift */,
+				9E04B1A9C151D4086BDFFD1A /* StringUtils.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
 		};
-		9E04B55A7AA51B375FE5F85D /* LabelScanner */ = {
+		9E04BB5B5D52ED865F6E2DB4 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				9E04BAC96CFB27478E9AFA42 /* LabelScannerView.swift */,
-				9E04B27BF5D2A9200CBC7D1D /* LabelScannerOverlayView.swift */,
-				11418C87244D4336001F8E27 /* LabelScannerOverlayHeaderView.swift */,
-				11418C89244D43FD001F8E27 /* LabelScannerOverlayFooterView.swift */,
-				9E04BA7C75C3AF19E69A510A /* LabelScannerViewModel.swift */,
-				9E04BAC86FBCB14C754D2ADC /* LabelScannerActionButtons.swift */,
+				9E04B7EA98B80112E94F96E8 /* Charts */,
+				9E04BCA5B1565CEBC3709FFC /* LabelScanner */,
+				9E04B6F1DB671C5F2C36D25C /* Camera */,
+				9E04BA530793F61EB6689752 /* Util */,
+				9E04B855EC300A3B029C3FAE /* ContentView.swift */,
+				9E04B2927241DD233C21A26D /* Common */,
+				9E04B30F465C872910D03D4A /* NutritionAnalysis */,
+				9E04BFD384637ACF1329F7C2 /* OnboardingView.swift */,
+				9E04B44EF28FBC452F2F1A5E /* App */,
 			);
-			path = LabelScanner;
-			sourceTree = "<group>";
-		};
-		9E04BBEAB75B1C9A937822A7 /* Analysis */ = {
-			isa = PBXGroup;
-			children = (
-				112FFD1424661F77008E9377 /* AnalysisIconTextView.swift */,
-				9E04BBF54EEA7382665A8137 /* AnalysisScrollViewHelpers.swift */,
-				9E04B86EAECBC066F3CC5771 /* AnalysisScrollView.swift */,
-			);
-			path = Analysis;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		9E04BBFEA95FF88889468066 /* Utils */ = {
@@ -366,42 +394,30 @@
 			children = (
 				9E04BC8096C70C13098A91F5 /* TypeAliases.swift */,
 				9E04B871BED1E591F3F08FFA /* Combine.swift */,
+				9E04BB1655737F6309127E0E /* Config.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
 		};
-		9E04BC172A65632585C42EE0 /* Common */ = {
+		9E04BCA5B1565CEBC3709FFC /* LabelScanner */ = {
 			isa = PBXGroup;
 			children = (
-				110DF06E245E657400E78245 /* Shapes */,
-				9E04BA2103C1A69F655989A5 /* CommonViewModels.swift */,
-				110DF068245BE39F00E78245 /* SegmentedPicker.swift */,
-				110DF06A245DB99400E78245 /* LoadingIndicator.swift */,
-				11DAE991245F5C1B00B6FF70 /* LoadingViews.swift */,
-				11DAE993245FA72B00B6FF70 /* ErrorViews.swift */,
-				11DAE995245FAFE000B6FF70 /* ButtonViews.swift */,
-				1113446C246356D60091B757 /* BackButton.swift */,
-				9E04BBEAB75B1C9A937822A7 /* Analysis */,
-				9E04B08D8CC8868D7E708E35 /* StateMachine */,
+				9E04B49BC11BE362B82E7120 /* LabelScannerView.swift */,
+				9E04BA3184E2DE61CB3F978B /* LabelScannerOverlayView.swift */,
+				9E04B59AF0108506D62C0D19 /* LabelScannerOverlayHeaderView.swift */,
+				9E04B93A22C0F9C24901675C /* LabelScannerOverlayFooterView.swift */,
+				9E04B6B95DE69B3FAF849640 /* LabelScannerViewModel.swift */,
+				9E04B6B96AFFC4626999F5C5 /* LabelScannerActionButtons.swift */,
 			);
-			path = Common;
+			path = LabelScanner;
 			sourceTree = "<group>";
 		};
-		9E04BC4A80B4161593F432FC /* NutritionAnalysis */ = {
+		9E04BCCA493D383380DEAB16 /* InsightsSection */ = {
 			isa = PBXGroup;
 			children = (
-				11602DC3246F829E0083AF17 /* ParsedNutritionSection */,
-				1163661124686BA0000AC800 /* InsightsSection */,
-				9E04B1B9555CBE436A887AEF /* CarbohydratesSection */,
-				112FFD1F246719E8008E9377 /* Common */,
-				112FFD1A24671497008E9377 /* FatsSection */,
-				110DF065245B1C1D00E78245 /* MacronutrientSection */,
-				110DF063245B1BCF00E78245 /* NutritionAnalysisRootView.swift */,
-				11DAE997245FD72100B6FF70 /* NutritionAnalysisViewModel.swift */,
-				11DAE99D2460C28400B6FF70 /* NutritionAnalysisResultsView.swift */,
-				9E04BBBBF4D797E921748F1D /* NutritionAnalysisResultsHeaderView.swift */,
+				9E04BC1D4777745317A8B0DB /* InsightsSectionView.swift */,
 			);
-			path = NutritionAnalysis;
+			path = InsightsSection;
 			sourceTree = "<group>";
 		};
 		9E04BDD525AD8F4399F2A4A4 /* Models */ = {
@@ -413,6 +429,14 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		9E04BDFC2CD13FB063DA9524 /* FatsSection */ = {
+			isa = PBXGroup;
+			children = (
+				9E04B256AC44CE9A4EEEECCB /* FatsSectionView.swift */,
+			);
+			path = FatsSection;
+			sourceTree = "<group>";
+		};
 		9E04BE2F5B4B4B2E8D47E9C0 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -421,30 +445,12 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		9E04BE849DFE7936902898BC /* Camera */ = {
+		9E04BF43F3C34AF8E628D5D5 /* CarbohydratesSection */ = {
 			isa = PBXGroup;
 			children = (
-				9E04B5CD47A28F0852F6DEFF /* CameraController.swift */,
-				9E04B5990AFB8E3D0DF17188 /* CameraView.swift */,
-				9E04B8A4CAFCF4080DA6BD0E /* CameraUtil.swift */,
+				9E04B337A999B5EE2EE18D30 /* CarbohydratesSectionView.swift */,
 			);
-			path = Camera;
-			sourceTree = "<group>";
-		};
-		9E04BFA38526EDB3D7CDABAF /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				1147D7622457A90400A5D749 /* Charts */,
-				9E04B55A7AA51B375FE5F85D /* LabelScanner */,
-				9E04BE849DFE7936902898BC /* Camera */,
-				9E04B2B64C022DC0252E846E /* Util */,
-				9E04B5D30937AB3EE9506EEE /* ContentView.swift */,
-				9E04BC172A65632585C42EE0 /* Common */,
-				9E04BC4A80B4161593F432FC /* NutritionAnalysis */,
-				11DAE99B2460661300B6FF70 /* OnboardingView.swift */,
-				9E04B1EE4365848BBD863D72 /* App */,
-			);
-			path = Views;
+			path = CarbohydratesSection;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -507,6 +513,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11602DC924723CE10083AF17 /* AppConfig.xcconfig in Resources */,
 				119F8AD5244A7D4300BB173A /* LaunchScreen.storyboard in Resources */,
 				119F8AD2244A7D4300BB173A /* Preview Assets.xcassets in Resources */,
 				119F8ACF244A7D4300BB173A /* Assets.xcassets in Resources */,
@@ -564,67 +571,68 @@
 			files = (
 				119F8AC9244A7D3C00BB173A /* AppDelegate.swift in Sources */,
 				119F8ACB244A7D3C00BB173A /* SceneDelegate.swift in Sources */,
-				9E04B90C5EA0DF367FE35AFD /* LabelScannerView.swift in Sources */,
-				11DAE99E2460C28400B6FF70 /* NutritionAnalysisResultsView.swift in Sources */,
-				1113446D246356D60091B757 /* BackButton.swift in Sources */,
-				11418C8A244D43FD001F8E27 /* LabelScannerOverlayFooterView.swift in Sources */,
-				11DAE998245FD72100B6FF70 /* NutritionAnalysisViewModel.swift in Sources */,
-				1113446F246467D40091B757 /* MacronutrientDistributionView.swift in Sources */,
-				9E04B5454634C3A52D00058A /* LabelScannerOverlayView.swift in Sources */,
-				9E04BA24D04B3AA88269BC74 /* CameraController.swift in Sources */,
-				110DF070245E65E800E78245 /* HalfRoundedRectangle.swift in Sources */,
-				11418C88244D4336001F8E27 /* LabelScannerOverlayHeaderView.swift in Sources */,
-				9E04B8699075720B0B4A2692 /* CameraView.swift in Sources */,
-				9E04B4B7AFC55A84E1F3654A /* CameraUtil.swift in Sources */,
 				9E04B02AC89E419B26B7CEC0 /* LabelAnalysisService.swift in Sources */,
-				9E04BDAC7C97D8F2252012E5 /* Typography.swift in Sources */,
-				9E04BEC2EE1485DE2071FEEA /* Colors.swift in Sources */,
-				9E04BB051D7E409EC334FD8B /* Icons.swift in Sources */,
-				9E04B7505FD17516F7996F3A /* Dimensions.swift in Sources */,
-				11DAE994245FA72B00B6FF70 /* ErrorViews.swift in Sources */,
-				110DF067245B1C3300E78245 /* MacronutrientSectionTextView.swift in Sources */,
-				110DF069245BE39F00E78245 /* SegmentedPicker.swift in Sources */,
-				112FFD1E2467156F008E9377 /* NutrientDescriptionTextRowView.swift in Sources */,
-				11DAE992245F5C1B00B6FF70 /* LoadingViews.swift in Sources */,
-				9E04BB17B3BDE8728BAF761B /* ContentView.swift in Sources */,
-				11DAE996245FAFE000B6FF70 /* ButtonViews.swift in Sources */,
-				11DAE99C2460661300B6FF70 /* OnboardingView.swift in Sources */,
 				9E04BFE2FB40387B47CB3BDC /* Logging.swift in Sources */,
-				9E04B0D78F9E76CC6959A2E8 /* CommonViewModels.swift in Sources */,
 				9E04B544B94680E6D0270437 /* Common.swift in Sources */,
-				9E04BCAB5E4B867BF3960782 /* SwiftUI.swift in Sources */,
-				110DF06B245DB99500E78245 /* LoadingIndicator.swift in Sources */,
-				112FFD192466F20D008E9377 /* CarbohydratesSectionView.swift in Sources */,
 				9E04B142786F16FB6E2E3BBF /* TypeAliases.swift in Sources */,
 				9E04BBD795334AC0BBB0C4A5 /* Combine.swift in Sources */,
-				110DF064245B1BD000E78245 /* NutritionAnalysisRootView.swift in Sources */,
-				9E04B7F294A2ECE09AB0BDA2 /* LabelScannerActionButtons.swift in Sources */,
-				112FFD1C246714A7008E9377 /* FatsSectionView.swift in Sources */,
-				9E04B4A49EF79D0172103A09 /* MacronutrientRings.swift in Sources */,
-				112FFD1524661F77008E9377 /* AnalysisIconTextView.swift in Sources */,
-				9E04BE665B751CAEF5B7A290 /* PercentageRing.swift in Sources */,
-				112FFD1724665EE4008E9377 /* NutrientBreakdownBarChartView.swift in Sources */,
-				9E04BB4DF42A74CE86CA5373 /* Ring.swift in Sources */,
-				9E04BDDADC5E07F1CE41FA8E /* MacronutrientSectionView.swift in Sources */,
-				11602DC5246F82D20083AF17 /* NutritionTableView.swift in Sources */,
 				9E04BBF618B4CB82E3D5485A /* NutritionDTO.swift in Sources */,
-				1163661324686BB6000AC800 /* InsightsSectionView.swift in Sources */,
 				9E04BFD9C72F1457D428174D /* Nutrition.swift in Sources */,
 				9E04BE1293934E79D5EF4EA8 /* PreviewUtils.swift in Sources */,
-				119F35592465A1FA00754B57 /* LabelScannerViewModel.swift in Sources */,
-				9E04B33DEFFBE48D78AE37B0 /* AppView.swift in Sources */,
-				9E04BD70D8AE1DBCCEB4C89C /* AppViewModel.swift in Sources */,
-				11602DC72471A6C70083AF17 /* ParsedNutritionSectionView.swift in Sources */,
 				9E04B6C77E939385281ABC2E /* PreviewNutritionModels.swift in Sources */,
 				9E04BB67631DA20D89434EBB /* MockLabelAnalysisService.swift in Sources */,
 				9E04BA312C25D90043FD7D00 /* PreviewImages.swift in Sources */,
-				9E04B5681E96C167CA813550 /* NutritionAnalysisResultsHeaderView.swift in Sources */,
-				9E04BC1DCF6FFE5024EB65BB /* StringUtils.swift in Sources */,
-				9E04B048BE62E1AADA922C57 /* AnalysisScrollViewHelpers.swift in Sources */,
-				9E04B1087D30ADFAF5BE453F /* AnalysisScrollView.swift in Sources */,
-				9E04B37E977F193711FE02F8 /* NutritionViewUtils.swift in Sources */,
-				9E04B172CC25879E8404484A /* StateMachineViewModel.swift in Sources */,
-				9E04B797E8BB98AFCF9676CA /* Middleware.swift in Sources */,
+				9E04B27328BECD534E4FD147 /* PercentageRing.swift in Sources */,
+				9E04B15ABF1896310F67FAA6 /* LabelScannerView.swift in Sources */,
+				9E04BE08BA9E027F0F36D89A /* LabelScannerOverlayView.swift in Sources */,
+				9E04BBD1087E042AC5325EC4 /* LabelScannerOverlayHeaderView.swift in Sources */,
+				9E04BABAF1E07CE0CB72CC08 /* LabelScannerOverlayFooterView.swift in Sources */,
+				9E04B2DD0FF0195B5610A013 /* LabelScannerViewModel.swift in Sources */,
+				9E04B5D0C4B19664B2912E0D /* LabelScannerActionButtons.swift in Sources */,
+				9E04BABA8914D16B545F7279 /* CameraController.swift in Sources */,
+				9E04B156F5995FB71C98290D /* CameraView.swift in Sources */,
+				9E04B57C7F5EBC6DE3518E41 /* CameraUtil.swift in Sources */,
+				9E04B33443EDCFCB9074FCA2 /* Typography.swift in Sources */,
+				9E04BCDC9B6933E1272C8A81 /* Colors.swift in Sources */,
+				9E04B8A0CAA00A9735A85212 /* Icons.swift in Sources */,
+				9E04BA657C1497DAE42E7228 /* Dimensions.swift in Sources */,
+				9E04B1BFEDE4A3B8DB3BF128 /* SwiftUI.swift in Sources */,
+				9E04BE9214400350B1BFB6DB /* StringUtils.swift in Sources */,
+				9E04B6DCDA6B2ED8F5A76597 /* ContentView.swift in Sources */,
+				9E04BB25BD69C38890EFBDA4 /* Ring.swift in Sources */,
+				9E04BAAAEDDD912C602C502B /* HalfRoundedRectangle.swift in Sources */,
+				9E04B4B64D7E6A6C9AB5D79D /* CommonViewModels.swift in Sources */,
+				9E04BBC8CAFDB08DD6B088EE /* SegmentedPicker.swift in Sources */,
+				9E04B1B2B0CD96DA6DCDCE10 /* LoadingIndicator.swift in Sources */,
+				9E04B4542D206920236CA88B /* LoadingViews.swift in Sources */,
+				9E04B9626A446388E0809433 /* ErrorViews.swift in Sources */,
+				9E04B102898D491DD9BEB166 /* ButtonViews.swift in Sources */,
+				9E04B3980252C5E5919A80EB /* BackButton.swift in Sources */,
+				9E04B3476F66D7F88E129F5E /* AnalysisIconTextView.swift in Sources */,
+				9E04B1FC9EF3EA2A5BB6B5AF /* AnalysisScrollViewHelpers.swift in Sources */,
+				9E04B3960B2AAED0A382DEF3 /* AnalysisScrollView.swift in Sources */,
+				9E04B606AD16A06F54CA2B0C /* StateMachineViewModel.swift in Sources */,
+				9E04BDFDBD14EB8C69454694 /* Middleware.swift in Sources */,
+				9E04B143D34DDF6710A4A86F /* NutritionTableView.swift in Sources */,
+				9E04B347536BAFA440E910FA /* ParsedNutritionSectionView.swift in Sources */,
+				9E04B84CF332B340CE188806 /* InsightsSectionView.swift in Sources */,
+				9E04B3517369FFD84FBB10A7 /* CarbohydratesSectionView.swift in Sources */,
+				9E04BBF80BA076C3A9EC5068 /* NutrientBreakdownBarChartView.swift in Sources */,
+				9E04B2AA71E8B38CCAAF50AF /* NutritionViewUtils.swift in Sources */,
+				9E04B7E2679F3B0F3A841E6F /* NutrientDescriptionTextRowView.swift in Sources */,
+				9E04B3E9A543BB48AEF9DBBF /* FatsSectionView.swift in Sources */,
+				9E04BBE1F7A26C04059E39C0 /* MacronutrientRings.swift in Sources */,
+				9E04B4888BC6AA6D3840B45F /* MacronutrientSectionView.swift in Sources */,
+				9E04BEFCA615D5A621191621 /* MacronutrientSectionTextView.swift in Sources */,
+				9E04BDD0AD3BD484D8A02A88 /* MacronutrientDistributionView.swift in Sources */,
+				9E04B385F9C8B726D2A7F175 /* NutritionAnalysisRootView.swift in Sources */,
+				9E04B94A821D6F66DE3FF332 /* NutritionAnalysisViewModel.swift in Sources */,
+				9E04BDB288469E4904545F16 /* NutritionAnalysisResultsView.swift in Sources */,
+				9E04BCC3EEE75ED7B1145E34 /* NutritionAnalysisResultsHeaderView.swift in Sources */,
+				9E04B473E83B0984A43ED40F /* OnboardingView.swift in Sources */,
+				9E04B0A5B739BAB8B761D8D1 /* AppView.swift in Sources */,
+				9E04B25BC4427AF1CB0B9BF5 /* AppViewModel.swift in Sources */,
+				9E04B643A9CDE841543789DC /* Config.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -644,6 +652,7 @@
 /* Begin XCBuildConfiguration section */
 		119F8AD7244A7D4300BB173A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 11602DC824723CE10083AF17 /* AppConfig.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -704,6 +713,7 @@
 		};
 		119F8AD8244A7D4300BB173A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 11602DC824723CE10083AF17 /* AppConfig.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;

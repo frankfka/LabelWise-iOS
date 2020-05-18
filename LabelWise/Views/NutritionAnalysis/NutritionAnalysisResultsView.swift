@@ -44,11 +44,11 @@ struct NutritionAnalysisResultsView: View {
                     .modifier(AnalysisSectionModifier(title: "Insights", alignment: .leading))
             }
             MacronutrientSectionView(vm: self.macroSummaryViewVm, parentSize: self.parentSize)
-                    .modifier(AnalysisSectionModifier(title: "Macronutrients"))
+                .modifier(AnalysisSectionModifier(title: "Macronutrients"))
             CarbohydratesSectionView(vm: self.carbohydratesSectionViewVm)
-                    .modifier(AnalysisSectionModifier(title: "Carbohydrates"))
+                .modifier(AnalysisSectionModifier(title: "Carbohydrates"))
             FatsSectionView(vm: self.fatsSectionViewVm)
-                    .modifier(AnalysisSectionModifier(title: "Fats"))
+                .modifier(AnalysisSectionModifier(title: "Fats"))
             Spacer()
         }
     }

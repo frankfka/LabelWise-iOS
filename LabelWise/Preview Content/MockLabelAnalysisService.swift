@@ -13,6 +13,7 @@ class MockAnalysisService: LabelAnalysisService {
         if let resp = response {
             return Just(resp)
                     .setFailureType(to: AppError.self)
+                    .delay(for: .seconds(1), scheduler: RunLoop.main) // Simulate loading
                     .eraseToAnyPublisher()
         } else {
             return Fail(outputType: AnalyzeNutritionResponseDTO.self, failure: AppError("")).eraseToAnyPublisher()

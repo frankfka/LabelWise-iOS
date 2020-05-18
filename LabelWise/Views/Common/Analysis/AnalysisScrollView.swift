@@ -12,6 +12,7 @@ import SwiftUI
 struct AnalysisScrollView<HeaderContent: View, HeaderBackground: View, BodyContent: View>: View {
     // Not static as static constants are not supported in generic types
     private let navBarPadding: CGFloat = CGFloat.App.Layout.Padding
+    private let navBarBottomPadding: CGFloat = CGFloat.App.Layout.SmallPadding
     private let headerHorizontalPadding: CGFloat = CGFloat.App.Layout.Padding
     private let headerTopPadding: CGFloat = CGFloat.App.Layout.LargePadding
     private let headerBottomPadding: CGFloat = CGFloat.App.Layout.LargestPadding
@@ -61,7 +62,7 @@ struct AnalysisScrollView<HeaderContent: View, HeaderBackground: View, BodyConte
 
     var body: some View {
         GeometryReader { geometry in
-            VStack {
+            VStack(spacing: 0) {
                 // Navigation bar that overflows onto safe area
                 HStack {
                     BackButton(
@@ -73,6 +74,7 @@ struct AnalysisScrollView<HeaderContent: View, HeaderBackground: View, BodyConte
                 }
                 .fillWidth()
                 .padding(.top, self.navBarPadding)
+                .padding(.bottom, self.navBarBottomPadding)
                 .padding(.horizontal, self.navBarPadding)
                 .padding(.top, geometry.safeAreaInsets.top)
                 .background(self.headerBackground)

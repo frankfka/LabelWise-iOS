@@ -100,9 +100,9 @@ extension NutritionAnalysisResultsHeaderView {
             if numInsights > 0 {
                 let numWarnings = numCautionWarnings + numSevereWarnings
                 if numWarnings > 0 {
-                    return " \(numWarnings) nutrition warnings"
+                    return " \(numWarnings) nutrition warning\(numWarnings > 1 ? "s" : "")"
                 } else {
-                    return "\(numInsights) insights"
+                    return "\(numInsights) insight\(numInsights > 1 ? "s" : "")"
                 }
             }
             return nil
