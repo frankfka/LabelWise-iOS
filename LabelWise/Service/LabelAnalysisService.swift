@@ -11,7 +11,6 @@ protocol LabelAnalysisService {
     func analyzeNutrition(base64Image: String) -> ServicePublisher<AnalyzeNutritionResponseDTO>
 }
 
-// TODO: this gives improper result for cholesterol, look into it: https://www.fda.gov/files/nutrition-facts-label.png
 class LabelAnalysisServiceImpl: LabelAnalysisService {
     private let apiKey: String
     private let baseUrl: String
@@ -19,9 +18,9 @@ class LabelAnalysisServiceImpl: LabelAnalysisService {
     private var ingredientsImageUrl: String { self.baseUrl + "/ingredients/image" }
     private var authHeaders: HTTPHeaders { ["X-API-Key": self.apiKey] }
 
-    init() {
-        self.baseUrl = Configuration.app.serviceBaseUrl
-        self.apiKey = Configuration.app.apiKey
+    init(config: Configuration) {
+        self.baseUrl = config.serviceBaseUrl
+        self.apiKey = config.apiKey
     }
 
     func analyzeNutrition(base64Image: String) -> ServicePublisher<AnalyzeNutritionResponseDTO> {

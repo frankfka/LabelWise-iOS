@@ -6,5 +6,6 @@ target 'LabelWise' do
 
   # Pods for LabelWise
   pod 'Alamofire', '~> 5.1'
+  pod "Resolver"
 
 end

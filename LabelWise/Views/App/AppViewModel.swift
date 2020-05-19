@@ -5,6 +5,7 @@
 
 import Foundation
 import SwiftUI
+import Resolver
 
 // Passed up from label scanner
 typealias LabelScannedCallback = (LabelImage, AnalyzeType, Bool) -> () // TODO: 3rd argument is temp for testing
@@ -12,7 +13,7 @@ typealias LabelScannedCallback = (LabelImage, AnalyzeType, Bool) -> () // TODO: 
 // MARK: Root view model
 extension AppView {
     class ViewModel: ObservableObject {
-        private let labelAnalysisService: LabelAnalysisService = LabelAnalysisServiceImpl() // TODO service injection: https://github.com/hmlongco/Resolver
+        @Injected private var labelAnalysisService: LabelAnalysisService
         @Published private(set) var viewState: ViewState = .scanLabel
         private(set) var analyzeNutritionPublisher: ServicePublisher<AnalyzeNutritionResponseDTO>? = nil
     }

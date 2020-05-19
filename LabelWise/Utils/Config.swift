@@ -5,8 +5,12 @@
 
 import Foundation
 
-struct Configuration {
-    static let app = try! Configuration() // TODO: error handling
+protocol Configuration {
+    var serviceBaseUrl: String { get }
+    var apiKey: String { get }
+}
+
+struct AppConfiguration: Configuration {
     static func getValue(for key: String) throws -> String {
         if let val = Bundle.main.object(forInfoDictionaryKey: key) as? String {
             return val
@@ -19,7 +23,7 @@ struct Configuration {
     let apiKey: String
 
     init() throws {
-        self.serviceBaseUrl = "https://" + (try Configuration.getValue(for: "ServiceBaseUrl"))
-        self.apiKey = try Configuration.getValue(for: "APIKey")
+        self.serviceBaseUrl = "https://" + (try AppConfiguration.getValue(for: "ServiceBaseUrl"))
+        self.apiKey = try AppConfiguration.getValue(for: "APIKey")
     }
 }
