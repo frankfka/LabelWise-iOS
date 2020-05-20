@@ -57,7 +57,6 @@ extension MacronutrientSectionTextView {
 }
 
 struct MacronutrientSummaryTextView_Previews: PreviewProvider {
-    // TODO: no info formatting
     private static let vm = MacronutrientSectionTextView.ViewModel(nutrition: PreviewNutritionModels.FullyParsedNutrition)
     
     static var previews: some View {

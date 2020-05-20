@@ -2,25 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fc06ac05-0031-4719-9d90-6a241fa74c08" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/LabelWise/AppDelegate+Injection.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LabelWise/Preview Content/PreviewIngredientsModels.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LabelWise/Service/Models/CommonDTO.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LabelWise/Service/Models/IngredientsDTO.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LabelWise/Views/IngredientsAnalysis/IngredientInfoView.swift" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LabelWise.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/LabelWise.xcodeproj/project.pbxproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Preview Content/MockLabelAnalysisService.swift" beforeDir="false" afterPath="$PROJECT_DIR$/LabelWise/Preview Content/MockLabelAnalysisService.swift" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LabelWise/Service/LabelAnalysisService.swift" beforeDir="false" afterPath="$PROJECT_DIR$/LabelWise/Service/LabelAnalysisService.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LabelWise/Utils/Config.swift" beforeDir="false" afterPath="$PROJECT_DIR$/LabelWise/Utils/Config.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Service/Models/NutritionDTO.swift" beforeDir="false" afterPath="$PROJECT_DIR$/LabelWise/Service/Models/NutritionDTO.swift" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LabelWise/Views/App/AppViewModel.swift" beforeDir="false" afterPath="$PROJECT_DIR$/LabelWise/Views/App/AppViewModel.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Podfile" beforeDir="false" afterPath="$PROJECT_DIR$/Podfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Podfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Podfile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pods/Manifest.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Pods/Manifest.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pods/Pods.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/Pods/Pods.xcodeproj/project.pbxproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pods/Target Support Files/Pods-LabelWise/Pods-LabelWise-acknowledgements.markdown" beforeDir="false" afterPath="$PROJECT_DIR$/Pods/Target Support Files/Pods-LabelWise/Pods-LabelWise-acknowledgements.markdown" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pods/Target Support Files/Pods-LabelWise/Pods-LabelWise-acknowledgements.plist" beforeDir="false" afterPath="$PROJECT_DIR$/Pods/Target Support Files/Pods-LabelWise/Pods-LabelWise-acknowledgements.plist" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pods/Target Support Files/Pods-LabelWise/Pods-LabelWise-frameworks-Debug-input-files.xcfilelist" beforeDir="false" afterPath="$PROJECT_DIR$/Pods/Target Support Files/Pods-LabelWise/Pods-LabelWise-frameworks-Debug-input-files.xcfilelist" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pods/Target Support Files/Pods-LabelWise/Pods-LabelWise-frameworks-Debug-output-files.xcfilelist" beforeDir="false" afterPath="$PROJECT_DIR$/Pods/Target Support Files/Pods-LabelWise/Pods-LabelWise-frameworks-Debug-output-files.xcfilelist" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pods/Target Support Files/Pods-LabelWise/Pods-LabelWise-frameworks-Release-input-files.xcfilelist" beforeDir="false" afterPath="$PROJECT_DIR$/Pods/Target Support Files/Pods-LabelWise/Pods-LabelWise-frameworks-Release-input-files.xcfilelist" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pods/Target Support Files/Pods-LabelWise/Pods-LabelWise-frameworks-Release-output-files.xcfilelist" beforeDir="false" afterPath="$PROJECT_DIR$/Pods/Target Support Files/Pods-LabelWise/Pods-LabelWise-frameworks-Release-output-files.xcfilelist" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pods/Target Support Files/Pods-LabelWise/Pods-LabelWise-frameworks.sh" beforeDir="false" afterPath="$PROJECT_DIR$/Pods/Target Support Files/Pods-LabelWise/Pods-LabelWise-frameworks.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pods/Target Support Files/Pods-LabelWise/Pods-LabelWise.debug.xcconfig" beforeDir="false" afterPath="$PROJECT_DIR$/Pods/Target Support Files/Pods-LabelWise/Pods-LabelWise.debug.xcconfig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pods/Target Support Files/Pods-LabelWise/Pods-LabelWise.release.xcconfig" beforeDir="false" afterPath="$PROJECT_DIR$/Pods/Target Support Files/Pods-LabelWise/Pods-LabelWise.release.xcconfig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Views/NutritionAnalysis/MacronutrientSection/MacronutrientSectionTextView.swift" beforeDir="false" afterPath="$PROJECT_DIR$/LabelWise/Views/NutritionAnalysis/MacronutrientSection/MacronutrientSectionTextView.swift" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,7 +105,8 @@
       <workItem from="1589771013934" duration="2678000" />
       <workItem from="1589776902580" duration="1386000" />
       <workItem from="1589816860494" duration="1717000" />
-      <workItem from="1589852698323" duration="1878000" />
+      <workItem from="1589852698323" duration="2068000" />
+      <workItem from="1589939392189" duration="3649000" />
     </task>
     <servers />
   </component>
@@ -142,17 +135,17 @@
       <screen x="0" y="23" width="1920" height="1000" />
     </state>
     <state x="686" y="121" key="VCS.ChangeListViewerDialog/-1440.23.1440.877/0.23.1920.1000@0.23.1920.1000" timestamp="1588913728220" />
-    <state x="-1119" y="184" width="1119" height="555" key="find.popup" timestamp="1589864733058">
+    <state x="-1119" y="184" width="1119" height="555" key="find.popup" timestamp="1589865227999">
       <screen x="-1440" y="23" width="1440" height="877" />
     </state>
-    <state x="-1119" y="184" width="1119" height="555" key="find.popup/-1440.23.1440.877/0.23.1920.1000@-1440.23.1440.877" timestamp="1589864733058" />
+    <state x="-1119" y="184" width="1119" height="555" key="find.popup/-1440.23.1440.877/0.23.1920.1000@-1440.23.1440.877" timestamp="1589865227999" />
     <state x="561" y="207" width="938" height="632" key="find.popup/-1440.23.1440.877/0.23.1920.1000@0.23.1920.1000" timestamp="1589821565081" />
     <state x="421" y="174" width="640" height="522" key="find.popup/0.23.1440.820@0.23.1440.820" timestamp="1589854906599" />
-    <state x="-1055" y="213" width="670" height="676" key="search.everywhere.popup" timestamp="1589863959341">
-      <screen x="-1440" y="23" width="1440" height="877" />
+    <state x="513" y="240" width="894" height="771" key="search.everywhere.popup" timestamp="1589985218960">
+      <screen x="0" y="23" width="1920" height="1000" />
     </state>
-    <state x="-1055" y="213" width="670" height="676" key="search.everywhere.popup/-1440.23.1440.877/0.23.1920.1000@-1440.23.1440.877" timestamp="1589863959341" />
-    <state x="513" y="240" width="894" height="771" key="search.everywhere.popup/-1440.23.1440.877/0.23.1920.1000@0.23.1920.1000" timestamp="1589817004496" />
+    <state x="-1055" y="213" width="670" height="676" key="search.everywhere.popup/-1440.23.1440.877/0.23.1920.1000@-1440.23.1440.877" timestamp="1589951165590" />
+    <state x="513" y="240" width="894" height="771" key="search.everywhere.popup/-1440.23.1440.877/0.23.1920.1000@0.23.1920.1000" timestamp="1589985218960" />
     <state x="385" y="201" width="671" height="633" key="search.everywhere.popup/0.23.1440.820@0.23.1440.820" timestamp="1589855002524" />
   </component>
   <component name="XDebuggerManager">

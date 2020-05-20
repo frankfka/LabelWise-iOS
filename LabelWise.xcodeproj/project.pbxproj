@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1152DB802474C995003A3CB0 /* IngredientInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1152DB7F2474C995003A3CB0 /* IngredientInfoView.swift */; };
 		11602DC924723CE10083AF17 /* AppConfig.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 11602DC824723CE10083AF17 /* AppConfig.xcconfig */; };
 		119F8AC9244A7D3C00BB173A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 119F8AC8244A7D3C00BB173A /* AppDelegate.swift */; };
 		119F8ACB244A7D3C00BB173A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 119F8ACA244A7D3C00BB173A /* SceneDelegate.swift */; };
@@ -66,20 +67,24 @@
 		9E04BBE1F7A26C04059E39C0 /* MacronutrientRings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B1E6AB256C2579ACCED4 /* MacronutrientRings.swift */; };
 		9E04BBF618B4CB82E3D5485A /* NutritionDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B03637D80DC9D780A544 /* NutritionDTO.swift */; };
 		9E04BBF80BA076C3A9EC5068 /* NutrientBreakdownBarChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04BD63E3C2FDD24234B3E1 /* NutrientBreakdownBarChartView.swift */; };
+		9E04BC297C33C0AECE5889E0 /* IngredientsDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04BC0D8E5AC4A7408AFCE6 /* IngredientsDTO.swift */; };
 		9E04BCC3EEE75ED7B1145E34 /* NutritionAnalysisResultsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04BFF475105AA282DE299B /* NutritionAnalysisResultsHeaderView.swift */; };
 		9E04BCDC9B6933E1272C8A81 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04BD0BD2943F4AA2F4CE11 /* Colors.swift */; };
 		9E04BDB288469E4904545F16 /* NutritionAnalysisResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B3961E453EE9F5A3C478 /* NutritionAnalysisResultsView.swift */; };
+		9E04BDB791C6B937A1EF31F9 /* CommonDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B1DC1497AA6800EFBB02 /* CommonDTO.swift */; };
 		9E04BDD0AD3BD484D8A02A88 /* MacronutrientDistributionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04BC5535836932B47DF1D1 /* MacronutrientDistributionView.swift */; };
 		9E04BDFDBD14EB8C69454694 /* Middleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04BA5464EDAC4587D221B5 /* Middleware.swift */; };
 		9E04BE08BA9E027F0F36D89A /* LabelScannerOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04BA3184E2DE61CB3F978B /* LabelScannerOverlayView.swift */; };
 		9E04BE1293934E79D5EF4EA8 /* PreviewUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B9362E437F4975BE9934 /* PreviewUtils.swift */; };
 		9E04BE9214400350B1BFB6DB /* StringUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B1A9C151D4086BDFFD1A /* StringUtils.swift */; };
+		9E04BEF4114AA2B5DCF12711 /* PreviewIngredientsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B561F69105E1F50F7945 /* PreviewIngredientsModels.swift */; };
 		9E04BEFCA615D5A621191621 /* MacronutrientSectionTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B3F8EA63E8BBC8FB0AB2 /* MacronutrientSectionTextView.swift */; };
 		9E04BFD9C72F1457D428174D /* Nutrition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04BE91B4AAE37E9D8B3F1E /* Nutrition.swift */; };
 		9E04BFE2FB40387B47CB3BDC /* Logging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B61BDB41D939BF20F08F /* Logging.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1152DB7F2474C995003A3CB0 /* IngredientInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientInfoView.swift; sourceTree = "<group>"; };
 		11602DC824723CE10083AF17 /* AppConfig.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = AppConfig.xcconfig; sourceTree = "<group>"; };
 		119F8AC5244A7D3B00BB173A /* LabelWise.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LabelWise.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		119F8AC8244A7D3C00BB173A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -94,6 +99,7 @@
 		9E04B1379328F410E4F17E6B /* NutritionAnalysisRootView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NutritionAnalysisRootView.swift; sourceTree = "<group>"; };
 		9E04B16BAD27AD65A32B1847 /* NutrientDescriptionTextRowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NutrientDescriptionTextRowView.swift; sourceTree = "<group>"; };
 		9E04B1A9C151D4086BDFFD1A /* StringUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringUtils.swift; sourceTree = "<group>"; };
+		9E04B1DC1497AA6800EFBB02 /* CommonDTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonDTO.swift; sourceTree = "<group>"; };
 		9E04B1E6AB256C2579ACCED4 /* MacronutrientRings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MacronutrientRings.swift; sourceTree = "<group>"; };
 		9E04B2493D89D67528381F3F /* Ring.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ring.swift; sourceTree = "<group>"; };
 		9E04B256AC44CE9A4EEEECCB /* FatsSectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FatsSectionView.swift; sourceTree = "<group>"; };
@@ -108,6 +114,7 @@
 		9E04B49BC11BE362B82E7120 /* LabelScannerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelScannerView.swift; sourceTree = "<group>"; };
 		9E04B4C4004F2C897A5E1869 /* Icons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Icons.swift; sourceTree = "<group>"; };
 		9E04B53ED0679A24D6991D53 /* AnalysisScrollViewHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalysisScrollViewHelpers.swift; sourceTree = "<group>"; };
+		9E04B561F69105E1F50F7945 /* PreviewIngredientsModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewIngredientsModels.swift; sourceTree = "<group>"; };
 		9E04B580BB85ECB0F4CEE2CF /* AnalysisScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalysisScrollView.swift; sourceTree = "<group>"; };
 		9E04B59AF0108506D62C0D19 /* LabelScannerOverlayHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelScannerOverlayHeaderView.swift; sourceTree = "<group>"; };
 		9E04B61BDB41D939BF20F08F /* Logging.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logging.swift; sourceTree = "<group>"; };
@@ -134,6 +141,7 @@
 		9E04BB1655737F6309127E0E /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		9E04BB5D5B71B278CD02BFD5 /* SwiftUI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftUI.swift; sourceTree = "<group>"; };
 		9E04BBD579FBAACE5F8070E4 /* PercentageRing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PercentageRing.swift; sourceTree = "<group>"; };
+		9E04BC0D8E5AC4A7408AFCE6 /* IngredientsDTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IngredientsDTO.swift; sourceTree = "<group>"; };
 		9E04BC1D4777745317A8B0DB /* InsightsSectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InsightsSectionView.swift; sourceTree = "<group>"; };
 		9E04BC5535836932B47DF1D1 /* MacronutrientDistributionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MacronutrientDistributionView.swift; sourceTree = "<group>"; };
 		9E04BC720873423804A1A199 /* NutritionViewUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NutritionViewUtils.swift; sourceTree = "<group>"; };
@@ -174,6 +182,14 @@
 				FBB96129287D3E7C9C1E8B9C /* Pods_LabelWise.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1152DB7E2474C921003A3CB0 /* IngredientsAnalysis */ = {
+			isa = PBXGroup;
+			children = (
+				1152DB7F2474C995003A3CB0 /* IngredientInfoView.swift */,
+			);
+			path = IngredientsAnalysis;
 			sourceTree = "<group>";
 		};
 		119F8ABC244A7D3B00BB173A = {
@@ -221,6 +237,7 @@
 				9E04B3D769B65F5EF259181D /* PreviewNutritionModels.swift */,
 				9E04BE97221A3328813B0FB5 /* MockLabelAnalysisService.swift */,
 				9E04BF04A3540E93A3AD845B /* PreviewImages.swift */,
+				9E04B561F69105E1F50F7945 /* PreviewIngredientsModels.swift */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -379,6 +396,7 @@
 		9E04BB5B5D52ED865F6E2DB4 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				1152DB7E2474C921003A3CB0 /* IngredientsAnalysis */,
 				9E04B7EA98B80112E94F96E8 /* Charts */,
 				9E04BCA5B1565CEBC3709FFC /* LabelScanner */,
 				9E04B6F1DB671C5F2C36D25C /* Camera */,
@@ -444,6 +462,8 @@
 			isa = PBXGroup;
 			children = (
 				9E04B03637D80DC9D780A544 /* NutritionDTO.swift */,
+				9E04BC0D8E5AC4A7408AFCE6 /* IngredientsDTO.swift */,
+				9E04B1DC1497AA6800EFBB02 /* CommonDTO.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -607,6 +627,7 @@
 				9E04B4B64D7E6A6C9AB5D79D /* CommonViewModels.swift in Sources */,
 				9E04BBC8CAFDB08DD6B088EE /* SegmentedPicker.swift in Sources */,
 				9E04B1B2B0CD96DA6DCDCE10 /* LoadingIndicator.swift in Sources */,
+				1152DB802474C995003A3CB0 /* IngredientInfoView.swift in Sources */,
 				9E04B4542D206920236CA88B /* LoadingViews.swift in Sources */,
 				9E04B9626A446388E0809433 /* ErrorViews.swift in Sources */,
 				9E04B102898D491DD9BEB166 /* ButtonViews.swift in Sources */,
@@ -637,6 +658,9 @@
 				9E04B25BC4427AF1CB0B9BF5 /* AppViewModel.swift in Sources */,
 				9E04B643A9CDE841543789DC /* Config.swift in Sources */,
 				9E04BAC13AD1F4DC87463BD1 /* AppDelegate+Injection.swift in Sources */,
+				9E04BC297C33C0AECE5889E0 /* IngredientsDTO.swift in Sources */,
+				9E04BDB791C6B937A1EF31F9 /* CommonDTO.swift in Sources */,
+				9E04BEF4114AA2B5DCF12711 /* PreviewIngredientsModels.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

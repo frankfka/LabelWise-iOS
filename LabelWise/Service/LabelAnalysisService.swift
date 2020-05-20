@@ -9,14 +9,21 @@ import Alamofire
 
 protocol LabelAnalysisService {
     func analyzeNutrition(base64Image: String) -> ServicePublisher<AnalyzeNutritionResponseDTO>
+    func analyzeIngredients(base64Image: String) -> ServicePublisher<AnalyzeIngredientsResponseDTO>
 }
 
 class LabelAnalysisServiceImpl: LabelAnalysisService {
     private let apiKey: String
     private let baseUrl: String
-    private var nutritionImageUrl: String { self.baseUrl + "/nutrition/image" }
-    private var ingredientsImageUrl: String { self.baseUrl + "/ingredients/image" }
-    private var authHeaders: HTTPHeaders { ["X-API-Key": self.apiKey] }
+    private var nutritionImageUrl: String {
+        self.baseUrl + "/nutrition/image"
+    }
+    private var ingredientsImageUrl: String {
+        self.baseUrl + "/ingredients/image"
+    }
+    private var authHeaders: HTTPHeaders {
+        ["X-API-Key": self.apiKey]
+    }
 
     init(config: Configuration) {
         self.baseUrl = config.serviceBaseUrl
@@ -31,11 +38,16 @@ class LabelAnalysisServiceImpl: LabelAnalysisService {
         }.eraseToAnyPublisher()
     }
 
+    func analyzeIngredients(base64Image: String) -> ServicePublisher<AnalyzeIngredientsResponseDTO> {
+        ServiceFuture<AnalyzeIngredientsResponseDTO> { promise in
+            self.analyzeIngredients(base64Image: base64Image) { result in
+                promise(result)
+            }
+        }.eraseToAnyPublisher()
+    }
+
     private func analyzeNutrition(base64Image: String, onComplete: @escaping ServiceCallback<AnalyzeNutritionResponseDTO>) {
-        let requestParams = AnalyzeNutritionRequestDTO(
-            type: .nutrition,
-            base64Image: base64Image
-        )
+        let requestParams = AnalysisRequestDTO(type: .nutrition, base64Image: base64Image)
         AF.request(self.nutritionImageUrl, method: .post,
                         parameters: requestParams, encoder: JSONParameterEncoder.default, headers: self.authHeaders)
                 .responseDecodable(of: AnalyzeNutritionResponseDTO.self) { response in
@@ -47,4 +59,19 @@ class LabelAnalysisServiceImpl: LabelAnalysisService {
                     }
                 }
     }
+
+    private func analyzeIngredients(base64Image: String, onComplete: @escaping ServiceCallback<AnalyzeIngredientsResponseDTO>) {
+        let requestParams = AnalysisRequestDTO(type: .ingredients, base64Image: base64Image)
+        AF.request(self.ingredientsImageUrl, method: .post,
+                        parameters: requestParams, encoder: JSONParameterEncoder.default, headers: self.authHeaders)
+                .responseDecodable(of: AnalyzeIngredientsResponseDTO.self) { response in
+                    switch response.result {
+                    case let .success(result):
+                        onComplete(.success(result))
+                    case let .failure(error):
+                        onComplete(.failure(AppError("Error analyzing ingredients", wrappedError: error)))
+                    }
+                }
+    }
+
 }

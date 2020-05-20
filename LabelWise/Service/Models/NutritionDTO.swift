@@ -5,19 +5,7 @@
 
 import Foundation
 
-// MARK: Request
-struct AnalyzeNutritionRequestDTO {
-    let type: AnalyzeType
-    let base64Image: String
-}
-extension AnalyzeNutritionRequestDTO: Codable {
-    enum CodingKeys: String, CodingKey {
-        case type = "type"
-        case base64Image = "b64_img"
-    }
-}
 
-// MARK: Response
 struct AnalyzeNutritionResponseDTO {
     enum Status: String, Codable {
         case complete = "COMPLETE"
