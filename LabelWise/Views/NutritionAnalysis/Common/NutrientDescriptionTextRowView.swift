@@ -31,15 +31,15 @@ struct NutrientDescriptionTextRowView: View {
     var body: some View {
         HStack(alignment: .bottom, spacing: 0) {
             Text(amount)
-                .withStyle(font: NutrientDescriptionTextRowView.AmountTextFont, color: NutrientDescriptionTextRowView.AmountTextColor)
+                .withAppStyle(font: NutrientDescriptionTextRowView.AmountTextFont, color: NutrientDescriptionTextRowView.AmountTextColor)
                 .singleLine()
                 .padding(.trailing, NutrientDescriptionTextRowView.AmountTextSeparation)
             Text(name)
-                .withStyle(font: NutrientDescriptionTextRowView.NutrientNameFont, color: indicatorColor)
+                .withAppStyle(font: NutrientDescriptionTextRowView.NutrientNameFont, color: indicatorColor)
                 .singleLine()
             Spacer(minLength: CGFloat.App.Layout.Padding)
             Text(dv)
-                .withStyle(font: NutrientDescriptionTextRowView.DVFont, color: NutrientDescriptionTextRowView.DVColor)
+                .withAppStyle(font: NutrientDescriptionTextRowView.DVFont, color: NutrientDescriptionTextRowView.DVColor)
                 .singleLine()
         }
     }

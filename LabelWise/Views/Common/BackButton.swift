@@ -33,7 +33,7 @@ struct BackButton: View {
                 .frame(width: BackButton.IconSize, height: BackButton.IconSize)
                 .foregroundColor(self.contentColor)
             Text(self.text)
-                .withStyle(font: BackButton.TextFont, color: self.contentColor)
+                .withAppStyle(font: BackButton.TextFont, color: self.contentColor)
         }
         // Don't pad leading for easier layout
         .padding(.vertical, BackButton.TappableAreaPadding)

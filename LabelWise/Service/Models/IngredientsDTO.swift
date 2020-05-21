@@ -34,6 +34,7 @@ extension AnalyzedIngredientDTO: Codable {
 // Warnings for a particular ingredient
 struct IngredientInsightDTO {
     enum InsightType: Int, Codable {
+        // TODO: should probably rename this to cautionWarning and severeWarning
         case none = 0
         case positive = 1
         case cautionWarn = -1

@@ -59,7 +59,7 @@ struct FullScreenLoadingView: View {
                     .frame(width: FullScreenLoadingView.IndicatorSize, height: FullScreenLoadingView.IndicatorSize)
                 if !self.loadingText.isEmpty {
                     Text(self.loadingText)
-                        .withStyle(font: FullScreenLoadingView.TextFont, color: FullScreenLoadingView.TextColor)
+                        .withAppStyle(font: FullScreenLoadingView.TextFont, color: FullScreenLoadingView.TextColor)
                 }
             }.offset(x: 0, y: indicatorYOffset)
             Spacer()

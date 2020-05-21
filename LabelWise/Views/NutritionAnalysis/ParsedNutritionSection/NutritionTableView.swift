@@ -65,18 +65,18 @@ struct NutritionTableRow: View {
     var body: some View {
         HStack(spacing: 0) {
             Text(self.viewModel.label)
-                .withStyle(font: self.viewModel.rowType.labelFont, color: self.viewModel.rowType.textColor)
+                .withAppStyle(font: self.viewModel.rowType.labelFont, color: self.viewModel.rowType.textColor)
                 .conditionalModifier(self.viewModel.rowType == .secondary) {
                     $0.padding(.leading, NutritionTableRow.SecondaryHorizontalPadding)
                 }
             self.viewModel.dailyValue.map {
                 Text($0)
-                    .withStyle(font: NutritionTableRow.DailyValueFont, color: NutritionTableRow.DailyValueColor)
+                    .withAppStyle(font: NutritionTableRow.DailyValueFont, color: NutritionTableRow.DailyValueColor)
                     .padding(.leading, NutritionTableRow.DailyValueLeadingPadding)
                 }
             Spacer()
             Text(self.viewModel.value)
-                .withStyle(font: NutritionTableRow.ValueFont, color: self.viewModel.rowType.textColor)
+                .withAppStyle(font: NutritionTableRow.ValueFont, color: self.viewModel.rowType.textColor)
         }
         .padding(.horizontal, NutritionTableRow.HorizontalPadding)
         .padding(.vertical, NutritionTableRow.VerticalPadding)

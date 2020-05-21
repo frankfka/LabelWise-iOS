@@ -13,8 +13,6 @@ struct NutritionAnalysisResultsHeaderView: View {
     private static let CaloriesNumericalFont: Font = Font.App.Heading
     private static let CaloriesDescriptionFont: Font = Font.App.LargeText
     private static let NumInsightsFont: Font = Font.App.LargeText
-    private static let PositiveIcon: Image = Image.App.CheckmarkCircle
-    private static let CautionIcon: Image = Image.App.ExclamationMarkCircle
     private static let ElementColor: Color = Color.App.White
     private static let CalorieTextSpacing: CGFloat = CGFloat.App.Layout.SmallestPadding
     private static let CalorieSectionBottomPadding: CGFloat = CGFloat.App.Layout.SmallPadding
@@ -35,10 +33,10 @@ struct NutritionAnalysisResultsHeaderView: View {
             HStack(alignment: .bottom, spacing: NutritionAnalysisResultsHeaderView.CalorieTextSpacing) {
                 Spacer()
                 Text(self.viewModel.caloriesText)
-                    .withStyle(font: NutritionAnalysisResultsHeaderView.CaloriesNumericalFont,
+                    .withAppStyle(font: NutritionAnalysisResultsHeaderView.CaloriesNumericalFont,
                             color: NutritionAnalysisResultsHeaderView.ElementColor)
                 Text("cals")
-                    .withStyle(font: NutritionAnalysisResultsHeaderView.CaloriesDescriptionFont,
+                    .withAppStyle(font: NutritionAnalysisResultsHeaderView.CaloriesDescriptionFont,
                             color: NutritionAnalysisResultsHeaderView.ElementColor)
                     // Custom alignment guide so it looks more aligned
                     .alignmentGuide(.bottom) { d in d[.bottom] + 4 }
@@ -57,6 +55,9 @@ struct NutritionAnalysisResultsHeaderView: View {
 
 extension NutritionAnalysisResultsHeaderView {
     struct ViewModel {
+        private static let PositiveIcon: Image = Image.App.CheckmarkCircle
+        private static let CautionIcon: Image = Image.App.ExclamationMarkCircle
+
         // Root data
         private let insights: [NutritionInsightDTO]
         private let nutrition: Nutrition
@@ -104,9 +105,7 @@ extension NutritionAnalysisResultsHeaderView {
         }
         var numInsightsTextViewVm: AnalysisIconTextView.ViewModel? {
             numInsightsText.map {
-                let icon = self.hasWarnings ?
-                    NutritionAnalysisResultsHeaderView.CautionIcon :
-                    NutritionAnalysisResultsHeaderView.PositiveIcon
+                let icon = self.hasWarnings ? ViewModel.CautionIcon : ViewModel.PositiveIcon
                 return AnalysisIconTextView.ViewModel(
                     text: $0,
                     icon: icon,
@@ -120,10 +119,10 @@ extension NutritionAnalysisResultsHeaderView {
             let icon: Image
             if self.parseStatus == .complete {
                 text = "Parsed complete nutritional profile"
-                icon = NutritionAnalysisResultsHeaderView.PositiveIcon
+                icon = ViewModel.PositiveIcon
             } else {
                 text = "Nutritional information is incomplete"
-                icon = NutritionAnalysisResultsHeaderView.CautionIcon
+                icon = ViewModel.CautionIcon
             }
             return AnalysisIconTextView.ViewModel(
                 text: text,

@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1152DB802474C995003A3CB0 /* IngredientInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1152DB7F2474C995003A3CB0 /* IngredientInfoView.swift */; };
+		1152DB802474C995003A3CB0 /* IngredientInfoBodyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1152DB7F2474C995003A3CB0 /* IngredientInfoBodyView.swift */; };
+		1152DB822476CD58003A3CB0 /* IngredientInfoItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1152DB812476CD58003A3CB0 /* IngredientInfoItemView.swift */; };
 		11602DC924723CE10083AF17 /* AppConfig.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 11602DC824723CE10083AF17 /* AppConfig.xcconfig */; };
 		119F8AC9244A7D3C00BB173A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 119F8AC8244A7D3C00BB173A /* AppDelegate.swift */; };
 		119F8ACB244A7D3C00BB173A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 119F8ACA244A7D3C00BB173A /* SceneDelegate.swift */; };
@@ -62,6 +63,7 @@
 		9E04BAC13AD1F4DC87463BD1 /* AppDelegate+Injection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B76AA8A1AE047D53C0F4 /* AppDelegate+Injection.swift */; };
 		9E04BB25BD69C38890EFBDA4 /* Ring.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B2493D89D67528381F3F /* Ring.swift */; };
 		9E04BB67631DA20D89434EBB /* MockLabelAnalysisService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04BE97221A3328813B0FB5 /* MockLabelAnalysisService.swift */; };
+		9E04BB832388A313200067C8 /* IngredientSummaryRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B94CDF1CAA301BE0891E /* IngredientSummaryRowView.swift */; };
 		9E04BBC8CAFDB08DD6B088EE /* SegmentedPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B38F7443F9ADB9812F52 /* SegmentedPicker.swift */; };
 		9E04BBD1087E042AC5325EC4 /* LabelScannerOverlayHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B59AF0108506D62C0D19 /* LabelScannerOverlayHeaderView.swift */; };
 		9E04BBD795334AC0BBB0C4A5 /* Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B871BED1E591F3F08FFA /* Combine.swift */; };
@@ -85,7 +87,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1152DB7F2474C995003A3CB0 /* IngredientInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientInfoView.swift; sourceTree = "<group>"; };
+		1152DB7F2474C995003A3CB0 /* IngredientInfoBodyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientInfoBodyView.swift; sourceTree = "<group>"; };
+		1152DB812476CD58003A3CB0 /* IngredientInfoItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientInfoItemView.swift; sourceTree = "<group>"; };
 		11602DC824723CE10083AF17 /* AppConfig.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = AppConfig.xcconfig; sourceTree = "<group>"; };
 		119F8AC5244A7D3B00BB173A /* LabelWise.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LabelWise.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		119F8AC8244A7D3C00BB173A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -132,6 +135,7 @@
 		9E04B8E683A9522D32575D6F /* ErrorViews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorViews.swift; sourceTree = "<group>"; };
 		9E04B9362E437F4975BE9934 /* PreviewUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewUtils.swift; sourceTree = "<group>"; };
 		9E04B93A22C0F9C24901675C /* LabelScannerOverlayFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelScannerOverlayFooterView.swift; sourceTree = "<group>"; };
+		9E04B94CDF1CAA301BE0891E /* IngredientSummaryRowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IngredientSummaryRowView.swift; sourceTree = "<group>"; };
 		9E04BA1F20B00F6B13B7DC32 /* AppView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppView.swift; sourceTree = "<group>"; };
 		9E04BA3184E2DE61CB3F978B /* LabelScannerOverlayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelScannerOverlayView.swift; sourceTree = "<group>"; };
 		9E04BA5464EDAC4587D221B5 /* Middleware.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Middleware.swift; sourceTree = "<group>"; };
@@ -189,7 +193,9 @@
 		1152DB7E2474C921003A3CB0 /* IngredientsAnalysis */ = {
 			isa = PBXGroup;
 			children = (
-				1152DB7F2474C995003A3CB0 /* IngredientInfoView.swift */,
+				1152DB7F2474C995003A3CB0 /* IngredientInfoBodyView.swift */,
+				9E04B94CDF1CAA301BE0891E /* IngredientSummaryRowView.swift */,
+				1152DB812476CD58003A3CB0 /* IngredientInfoItemView.swift */,
 			);
 			path = IngredientsAnalysis;
 			sourceTree = "<group>";
@@ -630,7 +636,7 @@
 				9E04B4B64D7E6A6C9AB5D79D /* CommonViewModels.swift in Sources */,
 				9E04BBC8CAFDB08DD6B088EE /* SegmentedPicker.swift in Sources */,
 				9E04B1B2B0CD96DA6DCDCE10 /* LoadingIndicator.swift in Sources */,
-				1152DB802474C995003A3CB0 /* IngredientInfoView.swift in Sources */,
+				1152DB802474C995003A3CB0 /* IngredientInfoBodyView.swift in Sources */,
 				9E04B4542D206920236CA88B /* LoadingViews.swift in Sources */,
 				9E04B9626A446388E0809433 /* ErrorViews.swift in Sources */,
 				9E04B102898D491DD9BEB166 /* ButtonViews.swift in Sources */,
@@ -665,6 +671,8 @@
 				9E04BDB791C6B937A1EF31F9 /* CommonDTO.swift in Sources */,
 				9E04BEF4114AA2B5DCF12711 /* PreviewIngredientsModels.swift in Sources */,
 				9E04B89D848CC03E91224AA1 /* RoundedRectangle.swift in Sources */,
+				1152DB822476CD58003A3CB0 /* IngredientInfoItemView.swift in Sources */,
+				9E04BB832388A313200067C8 /* IngredientSummaryRowView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

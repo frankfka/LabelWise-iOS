@@ -32,7 +32,7 @@ struct RoundedRectangleTextButton: View {
     var body: some View {
         Button(action: self.onTap ?? {}) {
             Text(self.text)
-                .withStyle(font: RoundedRectangleTextButton.ButtonFont, color: self.textColor)
+                .withAppStyle(font: RoundedRectangleTextButton.ButtonFont, color: self.textColor)
                 .padding(.vertical, RoundedRectangleTextButton.VerticalPadding)
                 .padding(.horizontal, RoundedRectangleTextButton.HorizontalPadding)
         }

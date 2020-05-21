@@ -110,7 +110,7 @@ struct SegmentedPicker: View {
         return
             Text(self.viewModel.items[index])
                 // Dark test for selected segment
-                .withStyle(font: SegmentedPicker.TextFont,
+                .withAppStyle(font: SegmentedPicker.TextFont,
                            color: isSelected ? SegmentedPicker.SelectedTextColor: SegmentedPicker.TextColor)
                 .singleLine()
                 .padding(.vertical, SegmentedPicker.SegmentYPadding)

@@ -26,7 +26,7 @@ struct AnalysisIconTextView: View {
                 .frame(width: AnalysisIconTextView.IconSize, height: AnalysisIconTextView.IconSize)
                 .foregroundColor(self.viewModel.color)
             Text(self.viewModel.text)
-                .withStyle(font: AnalysisIconTextView.TextFont, color: self.viewModel.color)
+                .withAppStyle(font: AnalysisIconTextView.TextFont, color: self.viewModel.color)
                 .multiline()
         }
     }

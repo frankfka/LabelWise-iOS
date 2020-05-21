@@ -47,7 +47,7 @@ struct AnalysisSectionModifier: ViewModifier {
             HStack {
                 self.title.map {
                     Text($0)
-                        .withStyle(font: AnalysisSectionModifier.TitleFont, color: AnalysisSectionModifier.TitleColor)
+                        .withAppStyle(font: AnalysisSectionModifier.TitleFont, color: AnalysisSectionModifier.TitleColor)
                         .padding(.bottom, AnalysisSectionModifier.TitleBottomPadding)
                 }
                 Spacer()

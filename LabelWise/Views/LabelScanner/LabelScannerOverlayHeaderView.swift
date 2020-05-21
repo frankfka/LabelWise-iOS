@@ -30,7 +30,7 @@ struct LabelScannerOverlayHeaderView: View {
         HStack {
             Spacer(minLength: LabelScannerOverlayHeaderView.MinSpacerLength)
             Text("Place label within the view")
-                .withStyle(font: LabelScannerOverlayHeaderView.HelpTextFont, color: LabelScannerOverlayHeaderView.HelpTextColor)
+                .withAppStyle(font: LabelScannerOverlayHeaderView.HelpTextFont, color: LabelScannerOverlayHeaderView.HelpTextColor)
                 .multiline()
                 .multilineTextAlignment(.center)
                 // Center the text

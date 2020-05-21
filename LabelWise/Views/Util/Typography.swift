@@ -17,7 +17,7 @@ extension Font {
 }
 
 extension Text {
-    func withStyle(font: Font = Font.App.NormalText, color: Color = Color.App.SecondaryText) -> Text {
+    func withAppStyle(font: Font = Font.App.NormalText, color: Color = Color.App.Text) -> Text {
         return self
             .font(font)
             .foregroundColor(color)

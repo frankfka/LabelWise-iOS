@@ -128,7 +128,7 @@ struct AnalysisScrollView_Previews: PreviewProvider {
     static private var PlaceholderHeader: some View {
         VStack {
             Text("Example Header")
-                .withStyle(font: Font.App.LargeText, color: Color.App.White)
+                .withAppStyle(font: Font.App.LargeText, color: Color.App.White)
         }
     }
     

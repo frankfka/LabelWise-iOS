@@ -14,7 +14,7 @@ struct ShowHideNutritionButtonView: View {
     private static let ButtonFont: Font = Font.App.NormalText
     private static let ButtonContentColor: Color = Color.App.Text
     private static let IconSize: CGFloat = CGFloat.App.Icon.ExtraSmallIcon
-    private static let AnimationDuration: Double = 0.2
+    private static let ExpansionAnimationDuration: Double = 0.2
     
     private let isExpanded: Binding<Bool>
     
@@ -26,7 +26,7 @@ struct ShowHideNutritionButtonView: View {
         Button(action: self.onTap) {
             HStack(spacing: ShowHideNutritionButtonView.ContentSpacing) {
                 Text(self.isExpanded.wrappedValue ? "Hide Nutritional Info" : "Show Nutritional Info")
-                    .withStyle(
+                    .withAppStyle(
                         font: ShowHideNutritionButtonView.ButtonFont,
                         color: ShowHideNutritionButtonView.ButtonContentColor
                     )
@@ -39,7 +39,7 @@ struct ShowHideNutritionButtonView: View {
                     )
                     .foregroundColor(ShowHideNutritionButtonView.ButtonContentColor)
                     .rotationEffect(.degrees(self.isExpanded.wrappedValue ? 90 : 0))
-                    .animation(.easeOut(duration: ShowHideNutritionButtonView.AnimationDuration))
+                    .animation(.easeOut(duration: ShowHideNutritionButtonView.ExpansionAnimationDuration))
             }
         }
     }

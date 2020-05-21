@@ -40,10 +40,10 @@ struct ErrorDialogView: View {
                 .foregroundColor(ErrorDialogView.ErrorIconColor)
             VStack(spacing: ErrorDialogView.TextPadding) {
                 Text(self.errorTitle)
-                    .withStyle(font: ErrorDialogView.ErrorHeaderFont, color: ErrorDialogView.ErrorHeaderTextColor)
+                    .withAppStyle(font: ErrorDialogView.ErrorHeaderFont, color: ErrorDialogView.ErrorHeaderTextColor)
                     .singleLine()
                 Text(self.errorMessage)
-                    .withStyle(font: ErrorDialogView.ErrorMessageFont, color: ErrorDialogView.ErrorMessageTextColor)
+                    .withAppStyle(font: ErrorDialogView.ErrorMessageFont, color: ErrorDialogView.ErrorMessageTextColor)
                     .multiline()
                     .multilineTextAlignment(.center)
             }
