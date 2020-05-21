@@ -49,8 +49,7 @@ struct SegmentedPicker: View {
     private static let SelectedTextColor: Color = Color.App.Text
 
     private static let TextFont: Font = Font.App.SmallText
-    
-    private static let SegmentCornerRadius: CGFloat = CGFloat.App.Layout.CornerRadius
+
     private static let ShadowRadius: CGFloat = CGFloat.App.Layout.ShadowRadius
     private static let SegmentXPadding: CGFloat = CGFloat.App.Layout.Padding
     private static let SegmentYPadding: CGFloat = CGFloat.App.Layout.SmallPadding
@@ -68,7 +67,7 @@ struct SegmentedPicker: View {
         let isInitialized: Bool = segmentSize != .zero
         if !isInitialized { return EmptyView().eraseToAnyView() }
         return
-            RoundedRectangle(cornerRadius: SegmentedPicker.SegmentCornerRadius)
+            RoundedRectangle.Standard
                 .foregroundColor(SegmentedPicker.ActiveSegmentColor)
                 .shadow(color: SegmentedPicker.ShadowColor, radius: SegmentedPicker.ShadowRadius)
                 .frame(width: self.segmentSize.width, height: self.segmentSize.height)
@@ -94,7 +93,7 @@ struct SegmentedPicker: View {
         }
         .padding(SegmentedPicker.PickerPadding)
         .background(SegmentedPicker.BackgroundColor)
-        .clipShape(RoundedRectangle(cornerRadius: SegmentedPicker.SegmentCornerRadius))
+        .clipShape(RoundedRectangle.Standard)
     }
 
     // Helper method to compute the offset based on the selected index

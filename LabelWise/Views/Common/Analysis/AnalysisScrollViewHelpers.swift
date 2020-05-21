@@ -30,7 +30,7 @@ struct AnalysisSectionModifier: ViewModifier {
     private static let TitleBottomPadding: CGFloat = CGFloat.App.Layout.Padding
     private static let SectionInsetPadding: CGFloat = CGFloat.App.Layout.Padding
     private static let Background: some View = {
-        RoundedRectangle(cornerRadius: CGFloat.App.Layout.CornerRadius)
+        RoundedRectangle.Standard
             .foregroundColor(Color.App.BackgroundSecondaryFillColor)
             .shadow(color: Color.App.Shadow, radius: 8, x: 0, y: 8)
     }()

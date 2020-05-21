@@ -8,80 +8,70 @@
 
 import SwiftUI
 
-// MARK: Main view
+// MARK: View
 struct AnalysisIconTextView: View {
     private static let IconSize: CGFloat = CGFloat.App.Icon.ExtraSmallIcon
     private static let TextFont: Font = Font.App.NormalText
     
-    private let text: String
-    private let type: TextType
-    private let customColor: Color?
-
-    private var icon: Image {
-        self.type.getIcon()
-    }
-    private var color: Color {
-        self.customColor ?? self.type.getColor()
-    }
+    private let viewModel: ViewModel
     
-    init(text: String, type: TextType, customColor: Color? = nil) {
-        self.text = text
-        self.type = type
-        self.customColor = customColor
+    init(vm: ViewModel) {
+        self.viewModel = vm
     }
     
     var body: some View {
         HStack(alignment: .center) {
-            self.icon
+            self.viewModel.icon
                 .resizable()
                 .frame(width: AnalysisIconTextView.IconSize, height: AnalysisIconTextView.IconSize)
-                .foregroundColor(self.color)
-            Text(self.text)
-                .withStyle(font: AnalysisIconTextView.TextFont, color: self.color)
+                .foregroundColor(self.viewModel.color)
+            Text(self.viewModel.text)
+                .withStyle(font: AnalysisIconTextView.TextFont, color: self.viewModel.color)
                 .multiline()
         }
     }
 }
-// MARK: Icon text type
+// MARK: View Model
 extension AnalysisIconTextView {
-    enum TextType {
-        case positive
-        case cautionWarning
-        case severeWarning
-        
-        func getIcon() -> Image {
-            switch self {
-            case .positive:
-                return Image.App.CheckmarkCircle
-            case .cautionWarning:
-                return Image.App.ExclamationMarkCircle
-            case .severeWarning:
-                return Image.App.XMarkCircle
-            }
-        }
-        
-        func getColor() -> Color {
-            switch self {
-            case .positive:
-                return Color.App.AppGreen
-            case .cautionWarning:
-                return Color.App.AppYellow
-            case .severeWarning:
-                return Color.App.AppRed
-            }
+    struct ViewModel {
+        let text: String
+        let icon: Image
+        let color: Color
+
+        init(text: String, icon: Image, color: Color) {
+            self.text = text
+            self.icon = icon
+            self.color = color
         }
     }
 }
 
 struct AnalysisIconTextView_Previews: PreviewProvider {
+
+    private static let positiveVm = AnalysisIconTextView.ViewModel(
+        text: "Positive Text",
+        icon: Image.App.CheckmarkCircle,
+        color: Color.App.AppGreen
+    )
+
+    private static let cautionVm = AnalysisIconTextView.ViewModel(
+        text: "Caution Text",
+        icon: Image.App.ExclamationMarkCircle,
+        color: Color.App.AppYellow
+    )
+
+    private static let severeVm = AnalysisIconTextView.ViewModel(
+        text: "Severe Warning Text On Multiple Lines",
+        icon: Image.App.XMarkCircle,
+        color: Color.App.AppRed
+    )
+
     static var previews: some View {
         ColorSchemePreview {
             VStack(alignment: .leading) {
-                AnalysisIconTextView(text: "Positive Text", type: .positive)
-                
-                AnalysisIconTextView(text: "Warning Text", type: .cautionWarning)
-                
-                AnalysisIconTextView(text: "Severe Warning Text On Multiple Lines", type: .severeWarning)
+                AnalysisIconTextView(vm: positiveVm)
+                AnalysisIconTextView(vm: cautionVm)
+                AnalysisIconTextView(vm: severeVm)
             }
             .frame(width: 200)
             .padding()

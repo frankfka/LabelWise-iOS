@@ -27,7 +27,6 @@ extension LabelScannerOverlayView {
 
 // MARK: View
 struct LabelScannerOverlayView: View {
-    private static let ViewFinderCornerRadius: CGFloat = CGFloat.App.Layout.CornerRadius
     private static let ViewFinderRelativeWidth: CGFloat = 0.8
     private static var ViewFinderRelativeWidthPadding: CGFloat {
         (1.0 - ViewFinderRelativeWidth) / 2
@@ -82,7 +81,7 @@ struct LabelScannerOverlayView: View {
         let cutoutRect = CGRect(x: parentSize.width * LabelScannerOverlayView.ViewFinderRelativeWidthPadding, y: 0,
                                 width: parentSize.width * LabelScannerOverlayView.ViewFinderRelativeWidth, height: parentSize.height)
         var shape = Rectangle().path(in: parentRect)
-        shape.addPath(RoundedRectangle(cornerRadius: LabelScannerOverlayView.ViewFinderCornerRadius).path(in: cutoutRect))
+        shape.addPath(RoundedRectangle.Standard.path(in: cutoutRect))
         return shape
     }
 }

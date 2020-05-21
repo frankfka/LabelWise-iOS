@@ -13,6 +13,8 @@ struct NutritionAnalysisResultsHeaderView: View {
     private static let CaloriesNumericalFont: Font = Font.App.Heading
     private static let CaloriesDescriptionFont: Font = Font.App.LargeText
     private static let NumInsightsFont: Font = Font.App.LargeText
+    private static let PositiveIcon: Image = Image.App.CheckmarkCircle
+    private static let CautionIcon: Image = Image.App.ExclamationMarkCircle
     private static let ElementColor: Color = Color.App.White
     private static let CalorieTextSpacing: CGFloat = CGFloat.App.Layout.SmallestPadding
     private static let CalorieSectionBottomPadding: CGFloat = CGFloat.App.Layout.SmallPadding
@@ -43,17 +45,9 @@ struct NutritionAnalysisResultsHeaderView: View {
                 Spacer()
             }
             .padding(.bottom, NutritionAnalysisResultsHeaderView.CalorieSectionBottomPadding)
-            AnalysisIconTextView(
-                text: self.viewModel.parseResultText,
-                type: self.viewModel.didParseAll ? .positive : .cautionWarning,
-                customColor: NutritionAnalysisResultsHeaderView.ElementColor
-            )
-            self.viewModel.numInsightsText.map {
-                AnalysisIconTextView(
-                    text: $0,
-                    type: self.viewModel.hasWarnings ? .cautionWarning : .positive,
-                    customColor: NutritionAnalysisResultsHeaderView.ElementColor
-                )
+            AnalysisIconTextView(vm: self.viewModel.parseResultTextViewVm)
+            self.viewModel.numInsightsTextViewVm.map {
+                AnalysisIconTextView(vm: $0)
             }
         }
         .fillWidth()
@@ -95,7 +89,8 @@ extension NutritionAnalysisResultsHeaderView {
             }
             return StringFormatters.NoNumberPlaceholderText
         }
-        var numInsightsText: String? {
+        // Shown if we have returned insights
+        private var numInsightsText: String? {
             let numInsights = insights.count
             if numInsights > 0 {
                 let numWarnings = numCautionWarnings + numSevereWarnings
@@ -107,9 +102,34 @@ extension NutritionAnalysisResultsHeaderView {
             }
             return nil
         }
-        var didParseAll: Bool { parseStatus == .complete }
-        var parseResultText: String {
-            didParseAll ? "Parsed complete nutritional profile" : "Nutritional information is incomplete"
+        var numInsightsTextViewVm: AnalysisIconTextView.ViewModel? {
+            numInsightsText.map {
+                let icon = self.hasWarnings ?
+                    NutritionAnalysisResultsHeaderView.CautionIcon :
+                    NutritionAnalysisResultsHeaderView.PositiveIcon
+                return AnalysisIconTextView.ViewModel(
+                    text: $0,
+                    icon: icon,
+                    color: NutritionAnalysisResultsHeaderView.ElementColor
+                )
+            }
+        }
+        // Shows the status of the nutrition parsing
+        var parseResultTextViewVm: AnalysisIconTextView.ViewModel {
+            let text: String
+            let icon: Image
+            if self.parseStatus == .complete {
+                text = "Parsed complete nutritional profile"
+                icon = NutritionAnalysisResultsHeaderView.PositiveIcon
+            } else {
+                text = "Nutritional information is incomplete"
+                icon = NutritionAnalysisResultsHeaderView.CautionIcon
+            }
+            return AnalysisIconTextView.ViewModel(
+                text: text,
+                icon: icon,
+                color: NutritionAnalysisResultsHeaderView.ElementColor
+            )
         }
 
         init(nutrition: Nutrition, insights: [NutritionInsightDTO], parseStatus: AnalyzeNutritionResponseDTO.Status) {

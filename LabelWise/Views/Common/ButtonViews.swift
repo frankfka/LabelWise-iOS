@@ -12,13 +12,12 @@ struct RoundedRectangleTextButton: View {
     private static let ButtonFont: Font = Font.App.NormalText
     private static let HorizontalPadding: CGFloat = CGFloat.App.Layout.MediumPadding
     private static let VerticalPadding: CGFloat = CGFloat.App.Layout.Padding
-    private static let BackgroundCornerRadius: CGFloat = CGFloat.App.Layout.CornerRadius
     
     private let text: String
     private let textColor: Color
     private let backgroundColor: Color
     private var background: some View {
-        RoundedRectangle(cornerRadius: RoundedRectangleTextButton.BackgroundCornerRadius)
+        RoundedRectangle.Standard
             .foregroundColor(self.backgroundColor)
     }
     private let onTap: VoidCallback?
