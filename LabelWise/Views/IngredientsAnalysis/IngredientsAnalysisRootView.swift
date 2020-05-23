@@ -1,14 +1,15 @@
 //
-//  NutritionAnalysisView.swift
+//  IngredientsAnalysisRootView.swift
 //  LabelWise
 //
-//  Created by Frank Jia on 2020-04-30.
+//  Created by Frank Jia on 2020-05-23.
 //  Copyright © 2020 Frank Jia. All rights reserved.
 //
 
 import SwiftUI
 
-struct NutritionAnalysisRootView: View {
+// TODO: Figure out what to do in 0 analyzed ingredients case
+struct IngredientsAnalysisRootView: View {
 
     @ObservedObject private var viewModel: ViewModel
 
@@ -17,24 +18,17 @@ struct NutritionAnalysisRootView: View {
     }
 
     // Child view models
-    private var resultsViewVm: (NutritionAnalysisResultsHeaderView.ViewModel, NutritionAnalysisResultsView.ViewModel)? {
+    private var resultsViewVm: (IngredientsAnalysisHeaderView.ViewModel, IngredientsAnalysisResultsView.ViewModel)? {
         self.viewModel.analysisResult.map {
-            let status = $0.status
-            let insights = $0.insights
-            let nutrition = Nutrition(dto: $0.parsedNutrition, dailyValues: DailyNutritionValues())
             return (
-                NutritionAnalysisResultsHeaderView.ViewModel(nutrition: nutrition, insights: insights, parseStatus: status),
-                NutritionAnalysisResultsView.ViewModel(nutrition: nutrition, insights: insights)
+                IngredientsAnalysisHeaderView.ViewModel(analyzedIngredients: $0.analyzedIngredients),
+                IngredientsAnalysisResultsView.ViewModel(analyzedIngredients: $0.analyzedIngredients)
             )
         }
     }
     // Child views
     private var loadingView: some View {
         FullScreenLoadingView(loadingText: "Analyzing", onCancelCallback: self.viewModel.returnToLabelScanner)
-    }
-    private var insufficientInfoErrorView: some View {
-        FullScreenErrorView(errorMessage: "We couldn't find enough nutritional information. Try taking another picture.",
-                onTryAgainTapped: self.viewModel.returnToLabelScanner)
     }
     private var genericErrorView: some View {
         FullScreenErrorView(errorMessage: "Something went wrong. We couldn't analyze the label.",
@@ -51,37 +45,35 @@ struct NutritionAnalysisRootView: View {
             genericErrorView
         }
     }
-    private func getResultsView(headerVm: NutritionAnalysisResultsHeaderView.ViewModel,
-                                bodyVm: NutritionAnalysisResultsView.ViewModel) -> some View {
-        let headerBackground = NutritionAnalysisResultsHeaderView(vm: headerVm)
+    private func getResultsView(headerVm: IngredientsAnalysisHeaderView.ViewModel,
+                                bodyVm: IngredientsAnalysisResultsView.ViewModel) -> some View {
+        let headerBackground = IngredientsAnalysisHeaderView(vm: headerVm)
         return AnalysisScrollView(
                 header: headerBackground,
                 headerBackground: headerBackground.background,
                 onBackPressedCallback: self.viewModel.returnToLabelScanner) { parentGeometry in
-                    NutritionAnalysisResultsView(vm: bodyVm, parentSize: parentGeometry.size)
+            IngredientsAnalysisResultsView(vm: bodyVm)
         }
     }
 
-    // MARK: Main view
     @ViewBuilder
     var body: some View {
         if self.viewModel.state == .displayResults {
             resultsView
         } else if self.viewModel.state == .analyzing {
             loadingView
-        } else if self.viewModel.state == .insufficientInfo {
-            insufficientInfoErrorView
         } else {
             genericErrorView
         }
     }
 }
 
-struct NutritionAnalysisView_Previews: PreviewProvider {
-
-    private static let initialLoadingVm = NutritionAnalysisRootView.ViewModel()
+struct IngredientsAnalysisRootView_Previews: PreviewProvider {
+    private static let initialLoadingVm = IngredientsAnalysisRootView.ViewModel()
 
     static var previews: some View {
-        NutritionAnalysisRootView(vm: initialLoadingVm)
+        ColorSchemePreview {
+            IngredientsAnalysisRootView(vm: initialLoadingVm)
+        }
     }
 }

@@ -9,6 +9,7 @@
 import SwiftUI
 
 struct IngredientInfoItemView: View {
+    private static let DividerPadding: CGFloat = CGFloat.App.Layout.Padding
     
     struct ViewModel {
         let dto: AnalyzedIngredientDTO
@@ -30,11 +31,12 @@ struct IngredientInfoItemView: View {
     
     var body: some View {
         VStack(spacing: 0) {
+            // Always shown - tappable to expand
             IngredientSummaryRowView(vm: self.summaryVm)
-                .padding()
             if self.isExpanded {
                 VStack(spacing: 0) {
                     Divider()
+                        .padding(.vertical, IngredientInfoItemView.DividerPadding)
                     IngredientInfoBodyView(vm: self.bodyVm)
                 }
             }
@@ -49,9 +51,9 @@ struct IngredientInfoItemView_Previews: PreviewProvider {
     static var previews: some View {
         ColorSchemePreview {
             IngredientInfoItemView(vm: cautionWarningVm)
+                .padding()
+                .background(Color.App.BackgroundPrimaryFillColor)
         }
-        .background(Color.App.BackgroundPrimaryFillColor)
-        .padding()
         .previewLayout(.sizeThatFits)
     }
 }

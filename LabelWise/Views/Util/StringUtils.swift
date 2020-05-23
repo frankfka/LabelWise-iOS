@@ -5,6 +5,11 @@
 
 import Foundation
 
+extension Int {
+    func toDouble() -> Double {
+        return Double(self)
+    }
+}
 extension Double {
     func toString(numDecimalDigits: Int) -> String {
         let formatter = NumberFormatter()

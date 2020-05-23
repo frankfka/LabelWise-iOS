@@ -11,6 +11,7 @@ import Resolver
 typealias LabelScannedCallback = (LabelImage, AnalyzeType, Bool) -> () // TODO: 3rd argument is temp for testing
 
 // MARK: Root view model
+// TODO: make this a state machine
 extension AppView {
     class ViewModel: ObservableObject {
         @Injected private var labelAnalysisService: LabelAnalysisService
@@ -24,6 +25,7 @@ extension AppView.ViewModel {
     func onLabelScanned(image: LabelImage, type: AnalyzeType, isTest: Bool) {
         switch type {
         case .ingredients:
+            // TODO
             break
         case .nutrition:
             self.viewState = .analyzeNutrition

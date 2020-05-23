@@ -28,6 +28,7 @@ struct AnalysisIconTextView: View {
             Text(self.viewModel.text)
                 .withAppStyle(font: AnalysisIconTextView.TextFont, color: self.viewModel.color)
                 .multiline()
+                .multilineTextAlignment(.leading)
         }
     }
 }

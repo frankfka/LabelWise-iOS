@@ -2,27 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fc06ac05-0031-4719-9d90-6a241fa74c08" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/LabelWise/Views/IngredientsAnalysis/IngredientInfoBodyView.swift" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LabelWise/Views/IngredientsAnalysis/IngredientInfoItemView.swift" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LabelWise/Views/IngredientsAnalysis/IngredientSummaryRowView.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LabelWise/Views/IngredientsAnalysis/IngredientsAnalysisHeaderView.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LabelWise/Views/IngredientsAnalysis/IngredientsAnalysisResultsView.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LabelWise/Views/IngredientsAnalysis/IngredientsAnalysisRootView.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LabelWise/Views/IngredientsAnalysis/IngredientsAnalysisViewModel.swift" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LabelWise.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/LabelWise.xcodeproj/project.pbxproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LabelWise/Service/Models/IngredientsDTO.swift" beforeDir="false" afterPath="$PROJECT_DIR$/LabelWise/Service/Models/IngredientsDTO.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Preview Content/PreviewIngredientsModels.swift" beforeDir="false" afterPath="$PROJECT_DIR$/LabelWise/Preview Content/PreviewIngredientsModels.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Views/App/AppViewModel.swift" beforeDir="false" afterPath="$PROJECT_DIR$/LabelWise/Views/App/AppViewModel.swift" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LabelWise/Views/Common/Analysis/AnalysisIconTextView.swift" beforeDir="false" afterPath="$PROJECT_DIR$/LabelWise/Views/Common/Analysis/AnalysisIconTextView.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LabelWise/Views/Common/Analysis/AnalysisScrollView.swift" beforeDir="false" afterPath="$PROJECT_DIR$/LabelWise/Views/Common/Analysis/AnalysisScrollView.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LabelWise/Views/Common/Analysis/AnalysisScrollViewHelpers.swift" beforeDir="false" afterPath="$PROJECT_DIR$/LabelWise/Views/Common/Analysis/AnalysisScrollViewHelpers.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LabelWise/Views/Common/BackButton.swift" beforeDir="false" afterPath="$PROJECT_DIR$/LabelWise/Views/Common/BackButton.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LabelWise/Views/Common/ButtonViews.swift" beforeDir="false" afterPath="$PROJECT_DIR$/LabelWise/Views/Common/ButtonViews.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LabelWise/Views/Common/ErrorViews.swift" beforeDir="false" afterPath="$PROJECT_DIR$/LabelWise/Views/Common/ErrorViews.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LabelWise/Views/Common/LoadingViews.swift" beforeDir="false" afterPath="$PROJECT_DIR$/LabelWise/Views/Common/LoadingViews.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LabelWise/Views/Common/SegmentedPicker.swift" beforeDir="false" afterPath="$PROJECT_DIR$/LabelWise/Views/Common/SegmentedPicker.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LabelWise/Views/IngredientsAnalysis/IngredientInfoView.swift" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/LabelWise/Views/LabelScanner/LabelScannerOverlayHeaderView.swift" beforeDir="false" afterPath="$PROJECT_DIR$/LabelWise/Views/LabelScanner/LabelScannerOverlayHeaderView.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LabelWise/Views/NutritionAnalysis/Common/NutrientDescriptionTextRowView.swift" beforeDir="false" afterPath="$PROJECT_DIR$/LabelWise/Views/NutritionAnalysis/Common/NutrientDescriptionTextRowView.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LabelWise/Views/NutritionAnalysis/NutritionAnalysisResultsHeaderView.swift" beforeDir="false" afterPath="$PROJECT_DIR$/LabelWise/Views/NutritionAnalysis/NutritionAnalysisResultsHeaderView.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LabelWise/Views/NutritionAnalysis/ParsedNutritionSection/NutritionTableView.swift" beforeDir="false" afterPath="$PROJECT_DIR$/LabelWise/Views/NutritionAnalysis/ParsedNutritionSection/NutritionTableView.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LabelWise/Views/NutritionAnalysis/ParsedNutritionSection/ParsedNutritionSectionView.swift" beforeDir="false" afterPath="$PROJECT_DIR$/LabelWise/Views/NutritionAnalysis/ParsedNutritionSection/ParsedNutritionSectionView.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LabelWise/Views/Util/Typography.swift" beforeDir="false" afterPath="$PROJECT_DIR$/LabelWise/Views/Util/Typography.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Views/IngredientsAnalysis/IngredientInfoBodyView.swift" beforeDir="false" afterPath="$PROJECT_DIR$/LabelWise/Views/IngredientsAnalysis/IngredientInfoItem/IngredientInfoBodyView.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Views/IngredientsAnalysis/IngredientInfoItemView.swift" beforeDir="false" afterPath="$PROJECT_DIR$/LabelWise/Views/IngredientsAnalysis/IngredientInfoItem/IngredientInfoItemView.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Views/IngredientsAnalysis/IngredientSummaryRowView.swift" beforeDir="false" afterPath="$PROJECT_DIR$/LabelWise/Views/IngredientsAnalysis/IngredientInfoItem/IngredientSummaryRowView.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Views/NutritionAnalysis/NutritionAnalysisRootView.swift" beforeDir="false" afterPath="$PROJECT_DIR$/LabelWise/Views/NutritionAnalysis/NutritionAnalysisRootView.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Views/Util/StringUtils.swift" beforeDir="false" afterPath="$PROJECT_DIR$/LabelWise/Views/Util/StringUtils.swift" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,7 +109,9 @@
       <workItem from="1589776902580" duration="1386000" />
       <workItem from="1589816860494" duration="1717000" />
       <workItem from="1589852698323" duration="2068000" />
-      <workItem from="1589939392189" duration="12555000" />
+      <workItem from="1589939392189" duration="12689000" />
+      <workItem from="1590111044434" duration="379000" />
+      <workItem from="1590123591755" duration="5367000" />
     </task>
     <servers />
   </component>
@@ -145,18 +140,18 @@
       <screen x="0" y="23" width="1920" height="1000" />
     </state>
     <state x="686" y="121" key="VCS.ChangeListViewerDialog/-1440.23.1440.877/0.23.1920.1000@0.23.1920.1000" timestamp="1588913728220" />
-    <state x="561" y="207" width="938" height="632" key="find.popup" timestamp="1590072461638">
-      <screen x="0" y="23" width="1920" height="1000" />
+    <state x="-1119" y="184" width="1119" height="555" key="find.popup" timestamp="1590123435589">
+      <screen x="-1440" y="23" width="1440" height="877" />
     </state>
-    <state x="-1119" y="184" width="1119" height="555" key="find.popup/-1440.23.1440.877/0.23.1920.1000@-1440.23.1440.877" timestamp="1590024142445" />
+    <state x="-1119" y="184" width="1119" height="555" key="find.popup/-1440.23.1440.877/0.23.1920.1000@-1440.23.1440.877" timestamp="1590123435589" />
     <state x="561" y="207" width="938" height="632" key="find.popup/-1440.23.1440.877/0.23.1920.1000@0.23.1920.1000" timestamp="1590072461638" />
     <state x="421" y="174" width="640" height="522" key="find.popup/0.23.1440.820@0.23.1440.820" timestamp="1589854906599" />
-    <state x="513" y="240" width="894" height="771" key="search.everywhere.popup" timestamp="1590032898864">
-      <screen x="0" y="23" width="1920" height="1000" />
+    <state x="385" y="201" width="671" height="633" key="search.everywhere.popup" timestamp="1590269230799">
+      <screen x="0" y="23" width="1440" height="820" />
     </state>
-    <state x="-1055" y="213" width="670" height="676" key="search.everywhere.popup/-1440.23.1440.877/0.23.1920.1000@-1440.23.1440.877" timestamp="1590025167076" />
-    <state x="513" y="240" width="894" height="771" key="search.everywhere.popup/-1440.23.1440.877/0.23.1920.1000@0.23.1920.1000" timestamp="1590032898864" />
-    <state x="385" y="201" width="671" height="633" key="search.everywhere.popup/0.23.1440.820@0.23.1440.820" timestamp="1589855002524" />
+    <state x="-1055" y="213" width="670" height="676" key="search.everywhere.popup/-1440.23.1440.877/0.23.1920.1000@-1440.23.1440.877" timestamp="1590265380196" />
+    <state x="513" y="240" width="894" height="771" key="search.everywhere.popup/-1440.23.1440.877/0.23.1920.1000@0.23.1920.1000" timestamp="1590209939310" />
+    <state x="385" y="201" width="671" height="633" key="search.everywhere.popup/0.23.1440.820@0.23.1440.820" timestamp="1590269230799" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
