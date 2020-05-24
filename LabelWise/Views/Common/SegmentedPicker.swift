@@ -8,39 +8,6 @@
 
 import SwiftUI
 
-// https://stackoverflow.com/questions/56505043/how-to-make-view-the-size-of-another-view-in-swiftui/56661706#56661706
-// https://swiftwithmajid.com/2020/01/15/the-magic-of-view-preferences-in-swiftui/
-struct SizePreferenceKey: PreferenceKey {
-    typealias Value = CGSize
-    static var defaultValue: CGSize = .zero
-    static func reduce(value: inout CGSize, nextValue: () -> CGSize) {
-        value = nextValue()
-    }
-}
-struct BackgroundGeometryReader: View {
-    var body: some View {
-        GeometryReader { geometry in
-            return Color
-                    .clear
-                    .preference(key: SizePreferenceKey.self, value: geometry.size)
-        }
-    }
-}
-struct SizeAwareViewModifier: ViewModifier {
-
-    @Binding private var viewSize: CGSize
-
-    init(viewSize: Binding<CGSize>) {
-        self._viewSize = viewSize
-    }
-
-    func body(content: Content) -> some View {
-        content
-            .background(BackgroundGeometryReader())
-            .onPreferenceChange(SizePreferenceKey.self, perform: { if self.viewSize != $0 { self.viewSize = $0 }})
-    }
-}
-
 struct SegmentedPicker: View {
     private static let ActiveSegmentColor: Color = Color.App.BackgroundTertiaryFillColor
     private static let BackgroundColor: Color = Color.App.BackgroundSecondaryFillColor
@@ -130,6 +97,38 @@ struct SegmentedPicker: View {
         self.viewModel.selectedIndex.wrappedValue = index
     }
     
+}
+// MARK: Required Helpers for SegmentedPicker
+extension SegmentedPicker {
+    struct SizePreferenceKey: PreferenceKey {
+        typealias Value = CGSize
+        static var defaultValue: CGSize = .zero
+        static func reduce(value: inout CGSize, nextValue: () -> CGSize) {
+            value = nextValue()
+        }
+    }
+    struct BackgroundGeometryReader: View {
+        var body: some View {
+            GeometryReader { geometry in
+                return Color
+                        .clear
+                        .preference(key: SizePreferenceKey.self, value: geometry.size)
+            }
+        }
+    }
+    struct SizeAwareViewModifier: ViewModifier {
+        @Binding private var viewSize: CGSize
+
+        init(viewSize: Binding<CGSize>) {
+            self._viewSize = viewSize
+        }
+
+        func body(content: Content) -> some View {
+            content
+                .background(BackgroundGeometryReader())
+                .onPreferenceChange(SizePreferenceKey.self, perform: { if self.viewSize != $0 { self.viewSize = $0 }})
+        }
+    }
 }
 
 struct SegmentedPicker_Previews: PreviewProvider {

@@ -7,11 +7,18 @@ import Foundation
 
 // Root response object
 struct AnalyzeIngredientsResponseDTO {
+    enum Status: String, Codable {
+        case success = "SUCCESS"
+        case nonParsed = "NON_PARSED"
+        case unknown = "UNKNOWN"
+    }
+    let status: Status
     let parsedIngredients: [String] // Master list of all ingredients, even if we don't have data to analyze it
     let analyzedIngredients: [AnalyzedIngredientDTO]
 }
 extension AnalyzeIngredientsResponseDTO: Codable {
     enum CodingKeys: String, CodingKey {
+        case status = "STATUS"
         case parsedIngredients = "parsed_ingredients"
         case analyzedIngredients = "analyzed_ingredients"
     }
@@ -34,14 +41,15 @@ extension AnalyzedIngredientDTO: Codable {
 // Warnings for a particular ingredient
 struct IngredientInsightDTO {
     enum InsightType: Int, Codable {
-        // TODO: should probably rename this to cautionWarning and severeWarning
         case none = 0
         case positive = 1
-        case cautionWarn = -1
-        case cautionSevere = -2
+        case cautionWarning = -1
+        case severeWarning = -2
     }
     enum Code: String, Codable {
         // Positive
+        case scogs1 = "SCOGS_1"
+        case scogs2 = "SCOGS_2"
         // Warnings
         case addedSugar = "ADDED_SUGAR"
         case notGras = "NOT_GRAS"
@@ -79,6 +87,11 @@ extension AdditiveInfoDTO: Codable {
 }
 
 // MARK: Extensions for enum decodables - default to an unknown value so we can filter it out
+extension AnalyzeIngredientsResponseDTO.Status {
+    public init(from decoder: Decoder) throws {
+        self = try AnalyzeIngredientsResponseDTO.Status(rawValue: decoder.singleValueContainer().decode(RawValue.self)) ?? .unknown
+    }
+}
 extension IngredientInsightDTO.InsightType {
     public init(from decoder: Decoder) throws {
         self = try IngredientInsightDTO.InsightType(rawValue: decoder.singleValueContainer().decode(RawValue.self)) ?? .none

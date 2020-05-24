@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		114BDCC4247A33CD0092F46C /* AnalyzedIngredientsSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114BDCC3247A33CD0092F46C /* AnalyzedIngredientsSectionView.swift */; };
+		114BDCC7247A39650092F46C /* AllParsedIngredientsSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114BDCC6247A39650092F46C /* AllParsedIngredientsSectionView.swift */; };
 		119F8AC9244A7D3C00BB173A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 119F8AC8244A7D3C00BB173A /* AppDelegate.swift */; };
 		119F8ACB244A7D3C00BB173A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 119F8ACA244A7D3C00BB173A /* SceneDelegate.swift */; };
 		119F8ACF244A7D4300BB173A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 119F8ACE244A7D4300BB173A /* Assets.xcassets */; };
@@ -18,13 +20,13 @@
 		9C744549554540C8032BFD13 /* Pods_LabelWise.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBB96129287D3E7C9C1E8B9C /* Pods_LabelWise.framework */; };
 		9E04B02AC89E419B26B7CEC0 /* LabelAnalysisService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B36285890D7DEA0D4652 /* LabelAnalysisService.swift */; };
 		9E04B0A5B739BAB8B761D8D1 /* AppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04BA1F20B00F6B13B7DC32 /* AppView.swift */; };
-		9E04B0DBEFE9A4371D3FEC9E /* IngredientSummaryRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B5B8864A0AE14FB16EB6 /* IngredientSummaryRowView.swift */; };
+		9E04B0DBEFE9A4371D3FEC9E /* AnalyzedIngredientRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B5B8864A0AE14FB16EB6 /* AnalyzedIngredientRowView.swift */; };
 		9E04B102898D491DD9BEB166 /* ButtonViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04BA7CABA6E92E997F6AF3 /* ButtonViews.swift */; };
 		9E04B142786F16FB6E2E3BBF /* TypeAliases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04BC8096C70C13098A91F5 /* TypeAliases.swift */; };
 		9E04B143D34DDF6710A4A86F /* NutritionTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04BE502DF224765BCC0F8E /* NutritionTableView.swift */; };
 		9E04B156F5995FB71C98290D /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B89756E6EB040FED8E1F /* CameraView.swift */; };
 		9E04B15ABF1896310F67FAA6 /* LabelScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B49BC11BE362B82E7120 /* LabelScannerView.swift */; };
-		9E04B1AF7B25751140CA5513 /* IngredientInfoItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B3F53552C33889841693 /* IngredientInfoItemView.swift */; };
+		9E04B1AF7B25751140CA5513 /* AnalyzedIngredientInfoItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B3F53552C33889841693 /* AnalyzedIngredientInfoItemView.swift */; };
 		9E04B1B2B0CD96DA6DCDCE10 /* LoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04BAB0205588C074E9C5F6 /* LoadingIndicator.swift */; };
 		9E04B1BFEDE4A3B8DB3BF128 /* SwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04BB5D5B71B278CD02BFD5 /* SwiftUI.swift */; };
 		9E04B1FC9EF3EA2A5BB6B5AF /* AnalysisScrollViewHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B53ED0679A24D6991D53 /* AnalysisScrollViewHelpers.swift */; };
@@ -73,7 +75,7 @@
 		9E04BBF618B4CB82E3D5485A /* NutritionDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B03637D80DC9D780A544 /* NutritionDTO.swift */; };
 		9E04BBF80BA076C3A9EC5068 /* NutrientBreakdownBarChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04BD63E3C2FDD24234B3E1 /* NutrientBreakdownBarChartView.swift */; };
 		9E04BC297C33C0AECE5889E0 /* IngredientsDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04BC0D8E5AC4A7408AFCE6 /* IngredientsDTO.swift */; };
-		9E04BC92D512EF8F72DBBBFD /* IngredientInfoBodyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B38DE45A229CC2CED9F5 /* IngredientInfoBodyView.swift */; };
+		9E04BC92D512EF8F72DBBBFD /* AnalyzedIngredientInfoBodyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B38DE45A229CC2CED9F5 /* AnalyzedIngredientInfoBodyView.swift */; };
 		9E04BCC3EEE75ED7B1145E34 /* NutritionAnalysisResultsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04BFF475105AA282DE299B /* NutritionAnalysisResultsHeaderView.swift */; };
 		9E04BCDC9B6933E1272C8A81 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04BD0BD2943F4AA2F4CE11 /* Colors.swift */; };
 		9E04BDB288469E4904545F16 /* NutritionAnalysisResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B3961E453EE9F5A3C478 /* NutritionAnalysisResultsView.swift */; };
@@ -90,6 +92,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		114BDCC3247A33CD0092F46C /* AnalyzedIngredientsSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyzedIngredientsSectionView.swift; sourceTree = "<group>"; };
+		114BDCC6247A39650092F46C /* AllParsedIngredientsSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllParsedIngredientsSectionView.swift; sourceTree = "<group>"; };
 		11602DC824723CE10083AF17 /* AppConfig.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = AppConfig.xcconfig; sourceTree = "<group>"; };
 		119F8AC5244A7D3B00BB173A /* LabelWise.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LabelWise.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		119F8AC8244A7D3C00BB173A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -113,12 +117,12 @@
 		9E04B256AC44CE9A4EEEECCB /* FatsSectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FatsSectionView.swift; sourceTree = "<group>"; };
 		9E04B337A999B5EE2EE18D30 /* CarbohydratesSectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarbohydratesSectionView.swift; sourceTree = "<group>"; };
 		9E04B36285890D7DEA0D4652 /* LabelAnalysisService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelAnalysisService.swift; sourceTree = "<group>"; };
-		9E04B38DE45A229CC2CED9F5 /* IngredientInfoBodyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IngredientInfoBodyView.swift; sourceTree = "<group>"; };
+		9E04B38DE45A229CC2CED9F5 /* AnalyzedIngredientInfoBodyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalyzedIngredientInfoBodyView.swift; sourceTree = "<group>"; };
 		9E04B38F7443F9ADB9812F52 /* SegmentedPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentedPicker.swift; sourceTree = "<group>"; };
 		9E04B3961E453EE9F5A3C478 /* NutritionAnalysisResultsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NutritionAnalysisResultsView.swift; sourceTree = "<group>"; };
 		9E04B3D769B65F5EF259181D /* PreviewNutritionModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewNutritionModels.swift; sourceTree = "<group>"; };
 		9E04B3DDBE0873BEA51F4F08 /* CommonViewModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonViewModels.swift; sourceTree = "<group>"; };
-		9E04B3F53552C33889841693 /* IngredientInfoItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IngredientInfoItemView.swift; sourceTree = "<group>"; };
+		9E04B3F53552C33889841693 /* AnalyzedIngredientInfoItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalyzedIngredientInfoItemView.swift; sourceTree = "<group>"; };
 		9E04B3F8EA63E8BBC8FB0AB2 /* MacronutrientSectionTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MacronutrientSectionTextView.swift; sourceTree = "<group>"; };
 		9E04B44935A3095E1CFE051C /* AnalysisIconTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalysisIconTextView.swift; sourceTree = "<group>"; };
 		9E04B49BC11BE362B82E7120 /* LabelScannerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelScannerView.swift; sourceTree = "<group>"; };
@@ -127,7 +131,7 @@
 		9E04B561F69105E1F50F7945 /* PreviewIngredientsModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewIngredientsModels.swift; sourceTree = "<group>"; };
 		9E04B580BB85ECB0F4CEE2CF /* AnalysisScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalysisScrollView.swift; sourceTree = "<group>"; };
 		9E04B59AF0108506D62C0D19 /* LabelScannerOverlayHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelScannerOverlayHeaderView.swift; sourceTree = "<group>"; };
-		9E04B5B8864A0AE14FB16EB6 /* IngredientSummaryRowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IngredientSummaryRowView.swift; sourceTree = "<group>"; };
+		9E04B5B8864A0AE14FB16EB6 /* AnalyzedIngredientRowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalyzedIngredientRowView.swift; sourceTree = "<group>"; };
 		9E04B61BDB41D939BF20F08F /* Logging.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logging.swift; sourceTree = "<group>"; };
 		9E04B63E8A8AD04D844C9BB3 /* NutritionAnalysisViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NutritionAnalysisViewModel.swift; sourceTree = "<group>"; };
 		9E04B6B95DE69B3FAF849640 /* LabelScannerViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelScannerViewModel.swift; sourceTree = "<group>"; };
@@ -197,12 +201,21 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		114BDCC5247A394B0092F46C /* AllParsedIngredientsSection */ = {
+			isa = PBXGroup;
+			children = (
+				114BDCC6247A39650092F46C /* AllParsedIngredientsSectionView.swift */,
+			);
+			path = AllParsedIngredientsSection;
+			sourceTree = "<group>";
+		};
 		1152DB7E2474C921003A3CB0 /* IngredientsAnalysis */ = {
 			isa = PBXGroup;
 			children = (
-				11CDC9032478CB570052423A /* IngredientsAnalysisResultsView.swift */,
-				9E04BA760E087327B601FB23 /* IngredientInfoItem */,
+				114BDCC5247A394B0092F46C /* AllParsedIngredientsSection */,
+				9E04BA760E087327B601FB23 /* AnalyzedIngredientsSection */,
 				11CDC90524798A1A0052423A /* IngredientsAnalysisHeaderView.swift */,
+				11CDC9032478CB570052423A /* IngredientsAnalysisResultsView.swift */,
 				9E04B9682A0CB5E503FB7BA6 /* IngredientsAnalysisViewModel.swift */,
 				11CDC9072479B96E0052423A /* IngredientsAnalysisRootView.swift */,
 			);
@@ -411,14 +424,15 @@
 			path = Util;
 			sourceTree = "<group>";
 		};
-		9E04BA760E087327B601FB23 /* IngredientInfoItem */ = {
+		9E04BA760E087327B601FB23 /* AnalyzedIngredientsSection */ = {
 			isa = PBXGroup;
 			children = (
-				9E04B38DE45A229CC2CED9F5 /* IngredientInfoBodyView.swift */,
-				9E04B5B8864A0AE14FB16EB6 /* IngredientSummaryRowView.swift */,
-				9E04B3F53552C33889841693 /* IngredientInfoItemView.swift */,
+				9E04B38DE45A229CC2CED9F5 /* AnalyzedIngredientInfoBodyView.swift */,
+				9E04B5B8864A0AE14FB16EB6 /* AnalyzedIngredientRowView.swift */,
+				9E04B3F53552C33889841693 /* AnalyzedIngredientInfoItemView.swift */,
+				114BDCC3247A33CD0092F46C /* AnalyzedIngredientsSectionView.swift */,
 			);
-			path = IngredientInfoItem;
+			path = AnalyzedIngredientsSection;
 			sourceTree = "<group>";
 		};
 		9E04BB5B5D52ED865F6E2DB4 /* Views */ = {
@@ -640,6 +654,7 @@
 				9E04BABAF1E07CE0CB72CC08 /* LabelScannerOverlayFooterView.swift in Sources */,
 				9E04B2DD0FF0195B5610A013 /* LabelScannerViewModel.swift in Sources */,
 				9E04B5D0C4B19664B2912E0D /* LabelScannerActionButtons.swift in Sources */,
+				114BDCC4247A33CD0092F46C /* AnalyzedIngredientsSectionView.swift in Sources */,
 				9E04BABA8914D16B545F7279 /* CameraController.swift in Sources */,
 				9E04B156F5995FB71C98290D /* CameraView.swift in Sources */,
 				9E04B57C7F5EBC6DE3518E41 /* CameraUtil.swift in Sources */,
@@ -691,10 +706,11 @@
 				9E04BDB791C6B937A1EF31F9 /* CommonDTO.swift in Sources */,
 				9E04BEF4114AA2B5DCF12711 /* PreviewIngredientsModels.swift in Sources */,
 				9E04B89D848CC03E91224AA1 /* RoundedRectangle.swift in Sources */,
-				9E04BC92D512EF8F72DBBBFD /* IngredientInfoBodyView.swift in Sources */,
-				9E04B0DBEFE9A4371D3FEC9E /* IngredientSummaryRowView.swift in Sources */,
-				9E04B1AF7B25751140CA5513 /* IngredientInfoItemView.swift in Sources */,
+				9E04BC92D512EF8F72DBBBFD /* AnalyzedIngredientInfoBodyView.swift in Sources */,
+				9E04B0DBEFE9A4371D3FEC9E /* AnalyzedIngredientRowView.swift in Sources */,
+				9E04B1AF7B25751140CA5513 /* AnalyzedIngredientInfoItemView.swift in Sources */,
 				9E04B6E5185F462AF157E820 /* IngredientsAnalysisViewModel.swift in Sources */,
+				114BDCC7247A39650092F46C /* AllParsedIngredientsSectionView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -23,11 +23,15 @@ extension View {
     func fillWidthAndHeight() -> some View {
         return self.frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
     }
-    @ViewBuilder func conditionalModifier<Content: View>(_ condition: Bool, transform: (Self) -> Content) -> some View {
+    typealias ContentTransform<Content: View> = (Self) -> Content
+    @ViewBuilder func conditionalModifier<TrueContent: View, FalseContent: View>(
+            _ condition: Bool,
+            ifTrue: ContentTransform<TrueContent>,
+            ifFalse: ContentTransform<FalseContent>) -> some View {
         if condition {
-            transform(self)
+            ifTrue(self)
         } else {
-            self
+            ifFalse(self)
         }
     }
 }

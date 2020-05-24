@@ -14,6 +14,7 @@ extension IngredientsAnalysisRootView {
             case analyzing
             case analyzeError
             case displayResults
+            case nonParsed
         }
         enum Action {
             case analyzed(result: AnalyzeIngredientsResponseDTO)
@@ -60,10 +61,19 @@ extension IngredientsAnalysisRootView {
                 switch action {
                 case let .analyzed(result):
                     self.analysisResult = result
-                    return .displayResults
+                    switch result.status {
+                    case .success:
+                        return .displayResults
+                    case .nonParsed:
+                        return .nonParsed
+                    case .unknown:
+                        return .analyzeError
+                    }
                 case .analyzeError:
                     return .analyzeError
                 }
+            case .nonParsed:
+                return nil
             case .analyzeError:
                 return nil // Terminal state
             case .displayResults:

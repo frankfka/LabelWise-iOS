@@ -53,8 +53,8 @@ struct NutritionInsightDTO {
     enum InsightType: Int, Codable {
         case none = 0
         case positive = 1
-        case cautionWarn = -1
-        case cautionSevere = -2
+        case cautionWarning = -1
+        case severeWarning = -2
     }
     enum Code: String, Codable {
         // Positive

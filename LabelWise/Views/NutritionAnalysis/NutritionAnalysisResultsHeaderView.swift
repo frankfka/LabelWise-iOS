@@ -64,10 +64,10 @@ extension NutritionAnalysisResultsHeaderView {
         private let parseStatus: AnalyzeNutritionResponseDTO.Status
         // Computed view constants
         var numCautionWarnings: Int {
-            insights.filter { $0.type == .cautionWarn }.count
+            insights.filter { $0.type == .cautionWarning }.count
         }
         var numSevereWarnings: Int {
-            insights.filter { $0.type == .cautionSevere }.count
+            insights.filter { $0.type == .severeWarning }.count
         }
         var hasWarnings: Bool {
             numCautionWarnings + numSevereWarnings > 0

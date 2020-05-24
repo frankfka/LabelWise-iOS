@@ -8,7 +8,6 @@
 
 import SwiftUI
 
-// TODO: Figure out what to do in 0 analyzed ingredients case
 struct IngredientsAnalysisRootView: View {
 
     @ObservedObject private var viewModel: ViewModel
@@ -22,13 +21,17 @@ struct IngredientsAnalysisRootView: View {
         self.viewModel.analysisResult.map {
             return (
                 IngredientsAnalysisHeaderView.ViewModel(analyzedIngredients: $0.analyzedIngredients),
-                IngredientsAnalysisResultsView.ViewModel(analyzedIngredients: $0.analyzedIngredients)
+                IngredientsAnalysisResultsView.ViewModel(dto: $0)
             )
         }
     }
     // Child views
     private var loadingView: some View {
         FullScreenLoadingView(loadingText: "Analyzing", onCancelCallback: self.viewModel.returnToLabelScanner)
+    }
+    private var noIngredientsParsedErrorView: some View {
+        FullScreenErrorView(errorMessage: "We couldn't parse any ingredients.",
+                onTryAgainTapped: self.viewModel.returnToLabelScanner)
     }
     private var genericErrorView: some View {
         FullScreenErrorView(errorMessage: "Something went wrong. We couldn't analyze the label.",
@@ -62,6 +65,8 @@ struct IngredientsAnalysisRootView: View {
             resultsView
         } else if self.viewModel.state == .analyzing {
             loadingView
+        } else if self.viewModel.state == .nonParsed {
+            noIngredientsParsedErrorView
         } else {
             genericErrorView
         }

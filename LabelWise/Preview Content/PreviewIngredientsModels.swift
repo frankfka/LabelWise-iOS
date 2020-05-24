@@ -8,9 +8,23 @@ import Foundation
 struct PreviewIngredientsModels {
     // MARK: Responses
     static let ResponseWithAllTypes = AnalyzeIngredientsResponseDTO(
-        parsedIngredients: ["dextrose", "salt", "mango"],
-        analyzedIngredients: [AnalyzedIngredientDextrose]
+        status: .success,
+        parsedIngredients: MultipleParsedIngredients,
+        analyzedIngredients: [AnalyzedIngredientDextrose, AnalyzedIngredientMultipleInsights, AnalyzedIngredientNoInsights]
     )
+    static let ResponseWithNoAnalyzedIngredients = AnalyzeIngredientsResponseDTO(
+        status: .success,
+        parsedIngredients: MultipleParsedIngredients,
+        analyzedIngredients: []
+    )
+    static let ResponseWithNoParsedIngredients = AnalyzeIngredientsResponseDTO(
+        status: .nonParsed,
+        parsedIngredients: [],
+        analyzedIngredients: []
+    )
+
+    // MARK: All Parsed Ingredients
+    static let MultipleParsedIngredients = ["dextrose", "salt", "mango"]
 
     // MARK: Analyzed Ingredient
     static let AnalyzedIngredientNoInsights = AnalyzedIngredientDTO(name: "maltodextrin", insights: [], additiveInfo: nil)
@@ -18,6 +32,6 @@ struct PreviewIngredientsModels {
     static let AnalyzedIngredientDextrose = AnalyzedIngredientDTO(name: "dextrose", insights: [InsightAddedSugar], additiveInfo: nil)
 
     // MARK: Insights
-    static let InsightAddedSugar = IngredientInsightDTO(code: .addedSugar, type: .cautionWarn)
-    static let InsightScogs4 = IngredientInsightDTO(code: .scogs4, type: .cautionWarn)
+    static let InsightAddedSugar = IngredientInsightDTO(code: .addedSugar, type: .cautionWarning)
+    static let InsightScogs4 = IngredientInsightDTO(code: .scogs4, type: .cautionWarning)
 }

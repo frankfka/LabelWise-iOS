@@ -6,7 +6,7 @@
 import SwiftUI
 
 // MARK: View
-struct IngredientSummaryRowView: View {
+struct AnalyzedIngredientSummaryRowView: View {
     private static let IngredientNameFont: Font = Font.App.NormalText
     private static let IngredientNameColor: Color = Color.App.Text
     private static let AssociatedIconSize: CGFloat = CGFloat.App.Icon.ExtraSmallIcon
@@ -24,32 +24,32 @@ struct IngredientSummaryRowView: View {
         HStack() {
             Text(self.viewModel.name)
                 .withAppStyle(
-                    font: IngredientSummaryRowView.IngredientNameFont,
-                    color: IngredientSummaryRowView.IngredientNameColor
+                    font: AnalyzedIngredientSummaryRowView.IngredientNameFont,
+                    color: AnalyzedIngredientSummaryRowView.IngredientNameColor
                 )
             Spacer()
             // Associated icon for the ingredient
             self.viewModel.icon
                 .resizable()
-                .frame(width: IngredientSummaryRowView.AssociatedIconSize, height: IngredientSummaryRowView.AssociatedIconSize)
+                .frame(width: AnalyzedIngredientSummaryRowView.AssociatedIconSize, height: AnalyzedIngredientSummaryRowView.AssociatedIconSize)
                 .foregroundColor(self.viewModel.iconColor)
             // Expand/shrink icon
             Image.App.RightChevron
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(
-                    width: IngredientSummaryRowView.ExpandIconSize,
-                    height: IngredientSummaryRowView.ExpandIconSize
+                    width: AnalyzedIngredientSummaryRowView.ExpandIconSize,
+                    height: AnalyzedIngredientSummaryRowView.ExpandIconSize
                 )
-                .foregroundColor(IngredientSummaryRowView.ExpandIconColor)
+                .foregroundColor(AnalyzedIngredientSummaryRowView.ExpandIconColor)
                 .rotationEffect(.degrees(self.viewModel.isExpandedBinding.wrappedValue ? 90 : 0))
-                .animation(.easeOut(duration: IngredientSummaryRowView.ExpansionAnimationDuration))
+                .animation(.easeOut(duration: AnalyzedIngredientSummaryRowView.ExpansionAnimationDuration))
         }
     }
 }
 
 // MARK: View model
-extension IngredientSummaryRowView {
+extension AnalyzedIngredientSummaryRowView {
     struct ViewModel {
         let name: String
         let icon: Image
@@ -62,11 +62,11 @@ extension IngredientSummaryRowView {
             var icon = Image.App.CheckmarkCircle
             var color = Color.App.AppGreen
             for insight in dto.insights {
-                if insight.type == .cautionSevere {
+                if insight.type == .severeWarning {
                     icon = Image.App.XMarkCircle
                     color = Color.App.AppRed
                     break
-                } else if insight.type == .cautionWarn {
+                } else if insight.type == .cautionWarning {
                     icon = Image.App.ExclamationMarkCircle
                     color = Color.App.AppYellow
                 }
@@ -77,15 +77,15 @@ extension IngredientSummaryRowView {
     }
 }
 
-struct IngredientSummaryRowView_Previews: PreviewProvider {
-    private static let cautionWarningVm = IngredientSummaryRowView.ViewModel(
+struct AnalyzedIngredientSummaryRowView_Previews: PreviewProvider {
+    private static let cautionWarningVm = AnalyzedIngredientSummaryRowView.ViewModel(
         dto: PreviewIngredientsModels.AnalyzedIngredientDextrose,
         isExpandedBinding: .constant(false)
     )
 
     static var previews: some View {
         ColorSchemePreview {
-            IngredientSummaryRowView(vm: cautionWarningVm)
+            AnalyzedIngredientSummaryRowView(vm: cautionWarningVm)
                 .padding()
                 .background(Color.App.BackgroundTertiaryFillColor)
         }

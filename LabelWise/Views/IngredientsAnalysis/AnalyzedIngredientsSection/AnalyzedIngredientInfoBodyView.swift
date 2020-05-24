@@ -9,15 +9,15 @@
 import SwiftUI
 
 // MARK: View
-struct IngredientInfoBodyView: View {
+struct AnalyzedIngredientInfoBodyView: View {
     private static let InsightLinePadding: CGFloat = CGFloat.App.Layout.SmallPadding
-    
+
     private let viewModel: ViewModel
-    
+
     init(vm: ViewModel) {
         self.viewModel = vm
     }
-    
+
     private var noInsightsView: some View {
         // Centered if we show no insights
         HStack {
@@ -31,7 +31,7 @@ struct IngredientInfoBodyView: View {
         // Show an icon textview for each insight that we get
         // Aligned to left if we show insights
         HStack {
-            VStack(alignment: .leading, spacing: IngredientInfoBodyView.InsightLinePadding) {
+            VStack(alignment: .leading, spacing: AnalyzedIngredientInfoBodyView.InsightLinePadding) {
                 ForEach(0..<self.viewModel.insightViewModels.count, id: \.self) { idx in
                     AnalysisIconTextView(vm: self.viewModel.insightViewModels[idx])
                 }
@@ -39,7 +39,7 @@ struct IngredientInfoBodyView: View {
             Spacer()
         }
     }
-    
+
     @ViewBuilder
     var body: some View {
         if self.viewModel.showNoInsightsText {
@@ -49,15 +49,18 @@ struct IngredientInfoBodyView: View {
         }
     }
 }
+
 // MARK: View model
-extension IngredientInfoBodyView {
+extension AnalyzedIngredientInfoBodyView {
     struct ViewModel {
         private let dto: AnalyzedIngredientDTO
-        var showNoInsightsText: Bool { dto.insights.isEmpty }
+        var showNoInsightsText: Bool {
+            dto.insights.isEmpty
+        }
         var insightViewModels: [AnalysisIconTextView.ViewModel] {
             var positiveInsightViewModels: [AnalysisIconTextView.ViewModel] = []
-            var cautionWarnInsightViewModels: [AnalysisIconTextView.ViewModel] = []
-            var cautionSevereInsightViewModels: [AnalysisIconTextView.ViewModel] = []
+            var cautionWarningInsightViewModels: [AnalysisIconTextView.ViewModel] = []
+            var severeWarningInsightViewModels: [AnalysisIconTextView.ViewModel] = []
             self.dto.insights.forEach { insight in
                 let vm = AnalysisIconTextView.ViewModel(
                     text: insight.code.getStringDescription(),
@@ -67,18 +70,18 @@ extension IngredientInfoBodyView {
                 switch insight.type {
                 case .positive:
                     positiveInsightViewModels.append(vm)
-                case .cautionWarn:
-                    cautionWarnInsightViewModels.append(vm)
-                case .cautionSevere:
-                    cautionSevereInsightViewModels.append(vm)
+                case .cautionWarning:
+                    cautionWarningInsightViewModels.append(vm)
+                case .severeWarning:
+                    severeWarningInsightViewModels.append(vm)
                 case .none:
                     AppLogging.warn("Unparseable type found for code \(insight.code.rawValue)")
                 }
             }
             // Severe first, but since these are specific to one ingredient, chances are we only have one type
-            return cautionSevereInsightViewModels + cautionWarnInsightViewModels + positiveInsightViewModels
+            return severeWarningInsightViewModels + cautionWarningInsightViewModels + positiveInsightViewModels
         }
-        
+
         init(dto: AnalyzedIngredientDTO) {
             self.dto = dto
         }
@@ -93,35 +96,43 @@ extension IngredientInsightDTO.Code {
             return "This is a known synonym for added sugar."
         case .notGras:
             return "This is not in the FDA's GRAS (Generally Recognized as Safe) database."
+        case .scogs1:
+            return """
+                   This is in the FDA's GRAS (Generally Recognized as Safe) database, and has sufficient scientific research to verify its safety (SCOGS Conclusion 1).
+                   """
+        case .scogs2:
+            return """
+                   This is in the FDA's GRAS (Generally Recognized as Safe) database, and has sufficient scientific research to verify its safety (SCOGS Conclusion 2).
+                   """
         case .scogs3:
             return """
-            This is in the FDA's GRAS (Generally Recognized as Safe) database, but there is uncertainty around its safety in scientific literature (SCOGS Conclusion 3).
-            """
+                   This is in the FDA's GRAS (Generally Recognized as Safe) database, but there is uncertainty around its safety in scientific literature (SCOGS Conclusion 3).
+                   """
         case .scogs4:
             return """
-            This is in the FDA's GRAS (Generally Recognized as Safe) database, but there is some scientific evidence to show that it is harmful to public health (SCOGS Conclusion 4).
-            """
+                   This is in the FDA's GRAS (Generally Recognized as Safe) database, but there is some scientific evidence to show that it is harmful to public health (SCOGS Conclusion 4).
+                   """
         case .scogs5:
             return """
-            This is in the FDA's GRAS (Generally Recognized as Safe) database,but lacks scientific evidence to fully confirm its safety (SCOGS Conclusion 5).
-            """
+                   This is in the FDA's GRAS (Generally Recognized as Safe) database,but lacks scientific evidence to fully confirm its safety (SCOGS Conclusion 5).
+                   """
         case .unknown:
             return ""
         }
     }
 }
 
-struct IngredientInfoBodyView_Previews: PreviewProvider {
-    private static let cautionWarningVm = IngredientInfoBodyView.ViewModel(dto: PreviewIngredientsModels.AnalyzedIngredientDextrose)
-    private static let multipleWarningsVm = IngredientInfoBodyView.ViewModel(dto: PreviewIngredientsModels.AnalyzedIngredientMultipleInsights)
-    private static let noInsightsVm = IngredientInfoBodyView.ViewModel(dto: PreviewIngredientsModels.AnalyzedIngredientNoInsights)
-    
+struct AnalyzedIngredientInfoBodyView_Previews: PreviewProvider {
+    private static let cautionWarningVm = AnalyzedIngredientInfoBodyView.ViewModel(dto: PreviewIngredientsModels.AnalyzedIngredientDextrose)
+    private static let multipleWarningsVm = AnalyzedIngredientInfoBodyView.ViewModel(dto: PreviewIngredientsModels.AnalyzedIngredientMultipleInsights)
+    private static let noInsightsVm = AnalyzedIngredientInfoBodyView.ViewModel(dto: PreviewIngredientsModels.AnalyzedIngredientNoInsights)
+
     static var previews: some View {
         ColorSchemePreview {
             Group {
-                IngredientInfoBodyView(vm: cautionWarningVm)
-                IngredientInfoBodyView(vm: multipleWarningsVm)
-                IngredientInfoBodyView(vm: noInsightsVm)
+                AnalyzedIngredientInfoBodyView(vm: cautionWarningVm)
+                AnalyzedIngredientInfoBodyView(vm: multipleWarningsVm)
+                AnalyzedIngredientInfoBodyView(vm: noInsightsVm)
             }
             .background(Color.App.BackgroundSecondaryFillColor)
             .padding()

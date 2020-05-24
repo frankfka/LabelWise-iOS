@@ -18,9 +18,9 @@ extension IngredientInsightDTO.InsightType {
         switch self {
         case .positive:
             return Image.App.CheckmarkCircle
-        case .cautionWarn:
+        case .cautionWarning:
             return Image.App.ExclamationMarkCircle
-        case .cautionSevere:
+        case .severeWarning:
             return Image.App.XMarkCircle
         case .none:
             return Image.App.XMarkCircle
@@ -30,9 +30,9 @@ extension IngredientInsightDTO.InsightType {
         switch self {
         case .positive:
             return Color.App.AppGreen
-        case .cautionWarn:
+        case .cautionWarning:
             return Color.App.AppYellow
-        case .cautionSevere:
+        case .severeWarning:
             return Color.App.AppRed
         case .none:
             return Color.App.AppRed
@@ -44,9 +44,9 @@ extension NutritionInsightDTO.InsightType {
         switch self {
         case .positive:
             return Image.App.CheckmarkCircle
-        case .cautionWarn:
+        case .cautionWarning:
             return Image.App.ExclamationMarkCircle
-        case .cautionSevere:
+        case .severeWarning:
             return Image.App.XMarkCircle
         case .none:
             return Image.App.XMarkCircle
@@ -56,9 +56,9 @@ extension NutritionInsightDTO.InsightType {
         switch self {
         case .positive:
             return Color.App.AppGreen
-        case .cautionWarn:
+        case .cautionWarning:
             return Color.App.AppYellow
-        case .cautionSevere:
+        case .severeWarning:
             return Color.App.AppRed
         case .none:
             return Color.App.AppRed

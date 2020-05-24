@@ -8,16 +8,17 @@
 
 import SwiftUI
 
-// TODO: no ingredients case
 // MARK: View
 struct IngredientsAnalysisResultsView: View {
-    private static let SectionSpacing: CGFloat = CGFloat.App.Layout.SmallPadding
+    private static let SectionSpacing: CGFloat = CGFloat.App.Layout.LargePadding
+    private static let AnalyzedIngredientRowSpacing: CGFloat = CGFloat.App.Layout.SmallPadding
 
     private let viewModel: ViewModel
-    private var analyzedIngredientViewModels: [IngredientInfoItemView.ViewModel] {
-        self.viewModel.analyzedIngredients.map {
-            IngredientInfoItemView.ViewModel(dto: $0)
-        }
+    private var analyzedIngredientsSectionVm: AnalyzedIngredientsSectionView.ViewModel {
+        AnalyzedIngredientsSectionView.ViewModel(analyzedIngredients: self.viewModel.dto.analyzedIngredients)
+    }
+    private var parsedIngredientsSectionVm: AllParsedIngredientsSectionView.ViewModel {
+        AllParsedIngredientsSectionView.ViewModel(parsedIngredients: self.viewModel.dto.parsedIngredients)
     }
 
     init(vm: ViewModel) {
@@ -26,9 +27,10 @@ struct IngredientsAnalysisResultsView: View {
 
     var body: some View {
         VStack(spacing: IngredientsAnalysisResultsView.SectionSpacing) {
-            ForEach(0..<self.analyzedIngredientViewModels.count, id: \.self) { idx in
-                IngredientInfoItemView(vm: self.analyzedIngredientViewModels[idx])
-            }
+            AnalyzedIngredientsSectionView(vm: self.analyzedIngredientsSectionVm)
+                .modifier(AnalysisSectionModifier(title: "Analyzed Ingredients"))
+            AllParsedIngredientsSectionView(vm: self.parsedIngredientsSectionVm)
+                .modifier(AnalysisSectionModifier(title: "Parsed Ingredients"))
             Spacer()
         }
     }
@@ -36,35 +38,29 @@ struct IngredientsAnalysisResultsView: View {
 // MARK: View Model
 extension IngredientsAnalysisResultsView {
     struct ViewModel {
-        let analyzedIngredients: [AnalyzedIngredientDTO]
+        let dto: AnalyzeIngredientsResponseDTO
     }
 }
 
 struct IngredientsAnalysisResultsView_Previews: PreviewProvider {
-    private static let multipleIngredientsWithWarningsVm = IngredientsAnalysisResultsView.ViewModel(
-        analyzedIngredients: [
-            PreviewIngredientsModels.AnalyzedIngredientNoInsights,
-            PreviewIngredientsModels.AnalyzedIngredientDextrose,
-            PreviewIngredientsModels.AnalyzedIngredientMultipleInsights
-        ]
-    )
 
-    private static let oneIngredientVm = IngredientsAnalysisResultsView.ViewModel(
-        analyzedIngredients: [
-            PreviewIngredientsModels.AnalyzedIngredientNoInsights
-        ]
+    private static let completeVm = IngredientsAnalysisResultsView.ViewModel(
+            dto: PreviewIngredientsModels.ResponseWithAllTypes
     )
-
-    private static let noIngredientVm = IngredientsAnalysisResultsView.ViewModel(
-        analyzedIngredients: []
+    private static let noAnalyzedIngredientsVm = IngredientsAnalysisResultsView.ViewModel(
+        dto: PreviewIngredientsModels.ResponseWithNoAnalyzedIngredients
+    )
+    // This should actually be an error case
+    private static let noParsedIngredientsVm = IngredientsAnalysisResultsView.ViewModel(
+        dto: PreviewIngredientsModels.ResponseWithNoParsedIngredients
     )
 
     static var previews: some View {
         ColorSchemePreview {
             Group {
-                IngredientsAnalysisResultsView(vm: multipleIngredientsWithWarningsVm)
-                IngredientsAnalysisResultsView(vm: oneIngredientVm)
-                IngredientsAnalysisResultsView(vm: noIngredientVm)
+                IngredientsAnalysisResultsView(vm: completeVm)
+                IngredientsAnalysisResultsView(vm: noAnalyzedIngredientsVm)
+                IngredientsAnalysisResultsView(vm: noParsedIngredientsVm)
             }
             .background(Color.App.BackgroundPrimaryFillColor)
         }

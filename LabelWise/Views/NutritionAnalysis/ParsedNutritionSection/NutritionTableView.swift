@@ -66,9 +66,9 @@ struct NutritionTableRow: View {
         HStack(spacing: 0) {
             Text(self.viewModel.label)
                 .withAppStyle(font: self.viewModel.rowType.labelFont, color: self.viewModel.rowType.textColor)
-                .conditionalModifier(self.viewModel.rowType == .secondary) {
+                .conditionalModifier(self.viewModel.rowType == .secondary, ifTrue: {
                     $0.padding(.leading, NutritionTableRow.SecondaryHorizontalPadding)
-                }
+                }, ifFalse: { $0 })
             self.viewModel.dailyValue.map {
                 Text($0)
                     .withAppStyle(font: NutritionTableRow.DailyValueFont, color: NutritionTableRow.DailyValueColor)

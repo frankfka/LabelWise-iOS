@@ -61,9 +61,9 @@ extension InsightsSectionView {
                 switch insight.type {
                 case .positive:
                     positiveInsightViewModels.append(vm)
-                case .cautionWarn:
+                case .cautionWarning:
                     warnCautionInsightViewModels.append(vm)
-                case .cautionSevere:
+                case .severeWarning:
                     severeCautionInsightViewModels.append(vm)
                 case .none:
                     AppLogging.warn("Unparseable type found for code \(insight.code.rawValue)")

@@ -56,8 +56,8 @@ struct PreviewNutritionModels {
     static let MultipleInsightsPerType: [NutritionInsightDTO] = [
         NutritionInsightDTO(code: .lowSugar, type: .positive),
         NutritionInsightDTO(code: .highFiber, type: .positive),
-        NutritionInsightDTO(code: .highSatFat, type: .cautionWarn),
-        NutritionInsightDTO(code: .highCholesterol, type: .cautionSevere),
-        NutritionInsightDTO(code: .highSodium, type: .cautionSevere)
+        NutritionInsightDTO(code: .highSatFat, type: .cautionWarning),
+        NutritionInsightDTO(code: .highCholesterol, type: .severeWarning),
+        NutritionInsightDTO(code: .highSodium, type: .severeWarning)
     ]
 }
