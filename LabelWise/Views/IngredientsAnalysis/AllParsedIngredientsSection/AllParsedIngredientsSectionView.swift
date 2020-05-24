@@ -14,7 +14,7 @@ struct AllParsedIngredientsSectionView: View {
     private static let VerticalSpacing: CGFloat = CGFloat.App.Layout.SmallPadding
     private static let TextFont: Font = Font.App.NormalText
     private static let TextColor: Color = Color.App.Text
-    private static let TextBackgroundVerticalPadding: CGFloat = CGFloat.App.Layout.SmallPadding
+    private static let TextBackgroundVerticalPadding: CGFloat = CGFloat.App.Layout.Padding
     private static let TextBackgroundHorizontalPadding: CGFloat = CGFloat.App.Layout.Padding
     private static let NoParsedIngredientsTextPadding: CGFloat = CGFloat.App.Layout.Padding
     private static let NoParsedIngredientsTextFont: Font = Font.App.NormalText

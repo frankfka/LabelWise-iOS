@@ -10,7 +10,9 @@ import SwiftUI
 
 // MARK: View
 struct AnalyzedIngredientInfoBodyView: View {
-    private static let InsightLinePadding: CGFloat = CGFloat.App.Layout.SmallPadding
+    private static let InsightLinePadding: CGFloat = CGFloat.App.Layout.Padding
+    private static let NoInsightsTextFont: Font = Font.App.SmallText
+    private static let NoInsightsTextColor: Color = Color.App.SecondaryText
 
     private let viewModel: ViewModel
 
@@ -23,7 +25,7 @@ struct AnalyzedIngredientInfoBodyView: View {
         HStack {
             Spacer()
             Text("No insights for this ingredient.")
-                .withAppStyle()
+                .withAppStyle(font: AnalyzedIngredientInfoBodyView.NoInsightsTextFont, color: AnalyzedIngredientInfoBodyView.NoInsightsTextColor)
             Spacer()
         }
     }
@@ -65,7 +67,8 @@ extension AnalyzedIngredientInfoBodyView {
                 let vm = AnalysisIconTextView.ViewModel(
                     text: insight.code.getStringDescription(),
                     icon: insight.type.getAssociatedIcon(),
-                    color: insight.type.getAssociatedColor()
+                    color: insight.type.getAssociatedColor(),
+                    font: Font.App.SmallText
                 )
                 switch insight.type {
                 case .positive:
@@ -98,23 +101,23 @@ extension IngredientInsightDTO.Code {
             return "This is not in the FDA's GRAS (Generally Recognized as Safe) database."
         case .scogs1:
             return """
-                   This is in the FDA's GRAS (Generally Recognized as Safe) database, and has sufficient scientific research to verify its safety (SCOGS Conclusion 1).
+                   This additive has sufficient research to verify its safety (FDA SCOGS Conclusion 1).
                    """
         case .scogs2:
             return """
-                   This is in the FDA's GRAS (Generally Recognized as Safe) database, and has sufficient scientific research to verify its safety (SCOGS Conclusion 2).
+                   This additive has sufficient research to verify its safety (FDA SCOGS Conclusion 2).
                    """
         case .scogs3:
             return """
-                   This is in the FDA's GRAS (Generally Recognized as Safe) database, but there is uncertainty around its safety in scientific literature (SCOGS Conclusion 3).
+                   There is scientific uncertainty around this additive's safety for consumption (FDA SCOGS Conclusion 3).
                    """
         case .scogs4:
             return """
-                   This is in the FDA's GRAS (Generally Recognized as Safe) database, but there is some scientific evidence to show that it is harmful to public health (SCOGS Conclusion 4).
+                   There is some scientific evidence to show that this additive is harmful to public health (FDA SCOGS Conclusion 4).
                    """
         case .scogs5:
             return """
-                   This is in the FDA's GRAS (Generally Recognized as Safe) database,but lacks scientific evidence to fully confirm its safety (SCOGS Conclusion 5).
+                   This additive lacks scientific evidence to fully confirm its safety (FDA SCOGS Conclusion 5).
                    """
         case .unknown:
             return ""

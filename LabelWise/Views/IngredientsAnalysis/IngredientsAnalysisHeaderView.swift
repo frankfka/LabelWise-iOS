@@ -49,6 +49,7 @@ struct IngredientsAnalysisHeaderView: View {
 
 // MARK: View Model
 extension IngredientsAnalysisHeaderView {
+    // TODO: different background colors
     struct ViewModel {
         private let analyzedIngredients: [AnalyzedIngredientDTO]
         var numAnalyzedIngredients: String {

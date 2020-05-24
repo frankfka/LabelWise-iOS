@@ -11,7 +11,6 @@ import SwiftUI
 // MARK: View
 struct AnalysisIconTextView: View {
     private static let IconSize: CGFloat = CGFloat.App.Icon.ExtraSmallIcon
-    private static let TextFont: Font = Font.App.NormalText
     
     private let viewModel: ViewModel
     
@@ -26,7 +25,7 @@ struct AnalysisIconTextView: View {
                 .frame(width: AnalysisIconTextView.IconSize, height: AnalysisIconTextView.IconSize)
                 .foregroundColor(self.viewModel.color)
             Text(self.viewModel.text)
-                .withAppStyle(font: AnalysisIconTextView.TextFont, color: self.viewModel.color)
+                .withAppStyle(font: self.viewModel.font, color: self.viewModel.color)
                 .multiline()
                 .multilineTextAlignment(.leading)
         }
@@ -38,11 +37,13 @@ extension AnalysisIconTextView {
         let text: String
         let icon: Image
         let color: Color
+        let font: Font
 
-        init(text: String, icon: Image, color: Color) {
+        init(text: String, icon: Image, color: Color, font: Font = Font.App.NormalText) {
             self.text = text
             self.icon = icon
             self.color = color
+            self.font = font
         }
     }
 }

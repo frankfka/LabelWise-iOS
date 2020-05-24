@@ -38,17 +38,25 @@ struct AnalyzedIngredientInfoItemView: View {
         VStack(spacing: 0) {
             // Always shown - tappable to expand
             AnalyzedIngredientSummaryRowView(vm: self.summaryVm)
+                .contentShape(RoundedRectangle.Standard) // Allow full view to be tappable
+                .onTapGesture(perform: self.onSummaryRowTap)
             if self.isExpanded {
                 VStack(spacing: 0) {
                     Divider()
                         .padding(.vertical, AnalyzedIngredientInfoItemView.DividerPadding)
                     AnalyzedIngredientInfoBodyView(vm: self.bodyVm)
+                        .transition(.scale)
                 }
             }
         }
         .padding(AnalyzedIngredientInfoItemView.SectionInsetPadding)
         .background(AnalyzedIngredientInfoItemView.Background)
     }
+
+    private func onSummaryRowTap() {
+        self.isExpanded.toggle()
+    }
+
 }
 
 struct AnalyzedIngredientInfoItemView_Previews: PreviewProvider {
