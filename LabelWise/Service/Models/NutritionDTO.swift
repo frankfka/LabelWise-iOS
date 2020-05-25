@@ -74,6 +74,12 @@ struct NutritionInsightDTO {
     let code: Code
     let type: InsightType
 }
+// Introduces ability to sort items - default sorting is positive first
+extension NutritionInsightDTO.InsightType: Comparable {
+    static func <(lhs: NutritionInsightDTO.InsightType, rhs: NutritionInsightDTO.InsightType) -> Bool {
+        lhs.rawValue < rhs.rawValue
+    }
+}
 extension NutritionInsightDTO: Codable {
     enum CodingKeys: String, CodingKey {
         case code = "code"

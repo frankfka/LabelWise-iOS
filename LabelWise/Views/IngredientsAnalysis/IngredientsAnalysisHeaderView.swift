@@ -49,7 +49,6 @@ struct IngredientsAnalysisHeaderView: View {
 
 // MARK: View Model
 extension IngredientsAnalysisHeaderView {
-    // TODO: different background colors
     struct ViewModel {
         private let analyzedIngredients: [AnalyzedIngredientDTO]
         var numAnalyzedIngredients: String {
@@ -58,7 +57,23 @@ extension IngredientsAnalysisHeaderView {
         var numAnalyzedIngredientsDescription: String {
             "ingredient\(self.analyzedIngredients.count != 1 ? "s" : "") analyzed"
         }
-        var backgroundColor: Color = Color.App.AppGreen
+        var backgroundColor: Color {
+            var color = Color.App.AppGreen
+            var shouldBreak = false
+            for ingredient in self.analyzedIngredients {
+                if shouldBreak { break }
+                for insight in ingredient.insights {
+                    if insight.type == .severeWarning {
+                        color = Color.App.AppRed
+                        shouldBreak = true
+                        break
+                    } else if insight.type == .cautionWarning {
+                        color = Color.App.AppYellow
+                    }
+                }
+            }
+            return color
+        }
         
         init(analyzedIngredients: [AnalyzedIngredientDTO]) {
             self.analyzedIngredients = analyzedIngredients

@@ -60,29 +60,23 @@ extension AnalyzedIngredientInfoBodyView {
             dto.insights.isEmpty
         }
         var insightViewModels: [AnalysisIconTextView.ViewModel] {
-            var positiveInsightViewModels: [AnalysisIconTextView.ViewModel] = []
-            var cautionWarningInsightViewModels: [AnalysisIconTextView.ViewModel] = []
-            var severeWarningInsightViewModels: [AnalysisIconTextView.ViewModel] = []
-            self.dto.insights.forEach { insight in
-                let vm = AnalysisIconTextView.ViewModel(
+            self.dto.insights.filter { insight in
+               if insight.code == .unknown && insight.type == .none {
+                   AppLogging.warn("Unknown insight with code \(insight.code), type \(insight.type)")
+                   return false
+                }
+                return true
+            }.sorted { one, two in
+                // Positive first
+                one.type > two.type
+            }.map { insight in
+                AnalysisIconTextView.ViewModel(
                     text: insight.code.getStringDescription(),
                     icon: insight.type.getAssociatedIcon(),
                     color: insight.type.getAssociatedColor(),
                     font: Font.App.SmallText
                 )
-                switch insight.type {
-                case .positive:
-                    positiveInsightViewModels.append(vm)
-                case .cautionWarning:
-                    cautionWarningInsightViewModels.append(vm)
-                case .severeWarning:
-                    severeWarningInsightViewModels.append(vm)
-                case .none:
-                    AppLogging.warn("Unparseable type found for code \(insight.code.rawValue)")
-                }
             }
-            // Severe first, but since these are specific to one ingredient, chances are we only have one type
-            return severeWarningInsightViewModels + cautionWarningInsightViewModels + positiveInsightViewModels
         }
 
         init(dto: AnalyzedIngredientDTO) {

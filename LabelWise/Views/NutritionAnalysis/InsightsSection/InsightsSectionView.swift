@@ -20,8 +20,8 @@ struct InsightsSectionView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: InsightsSectionView.MessageSpacing) {
             Group {
-                ForEach(0..<self.viewModel.displayedInsightViewModels.count, id: \.self) { idx in
-                    AnalysisIconTextView(vm: self.viewModel.displayedInsightViewModels[idx])
+                ForEach(0..<self.viewModel.insightViewModels.count, id: \.self) { idx in
+                    AnalysisIconTextView(vm: self.viewModel.insightViewModels[idx])
                 }
             }
             // A workaround for multiline text in ScrollView
@@ -33,45 +33,33 @@ struct InsightsSectionView: View {
 // MARK: View model
 extension InsightsSectionView {
     struct ViewModel {
-        private let severeCautionInsightViewModels: [AnalysisIconTextView.ViewModel]
-        private let warnCautionInsightViewModels: [AnalysisIconTextView.ViewModel]
-        private let positiveInsightViewModels: [AnalysisIconTextView.ViewModel]
-        var displayedInsightViewModels: [AnalysisIconTextView.ViewModel] {
-            // Severe warnings first, followed by caution & positive
-            severeCautionInsightViewModels +
-            warnCautionInsightViewModels +
-            positiveInsightViewModels
-        }
-        var hasMessages: Bool {
-            return severeCautionInsightViewModels.count + warnCautionInsightViewModels.count
-                    + positiveInsightViewModels.count > 0
-        }
-
-        init(insights: [NutritionInsightDTO], nutrition: Nutrition) {
-            var severeCautionInsightViewModels: [AnalysisIconTextView.ViewModel] = []
-            var warnCautionInsightViewModels: [AnalysisIconTextView.ViewModel] = []
-            var positiveInsightViewModels: [AnalysisIconTextView.ViewModel] = []
-            insights.forEach { insight in
-                let message = insight.code.getStringDescription(with: nutrition)
-                let vm = AnalysisIconTextView.ViewModel(
-                    text: message,
+        private let insights: [NutritionInsightDTO]
+        private let nutrition: Nutrition
+        var insightViewModels: [AnalysisIconTextView.ViewModel] {
+            self.insights.filter { insight in
+                if insight.code == .unknown && insight.type == .none {
+                    AppLogging.warn("Unknown insight with code \(insight.code), type \(insight.type)")
+                    return false
+                }
+                return true
+            }.sorted { one, two in
+                // Positive first
+                one.type > two.type
+            }.map { insight in
+                AnalysisIconTextView.ViewModel(
+                    text: insight.code.getStringDescription(with: self.nutrition),
                     icon: insight.type.getAssociatedIcon(),
                     color: insight.type.getAssociatedColor()
                 )
-                switch insight.type {
-                case .positive:
-                    positiveInsightViewModels.append(vm)
-                case .cautionWarning:
-                    warnCautionInsightViewModels.append(vm)
-                case .severeWarning:
-                    severeCautionInsightViewModels.append(vm)
-                case .none:
-                    AppLogging.warn("Unparseable type found for code \(insight.code.rawValue)")
-                }
             }
-            self.severeCautionInsightViewModels = severeCautionInsightViewModels
-            self.warnCautionInsightViewModels = warnCautionInsightViewModels
-            self.positiveInsightViewModels = positiveInsightViewModels
+        }
+        var hasMessages: Bool {
+            insightViewModels.count > 0
+        }
+
+        init(insights: [NutritionInsightDTO], nutrition: Nutrition) {
+            self.insights = insights
+            self.nutrition = nutrition
         }
     }
 }

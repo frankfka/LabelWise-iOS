@@ -15,11 +15,8 @@ protocol LabelAnalysisService {
 class LabelAnalysisServiceImpl: LabelAnalysisService {
     private let apiKey: String
     private let baseUrl: String
-    private var nutritionImageUrl: String {
-        self.baseUrl + "/nutrition/image"
-    }
-    private var ingredientsImageUrl: String {
-        self.baseUrl + "/ingredients/image"
+    private var analyzeUrl: String {
+        self.baseUrl + "/analyze/image"
     }
     private var authHeaders: HTTPHeaders {
         ["X-API-Key": self.apiKey]
@@ -48,7 +45,7 @@ class LabelAnalysisServiceImpl: LabelAnalysisService {
 
     private func analyzeNutrition(base64Image: String, onComplete: @escaping ServiceCallback<AnalyzeNutritionResponseDTO>) {
         let requestParams = AnalysisRequestDTO(type: .nutrition, base64Image: base64Image)
-        AF.request(self.nutritionImageUrl, method: .post,
+        AF.request(self.analyzeUrl, method: .post,
                         parameters: requestParams, encoder: JSONParameterEncoder.default, headers: self.authHeaders)
                 .responseDecodable(of: AnalyzeNutritionResponseDTO.self) { response in
                     switch response.result {
@@ -62,7 +59,7 @@ class LabelAnalysisServiceImpl: LabelAnalysisService {
 
     private func analyzeIngredients(base64Image: String, onComplete: @escaping ServiceCallback<AnalyzeIngredientsResponseDTO>) {
         let requestParams = AnalysisRequestDTO(type: .ingredients, base64Image: base64Image)
-        AF.request(self.ingredientsImageUrl, method: .post,
+        AF.request(self.analyzeUrl, method: .post,
                         parameters: requestParams, encoder: JSONParameterEncoder.default, headers: self.authHeaders)
                 .responseDecodable(of: AnalyzeIngredientsResponseDTO.self) { response in
                     switch response.result {

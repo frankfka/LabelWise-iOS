@@ -3,21 +3,20 @@
   <component name="ChangeListManager">
     <list default="true" id="fc06ac05-0031-4719-9d90-6a241fa74c08" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Preview Content/PreviewIngredientsModels.swift" beforeDir="false" afterPath="$PROJECT_DIR$/LabelWise/Preview Content/PreviewIngredientsModels.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Service/LabelAnalysisService.swift" beforeDir="false" afterPath="$PROJECT_DIR$/LabelWise/Service/LabelAnalysisService.swift" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LabelWise/Service/Models/IngredientsDTO.swift" beforeDir="false" afterPath="$PROJECT_DIR$/LabelWise/Service/Models/IngredientsDTO.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LabelWise/Views/App/AppView.swift" beforeDir="false" afterPath="$PROJECT_DIR$/LabelWise/Views/App/AppView.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LabelWise/Views/App/AppViewModel.swift" beforeDir="false" afterPath="$PROJECT_DIR$/LabelWise/Views/App/AppViewModel.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LabelWise/Views/Common/Analysis/AnalysisIconTextView.swift" beforeDir="false" afterPath="$PROJECT_DIR$/LabelWise/Views/Common/Analysis/AnalysisIconTextView.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LabelWise/Views/IngredientsAnalysis/AllParsedIngredientsSection/AllParsedIngredientsSectionView.swift" beforeDir="false" afterPath="$PROJECT_DIR$/LabelWise/Views/IngredientsAnalysis/AllParsedIngredientsSection/AllParsedIngredientsSectionView.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Service/Models/NutritionDTO.swift" beforeDir="false" afterPath="$PROJECT_DIR$/LabelWise/Service/Models/NutritionDTO.swift" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LabelWise/Views/IngredientsAnalysis/AnalyzedIngredientsSection/AnalyzedIngredientInfoBodyView.swift" beforeDir="false" afterPath="$PROJECT_DIR$/LabelWise/Views/IngredientsAnalysis/AnalyzedIngredientsSection/AnalyzedIngredientInfoBodyView.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LabelWise/Views/IngredientsAnalysis/AnalyzedIngredientsSection/AnalyzedIngredientInfoItemView.swift" beforeDir="false" afterPath="$PROJECT_DIR$/LabelWise/Views/IngredientsAnalysis/AnalyzedIngredientsSection/AnalyzedIngredientInfoItemView.swift" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LabelWise/Views/IngredientsAnalysis/IngredientsAnalysisHeaderView.swift" beforeDir="false" afterPath="$PROJECT_DIR$/LabelWise/Views/IngredientsAnalysis/IngredientsAnalysisHeaderView.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Views/NutritionAnalysis/InsightsSection/InsightsSectionView.swift" beforeDir="false" afterPath="$PROJECT_DIR$/LabelWise/Views/NutritionAnalysis/InsightsSection/InsightsSectionView.swift" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="iphonesimulator_39C1A2A4-1D3A-4C35-9F2B-4329698E0819" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="iphonesimulator_A19BDFCD-35CE-4D55-AB30-C3480552969F" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -106,7 +105,7 @@
       <workItem from="1589852698323" duration="2068000" />
       <workItem from="1589939392189" duration="12689000" />
       <workItem from="1590111044434" duration="379000" />
-      <workItem from="1590123591755" duration="14619000" />
+      <workItem from="1590123591755" duration="17795000" />
     </task>
     <servers />
   </component>
@@ -135,18 +134,18 @@
       <screen x="0" y="23" width="1920" height="1000" />
     </state>
     <state x="686" y="121" key="VCS.ChangeListViewerDialog/-1440.23.1440.877/0.23.1920.1000@0.23.1920.1000" timestamp="1588913728220" />
-    <state x="561" y="207" width="938" height="632" key="find.popup" timestamp="1590339737403">
+    <state x="561" y="207" width="938" height="632" key="find.popup" timestamp="1590368935352">
       <screen x="0" y="23" width="1920" height="1000" />
     </state>
     <state x="-1119" y="184" width="1119" height="555" key="find.popup/-1440.23.1440.877/0.23.1920.1000@-1440.23.1440.877" timestamp="1590123435589" />
-    <state x="561" y="207" width="938" height="632" key="find.popup/-1440.23.1440.877/0.23.1920.1000@0.23.1920.1000" timestamp="1590339737403" />
-    <state x="421" y="174" width="640" height="522" key="find.popup/0.23.1440.820@0.23.1440.820" timestamp="1590290297497" />
-    <state x="513" y="240" width="894" height="771" key="search.everywhere.popup" timestamp="1590335111711">
+    <state x="561" y="207" width="938" height="632" key="find.popup/-1440.23.1440.877/0.23.1920.1000@0.23.1920.1000" timestamp="1590368935352" />
+    <state x="421" y="174" width="700" height="522" key="find.popup/0.23.1440.820@0.23.1440.820" timestamp="1590362564242" />
+    <state x="513" y="240" width="894" height="771" key="search.everywhere.popup" timestamp="1590369177441">
       <screen x="0" y="23" width="1920" height="1000" />
     </state>
     <state x="-1055" y="213" width="670" height="676" key="search.everywhere.popup/-1440.23.1440.877/0.23.1920.1000@-1440.23.1440.877" timestamp="1590265380196" />
-    <state x="513" y="240" width="894" height="771" key="search.everywhere.popup/-1440.23.1440.877/0.23.1920.1000@0.23.1920.1000" timestamp="1590335111711" />
-    <state x="385" y="201" width="671" height="633" key="search.everywhere.popup/0.23.1440.820@0.23.1440.820" timestamp="1590290190367" />
+    <state x="513" y="240" width="894" height="771" key="search.everywhere.popup/-1440.23.1440.877/0.23.1920.1000@0.23.1920.1000" timestamp="1590369177441" />
+    <state x="385" y="201" width="671" height="633" key="search.everywhere.popup/0.23.1440.820@0.23.1440.820" timestamp="1590356262174" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

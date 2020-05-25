@@ -28,10 +28,11 @@ struct PreviewIngredientsModels {
 
     // MARK: Analyzed Ingredient
     static let AnalyzedIngredientNoInsights = AnalyzedIngredientDTO(name: "maltodextrin", insights: [], additiveInfo: nil)
-    static let AnalyzedIngredientMultipleInsights = AnalyzedIngredientDTO(name: "some ingredient", insights: [InsightAddedSugar, InsightScogs4], additiveInfo: nil)
+    static let AnalyzedIngredientMultipleInsights = AnalyzedIngredientDTO(name: "some ingredient", insights: [InsightScogs4, InsightScogs5], additiveInfo: nil)
     static let AnalyzedIngredientDextrose = AnalyzedIngredientDTO(name: "dextrose", insights: [InsightAddedSugar], additiveInfo: nil)
 
     // MARK: Insights
     static let InsightAddedSugar = IngredientInsightDTO(code: .addedSugar, type: .cautionWarning)
     static let InsightScogs4 = IngredientInsightDTO(code: .scogs4, type: .cautionWarning)
+    static let InsightScogs5 = IngredientInsightDTO(code: .scogs4, type: .severeWarning)
 }

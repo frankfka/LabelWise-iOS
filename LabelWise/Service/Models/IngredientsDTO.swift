@@ -18,7 +18,7 @@ struct AnalyzeIngredientsResponseDTO {
 }
 extension AnalyzeIngredientsResponseDTO: Codable {
     enum CodingKeys: String, CodingKey {
-        case status = "STATUS"
+        case status = "status"
         case parsedIngredients = "parsed_ingredients"
         case analyzedIngredients = "analyzed_ingredients"
     }
@@ -32,7 +32,7 @@ struct AnalyzedIngredientDTO {
 }
 extension AnalyzedIngredientDTO: Codable {
     enum CodingKeys: String, CodingKey {
-        case name = "name"
+        case name = "ingredient_name"
         case insights = "insights"
         case additiveInfo = "additive_info"
     }
@@ -62,6 +62,12 @@ struct IngredientInsightDTO {
     let code: Code
     let type: InsightType
 }
+// Introduces ability to sort items - default sorting is positive first
+extension IngredientInsightDTO.InsightType: Comparable {
+    static func <(lhs: IngredientInsightDTO.InsightType, rhs: IngredientInsightDTO.InsightType) -> Bool {
+        lhs.rawValue < rhs.rawValue
+    }
+}
 extension IngredientInsightDTO: Codable {
     enum CodingKeys: String, CodingKey {
         case code = "code"
@@ -75,7 +81,7 @@ struct AdditiveInfoDTO {
     let casId: String
     let femaNumber: String
     let technicalEffects: [String]
-    let scogsConclusion: Int? // Make this an enum when backend formally supports it
+    let scogsConclusion: String? // TODO: Make this an enum when backend formally supports it
 }
 extension AdditiveInfoDTO: Codable {
     enum CodingKeys: String, CodingKey {
