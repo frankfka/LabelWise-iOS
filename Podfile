@@ -5,7 +5,8 @@ target 'LabelWise' do
   use_frameworks!
 
   # Pods for LabelWise
-  pod 'Alamofire', '~> 5.1'
+  pod 'Alamofire'
   pod "Resolver"
+  pod "SwiftUIExt"
 
 end

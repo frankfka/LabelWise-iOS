@@ -1,20 +1,24 @@
 PODS:
   - Alamofire (5.1.0)
   - Resolver (1.1.4)
+  - SwiftUIExt (0.0.1)
 
 DEPENDENCIES:
-  - Alamofire (~> 5.1)
+  - Alamofire
   - Resolver
+  - SwiftUIExt
 
 SPEC REPOS:
   trunk:
     - Alamofire
     - Resolver
+    - SwiftUIExt
 
 SPEC CHECKSUMS:
   Alamofire: 9d5c5f602928e512395b30950c5984eca840093c
   Resolver: 1f4c046255cbadfa97094692e16e940d4329779f
+  SwiftUIExt: b9dd86e8cf3f3b685087c122fb4e3e359de90bfd
 
-PODFILE CHECKSUM: aad08982c53d7db044ed873c3a347a4209cb6957
+PODFILE CHECKSUM: 56294e7f1420c039538d5dd87c0deb0d447c786e
 
-COCOAPODS: 1.8.4
+COCOAPODS: 1.9.3

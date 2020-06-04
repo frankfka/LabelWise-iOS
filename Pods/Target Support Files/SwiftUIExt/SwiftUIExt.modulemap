@@ -1,0 +1,6 @@
+framework module SwiftUIExt {
+  umbrella header "SwiftUIExt-umbrella.h"
+
+  export *
+  module * { export * }
+}
