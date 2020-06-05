@@ -11,6 +11,10 @@ extension Resolver: ResolverRegistering {
         register { try? AppConfiguration() }
             .implements(Configuration.self)
 
+        // Register device service
+        register { DeviceServiceImpl() }
+            .implements(DeviceService.self)
+
         // Register backend service
         register { LabelAnalysisServiceImpl(config: resolve(Configuration.self)) }
             .implements(LabelAnalysisService.self)

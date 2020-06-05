@@ -41,6 +41,7 @@
 		9E04B385F9C8B726D2A7F175 /* NutritionAnalysisRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B1379328F410E4F17E6B /* NutritionAnalysisRootView.swift */; };
 		9E04B3960B2AAED0A382DEF3 /* AnalysisScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B580BB85ECB0F4CEE2CF /* AnalysisScrollView.swift */; };
 		9E04B3980252C5E5919A80EB /* BackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04BA65862DF99BF33EF604 /* BackButton.swift */; };
+		9E04B3C9BD177CCDE5FCEF28 /* DeviceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B2E3388B7D3CDEEAF369 /* DeviceService.swift */; };
 		9E04B3E9A543BB48AEF9DBBF /* FatsSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B256AC44CE9A4EEEECCB /* FatsSectionView.swift */; };
 		9E04B4542D206920236CA88B /* LoadingViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04BCF9D6353FE5AD2A07B9 /* LoadingViews.swift */; };
 		9E04B473E83B0984A43ED40F /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04BFD384637ACF1329F7C2 /* OnboardingView.swift */; };
@@ -115,6 +116,7 @@
 		9E04B1E6AB256C2579ACCED4 /* MacronutrientRings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MacronutrientRings.swift; sourceTree = "<group>"; };
 		9E04B2493D89D67528381F3F /* Ring.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ring.swift; sourceTree = "<group>"; };
 		9E04B256AC44CE9A4EEEECCB /* FatsSectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FatsSectionView.swift; sourceTree = "<group>"; };
+		9E04B2E3388B7D3CDEEAF369 /* DeviceService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceService.swift; sourceTree = "<group>"; };
 		9E04B337A999B5EE2EE18D30 /* CarbohydratesSectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarbohydratesSectionView.swift; sourceTree = "<group>"; };
 		9E04B36285890D7DEA0D4652 /* LabelAnalysisService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelAnalysisService.swift; sourceTree = "<group>"; };
 		9E04B38DE45A229CC2CED9F5 /* AnalyzedIngredientInfoBodyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalyzedIngredientInfoBodyView.swift; sourceTree = "<group>"; };
@@ -298,6 +300,7 @@
 				9E04B36285890D7DEA0D4652 /* LabelAnalysisService.swift */,
 				9E04B61BDB41D939BF20F08F /* Logging.swift */,
 				9E04BE2F5B4B4B2E8D47E9C0 /* Models */,
+				9E04B2E3388B7D3CDEEAF369 /* DeviceService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -711,6 +714,7 @@
 				9E04B1AF7B25751140CA5513 /* AnalyzedIngredientInfoItemView.swift in Sources */,
 				9E04B6E5185F462AF157E820 /* IngredientsAnalysisViewModel.swift in Sources */,
 				114BDCC7247A39650092F46C /* AllParsedIngredientsSectionView.swift in Sources */,
+				9E04B3C9BD177CCDE5FCEF28 /* DeviceService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
