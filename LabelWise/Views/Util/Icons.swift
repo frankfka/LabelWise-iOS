@@ -2,6 +2,7 @@ import Foundation
 import SwiftUI
 
 struct AppIcons {
+    let Logo: Image = Image(systemName: "heart.circle") // TODO: Replace with actual logo
     let LeftChevron: Image = Image(systemName: "chevron.left")
     let RightChevron: Image = Image(systemName: "chevron.right")
     let QuestionMarkCircleFill: Image = Image(systemName: "questionmark.circle.fill")
@@ -10,6 +11,9 @@ struct AppIcons {
     let XMarkCircleFill: Image = Image(systemName: "xmark.circle.fill")
     let ExclamationMarkCircle: Image = Image(systemName: "exclamationmark.circle")
     let CheckmarkCircle: Image = Image(systemName: "checkmark.circle")
+    let OneCircleFill: Image = Image(systemName: "1.circle.fill")
+    let TwoCircleFill: Image = Image(systemName: "2.circle.fill")
+    let ThreeCircleFill: Image = Image(systemName: "3.circle.fill")
 }
 
 extension Image {

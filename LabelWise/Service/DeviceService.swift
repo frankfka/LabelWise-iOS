@@ -27,8 +27,15 @@ class DeviceServiceImpl: DeviceService {
     // MARK: Camera permission
     func checkAndPromptForCameraPermission() -> ServicePublisher<Bool> {
         ServiceFuture<Bool> { promise in
-            AVCaptureDevice.requestAccess(for: .video) { hasPermission in
-                promise(.success(hasPermission))
+            switch AVCaptureDevice.authorizationStatus(for: .video) {
+            case .authorized:
+                promise(.success(true))
+            case .notDetermined:
+                AVCaptureDevice.requestAccess(for: .video) { hasPermission in
+                    promise(.success(hasPermission))
+                }
+            default:
+                promise(.success(false))
             }
         }.eraseToAnyPublisher()
     }

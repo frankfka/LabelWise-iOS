@@ -82,6 +82,7 @@
 		9E04BDB288469E4904545F16 /* NutritionAnalysisResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B3961E453EE9F5A3C478 /* NutritionAnalysisResultsView.swift */; };
 		9E04BDB791C6B937A1EF31F9 /* CommonDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B1DC1497AA6800EFBB02 /* CommonDTO.swift */; };
 		9E04BDD0AD3BD484D8A02A88 /* MacronutrientDistributionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04BC5535836932B47DF1D1 /* MacronutrientDistributionView.swift */; };
+		9E04BDF847736FD79172F42B /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B1DA40A8064B5FE4A9A0 /* ContentViewModel.swift */; };
 		9E04BDFDBD14EB8C69454694 /* Middleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04BA5464EDAC4587D221B5 /* Middleware.swift */; };
 		9E04BE08BA9E027F0F36D89A /* LabelScannerOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04BA3184E2DE61CB3F978B /* LabelScannerOverlayView.swift */; };
 		9E04BE1293934E79D5EF4EA8 /* PreviewUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B9362E437F4975BE9934 /* PreviewUtils.swift */; };
@@ -112,6 +113,7 @@
 		9E04B1379328F410E4F17E6B /* NutritionAnalysisRootView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NutritionAnalysisRootView.swift; sourceTree = "<group>"; };
 		9E04B16BAD27AD65A32B1847 /* NutrientDescriptionTextRowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NutrientDescriptionTextRowView.swift; sourceTree = "<group>"; };
 		9E04B1A9C151D4086BDFFD1A /* StringUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringUtils.swift; sourceTree = "<group>"; };
+		9E04B1DA40A8064B5FE4A9A0 /* ContentViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
 		9E04B1DC1497AA6800EFBB02 /* CommonDTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonDTO.swift; sourceTree = "<group>"; };
 		9E04B1E6AB256C2579ACCED4 /* MacronutrientRings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MacronutrientRings.swift; sourceTree = "<group>"; };
 		9E04B2493D89D67528381F3F /* Ring.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ring.swift; sourceTree = "<group>"; };
@@ -201,6 +203,14 @@
 				FBB96129287D3E7C9C1E8B9C /* Pods_LabelWise.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		110A462F248A91D500EBAB45 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				9E04BFD384637ACF1329F7C2 /* OnboardingView.swift */,
+			);
+			path = Onboarding;
 			sourceTree = "<group>";
 		};
 		114BDCC5247A394B0092F46C /* AllParsedIngredientsSection */ = {
@@ -441,6 +451,7 @@
 		9E04BB5B5D52ED865F6E2DB4 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				110A462F248A91D500EBAB45 /* Onboarding */,
 				1152DB7E2474C921003A3CB0 /* IngredientsAnalysis */,
 				9E04B7EA98B80112E94F96E8 /* Charts */,
 				9E04BCA5B1565CEBC3709FFC /* LabelScanner */,
@@ -449,8 +460,8 @@
 				9E04B855EC300A3B029C3FAE /* ContentView.swift */,
 				9E04B2927241DD233C21A26D /* Common */,
 				9E04B30F465C872910D03D4A /* NutritionAnalysis */,
-				9E04BFD384637ACF1329F7C2 /* OnboardingView.swift */,
 				9E04B44EF28FBC452F2F1A5E /* App */,
+				9E04B1DA40A8064B5FE4A9A0 /* ContentViewModel.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -715,6 +726,7 @@
 				9E04B6E5185F462AF157E820 /* IngredientsAnalysisViewModel.swift in Sources */,
 				114BDCC7247A39650092F46C /* AllParsedIngredientsSectionView.swift in Sources */,
 				9E04B3C9BD177CCDE5FCEF28 /* DeviceService.swift in Sources */,
+				9E04BDF847736FD79172F42B /* ContentViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
