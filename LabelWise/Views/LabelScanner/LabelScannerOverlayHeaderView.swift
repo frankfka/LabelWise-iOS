@@ -21,9 +21,12 @@ struct LabelScannerOverlayHeaderView: View {
     private static let HelpIconColor: Color = Color.App.White
 
     private let helpIconTappedCallback: VoidCallback?
+    private let onHelpIconLongHold: VoidCallback?
 
-    init(helpIconTappedCallback: VoidCallback? = nil) {
+    // TODO: create vm
+    init(helpIconTappedCallback: VoidCallback? = nil, onHelpIconLongHold: VoidCallback? = nil) {
         self.helpIconTappedCallback = helpIconTappedCallback
+        self.onHelpIconLongHold = onHelpIconLongHold
     }
 
     var body: some View {
@@ -43,6 +46,7 @@ struct LabelScannerOverlayHeaderView: View {
                 .padding(LabelScannerOverlayHeaderView.HelpIconTappablePadding)
                 .foregroundColor(LabelScannerOverlayHeaderView.HelpIconColor)
                 .onTapGesture { self.helpIconTappedCallback?() }
+                .onLongPressGesture { self.onHelpIconLongHold?() }
         }
         .padding(LabelScannerOverlayHeaderView.ViewPadding)
         .fillWidth()

@@ -6,6 +6,8 @@
 	<string>$(API_BASE_URL)</string>
 	<key>APIKey</key>
 	<string>$(API_KEY)</string>
+	<key>Debug</key>
+	<string>$(DEBUG)</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>

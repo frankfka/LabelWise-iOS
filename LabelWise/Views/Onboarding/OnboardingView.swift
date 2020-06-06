@@ -89,7 +89,7 @@ struct OnboardingView: View {
         }
     }
     private var thirdStepView: some View {
-        OnboardingItemView(text: "Get easy-to-understand nutritional insights and analysis") {
+        OnboardingItemView(text: "Get easy-to-understand nutritional insights and analyses") {
             Image.App.ThreeCircleFill
         }
     }

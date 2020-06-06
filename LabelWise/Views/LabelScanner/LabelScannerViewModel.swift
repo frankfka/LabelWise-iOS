@@ -6,6 +6,7 @@
 import Foundation
 import SwiftUI
 import Combine
+import Resolver
 
 extension LabelScannerView {
     class ViewModel: StateMachineViewModel<ViewModel.State, ViewModel.Action>, ObservableObject {
@@ -48,8 +49,10 @@ extension LabelScannerView {
             }
             set(newVal) {}
         }
+        @Injected private var appConfig: AppConfiguration
         // Label types (nutrition/ingredients)
         @Published var selectedLabelTypeIndex: Int = 0
+        @Published var showHelpView: Bool = false
         private let labelTypes: [AnalyzeType] = AnalyzeType.allCases
         lazy var displayedLabelTypes: [String] = { labelTypes.map { $0.pickerName } }()
         // Callbacks to propagate certain actions up
@@ -134,9 +137,17 @@ extension LabelScannerView.ViewModel {
     }
     // Called when header help icon is tapped
     func onHelpIconTapped() {
-        // TODO This is temporary for testing
-        self.onLabelScanned?(PreviewImages.nutritionLabelImage, self.labelTypes[self.selectedLabelTypeIndex], true)
+        self.showHelpView = true
     }
+    func onHelpViewDismiss() {
+        self.showHelpView = false
+    }
+    func onHelpIconLongHold() {
+        if appConfig.isDebug {
+            self.onLabelScanned?(PreviewImages.nutritionLabelImage, self.labelTypes[self.selectedLabelTypeIndex], true)
+        }
+    }
+
     // Called when camera preview is active
     func onCameraInitialized() {
         self.send(.cameraInitSuccess)

@@ -8,6 +8,7 @@ import Foundation
 protocol Configuration {
     var serviceBaseUrl: String { get }
     var apiKey: String { get }
+    var isDebug: Bool { get }
 }
 
 struct AppConfiguration: Configuration {
@@ -21,9 +22,11 @@ struct AppConfiguration: Configuration {
 
     let serviceBaseUrl: String
     let apiKey: String
+    let isDebug: Bool
 
     init() throws {
         self.serviceBaseUrl = "https://" + (try AppConfiguration.getValue(for: "ServiceBaseUrl"))
         self.apiKey = try AppConfiguration.getValue(for: "APIKey")
+        self.isDebug = (try AppConfiguration.getValue(for: "Debug")) == "1"
     }
 }

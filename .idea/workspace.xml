@@ -2,15 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fc06ac05-0031-4719-9d90-6a241fa74c08" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/LabelWise/Views/ContentViewModel.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LabelWise.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/LabelWise.xcodeproj/project.pbxproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LabelWise/AppDelegate.swift" beforeDir="false" afterPath="$PROJECT_DIR$/LabelWise/AppDelegate.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LabelWise/Service/DeviceService.swift" beforeDir="false" afterPath="$PROJECT_DIR$/LabelWise/Service/DeviceService.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LabelWise/Views/ContentView.swift" beforeDir="false" afterPath="$PROJECT_DIR$/LabelWise/Views/ContentView.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LabelWise/Views/OnboardingView.swift" beforeDir="false" afterPath="$PROJECT_DIR$/LabelWise/Views/Onboarding/OnboardingView.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LabelWise/Views/Util/Dimensions.swift" beforeDir="false" afterPath="$PROJECT_DIR$/LabelWise/Views/Util/Dimensions.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LabelWise/Views/Util/Icons.swift" beforeDir="false" afterPath="$PROJECT_DIR$/LabelWise/Views/Util/Icons.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Info.plist" beforeDir="false" afterPath="$PROJECT_DIR$/LabelWise/Info.plist" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Utils/Config.swift" beforeDir="false" afterPath="$PROJECT_DIR$/LabelWise/Utils/Config.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Views/LabelScanner/LabelScannerOverlayHeaderView.swift" beforeDir="false" afterPath="$PROJECT_DIR$/LabelWise/Views/LabelScanner/LabelScannerOverlayHeaderView.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Views/LabelScanner/LabelScannerOverlayView.swift" beforeDir="false" afterPath="$PROJECT_DIR$/LabelWise/Views/LabelScanner/LabelScannerOverlayView.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Views/LabelScanner/LabelScannerView.swift" beforeDir="false" afterPath="$PROJECT_DIR$/LabelWise/Views/LabelScanner/LabelScannerView.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Views/LabelScanner/LabelScannerViewModel.swift" beforeDir="false" afterPath="$PROJECT_DIR$/LabelWise/Views/LabelScanner/LabelScannerViewModel.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Views/Onboarding/OnboardingView.swift" beforeDir="false" afterPath="$PROJECT_DIR$/LabelWise/Views/Onboarding/OnboardingView.swift" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,6 +40,7 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RunManager">
@@ -113,7 +115,8 @@
       <workItem from="1591242272253" duration="474000" />
       <workItem from="1591246414175" duration="539000" />
       <workItem from="1591328436436" duration="5384000" />
-      <workItem from="1591454943860" duration="585000" />
+      <workItem from="1591454943860" duration="700000" />
+      <workItem from="1591462164248" duration="1366000" />
     </task>
     <servers />
   </component>
@@ -142,22 +145,22 @@
       <screen x="0" y="23" width="1920" height="1000" />
     </state>
     <state x="686" y="121" key="VCS.ChangeListViewerDialog/-1440.23.1440.877/0.23.1920.1000@0.23.1920.1000" timestamp="1588913728220" />
-    <state x="561" y="207" width="938" height="632" key="find.popup" timestamp="1591368364582">
+    <state x="561" y="207" width="938" height="632" key="find.popup" timestamp="1591463565691">
       <screen x="0" y="23" width="1920" height="1000" />
     </state>
     <state x="561" y="207" width="938" height="632" key="find.popup/-1440.203.1440.877/0.23.1920.1000@0.23.1920.1000" timestamp="1591023085426" />
     <state x="-1119" y="184" width="1119" height="555" key="find.popup/-1440.23.1440.877/0.23.1920.1000@-1440.23.1440.877" timestamp="1590123435589" />
     <state x="561" y="207" width="938" height="632" key="find.popup/-1440.23.1440.877/0.23.1920.1000@0.23.1920.1000" timestamp="1590368935352" />
     <state x="421" y="174" width="700" height="522" key="find.popup/0.23.1440.820@0.23.1440.820" timestamp="1590362564242" />
-    <state x="561" y="207" width="938" height="632" key="find.popup/0.23.1920.1000/-1920.23.1920.1057@0.23.1920.1000" timestamp="1591368364582" />
-    <state x="513" y="252" width="895" height="817" key="search.everywhere.popup" timestamp="1591454754094">
-      <screen x="0" y="23" width="1920" height="1057" />
+    <state x="561" y="207" width="938" height="632" key="find.popup/0.23.1920.1000/-1920.23.1920.1057@0.23.1920.1000" timestamp="1591463565691" />
+    <state x="513" y="240" width="895" height="772" key="search.everywhere.popup" timestamp="1591463653265">
+      <screen x="0" y="23" width="1920" height="1000" />
     </state>
     <state x="513" y="240" width="894" height="771" key="search.everywhere.popup/-1440.203.1440.877/0.23.1920.1000@0.23.1920.1000" timestamp="1591023220539" />
     <state x="-1055" y="213" width="670" height="676" key="search.everywhere.popup/-1440.23.1440.877/0.23.1920.1000@-1440.23.1440.877" timestamp="1590265380196" />
     <state x="513" y="240" width="894" height="771" key="search.everywhere.popup/-1440.23.1440.877/0.23.1920.1000@0.23.1920.1000" timestamp="1590369177441" />
     <state x="385" y="201" width="671" height="633" key="search.everywhere.popup/0.23.1440.820@0.23.1440.820" timestamp="1591069591181" />
-    <state x="513" y="240" width="895" height="772" key="search.everywhere.popup/0.23.1920.1000/-1920.23.1920.1057@0.23.1920.1000" timestamp="1591368367211" />
+    <state x="513" y="240" width="895" height="772" key="search.everywhere.popup/0.23.1920.1000/-1920.23.1920.1057@0.23.1920.1000" timestamp="1591463653265" />
     <state x="513" y="252" width="895" height="817" key="search.everywhere.popup/0.23.1920.1057/-1920.23.1920.1000@0.23.1920.1057" timestamp="1591454754094" />
   </component>
   <component name="XDebuggerManager">

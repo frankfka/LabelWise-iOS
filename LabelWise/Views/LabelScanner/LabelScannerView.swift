@@ -28,6 +28,7 @@ struct LabelScannerView: View {
             state: self.$viewModel.state,
             labelTypePickerVm: labelTypeVm,
             onHelpIconTapped: self.viewModel.onHelpIconTapped,
+            onHelpIconLongHold: self.viewModel.onHelpIconLongHold,
             onCapturePhotoTapped: self.viewModel.onCapturePhotoTapped,
             onConfirmPhotoAction: self.viewModel.onConfirmPhotoAction
         )
@@ -57,6 +58,9 @@ struct LabelScannerView: View {
                     .eraseToAnyView()
         }
     }
+    var helpView: some View {
+        OnboardingView(onGetStartedTapped: self.viewModel.onHelpViewDismiss)
+    }
 
     // MARK: Main View
     var body: some View {
@@ -69,6 +73,7 @@ struct LabelScannerView: View {
         .fillWidthAndHeight()
         .onAppear(perform: self.viewModel.onViewAppear)
         .onDisappear(perform: self.viewModel.onViewDisappear)
+        .sheet(isPresented: self.$viewModel.showHelpView) { self.helpView }
     }
 }
 
