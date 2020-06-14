@@ -8,15 +8,15 @@ import Combine
 import Alamofire
 
 protocol LabelAnalysisService {
-    func analyzeNutrition(base64Image: String) -> ServicePublisher<AnalyzeNutritionResponseDTO>
-    func analyzeIngredients(base64Image: String) -> ServicePublisher<AnalyzeIngredientsResponseDTO>
+    func analyzeNutrition(img: Data) -> ServicePublisher<AnalyzeNutritionResponseDTO>
+    func analyzeIngredients(img: Data) -> ServicePublisher<AnalyzeIngredientsResponseDTO>
 }
 
 class LabelAnalysisServiceImpl: LabelAnalysisService {
     private let apiKey: String
     private let baseUrl: String
     private var analyzeUrl: String {
-        self.baseUrl + "/analyze/image"
+        self.baseUrl + "/analyze/image-upload"
     }
     private var authHeaders: HTTPHeaders {
         ["X-API-Key": self.apiKey]
@@ -27,48 +27,50 @@ class LabelAnalysisServiceImpl: LabelAnalysisService {
         self.apiKey = config.apiKey
     }
 
-    func analyzeNutrition(base64Image: String) -> ServicePublisher<AnalyzeNutritionResponseDTO> {
+    func analyzeNutrition(img: Data) -> ServicePublisher<AnalyzeNutritionResponseDTO> {
         ServiceFuture<AnalyzeNutritionResponseDTO> { promise in
-            self.analyzeNutrition(base64Image: base64Image) { result in
+            self.dispatchRequest(img: img, analysisType: .nutrition) { result in
                 promise(result)
             }
         }.eraseToAnyPublisher()
     }
 
-    func analyzeIngredients(base64Image: String) -> ServicePublisher<AnalyzeIngredientsResponseDTO> {
+    func analyzeIngredients(img: Data) -> ServicePublisher<AnalyzeIngredientsResponseDTO> {
         ServiceFuture<AnalyzeIngredientsResponseDTO> { promise in
-            self.analyzeIngredients(base64Image: base64Image) { result in
+            self.dispatchRequest(img: img, analysisType: .ingredients) { result in
                 promise(result)
             }
         }.eraseToAnyPublisher()
     }
 
-    private func analyzeNutrition(base64Image: String, onComplete: @escaping ServiceCallback<AnalyzeNutritionResponseDTO>) {
-        let requestParams = AnalysisRequestDTO(type: .nutrition, base64Image: base64Image)
-        AF.request(self.analyzeUrl, method: .post,
-                        parameters: requestParams, encoder: JSONParameterEncoder.default, headers: self.authHeaders)
-                .responseDecodable(of: AnalyzeNutritionResponseDTO.self) { response in
-                    switch response.result {
-                    case let .success(result):
-                        onComplete(.success(result))
-                    case let .failure(error):
-                        onComplete(.failure(AppError("Error analyzing nutrition", wrappedError: error)))
-                    }
-                }
+    private func dispatchRequest<ResponseDTO: Decodable>(img: Data, analysisType: AnalyzeType, onComplete: @escaping ServiceCallback<ResponseDTO>) {
+        let requestDto = AnalysisRequestDTO(type: analysisType, img: img)
+        AF.upload(
+            multipartFormData: requestDto.createFormData,
+            to: self.analyzeUrl,
+            headers: self.authHeaders
+        )
+        .validate()
+        .responseDecodable(of: ResponseDTO.self) { response in
+            switch response.result {
+            case let .success(result):
+                onComplete(.success(result))
+            case let .failure(error):
+                onComplete(.failure(AppError("Error analyzing \(analysisType.rawValue): " + response.debugDescription, wrappedError: error)))
+            }
+        }
     }
 
-    private func analyzeIngredients(base64Image: String, onComplete: @escaping ServiceCallback<AnalyzeIngredientsResponseDTO>) {
-        let requestParams = AnalysisRequestDTO(type: .ingredients, base64Image: base64Image)
-        AF.request(self.analyzeUrl, method: .post,
-                        parameters: requestParams, encoder: JSONParameterEncoder.default, headers: self.authHeaders)
-                .responseDecodable(of: AnalyzeIngredientsResponseDTO.self) { response in
-                    switch response.result {
-                    case let .success(result):
-                        onComplete(.success(result))
-                    case let .failure(error):
-                        onComplete(.failure(AppError("Error analyzing ingredients", wrappedError: error)))
-                    }
-                }
-    }
+}
 
+// MARK: DTO Extensions
+extension AnalysisRequestDTO {
+    func createFormData(_ formData: MultipartFormData) {
+        guard let analyzeTypeData = self.type.rawValue.data(using: String.Encoding.utf8) else {
+            AppLogging.error("Could not convert analysis type \(self.type.rawValue) to String Data")
+            return
+        }
+        formData.append(analyzeTypeData, withName: "type")
+        formData.append(self.img, withName: "img", fileName: "img.jpg", mimeType: "image/jpg")
+    }
 }

@@ -121,7 +121,7 @@ extension AppView {
                 let response = AnalyzeNutritionResponseDTO(status: .complete, parsedNutrition: parsedNutrition, insights: insights)
                 self.analyzeNutritionPublisher = MockAnalysisService.getServicePublisher(response: response)
             } else {
-                self.analyzeNutritionPublisher = labelAnalysisService.analyzeNutrition(base64Image: image.compressedB64String)
+                self.analyzeNutritionPublisher = labelAnalysisService.analyzeNutrition(img: image.compressedImgData)
             }
         }
         private func analyzeIngredientsMiddleware(_ action: Action) {
@@ -131,7 +131,7 @@ extension AppView {
             if isTest {
                 self.analyzeIngredientsPublisher = MockAnalysisService.getServicePublisher(response: PreviewIngredientsModels.ResponseWithAllTypes)
             } else {
-                self.analyzeIngredientsPublisher = labelAnalysisService.analyzeIngredients(base64Image: image.compressedB64String)
+                self.analyzeIngredientsPublisher = labelAnalysisService.analyzeIngredients(img: image.compressedImgData)
             }
         }
     }

@@ -7,15 +7,15 @@ import Foundation
 
 struct AppLogging {
     static func debug(_ msg: String) {
-        print("DEBUG: \(msg)")
+        print("DEBUG: " + msg)
     }
     static func info(_ msg: String) {
-        print("INFO: \(msg)")
+        print("INFO: " + msg)
     }
     static func warn(_ msg: String) {
-        print("WARN: \(msg)")
+        print("WARN: " + msg)
     }
     static func error(_ msg: String) {
-        print("ERR: \(msg)")
+        print("ERR: " + msg)
     }
 }

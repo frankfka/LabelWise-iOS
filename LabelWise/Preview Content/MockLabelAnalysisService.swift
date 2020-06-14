@@ -25,11 +25,11 @@ class MockAnalysisService: LabelAnalysisService {
     var analyzeNutritionResponse: AnalyzeNutritionResponseDTO? = nil
     var analyzeIngredientsResponse: AnalyzeIngredientsResponseDTO? = nil
 
-    func analyzeNutrition(base64Image: String) -> ServicePublisher<AnalyzeNutritionResponseDTO> {
+    func analyzeNutrition(img: Data) -> ServicePublisher<AnalyzeNutritionResponseDTO> {
         return MockAnalysisService.getServicePublisher(response: self.analyzeNutritionResponse)
     }
 
-    func analyzeIngredients(base64Image: String) -> ServicePublisher<AnalyzeIngredientsResponseDTO> {
+    func analyzeIngredients(img: Data) -> ServicePublisher<AnalyzeIngredientsResponseDTO> {
         return MockAnalysisService.getServicePublisher(response: self.analyzeIngredientsResponse)
     }
 }

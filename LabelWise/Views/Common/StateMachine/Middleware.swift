@@ -14,7 +14,7 @@ struct AppMiddleware {
         { action in
             AppLogging.debug("State \(StateMachineViewModel<State,Action>.getName(state)) - Dispatching \(StateMachineViewModel<State,Action>.getName(action))")
             if let getErr = getErr, let err = getErr(action) {
-                AppLogging.error("Error Action : \(err)")
+                AppLogging.error("Error Action : " + err.message)
             }
         }
     }

@@ -8,10 +8,9 @@ import UIKit
 import AVFoundation
 
 struct LabelImage {
-    let fullFileData: Data
+    let compressedImgData: Data
     let uiImage: UIImage
-    let compressedB64String: String
-    
+
     init?(fileData: Data) {
         guard let uiImage = UIImage(data: fileData) else {
             AppLogging.warn("Unable to create UI image")
@@ -21,9 +20,8 @@ struct LabelImage {
             AppLogging.warn("Unable to compress image")
             return nil
         }
-        self.fullFileData = fileData
+        self.compressedImgData = compressedImage
         self.uiImage = uiImage
-        self.compressedB64String = compressedImage.base64EncodedString(options: .lineLength64Characters)
     }
 }
 
