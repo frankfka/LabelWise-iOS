@@ -49,7 +49,7 @@ extension ContentView {
                             self?.send(.loaded(didOnboard: true, hasCameraPermissions: false))
                         }
                     }, receiveValue: { [weak self] hasPermission in
-                        self?.send(.loaded(didOnboard: true, hasCameraPermissions: true))
+                        self?.send(.loaded(didOnboard: true, hasCameraPermissions: hasPermission))
                     })
             } else {
                 // Go to onboarding

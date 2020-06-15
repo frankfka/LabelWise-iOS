@@ -8,11 +8,11 @@ struct ContentView: View {
         if viewModel.state == .loading {
             FullScreenLoadingView()
         } else if viewModel.state == .noPermissions {
-            Text("No permissions")
+            NoPermissionsView()
         } else if viewModel.state == .onboarding {
             OnboardingView(onGetStartedTapped: self.viewModel.onOnboardingComplete)
         } else if viewModel.state == .mainApp {
-            AppView()
+            MainAppView()
         } else {
             FullScreenErrorView()
         }

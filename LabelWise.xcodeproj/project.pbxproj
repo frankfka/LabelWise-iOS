@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		114BDCC4247A33CD0092F46C /* AnalyzedIngredientsSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114BDCC3247A33CD0092F46C /* AnalyzedIngredientsSectionView.swift */; };
 		114BDCC7247A39650092F46C /* AllParsedIngredientsSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114BDCC6247A39650092F46C /* AllParsedIngredientsSectionView.swift */; };
+		116F9E58249711B300353C79 /* NoPermissionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116F9E57249711B300353C79 /* NoPermissionsView.swift */; };
 		119F8AC9244A7D3C00BB173A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 119F8AC8244A7D3C00BB173A /* AppDelegate.swift */; };
 		119F8ACB244A7D3C00BB173A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 119F8ACA244A7D3C00BB173A /* SceneDelegate.swift */; };
 		119F8ACF244A7D4300BB173A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 119F8ACE244A7D4300BB173A /* Assets.xcassets */; };
@@ -19,7 +20,7 @@
 		11CDC9082479B96E0052423A /* IngredientsAnalysisRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CDC9072479B96E0052423A /* IngredientsAnalysisRootView.swift */; };
 		9C744549554540C8032BFD13 /* Pods_LabelWise.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBB96129287D3E7C9C1E8B9C /* Pods_LabelWise.framework */; };
 		9E04B02AC89E419B26B7CEC0 /* LabelAnalysisService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B36285890D7DEA0D4652 /* LabelAnalysisService.swift */; };
-		9E04B0A5B739BAB8B761D8D1 /* AppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04BA1F20B00F6B13B7DC32 /* AppView.swift */; };
+		9E04B0A5B739BAB8B761D8D1 /* MainAppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04BA1F20B00F6B13B7DC32 /* MainAppView.swift */; };
 		9E04B0DBEFE9A4371D3FEC9E /* AnalyzedIngredientRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B5B8864A0AE14FB16EB6 /* AnalyzedIngredientRowView.swift */; };
 		9E04B102898D491DD9BEB166 /* ButtonViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04BA7CABA6E92E997F6AF3 /* ButtonViews.swift */; };
 		9E04B142786F16FB6E2E3BBF /* TypeAliases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04BC8096C70C13098A91F5 /* TypeAliases.swift */; };
@@ -30,7 +31,7 @@
 		9E04B1B2B0CD96DA6DCDCE10 /* LoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04BAB0205588C074E9C5F6 /* LoadingIndicator.swift */; };
 		9E04B1BFEDE4A3B8DB3BF128 /* Misc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04BB5D5B71B278CD02BFD5 /* Misc.swift */; };
 		9E04B1FC9EF3EA2A5BB6B5AF /* AnalysisScrollViewHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B53ED0679A24D6991D53 /* AnalysisScrollViewHelpers.swift */; };
-		9E04B25BC4427AF1CB0B9BF5 /* AppViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04BE93CD4C44D55AB25D93 /* AppViewModel.swift */; };
+		9E04B25BC4427AF1CB0B9BF5 /* MainAppViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04BE93CD4C44D55AB25D93 /* MainAppViewModel.swift */; };
 		9E04B27328BECD534E4FD147 /* PercentageRing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04BBD579FBAACE5F8070E4 /* PercentageRing.swift */; };
 		9E04B2AA71E8B38CCAAF50AF /* NutritionViewUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04BC720873423804A1A199 /* NutritionViewUtils.swift */; };
 		9E04B2DD0FF0195B5610A013 /* LabelScannerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04B6B95DE69B3FAF849640 /* LabelScannerViewModel.swift */; };
@@ -96,6 +97,7 @@
 /* Begin PBXFileReference section */
 		114BDCC3247A33CD0092F46C /* AnalyzedIngredientsSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyzedIngredientsSectionView.swift; sourceTree = "<group>"; };
 		114BDCC6247A39650092F46C /* AllParsedIngredientsSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllParsedIngredientsSectionView.swift; sourceTree = "<group>"; };
+		116F9E57249711B300353C79 /* NoPermissionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoPermissionsView.swift; sourceTree = "<group>"; };
 		119F8AC5244A7D3B00BB173A /* LabelWise.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LabelWise.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		119F8AC8244A7D3C00BB173A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		119F8ACA244A7D3C00BB173A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -152,7 +154,7 @@
 		9E04B9362E437F4975BE9934 /* PreviewUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewUtils.swift; sourceTree = "<group>"; };
 		9E04B93A22C0F9C24901675C /* LabelScannerOverlayFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelScannerOverlayFooterView.swift; sourceTree = "<group>"; };
 		9E04B9682A0CB5E503FB7BA6 /* IngredientsAnalysisViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IngredientsAnalysisViewModel.swift; sourceTree = "<group>"; };
-		9E04BA1F20B00F6B13B7DC32 /* AppView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppView.swift; sourceTree = "<group>"; };
+		9E04BA1F20B00F6B13B7DC32 /* MainAppView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainAppView.swift; sourceTree = "<group>"; };
 		9E04BA3184E2DE61CB3F978B /* LabelScannerOverlayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelScannerOverlayView.swift; sourceTree = "<group>"; };
 		9E04BA5464EDAC4587D221B5 /* Middleware.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Middleware.swift; sourceTree = "<group>"; };
 		9E04BA65862DF99BF33EF604 /* BackButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackButton.swift; sourceTree = "<group>"; };
@@ -176,7 +178,7 @@
 		9E04BDFD09E5831BA92CB7C1 /* HalfRoundedRectangle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HalfRoundedRectangle.swift; sourceTree = "<group>"; };
 		9E04BE502DF224765BCC0F8E /* NutritionTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NutritionTableView.swift; sourceTree = "<group>"; };
 		9E04BE91B4AAE37E9D8B3F1E /* Nutrition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Nutrition.swift; sourceTree = "<group>"; };
-		9E04BE93CD4C44D55AB25D93 /* AppViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppViewModel.swift; sourceTree = "<group>"; };
+		9E04BE93CD4C44D55AB25D93 /* MainAppViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainAppViewModel.swift; sourceTree = "<group>"; };
 		9E04BE97221A3328813B0FB5 /* MockLabelAnalysisService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockLabelAnalysisService.swift; sourceTree = "<group>"; };
 		9E04BECA59B33F0275EB307E /* RoundedRectangle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedRectangle.swift; sourceTree = "<group>"; };
 		9E04BF01F97167B5DBE4BC2C /* CameraController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraController.swift; sourceTree = "<group>"; };
@@ -383,8 +385,9 @@
 		9E04B44EF28FBC452F2F1A5E /* App */ = {
 			isa = PBXGroup;
 			children = (
-				9E04BA1F20B00F6B13B7DC32 /* AppView.swift */,
-				9E04BE93CD4C44D55AB25D93 /* AppViewModel.swift */,
+				9E04BA1F20B00F6B13B7DC32 /* MainAppView.swift */,
+				9E04BE93CD4C44D55AB25D93 /* MainAppViewModel.swift */,
+				116F9E57249711B300353C79 /* NoPermissionsView.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -674,6 +677,7 @@
 				9E04BABA8914D16B545F7279 /* CameraController.swift in Sources */,
 				9E04B156F5995FB71C98290D /* CameraView.swift in Sources */,
 				9E04B57C7F5EBC6DE3518E41 /* CameraUtil.swift in Sources */,
+				116F9E58249711B300353C79 /* NoPermissionsView.swift in Sources */,
 				9E04B33443EDCFCB9074FCA2 /* Typography.swift in Sources */,
 				9E04BCDC9B6933E1272C8A81 /* Colors.swift in Sources */,
 				9E04B8A0CAA00A9735A85212 /* Icons.swift in Sources */,
@@ -714,8 +718,8 @@
 				11CDC9082479B96E0052423A /* IngredientsAnalysisRootView.swift in Sources */,
 				9E04BCC3EEE75ED7B1145E34 /* NutritionAnalysisResultsHeaderView.swift in Sources */,
 				9E04B473E83B0984A43ED40F /* OnboardingView.swift in Sources */,
-				9E04B0A5B739BAB8B761D8D1 /* AppView.swift in Sources */,
-				9E04B25BC4427AF1CB0B9BF5 /* AppViewModel.swift in Sources */,
+				9E04B0A5B739BAB8B761D8D1 /* MainAppView.swift in Sources */,
+				9E04B25BC4427AF1CB0B9BF5 /* MainAppViewModel.swift in Sources */,
 				9E04B643A9CDE841543789DC /* Config.swift in Sources */,
 				9E04BAC13AD1F4DC87463BD1 /* AppDelegate+Injection.swift in Sources */,
 				9E04BC297C33C0AECE5889E0 /* IngredientsDTO.swift in Sources */,

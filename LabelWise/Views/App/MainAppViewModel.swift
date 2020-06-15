@@ -11,7 +11,7 @@ import Resolver
 typealias LabelScannedCallback = (LabelImage, AnalyzeType, Bool) -> () // TODO: 3rd argument is temp for testing
 
 // MARK: Root view model
-extension AppView {
+extension MainAppView {
     class ViewModel: StateMachineViewModel<ViewModel.State, ViewModel.Action>, ObservableObject {
         // State machine
         enum State {
