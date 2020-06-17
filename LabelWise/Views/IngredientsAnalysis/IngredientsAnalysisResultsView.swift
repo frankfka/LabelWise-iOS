@@ -35,6 +35,7 @@ struct IngredientsAnalysisResultsView: View {
         }
     }
 }
+
 // MARK: View Model
 extension IngredientsAnalysisResultsView {
     struct ViewModel {
@@ -45,7 +46,7 @@ extension IngredientsAnalysisResultsView {
 struct IngredientsAnalysisResultsView_Previews: PreviewProvider {
 
     private static let completeVm = IngredientsAnalysisResultsView.ViewModel(
-            dto: PreviewIngredientsModels.ResponseWithAllTypes
+        dto: PreviewIngredientsModels.ResponseWithAllTypes
     )
     private static let noAnalyzedIngredientsVm = IngredientsAnalysisResultsView.ViewModel(
         dto: PreviewIngredientsModels.ResponseWithNoAnalyzedIngredients

@@ -23,7 +23,6 @@ struct LabelScannerOverlayHeaderView: View {
     private let helpIconTappedCallback: VoidCallback?
     private let onHelpIconLongHold: VoidCallback?
 
-    // TODO: create vm
     init(helpIconTappedCallback: VoidCallback? = nil, onHelpIconLongHold: VoidCallback? = nil) {
         self.helpIconTappedCallback = helpIconTappedCallback
         self.onHelpIconLongHold = onHelpIconLongHold

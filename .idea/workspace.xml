@@ -2,13 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fc06ac05-0031-4719-9d90-6a241fa74c08" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/LabelWise/Views/App/NoPermissionsView.swift" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LabelWise.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/LabelWise.xcodeproj/project.pbxproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LabelWise/Views/App/AppView.swift" beforeDir="false" afterPath="$PROJECT_DIR$/LabelWise/Views/App/MainAppView.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LabelWise/Views/App/AppViewModel.swift" beforeDir="false" afterPath="$PROJECT_DIR$/LabelWise/Views/App/MainAppViewModel.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LabelWise/Views/ContentView.swift" beforeDir="false" afterPath="$PROJECT_DIR$/LabelWise/Views/ContentView.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LabelWise/Views/ContentViewModel.swift" beforeDir="false" afterPath="$PROJECT_DIR$/LabelWise/Views/ContentViewModel.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Service/Models/IngredientsDTO.swift" beforeDir="false" afterPath="$PROJECT_DIR$/LabelWise/Service/Models/IngredientsDTO.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Views/App/MainAppView.swift" beforeDir="false" afterPath="$PROJECT_DIR$/LabelWise/Views/App/MainAppView.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Views/IngredientsAnalysis/IngredientsAnalysisHeaderView.swift" beforeDir="false" afterPath="$PROJECT_DIR$/LabelWise/Views/IngredientsAnalysis/IngredientsAnalysisHeaderView.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Views/IngredientsAnalysis/IngredientsAnalysisResultsView.swift" beforeDir="false" afterPath="$PROJECT_DIR$/LabelWise/Views/IngredientsAnalysis/IngredientsAnalysisResultsView.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Views/LabelScanner/LabelScannerOverlayHeaderView.swift" beforeDir="false" afterPath="$PROJECT_DIR$/LabelWise/Views/LabelScanner/LabelScannerOverlayHeaderView.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Views/NutritionAnalysis/Common/NutritionViewUtils.swift" beforeDir="false" afterPath="$PROJECT_DIR$/LabelWise/Views/NutritionAnalysis/Common/NutritionViewUtils.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelWise/Views/NutritionAnalysis/InsightsSection/InsightsSectionView.swift" beforeDir="false" afterPath="$PROJECT_DIR$/LabelWise/Views/NutritionAnalysis/InsightsSection/InsightsSectionView.swift" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,6 +30,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/LabelWise/Service/Models" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -39,6 +41,11 @@
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/LabelWise/Service/Models" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="LabelWise" type="AppleRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="LabelWise" TARGET_NAME="LabelWise" CONFIG_NAME="Debug" SCHEME_NAME="LabelWise" IS_LOCATION_SIMULATION_ALLOWED="true" APPLICATION_LANGUAGE="IDELaunchSchemeLanguageUseSystemLanguage" APPLICATION_REGION="" RUN_TARGET_PROJECT_NAME="LabelWise" RUN_TARGET_NAME="LabelWise" MAKE_ACTIVE="TRUE" SHOULD_DEBUG_EXTENSIONS="false">
@@ -117,7 +124,8 @@
       <workItem from="1591481218489" duration="141000" />
       <workItem from="1592086815144" duration="428000" />
       <workItem from="1592149752085" duration="3897000" />
-      <workItem from="1592187003204" duration="873000" />
+      <workItem from="1592187003204" duration="1004000" />
+      <workItem from="1592361819905" duration="1541000" />
     </task>
     <servers />
   </component>
@@ -134,6 +142,10 @@
       <screen x="0" y="23" width="1920" height="1000" />
     </state>
     <state x="648" y="266" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/-1440.23.1440.877/0.23.1920.1000@0.23.1920.1000" timestamp="1589466902140" />
+    <state x="458" y="187" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1592362102717">
+      <screen x="0" y="23" width="1440" height="820" />
+    </state>
+    <state x="458" y="187" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1440.820@0.23.1440.820" timestamp="1592362102717" />
     <state x="314" y="189" width="1240" height="620" key="DiffContextDialog" timestamp="1588914712695">
       <screen x="0" y="23" width="1920" height="1000" />
     </state>
@@ -146,23 +158,23 @@
       <screen x="0" y="23" width="1920" height="1000" />
     </state>
     <state x="686" y="121" key="VCS.ChangeListViewerDialog/-1440.23.1440.877/0.23.1920.1000@0.23.1920.1000" timestamp="1588913728220" />
-    <state x="-1359" y="217" width="938" height="669" key="find.popup" timestamp="1592187199539">
-      <screen x="-1920" y="23" width="1920" height="1057" />
+    <state x="421" y="174" width="700" height="522" key="find.popup" timestamp="1592363362225">
+      <screen x="0" y="23" width="1440" height="820" />
     </state>
     <state x="561" y="207" width="938" height="632" key="find.popup/-1440.203.1440.877/0.23.1920.1000@0.23.1920.1000" timestamp="1591023085426" />
     <state x="-1119" y="184" width="1119" height="555" key="find.popup/-1440.23.1440.877/0.23.1920.1000@-1440.23.1440.877" timestamp="1590123435589" />
     <state x="561" y="207" width="938" height="632" key="find.popup/-1440.23.1440.877/0.23.1920.1000@0.23.1920.1000" timestamp="1590368935352" />
-    <state x="-1359" y="217" width="938" height="669" key="find.popup/-1920.23.1920.1057/0.23.1920.1000@-1920.23.1920.1057" timestamp="1592187199539" />
-    <state x="421" y="174" width="700" height="522" key="find.popup/0.23.1440.820@0.23.1440.820" timestamp="1590362564242" />
+    <state x="-1359" y="217" width="938" height="669" key="find.popup/-1920.23.1920.1057/0.23.1920.1000@-1920.23.1920.1057" timestamp="1592188829851" />
+    <state x="421" y="174" width="700" height="522" key="find.popup/0.23.1440.820@0.23.1440.820" timestamp="1592363362225" />
     <state x="561" y="207" width="938" height="632" key="find.popup/0.23.1920.1000/-1920.23.1920.1057@0.23.1920.1000" timestamp="1591463565691" />
-    <state x="513" y="240" width="895" height="772" key="search.everywhere.popup" timestamp="1592155212594">
-      <screen x="0" y="23" width="1920" height="1000" />
+    <state x="385" y="201" width="671" height="633" key="search.everywhere.popup" timestamp="1592362660788">
+      <screen x="0" y="23" width="1440" height="820" />
     </state>
     <state x="513" y="240" width="894" height="771" key="search.everywhere.popup/-1440.203.1440.877/0.23.1920.1000@0.23.1920.1000" timestamp="1591023220539" />
     <state x="-1055" y="213" width="670" height="676" key="search.everywhere.popup/-1440.23.1440.877/0.23.1920.1000@-1440.23.1440.877" timestamp="1590265380196" />
     <state x="513" y="240" width="894" height="771" key="search.everywhere.popup/-1440.23.1440.877/0.23.1920.1000@0.23.1920.1000" timestamp="1590369177441" />
     <state x="513" y="240" width="895" height="772" key="search.everywhere.popup/-1920.23.1920.1057/0.23.1920.1000@0.23.1920.1000" timestamp="1592155212594" />
-    <state x="385" y="201" width="671" height="633" key="search.everywhere.popup/0.23.1440.820@0.23.1440.820" timestamp="1592086992023" />
+    <state x="385" y="201" width="671" height="633" key="search.everywhere.popup/0.23.1440.820@0.23.1440.820" timestamp="1592362660788" />
     <state x="513" y="240" width="895" height="772" key="search.everywhere.popup/0.23.1920.1000/-1920.23.1920.1057@0.23.1920.1000" timestamp="1591463653265" />
     <state x="513" y="252" width="895" height="817" key="search.everywhere.popup/0.23.1920.1057/-1920.23.1920.1000@0.23.1920.1057" timestamp="1591454754094" />
   </component>

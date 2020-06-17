@@ -11,8 +11,9 @@ import SwiftUI
 // MARK: View
 struct InsightsSectionView: View {
     private static let MessageSpacing: CGFloat = CGFloat.App.Layout.SmallPadding
-    
+
     private let viewModel: ViewModel
+
     init(vm: ViewModel) {
         self.viewModel = vm
     }
@@ -24,8 +25,8 @@ struct InsightsSectionView: View {
                     AnalysisIconTextView(vm: self.viewModel.insightViewModels[idx])
                 }
             }
-            // A workaround for multiline text in ScrollView
-            .fixedSize(horizontal: false, vertical: true)
+                // A workaround for multiline text in ScrollView
+                .fixedSize(horizontal: false, vertical: true)
         }
     }
 }
@@ -37,21 +38,20 @@ extension InsightsSectionView {
         private let nutrition: Nutrition
         var insightViewModels: [AnalysisIconTextView.ViewModel] {
             self.insights.filter { insight in
-                if insight.code == .unknown && insight.type == .none {
-                    AppLogging.warn("Unknown insight with code \(insight.code), type \(insight.type)")
-                    return false
+                    if insight.code == .unknown && insight.type == .none {
+                        AppLogging.warn("Unknown insight with code \(insight.code), type \(insight.type)")
+                        return false
+                    }
+                    return true
                 }
-                return true
-            }.sorted { one, two in
-                // Positive first
-                one.type > two.type
-            }.map { insight in
-                AnalysisIconTextView.ViewModel(
-                    text: insight.code.getStringDescription(with: self.nutrition),
-                    icon: insight.type.getAssociatedIcon(),
-                    color: insight.type.getAssociatedColor()
-                )
-            }
+                .sortedWithMostPositiveFirst()
+                .map { insight in
+                    AnalysisIconTextView.ViewModel(
+                        text: insight.code.getStringDescription(with: self.nutrition),
+                        icon: insight.type.getAssociatedIcon(),
+                        color: insight.type.getAssociatedColor()
+                    )
+                }
         }
         var hasMessages: Bool {
             insightViewModels.count > 0
@@ -97,7 +97,7 @@ struct InsightsSectionView_Previews: PreviewProvider {
         insights: PreviewNutritionModels.MultipleInsightsPerType,
         nutrition: PreviewNutritionModels.FullyParsedNutrition
     )
-    
+
     static var previews: some View {
         ColorSchemePreview {
             InsightsSectionView(vm: vm)

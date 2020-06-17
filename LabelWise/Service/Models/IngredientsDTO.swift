@@ -40,7 +40,6 @@ extension AnalyzedIngredientDTO: Codable {
 
 // Warnings for a particular ingredient
 struct IngredientInsightDTO {
-    // TODO: Make the insight type comparable, so we can sort them without too much hassle in the viewmodels (same for nutrition)
     enum InsightType: Int, Codable {
         case none = 0
         case positive = 1

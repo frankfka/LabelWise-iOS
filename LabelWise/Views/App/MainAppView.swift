@@ -9,7 +9,6 @@
 import SwiftUI
 import Combine
 
-// TODO: should check for camera permission, then pop to onboarding if it was turned off
 // Root view for label scanning and analyzing
 struct MainAppView: View {
     // Primary view model

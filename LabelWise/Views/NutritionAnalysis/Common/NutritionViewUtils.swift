@@ -14,6 +14,15 @@ extension Double {
     }
 }
 
+extension Array where Element == NutritionInsightDTO {
+    func sortedWithMostNegativeFirst() -> [Element] {
+        return self.sorted { one, other in one.type.rawValue < other.type.rawValue }
+    }
+    func sortedWithMostPositiveFirst() -> [Element] {
+        return self.sorted { one, other in one.type.rawValue > other.type.rawValue }
+    }
+}
+
 struct NutritionViewUtils {
     static func getPercentage(amount: Double?, total: Double?) -> Double? {
         guard let amount = amount, let total = total, total > 0 else {
