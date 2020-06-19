@@ -2,7 +2,7 @@ import Foundation
 import SwiftUI
 
 struct AppIcons {
-    let Logo: Image = Image(systemName: "heart.circle") // TODO: Replace with actual logo
+    let Logo: Image = Image("Logo")
     let LeftChevron: Image = Image(systemName: "chevron.left")
     let RightChevron: Image = Image(systemName: "chevron.right")
     let QuestionMarkCircleFill: Image = Image(systemName: "questionmark.circle.fill")

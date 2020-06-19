@@ -61,6 +61,7 @@ struct OnboardingView: View {
     private var logoImage: some View {
         Image.App.Logo
             .resizable()
+            .aspectRatio(contentMode: .fit)
             .frame(
                 width: OnboardingView.LogoSize,
                 height: OnboardingView.LogoSize
